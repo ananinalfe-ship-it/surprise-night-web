@@ -2585,16 +2585,17 @@ html[lang="en"] .page-home .hero--pd h1 {
   pointer-events: none;
 }
 
-/* 移动端回退到静态图片 */
+/* 移动端：与桌面一致使用视频（静音自动播放）；加载前/不支持时用海报图，焦点略偏右以露出巨偶头部 */
 @media (max-width: 768px) {
   .hero--video .hero-video {
-    display: none;
+    display: block;
+    object-position: 28% center;
   }
-  
+
   .hero--video .hero-video-container {
     background-image: url('../assets/images/hero-home.jpg');
     background-size: cover;
-    background-position: center 30%;
+    background-position: 72% 30%;
   }
 }
 
@@ -3235,7 +3236,50 @@ html[lang="zh-CN"] .page-home .home-press__note {
   }
 }
 
-@media (max-width: 540px) {
+/* 手机端「声音」：保持 2×2 栅格，缩小字重与桌面 Syne/宋体混排气质接近 */
+@media (max-width: 640px) {
+  .page-home .home-press__cell {
+    padding: clamp(18px, 4vw, 26px) clamp(8px, 2.2vw, 14px);
+    gap: clamp(14px, 3vw, 22px);
+  }
+
+  .page-home .home-press__blurb {
+    max-width: none;
+    font-size: clamp(0.52rem, 2.1vw, 0.62rem);
+    letter-spacing: 0.16em;
+    line-height: 1.62;
+  }
+
+  html[lang="zh-CN"] .page-home .home-press__blurb {
+    font-size: clamp(0.68rem, 2.85vw, 0.8rem);
+    letter-spacing: 0.06em;
+    line-height: 1.7;
+    font-weight: 500;
+  }
+
+  .page-home .home-press__mark {
+    font-size: clamp(0.48rem, 1.9vw, 0.54rem);
+    letter-spacing: 0.32em;
+  }
+
+  html[lang="zh-CN"] .page-home .home-press__mark {
+    font-size: clamp(0.5rem, 2vw, 0.56rem);
+    letter-spacing: 0.42em;
+  }
+
+  .page-home .home-press__note {
+    padding-left: clamp(12px, 3vw, 20px);
+    padding-right: clamp(12px, 3vw, 20px);
+    font-size: 0.54rem;
+  }
+
+  html[lang="zh-CN"] .page-home .home-press__note {
+    font-size: 0.58rem;
+    letter-spacing: 0.14em;
+  }
+}
+
+@media (max-width: 380px) {
   .page-home .home-press__grid {
     grid-template-columns: 1fr;
   }
@@ -4561,9 +4605,9 @@ html[lang="zh-CN"] .page-collaborators .collab-page-hero__label {
 }
 
 .page-collaborators .collab-page-hero__h1 {
-  margin: 0 0 20px;
+  margin: 0 0 14px;
   font-family: "Noto Serif SC", "Songti SC", Georgia, serif;
-  font-size: clamp(1.85rem, 4vw, 2.65rem);
+  font-size: clamp(1.45rem, 3.2vw, 2.1rem);
   font-weight: 600;
   letter-spacing: 0.12em;
   color: #fff;
@@ -4578,8 +4622,8 @@ html[lang="en"] .page-collaborators .collab-page-hero__h1 {
   margin: 0;
   max-width: 36rem;
   font-family: "Noto Serif SC", "Songti SC", Georgia, serif;
-  font-size: clamp(0.95rem, 1.5vw, 1.06rem);
-  line-height: 1.85;
+  font-size: clamp(0.86rem, 1.35vw, 0.98rem);
+  line-height: 1.78;
   letter-spacing: 0.05em;
   color: rgba(255, 255, 255, 0.55);
 }
@@ -4594,12 +4638,19 @@ html[lang="en"] .page-collaborators .collab-page-hero__lead {
   padding: 48px 0 120px;
 }
 
+.page-collaborators #collab-app {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(18px, 2.2vw, 28px) clamp(16px, 2vw, 24px);
+  align-items: start;
+}
+
 .page-collaborators .collab-card {
   display: grid;
-  grid-template-columns: minmax(240px, 320px) minmax(0, 1fr);
-  gap: clamp(36px, 5vw, 56px);
+  grid-template-columns: minmax(160px, 220px) minmax(0, 1fr);
+  gap: clamp(18px, 2.8vw, 28px);
   align-items: start;
-  padding: clamp(48px, 7vw, 80px) 0;
+  padding: clamp(22px, 3.5vw, 36px) 0;
   border-top: 1px solid rgba(255, 255, 255, 0.06);
 }
 
@@ -4620,10 +4671,10 @@ html[lang="en"] .page-collaborators .collab-page-hero__lead {
 .page-collaborators .collab-card__frame {
   position: relative;
   width: 100%;
-  max-width: 320px;
+  max-width: 220px;
   margin: 0 auto;
   aspect-ratio: 3 / 4;
-  max-height: min(520px, 70vh);
+  max-height: min(340px, 48vh);
   border: 1px solid rgba(201, 169, 110, 0.28);
   border-radius: 12px;
   overflow: hidden;
@@ -4692,9 +4743,9 @@ html[lang="en"] .page-collaborators .collab-card__eyebrow {
 }
 
 .page-collaborators .collab-card__roleline {
-  margin: 0 0 14px;
+  margin: 0 0 10px;
   font-family: "Syne", ui-sans-serif, system-ui, sans-serif;
-  font-size: clamp(1.35rem, 2.8vw, 1.95rem);
+  font-size: clamp(1.05rem, 2vw, 1.45rem);
   font-weight: 800;
   letter-spacing: 0.06em;
   line-height: 1.08;
@@ -4722,7 +4773,7 @@ html[lang="zh-CN"] .page-collaborators .collab-card__roleline {
   flex: 0 0 auto;
   max-width: 100%;
   font-family: "Noto Serif SC", "Songti SC", Georgia, serif;
-  font-size: clamp(1.5rem, 2.8vw, 2.15rem);
+  font-size: clamp(1.15rem, 2.2vw, 1.55rem);
   font-weight: 600;
   letter-spacing: 0.18em;
   line-height: 1.25;
@@ -4742,18 +4793,18 @@ html[lang="en"] .page-collaborators .collab-card__name {
 }
 
 .page-collaborators .collab-card__bio p {
-  margin: 0 0 1.05rem;
+  margin: 0 0 0.85rem;
   font-family: "Noto Sans SC", "PingFang SC", sans-serif;
-  font-size: 0.91rem;
-  line-height: 1.92;
+  font-size: 0.82rem;
+  line-height: 1.82;
   letter-spacing: 0.055em;
   color: rgba(255, 255, 255, 0.72);
 }
 
 html[lang="en"] .page-collaborators .collab-card__bio p {
   font-family: "Cormorant Garamond", "Noto Serif SC", Georgia, serif;
-  font-size: 1.02rem;
-  line-height: 1.6;
+  font-size: 0.9rem;
+  line-height: 1.58;
   letter-spacing: 0.02em;
 }
 
@@ -4777,8 +4828,8 @@ html[lang="zh-CN"] .page-collaborators .collab-card__works-head {
 .page-collaborators .collab-card__works-body {
   margin: 0;
   font-family: "Noto Serif SC", "Songti SC", Georgia, serif;
-  font-size: 0.88rem;
-  line-height: 1.75;
+  font-size: 0.8rem;
+  line-height: 1.72;
   letter-spacing: 0.05em;
   color: rgba(255, 255, 255, 0.78);
 }
@@ -4795,6 +4846,10 @@ html[lang="en"] .page-collaborators .collab-card__works-body {
 }
 
 @media (max-width: 900px) {
+  .page-collaborators #collab-app {
+    grid-template-columns: 1fr;
+  }
+
   .page-collaborators .collab-card,
   .page-collaborators .collab-card--reverse {
     grid-template-columns: 1fr;
@@ -4805,8 +4860,8 @@ html[lang="en"] .page-collaborators .collab-card__works-body {
   }
 
   .page-collaborators .collab-card__frame {
-    max-width: 280px;
-    max-height: 380px;
+    max-width: 260px;
+    max-height: 360px;
     margin: 0 auto;
   }
 

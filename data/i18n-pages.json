@@ -66,7 +66,7 @@
     },
     "p1b": {
       "zh": "代表案例：终极骗局多城巡演、山海经·巨灵之梦 @1862。",
-      "en": "Examples: The Ultimate Con tour; The Dream of Colossus @ 1862."
+      "en": "Examples: Liar Game 3.0 tour; The Dream of Colossus @ 1862."
     },
     "p1link": {
       "zh": "查看项目案例 →",
@@ -456,7 +456,7 @@
     },
     "timeline2020Desc": {
       "zh": "《终极骗局》首演，确立互动式沉浸戏剧的创作方向。",
-      "en": "Premiere of 'The Ultimate Con', establishing the direction of interactive immersive theatre."
+      "en": "Premiere of Liar Game 3.0, establishing the direction of interactive immersive theatre."
     },
     "timeline2023Title": {
       "zh": "多元",
@@ -809,8 +809,8 @@
       "en": "Duration"
     },
     "statDurationV": {
-      "zh": "120 分钟",
-      "en": "120 min"
+      "zh": "90 分钟",
+      "en": "90 min"
     },
     "statTheatreL": {
       "zh": "剧场形态",
@@ -885,8 +885,8 @@
       "en": "Duration"
     },
     "infDurV": {
-      "zh": "120 分钟",
-      "en": "120 min"
+      "zh": "90 分钟",
+      "en": "90 min"
     },
     "infCap": {
       "zh": "单场容量",
@@ -962,7 +962,7 @@
     },
     "related2": {
       "zh": "终极骗局 3.0 →",
-      "en": "The Ultimate Con 3.0 →"
+      "en": "Liar Game 3.0 →"
     },
     "audienceH": {
       "zh": "适合观众",
@@ -1037,8 +1037,8 @@
       "en": "Designed for traditional proscenium houses of 1,000 seats or more, projection, LED and lighting build a complete Shan Hai world on stage."
     },
     "tips1": {
-      "zh": "演出全程约 120 分钟，请合理安排时间。",
-      "en": "The performance runs approximately 120 minutes — please plan accordingly."
+      "zh": "演出全程约 90 分钟，请合理安排时间。",
+      "en": "The performance runs approximately 90 minutes — please plan accordingly."
     },
     "tips2": {
       "zh": "本剧为镜框式剧场演出，请按剧场指引有序入场与就座。",
@@ -1560,15 +1560,15 @@
   "projectUltimateCon": {
     "metaTitle": {
       "zh": "终极骗局 3.0 — 惊喜之夜",
-      "en": "The Ultimate Con 3.0 — Surprise Night"
+      "en": "Liar Game 3.0 — Surprise Night"
     },
     "metaDesc": {
       "zh": "一场关于信任与欺骗的沉浸式博弈。你不仅是观众，更是玩家。",
-      "en": "An immersive game of trust and deception. You're not just the audience, but also the player."
+      "en": "Liar Game 3.0 — an immersive game of trust and deception. You're not just the audience, but also the player."
     },
     "h1": {
       "zh": "终极骗局 3.0",
-      "en": "The Ultimate Con 3.0"
+      "en": "Liar Game 3.0"
     },
     "tag1": {
       "zh": "正在上演",
@@ -1580,7 +1580,7 @@
     },
     "tagline": {
       "zh": "一场关于信任与欺骗的沉浸式博弈。你不仅是观众，更是玩家。",
-      "en": "An immersive game of trust and deception. You're not just the audience, but also the player."
+      "en": "Liar Game 3.0 — an immersive game of trust and deception. You're not just the audience, but also the player."
     },
     "back": {
       "zh": "← 返回作品",
@@ -1592,7 +1592,7 @@
     },
     "introP": {
       "zh": "《终极骗局》是惊喜之夜的旗舰沉浸式互动游戏戏剧，将观众带入一场虚实交错的社交实验。在精心设计的场域中，每位观众化身为玩家，通过博弈、推理与互动推动剧情发展。作品以互动叙事为核心，让每一次选择都可能改变结局的走向，打破传统观演关系，让对话与行动成为剧情的一部分。",
-      "en": "The Ultimate Con is Surprise Night's flagship immersive interactive game theatre, bringing audiences into a social experiment that blurs the line between reality and fiction. In a meticulously designed space, every audience member becomes a player, driving the narrative forward through games, reasoning and interaction. With interactive storytelling at its core, every choice can alter the ending, breaking traditional performer-audience relationships and making dialogue and action integral to the story."
+      "en": "Liar Game 3.0 is Surprise Night's flagship immersive interactive game theatre, bringing audiences into a social experiment that blurs the line between reality and fiction. In a meticulously designed space, every audience member becomes a player, driving the narrative forward through games, reasoning and interaction. With interactive storytelling at its core, every choice can alter the ending, breaking traditional performer-audience relationships and making dialogue and action integral to the story."
     },
     "hiH": {
       "zh": "演出亮点",
@@ -1652,7 +1652,7 @@
     },
     "sideP": {
       "zh": "若你希望将本剧引入所在城市，或探讨驻演、定制与品牌合作，欢迎与我们联系，说明城市、档期与场地类型。",
-      "en": "If you'd like to bring this production to your city, or discuss residencies, customization and brand partnerships, please contact us with your city, schedule and venue type."
+      "en": "If you'd like to bring Liar Game 3.0 to your city, or discuss residencies, customization and brand partnerships, please contact us with your city, schedule and venue type."
     },
     "sideLink": {
       "zh": "了解合作方式 →",
@@ -1672,7 +1672,7 @@
     },
     "introP2": {
       "zh": "自首演以来，《终极骗局》已完成 3.0 版本迭代，在长沙、青岛、南昌、重庆等多个城市落地演出，累计演出超过 500 场，观众反响热烈。每场演出可容纳 135 位玩家，演出时长约 150 分钟，是一场关于信任与欺骗的深度博弈。",
-      "en": "Since its premiere, 'The Ultimate Con' has completed version 3.0 iteration, performed in multiple cities including Changsha, Qingdao, Nanchang, and Chongqing, with over 500 cumulative performances and enthusiastic audience responses. Each show can accommodate 135 players, approximately 150 minutes long, a deep game about trust and deception."
+      "en": "Since its premiere, Liar Game 3.0 has completed version 3.0 iteration, performed in multiple cities including Changsha, Qingdao, Nanchang, and Chongqing, with over 500 cumulative performances and enthusiastic audience responses. Each show can accommodate 135 players, approximately 150 minutes long, a deep game about trust and deception."
     },
     "infYear": {
       "zh": "首演年份",
@@ -1712,7 +1712,7 @@
     },
     "review3": {
       "zh": "惊喜之夜最具代表性的互动戏剧作品。",
-      "en": "The most iconic interactive theatre work of Surprise Night."
+      "en": "Liar Game 3.0 — Surprise Night's most iconic interactive theatre work."
     },
     "videoLabel": {
       "zh": "点击观看预告片",
