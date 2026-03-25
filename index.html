@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>惊喜之夜 — 沉浸式喜剧与体验式演出</title>
+    <meta
+      name="description"
+      content="惊喜之夜 Surprise Night — 沉浸式喜剧与体验式演出、品牌激活、文旅叙事与 IP 开发。让故事从你的脚下开始。"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Noto+Sans+SC:wght@300;400;500;600;700&family=Noto+Serif+SC:wght@400;500;600&family=Syne:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="alternate" hreflang="zh-CN" href="index.html" />
+    <link rel="alternate" hreflang="en" href="index.html?lang=en" />
+  </head>
+  <body class="page-home" data-i18n-page="home">
+    <header class="site-header site-header--home">
+      <div class="inner">
+        <a href="index.html" class="logo" style="display: flex; align-items: center; gap: 12px; font-size: 1.1rem;">
+          <img src="assets/images/logo.png" alt="" style="width: 32px; height: 32px; object-fit: contain;">
+          <span>惊喜之夜 <span style="opacity: 0.7; font-size: 0.75rem; font-weight: 400; margin-left: 4px;">/ Surprise Night</span></span>
+        </a>
+        <button
+          type="button"
+          class="nav-toggle"
+          data-i18n="nav.menu"
+          aria-expanded="false"
+          aria-controls="primary-nav"
+        >
+          菜单
+        </button>
+        <nav>
+          <ul id="primary-nav" class="nav-links">
+            <li><a href="works.html" data-i18n="nav.works">作品</a></li>
+            <li><a href="collaborate.html" data-i18n="nav.collaborate">合作</a></li>
+            <li class="nav-item nav-item--has-sub">
+              <a href="about.html" data-i18n="nav.about">关于</a>
+              <ul class="nav-sub" role="list">
+                <li><a href="collaborators.html" data-i18n="nav.collaborators">合作艺术家</a></li>
+              </ul>
+            </li>
+            <li><a href="contact.html" data-i18n="nav.contact">联系</a></li>
+            <li class="nav-lang" aria-label="Language">
+              <button type="button" class="lang-btn" data-set-lang="zh" aria-pressed="true">中</button>
+              <button type="button" class="lang-btn" data-set-lang="en" aria-pressed="false">EN</button>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <!-- 1. Hero区域：视频背景 -->
+      <section class="hero hero--video hero--pd hero--featured hero--immersive">
+        <div class="hero-video-container">
+          <video 
+            class="hero-video" 
+            autoplay 
+            muted 
+            loop 
+            playsinline 
+            poster="assets/images/hero-home.jpg"
+          >
+            <source src="assets/videos/hero-bg.mp4" type="video/mp4" />
+            <!-- 备用格式 -->
+            <source src="assets/videos/hero-bg.webm" type="video/webm" />
+          </video>
+          <div class="hero-video-overlay"></div>
+        </div>
+        <a href="works.html" class="hero-main-link"></a>
+        <div class="hero-content hero-content--secret">
+          <h1 class="home-hero-title" data-i18n="index.heroH1" data-i18n-html="true">让故事从<br />你的脚下开始</h1>
+          <p class="home-hero-lead" data-i18n="index.heroLead">惊喜之夜创造沉浸式喜剧与体验式演出</p>
+          <p class="home-hero-tagline" data-i18n="index.heroTagline" data-i18n-html="true">我们不设观众席，<span class="home-hero-accent">只造世界</span>。</p>
+          <div class="hero-cta">
+            <a class="btn btn-primary" href="works.html" data-i18n="index.ctaWorks">正在上演</a>
+          </div>
+        </div>
+        <div class="hero-scroll" aria-hidden="true">↓</div>
+      </section>
+
+      <!-- 视频弹窗 -->
+      <div id="videoModal" class="video-modal" onclick="closeVideoModal()">
+        <div class="video-modal-content" onclick="event.stopPropagation()">
+          <button class="video-close" onclick="closeVideoModal()">×</button>
+          <iframe id="videoFrame" src="" frameborder="0" allowfullscreen></iframe>
+        </div>
+      </div>
+
+      <!-- 2. 品牌宣言 -->
+      <section class="home-manifesto" aria-labelledby="home-manifesto-label">
+        <div class="home-manifesto__noise" aria-hidden="true"></div>
+        <div class="container home-manifesto__grid">
+          <div class="home-manifesto__rail" aria-hidden="true">
+            <span class="home-manifesto__index">01</span>
+            <span class="home-manifesto__rule"></span>
+          </div>
+          <div class="home-manifesto__main">
+            <div class="home-manifesto__header">
+              <p class="home-manifesto__label" id="home-manifesto-label" data-i18n="index.brandLabel">品牌宣言</p>
+              <p class="home-manifesto__scope" data-i18n="index.heroKeywords">
+                Immersive Theatre · Brand Activations · Cultural Tourism · IP Development
+              </p>
+            </div>
+            <blockquote class="home-manifesto__quote" data-i18n="index.quoteBody">
+              我们不制造幻觉。我们建造真实——一个更沉浸的真实世界。
+            </blockquote>
+            <cite class="home-manifesto__cite" data-i18n="index.quoteCite">惊喜之夜，2018 年创立于中国</cite>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. 媒体评价 -->
+      <section class="home-press" aria-labelledby="home-press-kicker">
+        <div class="container">
+          <div class="home-press__top">
+            <p class="home-press__kicker" id="home-press-kicker" data-i18n="index.pressH">声音</p>
+            <span class="home-press__line" aria-hidden="true"></span>
+          </div>
+        </div>
+        <div class="home-press__strip" role="group" aria-label="观众与合作方反馈摘录">
+          <div class="container home-press__strip-inner">
+            <div class="home-press__grid">
+              <figure class="home-press__cell">
+                <blockquote class="home-press__blurb" data-i18n="index.pressQ1">
+                  惊喜之夜把剧场拆成一条可走的路径，而你是路径本身。
+                </blockquote>
+                <figcaption class="home-press__mark" data-i18n="index.pressMark1">路径</figcaption>
+              </figure>
+              <figure class="home-press__cell">
+                <blockquote class="home-press__blurb" data-i18n="index.pressQ2">
+                  在惊喜之夜，故事不是被观看的，而是被进入的。
+                </blockquote>
+                <figcaption class="home-press__mark" data-i18n="index.pressMark2">进入</figcaption>
+              </figure>
+              <figure class="home-press__cell">
+                <blockquote class="home-press__blurb" data-i18n="index.pressQ3">
+                  它不急着解释一切，而是先让你相信这个世界真的存在。
+                </blockquote>
+                <figcaption class="home-press__mark" data-i18n="index.pressMark3">世界</figcaption>
+              </figure>
+              <figure class="home-press__cell">
+                <blockquote class="home-press__blurb" data-i18n="index.pressQ4">
+                  这不是一次演出安排，而是一种被精心建造的在场经验。
+                </blockquote>
+                <figcaption class="home-press__mark" data-i18n="index.pressMark4">在场</figcaption>
+              </figure>
+            </div>
+            <p class="home-press__note" data-i18n="index.press1Src">合作方与观众反馈（摘录）</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4. 精选项目（旗舰 + 两部谱系，完整列表见作品页） -->
+      <section class="home-works">
+        <div class="container">
+          <header class="home-works__head">
+            <p class="home-works__eyebrow" data-i18n="index.worksH">精选呈现</p>
+            <h2 class="home-works__title" data-i18n="index.worksTitle">主推与谱系</h2>
+            <p class="home-works__lead" data-i18n="index.worksSubtitle">
+              首页仅展示三部：年度旗舰与两条不同创作线。更多剧目与分类请前往作品页浏览。
+            </p>
+          </header>
+          <div
+            class="grid-works home-works__grid"
+            data-works-grid="home"
+            data-home-layout="flagship"
+            data-limit="3"
+          ></div>
+          <p class="home-works__more">
+            <a class="home-works__link" href="works.html" data-i18n="index.viewAllWorks">查看全部作品 →</a>
+          </p>
+        </div>
+      </section>
+
+      <!-- 5. 合作与落地足迹 -->
+      <section class="home-partners" aria-labelledby="home-partners-label">
+        <div class="container">
+          <header class="home-partners__head">
+            <h2 class="home-partners__title" id="home-partners-label" data-i18n="index.partnersLabel">合作与落地足迹</h2>
+            <span class="home-partners__deco" aria-hidden="true"></span>
+          </header>
+          <div
+            class="home-partners__wall"
+            data-i18n="index.logoWall"
+            data-i18n-html="true"
+          >
+            <span class="home-partners__chip">北京朝阳剧场</span
+            ><span class="home-partners__chip">湖南大剧院</span
+            ><span class="home-partners__chip">梅溪湖大剧院</span
+            ><span class="home-partners__chip">重庆大剧院</span
+            ><span class="home-partners__chip">深圳滨海艺术中心</span
+            ><span class="home-partners__chip">上海虹桥艺术中心</span
+            ><span class="home-partners__chip">辽宁大剧院</span
+            ><span class="home-partners__chip">广州大剧院</span
+            ><span class="home-partners__chip">佛山大剧院</span
+            ><span class="home-partners__chip">合肥大剧院</span
+            ><span class="home-partners__chip">江苏大剧院</span
+            ><span class="home-partners__chip">南通大剧院</span
+            ><span class="home-partners__chip">扬州运河大剧院</span
+            ><span class="home-partners__chip">义乌文化广场剧院</span
+            ><span class="home-partners__chip">余姚大剧院</span
+            ><span class="home-partners__chip">会昌戏剧小镇</span>
+          </div>
+          <p class="home-partners__cta">
+            <a class="btn btn-ghost home-partners__btn" href="collaborate.html" data-i18n="index.collabBtn">合作咨询</a>
+          </p>
+        </div>
+      </section>
+
+      <!-- 6. 联系 -->
+      <section class="home-contact" aria-labelledby="home-contact-label">
+        <div class="container home-contact__inner">
+          <p class="home-contact__label" id="home-contact-label" data-i18n="index.contactLabel">联系</p>
+          <a class="home-contact__email" href="mailto:contact@surprisenight.com">contact@surprisenight.com</a>
+          <p class="home-contact__copy">© 2026 惊喜之夜 Surprise Night</p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="inner">
+        <span data-i18n="index.footerCopy">© 2026 惊喜之夜 Surprise Night</span>
+        <a href="contact.html" data-i18n="index.footerContact">联系我们</a>
+      </div>
+    </footer>
+
+    <script src="js/i18n.js" defer></script>
+    <script src="js/main.js" defer></script>
+    <script src="js/works-render.js" defer></script>
+  </body>
+</html>

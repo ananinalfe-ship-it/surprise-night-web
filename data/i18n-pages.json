@@ -1,0 +1,2472 @@
+{
+  "collabPage": {
+    "metaTitle": {
+      "zh": "合作 — 惊喜之夜",
+      "en": "Collaborate — Surprise Night"
+    },
+    "metaDesc": {
+      "zh": "合作产品矩阵：引进、驻场、文旅定制、戏曲创新、国际巡演、品牌、IP。",
+      "en": "Collaboration products: touring, residencies, tourism, opera innovation, international tours, brands, IP."
+    },
+    "h1": {
+      "zh": "合作",
+      "en": "Collaborate"
+    },
+    "lead": {
+      "zh": "以客户需求为核心的产品矩阵与流程说明。品牌展示见「作品」，商务转化从这里开始。",
+      "en": "A product matrix built around client needs. See Works for repertoire — start commercial conversations here."
+    },
+    "procH": {
+      "zh": "合作流程",
+      "en": "How we work"
+    },
+    "s1t": {
+      "zh": "初步沟通",
+      "en": "Discovery"
+    },
+    "s1d": {
+      "zh": "了解需求，双向判断是否匹配。邮件 / 表单 / 电话，1–3 个工作日内响应。",
+      "en": "We align on fit — email, form or call; response within 1–3 business days."
+    },
+    "s2t": {
+      "zh": "方案设计",
+      "en": "Proposal"
+    },
+    "s2d": {
+      "zh": "基于需求提供初步方案与报价，线下或线上会议对齐，约 1–4 周。",
+      "en": "Scope, creative direction and estimate — typically 1–4 weeks."
+    },
+    "s3t": {
+      "zh": "签约执行",
+      "en": "Contract & build"
+    },
+    "s3d": {
+      "zh": "确认方案与合同，首付款后启动制作，周期依项目规模而定。",
+      "en": "Contract signed, deposit in — production timeline scales with scope."
+    },
+    "s4t": {
+      "zh": "落地交付",
+      "en": "Delivery"
+    },
+    "s4d": {
+      "zh": "现场执行、效果跟踪与复盘，持续优化运营与内容迭代。",
+      "en": "On-site execution, tracking and debrief — iterate content and ops."
+    },
+    "p1h": {
+      "zh": "产品 1 · 现成项目引进",
+      "en": "1 · Ready-made productions"
+    },
+    "p1meta": {
+      "zh": "适合：剧院、艺术中心、商业综合体、城市更新 · 周期：3–6 个月筹备",
+      "en": "For: theatres, arts centres, retail, urban renewal · Lead: 3–6 months"
+    },
+    "p1a": {
+      "zh": "将惊喜之夜已有成熟项目引入合作方场地落地。交付完整演出制作、巡演执行团队、运营 SOP 与票务支持。",
+      "en": "Tour proven titles to your venue — full production, touring team, SOP and ticketing support."
+    },
+    "p1b": {
+      "zh": "代表案例：终极骗局多城巡演、山海经·巨灵之梦 @1862。",
+      "en": "Examples: The Ultimate Con tour; The Dream of Colossus @ 1862."
+    },
+    "p1link": {
+      "zh": "查看项目案例 →",
+      "en": "See works →"
+    },
+    "p1btn": {
+      "zh": "获取引进资料包",
+      "en": "Request touring pack"
+    },
+    "p2h": {
+      "zh": "产品 2 · 驻场演艺合作",
+      "en": "2 · Resident performance"
+    },
+    "p2meta": {
+      "zh": "适合：文旅景区、主题乐园、酒店、商业综合体 · 筹备 6–18 个月",
+      "en": "For: tourism, theme parks, hotels, mixed-use · Prep: 6–18 months"
+    },
+    "p2a": {
+      "zh": "为空间打造专属驻场演出：策划制作、演员本地化培训、运营体系与票务对接，让内容长期生长在场所之中。",
+      "en": "Bespoke long-run shows — creative, local casting, operations and ticketing integrated with the site."
+    },
+    "p2btn": {
+      "zh": "预约驻场项目咨询",
+      "en": "Book a residency call"
+    },
+    "p3h": {
+      "zh": "产品 3 · 文旅沉浸式内容定制",
+      "en": "3 · Immersive tourism"
+    },
+    "p3meta": {
+      "zh": "适合：文旅开发商、政府文旅、景区运营 · 轻度 1–3 月 / 全案 12 月+",
+      "en": "For: developers, government, operators · Light 1–3 mo / full 12+ mo"
+    },
+    "p3a": {
+      "zh": "从内容策略、沉浸叙事到空间叙事规划与核心体验制作，帮助目的地建立差异化壁垒与可运营的内容资产。",
+      "en": "Strategy to spatial narrative and build — a differentiated, operable content asset."
+    },
+    "p3btn": {
+      "zh": "获取文旅内容方案",
+      "en": "Request tourism brief"
+    },
+    "p4h": {
+      "zh": "产品 4 · 戏剧 / 戏曲创新",
+      "en": "4 · Opera innovation"
+    },
+    "p4meta": {
+      "zh": "适合：戏曲院团、国有剧院、非遗机构 · 周期 6–18 个月",
+      "en": "For: opera companies, state theatres, heritage bodies · 6–18 months"
+    },
+    "p4a": {
+      "zh": "在传统与当代之间建立叙事接口：沉浸式改编、制作与执行。案例：聂小倩（沉浸式湘剧方向）。",
+      "en": "Immersive adaptation between tradition and today — e.g. Nie Xiaoqian (Xiang opera)."
+    },
+    "p4btn": {
+      "zh": "探讨戏曲创新合作",
+      "en": "Discuss opera innovation"
+    },
+    "p5h": {
+      "zh": "产品 5 · 国际巡演合作",
+      "en": "5 · International touring"
+    },
+    "p5meta": {
+      "zh": "适合：国际艺术节、机构与文化交流项目 · 周期 12 个月+",
+      "en": "For: festivals, institutions, exchange · 12+ months"
+    },
+    "p5a": {
+      "zh": "项目整体输出、国际巡演运营、文化交流报批与双语制作协作。",
+      "en": "Full export, touring operations, permits and bilingual production."
+    },
+    "p5btn": {
+      "zh": "了解国际合作",
+      "en": "International enquiry"
+    },
+    "p6h": {
+      "zh": "产品 6 · 品牌联名与跨界",
+      "en": "6 · Brand collaborations"
+    },
+    "p6meta": {
+      "zh": "适合：快消、美妆、汽车与科技品牌高端线 · 轻量 1–3 月 / 深度 6–12 月",
+      "en": "FMCG, beauty, auto, tech premium · Light 1–3 mo / deep 6–12 mo"
+    },
+    "p6a": {
+      "zh": "品牌专属沉浸体验、线下执行、UGC 友好传播设计与数据复盘——让参与感替代硬广。",
+      "en": "Owned experiences, execution, UGC-first design and reporting — participation over ads."
+    },
+    "p6btn": {
+      "zh": "获取品牌合作方案",
+      "en": "Brand deck"
+    },
+    "p7h": {
+      "zh": "产品 7 · IP 孵化与联合开发",
+      "en": "7 · IP incubation"
+    },
+    "p7meta": {
+      "zh": "适合：影视、游戏、出版、博物馆 · 周期 12 个月+",
+      "en": "Film, games, publishing, museums · 12+ months"
+    },
+    "p7a": {
+      "zh": "将文学、影视、动漫与游戏 IP 转译为可运营的沉浸式体验与线下叙事。",
+      "en": "Translate IP into walkable, operable immersive narratives."
+    },
+    "p7btn": {
+      "zh": "探讨 IP 合作",
+      "en": "IP conversation"
+    },
+    "whyH": {
+      "zh": "为什么选择惊喜之夜",
+      "en": "Why Surprise Night"
+    },
+    "whySub": {
+      "zh": "中式诗意 + 国际当代语言；克制留白与气韵写意；集体共感与可复制的空间叙事方法论。",
+      "en": "Chinese lyricism with a global contemporary language — restraint, resonance, spatial narrative methods."
+    },
+    "why1h": {
+      "zh": "文化底色",
+      "en": "Cultural ground"
+    },
+    "why1d": {
+      "zh": "以东方叙事与当代表达并重，区别于纯西式沉浸路径。",
+      "en": "Eastern narrative with contemporary form — not a copy of Western immersion."
+    },
+    "why2h": {
+      "zh": "灵活共创",
+      "en": "Modular"
+    },
+    "why2d": {
+      "zh": "从单次巡演到多年驻场，模块化解耦，降低合作门槛。",
+      "en": "From one-off tours to multi-year runs — modular, lower barrier to start."
+    },
+    "why3h": {
+      "zh": "全链路",
+      "en": "End-to-end"
+    },
+    "why3d": {
+      "zh": "叙事、空间、声音、技术、制作与运营统筹一体。",
+      "en": "Story, space, sound, tech, production and ops in one team."
+    },
+    "why4h": {
+      "zh": "可验证",
+      "en": "Verifiable"
+    },
+    "why4d": {
+      "zh": "旗舰项目可落地考察、数据与案例可追溯（持续更新）。",
+      "en": "Flagship work you can visit — data and cases updated over time."
+    },
+    "finalH": {
+      "zh": "发起合作",
+      "en": "Start a project"
+    },
+    "finalSub": {
+      "zh": "填写表单并说明合作类型，我们将在 24 小时内回复。",
+      "en": "Tell us the collaboration type — we aim to reply within 24 hours."
+    },
+    "finalBtn": {
+      "zh": "前往联系表单",
+      "en": "Go to contact form"
+    },
+    "footCopy": {
+      "zh": "© 2026 惊喜之夜",
+      "en": "© 2026 Surprise Night"
+    },
+    "footContact": {
+      "zh": "联系我们",
+      "en": "Contact"
+    }
+  },
+  "aboutPage": {
+    "metaTitle": {
+      "zh": "关于 — 惊喜之夜",
+      "en": "About — Surprise Night"
+    },
+    "metaDesc": {
+      "zh": "品牌故事、创作方法论、团队与数据。沉浸式戏剧与体验式演出。",
+      "en": "Our story, methodology, team and numbers — immersive theatre and experiential performance."
+    },
+    "h1": {
+      "zh": "<span class=\"about-hero-title__kicker\">关于</span><span class=\"about-hero-title__display\">惊喜之夜</span>",
+      "en": "About Surprise Night"
+    },
+    "lead": {
+      "zh": "我们相信，最好的故事不是被讲述的，<br />而是<span class=\"home-hero-accent\">被体验的</span>。",
+      "en": "We believe the best stories aren’t told — they’re lived."
+    },
+    "storyLabel": {
+      "zh": "品牌故事",
+      "en": "Brand story"
+    },
+    "storyH": {
+      "zh": "从实验到沉淀",
+      "en": "From experiments to craft"
+    },
+    "storyP1": {
+      "zh": "惊喜之夜创立于 2018 年，从一场小型实验演出起步，逐渐成长为专注于沉浸式戏剧与体验式内容的创作团体。我们相信剧场不必局限于镜框式舞台——它可以是一座建筑、一条走廊、一座城市，甚至是观众彼此之间的关系。",
+      "en": "Founded in 2018 from a small experiment, we grew into a company devoted to immersive theatre and experiential work. A stage can be a building, a corridor, a city — or the bond between audience members."
+    },
+    "storyP2": {
+      "zh": "多年来，我们在传统与当代、东方与西方的美学之间寻找平衡，让故事以空间、声音与互动为媒介被「经历」，而非被「旁观」。每一次创作，都是对观演关系的一次重新协商。",
+      "en": "We balance tradition and contemporaneity, East and West — stories are lived through space, sound and interaction, not merely watched. Each work renegotiates the contract between spectator and event."
+    },
+    "storyP3": {
+      "zh": "今天，惊喜之夜持续与场馆、文旅项目与品牌伙伴合作，把可复制的叙事方法与不可复制的现场体验带到更多城市与人群之中。",
+      "en": "Today we work with venues, tourism projects and brands — bringing repeatable narrative craft and irreproducible live moments to more cities."
+    },
+    "methodH": {
+      "zh": "创作方法论",
+      "en": "Methodology"
+    },
+    "methodSub": {
+      "zh": "惊喜之夜的创作原则与工作方式",
+      "en": "Principles and ways of working"
+    },
+    "methodLabel": {
+      "zh": "创作方法论",
+      "en": "Methodology"
+    },
+    "methodTitle": {
+      "zh": "我们的工作方式",
+      "en": "How we work"
+    },
+    "m1h": {
+      "zh": "空间即剧本",
+      "en": "Space as script"
+    },
+    "m1d": {
+      "zh": "我们从物理空间与动线出发构思叙事：光从哪里亮起、观众在哪里转身，本身就是台词与节奏。",
+      "en": "We write from architecture and circulation — where the light falls and where you turn is dialogue and tempo."
+    },
+    "m2h": {
+      "zh": "观众即主角",
+      "en": "Audience as protagonist"
+    },
+    "m2d": {
+      "zh": "每一次停留、对话与选择都可能牵动剧情。你不是背景，而是故事得以发生的原因之一。",
+      "en": "Pauses, conversations and choices move the plot. You’re not scenery — you’re a condition of the story."
+    },
+    "m3h": {
+      "zh": "留白与节制",
+      "en": "Restraint"
+    },
+    "m3d": {
+      "zh": "我们刻意保留未说满的瞬间，让想象与情绪在黑暗中发酵——克制，是另一种强度。",
+      "en": "We leave room unsaid so feeling ferments in the dark — restraint is its own intensity."
+    },
+    "m4h": {
+      "zh": "东方诗性",
+      "en": "Eastern poetics"
+    },
+    "m4d": {
+      "zh": "在传统意境与当代表达之间寻找语言，让意象、声场与身体共同构成「可行走的诗」。",
+      "en": "Between classical mood and contemporary language — image, sound field and body as a walkable poem."
+    },
+    "teamH": {
+      "zh": "核心团队",
+      "en": "Core team"
+    },
+    "badge1": {
+      "zh": "创始人",
+      "en": "Founder"
+    },
+    "team1h": {
+      "zh": "艺术总监",
+      "en": "Artistic director"
+    },
+    "team1d": {
+      "zh": "负责整体艺术方向与剧目选题，长期关注沉浸式叙事与跨媒介创作。坚持在实验性与可演性之间寻找可持续的舞台语言。",
+      "en": "Overall artistic direction and programming — immersive and cross-media work, balancing experiment with tourable form."
+    },
+    "badge2": {
+      "zh": "团队",
+      "en": "Team"
+    },
+    "team2h": {
+      "zh": "创作团队",
+      "en": "Creative ensemble"
+    },
+    "team2r": {
+      "zh": "导演组 / 空间设计 / 声音设计 / 交互技术 / 制作统筹",
+      "en": "Direction · Space · Sound · Interactive · Production"
+    },
+    "team2d": {
+      "zh": "成员来自戏剧、建筑、音乐、数字艺术与制作管理等不同背景，以项目组形式协作，确保从概念到现场执行的统一气质。",
+      "en": "Theatre, architecture, music, digital art and production — project-based collaboration from concept to floor."
+    },
+    "ipH": {
+      "zh": "视觉与 IP",
+      "en": "Visuals & IP"
+    },
+    "ipSub": {
+      "zh": "部分项目开发中的角色与世界观资产，用于说明 IP 联合开发方向的视觉气质（素材持续迭代）。",
+      "en": "Character and world assets in development — indicative of IP collaboration (materials evolve)."
+    },
+    "ipImgAlt": {
+      "zh": "惊喜之夜项目角色概念图",
+      "en": "Character concept art — Surprise Night"
+    },
+    "ipH2": {
+      "zh": "从文本到空间",
+      "en": "From text to space"
+    },
+    "ipP": {
+      "zh": "当我们把故事放进你的脚下，角色、符号与动线会一起被设计——这也是 IP 孵化与沉浸制作共享的工作方法。",
+      "en": "When the story sits under your feet, character, symbol and circulation are co-designed — shared by IP work and immersion."
+    },
+    "ipLink": {
+      "zh": "了解 IP 合作 →",
+      "en": "IP collaboration →"
+    },
+    "trustImgAlt": {
+      "zh": "现场观众与演员共同参与沉浸时刻",
+      "en": "Audience and performers in an immersive moment"
+    },
+    "trustCap": {
+      "zh": "集体共感：观众不再是「对面」，而是故事得以发生的条件之一。",
+      "en": "Collective resonance — the audience isn’t opposite the story; they enable it."
+    },
+    "recH": {
+      "zh": "合作与认可",
+      "en": "Partners & reach"
+    },
+    "stCity": {
+      "zh": "演出城市",
+      "en": "Cities"
+    },
+    "stShows": {
+      "zh": "演出场次",
+      "en": "Performances"
+    },
+    "stAud": {
+      "zh": "观众人次",
+      "en": "Audience"
+    },
+    "stOrig": {
+      "zh": "原创剧目",
+      "en": "Original works"
+    },
+    "partH": {
+      "zh": "合作场馆与机构",
+      "en": "Venues & partners"
+    },
+    "partP": {
+      "zh": "北京朝阳剧场 / 湖南大剧院 / 梅溪湖大剧院 / 重庆大剧院 / 深圳滨海艺术中心 / 上海虹桥艺术中心 / 辽宁大剧院 / 广州大剧院 / 佛山大剧院 / 合肥大剧院 / 江苏大剧院 / 南通大剧院 / 扬州运河大剧院 / 义乌文化广场剧院 / 余姚大剧院 / 会昌戏剧小镇",
+      "en": "Beijing Chaoyang Theatre / Hunan Grand Theatre / Meixi Lake Grand Theatre / Chongqing Grand Theatre / Shenzhen Binhai Art Center / Shanghai Hongqiao Art Center / Liaoning Grand Theatre / Guangzhou Grand Theatre / Foshan Grand Theatre / Hefei Grand Theatre / Jiangsu Grand Theatre / Nantong Grand Theatre / Yangzhou Grand Canal Theatre / Yiwu Cultural Plaza Theatre / Yuyao Grand Theatre / Huichang Drama Town"
+    },
+    "ctaH": {
+      "zh": "与我们合作",
+      "en": "Work with us"
+    },
+    "ctaP": {
+      "zh": "驻演引进、内容定制与城市巡演，欢迎从合作中心或邮件开始对话。",
+      "en": "Residency, custom work and tours — start via Collaborate or email."
+    },
+    "ctaBtn": {
+      "zh": "进入合作中心 →",
+      "en": "Collaborate hub →"
+    },
+    "ctaTitle": {
+      "zh": "与我们合作",
+      "en": "Work with us"
+    },
+    "ctaDesc": {
+      "zh": "驻演引进、内容定制与城市巡演，欢迎从合作中心开始对话。",
+      "en": "Residencies, custom productions and city tours — start the conversation from our Collaborate hub."
+    },
+    "footCopy": {
+      "zh": "© 2026 惊喜之夜",
+      "en": "© 2026 Surprise Night"
+    },
+    "footContact": {
+      "zh": "联系我们",
+      "en": "Contact"
+    },
+    "footerContact": {
+      "zh": "联系我们",
+      "en": "Contact"
+    },
+    "timeline2018Title": {
+      "zh": "起点",
+      "en": "Origin"
+    },
+    "timeline2018Desc": {
+      "zh": "从实验性小型演出开始，探索沉浸式叙事的可能性。",
+      "en": "Started with experimental small-scale performances, exploring the possibilities of immersive storytelling."
+    },
+    "timeline2020Title": {
+      "zh": "突破",
+      "en": "Breakthrough"
+    },
+    "timeline2020Desc": {
+      "zh": "《终极骗局》首演，确立互动式沉浸戏剧的创作方向。",
+      "en": "Premiere of 'The Ultimate Con', establishing the direction of interactive immersive theatre."
+    },
+    "timeline2023Title": {
+      "zh": "多元",
+      "en": "Diversity"
+    },
+    "timeline2023Desc": {
+      "zh": "从神话史诗到未来科幻，从东方美学到互动博弈，作品矩阵逐渐丰富。",
+      "en": "From mythological epics to futuristic sci-fi, from Eastern aesthetics to interactive games, the repertoire continues to expand."
+    },
+    "timeline2024Title": {
+      "zh": "生长",
+      "en": "Growth"
+    },
+    "timeline2024Desc": {
+      "zh": "《山海经·巨灵之梦》首演，与扬州木偶剧团合作，开启传统与当代的融合实验。",
+      "en": "Premiere of 'Shan Hai Jing: Dream of the Giant Spirit', collaborating with Yangzhou Puppet Troupe, exploring the fusion of tradition and contemporary art."
+    },
+    "statsLabel": {
+      "zh": "数据与足迹",
+      "en": "Stats & Footprint"
+    },
+    "statCities": {
+      "zh": "演出城市",
+      "en": "Cities"
+    },
+    "statShows": {
+      "zh": "演出场次",
+      "en": "Shows"
+    },
+    "statAudiences": {
+      "zh": "观众人次",
+      "en": "Audiences"
+    },
+    "statWorks": {
+      "zh": "原创剧目",
+      "en": "Original Works"
+    },
+    "partnersLabel": {
+      "zh": "合作与落地足迹",
+      "en": "Partners & Touring Footprint"
+    },
+    "partnersList": {
+      "zh": "北京朝阳剧场 / 湖南大剧院 / 梅溪湖大剧院 / 重庆大剧院 / 深圳滨海艺术中心 / 上海虹桥艺术中心 / 辽宁大剧院 / 广州大剧院 / 佛山大剧院 / 合肥大剧院 / 江苏大剧院 / 南通大剧院 / 扬州运河大剧院 / 义乌文化广场剧院 / 余姚大剧院 / 会昌戏剧小镇",
+      "en": "Beijing Chaoyang Theatre / Hunan Grand Theatre / Meixi Lake Grand Theatre / Chongqing Grand Theatre / Shenzhen Binhai Art Center / Shanghai Hongqiao Art Center / Liaoning Grand Theatre / Guangzhou Grand Theatre / Foshan Grand Theatre / Hefei Grand Theatre / Jiangsu Grand Theatre / Nantong Grand Theatre / Yangzhou Grand Canal Theatre / Yiwu Cultural Plaza Theatre / Yuyao Grand Theatre / Huichang Drama Town"
+    }
+  },
+  "collaboratorsPage": {
+    "metaTitle": {
+      "zh": "合作艺术家 — 惊喜之夜",
+      "en": "Collaborators — Surprise Night"
+    },
+    "metaDesc": {
+      "zh": "导演、编剧、音乐、舞蹈、制作与装置设计——与惊喜之夜同行的合作艺术家。",
+      "en": "Directors, writers, music, choreography, production and installation — artists who collaborate with Surprise Night."
+    },
+    "back": {
+      "zh": "← 返回关于",
+      "en": "← Back to About"
+    },
+    "kicker": {
+      "zh": "Collaborators",
+      "en": "Collaborators"
+    },
+    "h1": {
+      "zh": "合作艺术家",
+      "en": "Collaborators"
+    },
+    "footCopy": {
+      "zh": "© 2026 惊喜之夜",
+      "en": "© 2026 Surprise Night"
+    },
+    "footAbout": {
+      "zh": "关于",
+      "en": "About"
+    }
+  },
+  "contactPage": {
+    "metaTitle": {
+      "zh": "联系 — 惊喜之夜",
+      "en": "Contact — Surprise Night"
+    },
+    "metaDesc": {
+      "zh": "商务合作、媒体与日常联系。提交后我们将在 24 小时内回复。",
+      "en": "Business, press and general enquiries — we aim to reply within 24 hours."
+    },
+    "h1": {
+      "zh": "联系我们",
+      "en": "Contact"
+    },
+    "lead": {
+      "zh": "门开着。",
+      "en": "The door is open."
+    },
+    "lblName": {
+      "zh": "姓名 *",
+      "en": "Name *"
+    },
+    "lblOrg": {
+      "zh": "公司 / 组织 *",
+      "en": "Company *"
+    },
+    "lblEmail": {
+      "zh": "邮箱 *",
+      "en": "Email *"
+    },
+    "lblPhone": {
+      "zh": "电话",
+      "en": "Phone"
+    },
+    "lblType": {
+      "zh": "合作类型 *",
+      "en": "Collaboration type *"
+    },
+    "lblBudget": {
+      "zh": "预算范围",
+      "en": "Budget"
+    },
+    "lblTime": {
+      "zh": "项目时间线",
+      "en": "Timeline"
+    },
+    "lblSource": {
+      "zh": "如何得知我们",
+      "en": "How you found us"
+    },
+    "lblMsg": {
+      "zh": "项目描述",
+      "en": "Project brief"
+    },
+    "phName": {
+      "zh": "您的姓名",
+      "en": "Your name"
+    },
+    "phOrg": {
+      "zh": "您的公司",
+      "en": "Your organisation"
+    },
+    "phPhone": {
+      "zh": "您的电话",
+      "en": "Your phone"
+    },
+    "phMsg": {
+      "zh": "请简要描述您的需求…",
+      "en": "Briefly describe your needs…"
+    },
+    "selChoose": {
+      "zh": "请选择",
+      "en": "Please select"
+    },
+    "optP1": {
+      "zh": "现成项目引进",
+      "en": "Ready-made touring"
+    },
+    "optP2": {
+      "zh": "驻场演艺合作",
+      "en": "Resident show"
+    },
+    "optP3": {
+      "zh": "文旅沉浸式定制",
+      "en": "Tourism / custom"
+    },
+    "optP4": {
+      "zh": "戏曲创新开发",
+      "en": "Opera innovation"
+    },
+    "optP5": {
+      "zh": "国际巡演合作",
+      "en": "International tour"
+    },
+    "optP6": {
+      "zh": "品牌联名合作",
+      "en": "Brand collaboration"
+    },
+    "optP7": {
+      "zh": "IP 孵化与联合开发",
+      "en": "IP development"
+    },
+    "optOther": {
+      "zh": "其他",
+      "en": "Other"
+    },
+    "budLt": {
+      "zh": "50 万以下",
+      "en": "Under ¥500k"
+    },
+    "budMid": {
+      "zh": "50–150 万",
+      "en": "¥500k–1.5m"
+    },
+    "budHi": {
+      "zh": "150–500 万",
+      "en": "¥1.5–5m"
+    },
+    "budMax": {
+      "zh": "500 万以上",
+      "en": "Above ¥5m"
+    },
+    "budUnk": {
+      "zh": "尚未评估",
+      "en": "TBD"
+    },
+    "tm1": {
+      "zh": "1 个月内",
+      "en": "Within 1 month"
+    },
+    "tm2": {
+      "zh": "1–3 个月",
+      "en": "1–3 months"
+    },
+    "tm3": {
+      "zh": "3–6 个月",
+      "en": "3–6 months"
+    },
+    "tm4": {
+      "zh": "6 个月以上",
+      "en": "6+ months"
+    },
+    "srcSearch": {
+      "zh": "搜索引擎",
+      "en": "Search"
+    },
+    "srcSocial": {
+      "zh": "社交媒体",
+      "en": "Social"
+    },
+    "srcWord": {
+      "zh": "口碑 / 介绍",
+      "en": "Referral"
+    },
+    "srcMedia": {
+      "zh": "媒体报道",
+      "en": "Press"
+    },
+    "srcOth": {
+      "zh": "其他",
+      "en": "Other"
+    },
+    "submit": {
+      "zh": "提交咨询",
+      "en": "Submit"
+    },
+    "formNote": {
+      "zh": "我们力争在 <strong style=\"color: var(--text)\">24 小时内</strong>回复。",
+      "en": "We aim to respond within <strong style=\"color: var(--text)\">24 hours</strong>."
+    },
+    "formSending": {
+      "zh": "提交中…",
+      "en": "Sending…"
+    },
+    "formOk": {
+      "zh": "已收到您的咨询，我们会尽快与您联系。",
+      "en": "Thank you — we received your message and will get back to you soon."
+    },
+    "formErr": {
+      "zh": "提交未成功，请稍后再试或通过邮箱联系我们。",
+      "en": "Something went wrong. Please try again later or email us."
+    },
+    "formErrNet": {
+      "zh": "网络异常，请检查连接后重试。",
+      "en": "Network error. Check your connection and try again."
+    },
+    "formErrConfig": {
+      "zh": "表单服务未配置（仅本地预览时会出现）。上线 Cloudflare 并设置环境变量后即可正常提交。",
+      "en": "Form backend is not configured (common when previewing locally). Set Cloudflare env vars after deploy."
+    },
+    "biz": {
+      "zh": "商务合作",
+      "en": "Business"
+    },
+    "socialH": {
+      "zh": "关注我们的社交媒体",
+      "en": "Social"
+    },
+    "wx": {
+      "zh": "微信公众号",
+      "en": "WeChat"
+    },
+    "xhs": {
+      "zh": "小红书",
+      "en": "Xiaohongshu"
+    },
+    "ig": {
+      "zh": "Instagram",
+      "en": "Instagram"
+    },
+    "footBack": {
+      "zh": "返回首页",
+      "en": "Home"
+    },
+    "footCopy": {
+      "zh": "© 2026 惊喜之夜",
+      "en": "© 2026 Surprise Night"
+    }
+  },
+  "projectShanhai": {
+    "metaTitle": {
+      "zh": "山海经·巨灵之梦 — 惊喜之夜",
+      "en": "SHAN HAI JING: DREAM OF THE GIANT SPIRIT — Surprise Night"
+    },
+    "metaDesc": {
+      "zh": "惊喜之夜年度主推：巨型木偶、机械装置与《山海经》神话奇观，千座剧场级木偶奇幻秀。扬州运河大剧院首演。",
+      "en": "Surprise Night flagship: giant puppets, machinery and Shan Hai Jing myth — large-scale puppet fantasy for major theatres. Premiere at Yangzhou Grand Canal Theatre."
+    },
+    "back": {
+      "zh": "← 返回作品",
+      "en": "← Works"
+    },
+    "tag1": {
+      "zh": "正在上演",
+      "en": "Now playing"
+    },
+    "tag2": {
+      "zh": "沉浸式戏剧",
+      "en": "Immersive theatre"
+    },
+    "flagshipTag": {
+      "zh": "旗舰作品",
+      "en": "Flagship"
+    },
+    "heroEnTitle": {
+      "zh": "Shan Hai Jing — Dream of the Colossus",
+      "en": "Shan Hai Jing — Dream of the Colossus"
+    },
+    "h1": {
+      "zh": "山海经·巨灵之梦",
+      "en": "Shan Hai Jing: Dream of the Colossus"
+    },
+    "tagline": {
+      "zh": "精卫填海的神话现场——与高达 4 米的巨偶近在咫尺。",
+      "en": "The myth of Jingwei, live on stage — face to face with four-metre-tall puppets."
+    },
+    "heroLede": {
+      "zh": "惊喜之夜年度主推：非遗木偶与当代机械、影像、音乐同台，为千座剧场打造一部可巡演、可驻场的东方神话史诗。",
+      "en": "Our headline production: heritage puppetry meets machinery, projection and music — a touring and residency-ready Eastern myth epic for houses of 1,000+."
+    },
+    "statsHeading": {
+      "zh": "作品要点",
+      "en": "At a glance"
+    },
+    "statColossusL": {
+      "zh": "巨偶尺度",
+      "en": "Colossus"
+    },
+    "statColossusV": {
+      "zh": "6m × 10m 巨灵",
+      "en": "6m × 10m puppet"
+    },
+    "statDurationL": {
+      "zh": "演出时长",
+      "en": "Duration"
+    },
+    "statDurationV": {
+      "zh": "120 分钟",
+      "en": "120 min"
+    },
+    "statTheatreL": {
+      "zh": "剧场形态",
+      "en": "Format"
+    },
+    "statTheatreV": {
+      "zh": "千座镜框大剧场",
+      "en": "Proscenium 1,000+"
+    },
+    "statPremiereL": {
+      "zh": "首演",
+      "en": "Premiere"
+    },
+    "statPremiereV": {
+      "zh": "2026 · 扬州",
+      "en": "2026 · Yangzhou"
+    },
+    "ctaWatch": {
+      "zh": "观看宣传片",
+      "en": "Watch trailer"
+    },
+    "ctaCollab": {
+      "zh": "巡演与驻场合作",
+      "en": "Touring & residency"
+    },
+    "showpieceEyebrow": {
+      "zh": "旗舰制作 · 东方神话 × 当代表演工艺",
+      "en": "Signature production · Eastern myth × contemporary craft"
+    },
+    "heroQuote": {
+      "zh": "神话不止被讲述——它在舞台上被体量、机械与偶师共同唤醒。",
+      "en": "Myth is not only told — it is awakened on stage by scale, machinery and puppeteers."
+    },
+    "showpieceLead": {
+      "zh": "《山海经·巨灵之梦》以典籍为根、以少年冒险为线，将毕方、九尾、精卫、应龙与终幕巨灵推至观众眼前：这是惊喜之夜面向国际巡演与品牌合作的主推剧目，也是非遗木偶基因与当代 spectacle 语言的首次大规模融合实验。",
+      "en": "Rooted in the classic text and a young hero's journey, Bi Fang, the nine-tailed fox, Jingwei, Ying Long and the final colossus are brought within reach of the audience — our lead title for international touring and partnerships, and a large-scale fusion of intangible puppet heritage with contemporary spectacle."
+    },
+    "introH": {
+      "zh": "项目简介",
+      "en": "Introduction"
+    },
+    "introP": {
+      "zh": "《山海经·巨灵之梦》以《山海经》为文本基础，结合巨型木偶、机械装置、多媒体影像、灯光与当代剧场语言，打造一部兼具东方美学与现代情感表达的木偶奇幻秀。观众将跟随少年连夜与 AI 素夷进入真实存在的山海世界，在神兽试炼与视觉奇观中，见证一场关于成长、勇气与自我承担的冒险。",
+      "en": "Based on Shan Hai Jing, this puppet fantasy fuses giant puppets, machinery, projection, lighting and contemporary stage language into an Eastern aesthetic with modern emotional depth. A boy, Lianye, and the AI companion Suyi enter a living myth-world — through trials of sacred beasts and visual spectacle, a story of growth, courage and responsibility unfolds."
+    },
+    "hiH": {
+      "zh": "核心亮点",
+      "en": "Highlights"
+    },
+    "hi1": {
+      "zh": "巨偶视觉奇观 — 6米高×10米宽巨偶登场，形成强烈的舞台震撼",
+      "en": "Giant puppet spectacle — 6m high × 10m wide puppet debuts, creating strong stage impact"
+    },
+    "hi2": {
+      "zh": "神兽宇宙 — 毕方、九尾狐、精卫、应龙等山海神兽共同构成奇幻世界",
+      "en": "Mythical creature universe — Bi Fang, Nine-tailed Fox, Jingwei, Ying Long and other Shan Hai creatures form a fantastical world"
+    },
+    "hi3": {
+      "zh": "成长主题 — 以\"勇气与不逃避\"为核心，完成少年成长叙事",
+      "en": "Growth theme — centered on 'courage and not fleeing', completing a coming-of-age narrative"
+    },
+    "hi4": {
+      "zh": "多媒体融合 — 投影、LED、灯光联动，打造山海世界的视觉层次",
+      "en": "Multimedia fusion — projection, LED, lighting coordination, creating visual layers of the Shan Hai world"
+    },
+    "infoH": {
+      "zh": "演出信息",
+      "en": "Show info"
+    },
+    "infDur": {
+      "zh": "演出时长",
+      "en": "Duration"
+    },
+    "infDurV": {
+      "zh": "120 分钟",
+      "en": "120 min"
+    },
+    "infCap": {
+      "zh": "单场容量",
+      "en": "Capacity"
+    },
+    "infCapV": {
+      "zh": "150 人",
+      "en": "150"
+    },
+    "infYear": {
+      "zh": "首演年份",
+      "en": "Premiere"
+    },
+    "infVenue": {
+      "zh": "首演场地",
+      "en": "Venue"
+    },
+    "infVenueV": {
+      "zh": "扬州运河大剧院",
+      "en": "Yangzhou Grand Canal Theatre"
+    },
+    "galH": {
+      "zh": "视觉资料",
+      "en": "Gallery"
+    },
+    "galNote": {
+      "zh": "高清剧照、巨偶全景与空间对比图待资料包补齐后替换。当前为项目气质示意。",
+      "en": "High-res stills and puppet master shots to follow when assets arrive — placeholder imagery for now."
+    },
+    "sideH": {
+      "zh": "合作咨询",
+      "en": "Collaboration"
+    },
+    "sideP": {
+      "zh": "城市巡演引进或定制化驻场版本，含巨偶运输、技术团队与本地协作。",
+      "en": "Touring or bespoke residency — puppet logistics, tech team and local collaboration."
+    },
+    "sideLink": {
+      "zh": "了解引进与驻场 →",
+      "en": "Touring & residency →"
+    },
+    "footBack": {
+      "zh": "返回作品列表",
+      "en": "Back to works"
+    },
+    "footCopy": {
+      "zh": "© 2026 惊喜之夜",
+      "en": "© 2026 Surprise Night"
+    },
+    "storyH": {
+      "zh": "故事背景",
+      "en": "Story background"
+    },
+    "storyP1": {
+      "zh": "《山海经》是中国古代重要的神话典籍，记录了众多神兽、异境与上古想象，是中国文化中极具代表性的奇幻母题。",
+      "en": "Shan Hai Jing is an important ancient Chinese mythological text recording numerous mythical creatures, strange realms and ancient imagination — a highly representative fantasy motif in Chinese culture."
+    },
+    "storyP2": {
+      "zh": "本剧在此基础上并非简单复述精卫等古老故事，而是以未来时代（2080）「AI 陪伴」的设定切入：少年连夜与 AI 素夷意外进入真实存在的山海世界，在四大神兽的试炼中不断前行，最终揭开「巨灵」与「饕餮 / 共工」的骗局，并在女娲力量唤醒下完成补天与自我成长。",
+      "en": "Rather than simply retelling Jingwei and other ancient tales, the story opens in 2080 with an 'AI companion' premise: Lianye and Suyi enter a real Shan Hai realm, face four sacred beasts, expose the schemes of the Colossus, Taotie and Gonggong, and complete both the mending of heaven and a journey of self under Nüwa's awakening power."
+    },
+    "storyP3": {
+      "zh": "本剧将中国上古神话与当代成长叙事结合，让观众在剧场中感受山海世界的奇观、危险与诗意。",
+      "en": "Ancient Chinese myth meets a contemporary coming-of-age arc — wonder, peril and poetry of the Shan Hai world, felt in the theatre."
+    },
+    "relatedH": {
+      "zh": "相关项目",
+      "en": "Related works"
+    },
+    "related1": {
+      "zh": "沉浸新中式湘剧《聂小倩》→",
+      "en": "Immersive Xiang Opera 'Nie Xiaoqian' →"
+    },
+    "related2": {
+      "zh": "终极骗局 3.0 →",
+      "en": "The Ultimate Con 3.0 →"
+    },
+    "audienceH": {
+      "zh": "适合观众",
+      "en": "Audience"
+    },
+    "audience1": {
+      "zh": "亲子家庭与合家欢观众",
+      "en": "Families and all-age audiences"
+    },
+    "audience2": {
+      "zh": "喜欢中国神话与《山海经》题材的观众",
+      "en": "Lovers of Chinese myth and Shan Hai Jing"
+    },
+    "audience3": {
+      "zh": "对巨偶、神兽、冒险、奇幻舞台感兴趣的青少年观众",
+      "en": "Young audiences drawn to colossal puppets, beasts and fantasy staging"
+    },
+    "audience4": {
+      "zh": "对木偶艺术、多媒体舞台与非遗融合感兴趣的艺术观众",
+      "en": "Arts audiences interested in puppetry, multimedia and heritage fusion"
+    },
+    "conceptH": {
+      "zh": "创作理念",
+      "en": "Creative concept"
+    },
+    "puppetH": {
+      "zh": "关于巨偶",
+      "en": "The colossus"
+    },
+    "spaceH": {
+      "zh": "空间设计",
+      "en": "Stage & space"
+    },
+    "tipsH": {
+      "zh": "观演提示",
+      "en": "Tips"
+    },
+    "videoBtn": {
+      "zh": "▶ 点击观看宣传片",
+      "en": "▶ Watch trailer"
+    },
+    "videoYoutubeBtn": {
+      "zh": "YouTube 播放",
+      "en": "Watch on YouTube"
+    },
+    "videoBilibiliBtn": {
+      "zh": "哔哩哔哩播放",
+      "en": "Watch on Bilibili"
+    },
+    "introP2": {
+      "zh": "观众不再只是看一个传统意义上的儿童木偶剧，而是进入一场适合大剧场呈现的\"视觉奇观级\"山海冒险。孩子可以看到神兽、巨偶、战斗、冒险与反转；家长可以看到关于\"恐惧、欲望、执念、力量\"的成长寓言。在这个世界里，山海神兽不只是神话形象，更是人物内在心理的试炼与映照。",
+      "en": "Audiences no longer simply watch a traditional children's puppet show, but enter a 'spectacle-level' Shan Hai adventure suitable for large theatre presentation. Children see mythical creatures, giant puppets, battles, adventures and reversals; parents see growth fables about 'fear, desire, obsession and power'. In this world, Shan Hai mythical creatures are not just mythological images, but trials and reflections of characters' inner psychology."
+    },
+    "conceptP1": {
+      "zh": "本项目源于惊喜之夜对中国神话当代表达的持续思考：如何让《山海经》从古籍中的想象，转化为当代观众能够真正共鸣的舞台体验？如何让孩子看到神兽与冒险，也让成年人读到成长、回家与自我和解？",
+      "en": "This project stems from Surprise Night's ongoing reflection on contemporary expression of Chinese mythology: how to transform Shan Hai Jing from ancient text imagination into a stage experience that contemporary audiences can truly resonate with? How to let children see mythical creatures and adventures, while letting adults read about growth, returning home and self-reconciliation?"
+    },
+    "conceptP2": {
+      "zh": "我们选择巨型木偶与多媒体融合作为核心表现手段。一方面，木偶天然具有\"非人\"的特质，适合承载山海神兽、巨灵等超现实形象；另一方面，偶师与机械装置共同赋予其动态生命，让神话不再只是被讲述，而是在舞台上被真正唤醒。",
+      "en": "We choose giant puppets combined with multimedia as the core expressive means. On one hand, puppets naturally possess 'non-human' qualities, suitable for carrying surreal images like Shan Hai mythical creatures and giant spirits; on the other hand, puppeteers and mechanical installations together give them dynamic life, making mythology no longer just told, but truly awakened on stage."
+    },
+    "puppetP1": {
+      "zh": "本剧的核心亮点之一，是高达 6 米、宽达 10 米的「巨灵」巨偶。它并非静态布景，而是整部作品最具标志性的视觉奇观之一。",
+      "en": "A centrepiece is the Colossus puppet — 6 metres tall and 10 metres wide. It is not static scenery but one of the production's most iconic spectacles."
+    },
+    "puppetP2": {
+      "zh": "巨偶在舞台上所形成的压迫感、体量感与动态表现，使其成为演出最重要的视觉记忆点。配合现代机械结构、偶师操控与整体舞台调度，巨偶不只是「巨大」，更真正具备了舞台生命力。",
+      "en": "Its scale, presence and motion make it the show's strongest visual anchor. Modern mechanics, puppeteers and staging give it not only size but real theatrical life."
+    },
+    "spaceP1": {
+      "zh": "本剧采用传统镜框舞台演出形态，适配 1000 人以上大剧场空间，并通过多媒体融合（投影 / LED / 灯光联动）构建完整的山海舞台世界。",
+      "en": "Designed for traditional proscenium houses of 1,000 seats or more, projection, LED and lighting build a complete Shan Hai world on stage."
+    },
+    "tips1": {
+      "zh": "演出全程约 120 分钟，请合理安排时间。",
+      "en": "The performance runs approximately 120 minutes — please plan accordingly."
+    },
+    "tips2": {
+      "zh": "本剧为镜框式剧场演出，请按剧场指引有序入场与就座。",
+      "en": "Proscenium theatre presentation — please follow venue guidance for entry and seating."
+    },
+    "conceptP3": {
+      "zh": "在整体舞台语言上，本剧强调东方神话视觉、现代舞台技术与情感叙事的统一，让观众在宏大的奇观中，感受到一个关于勇气与不逃避的成长故事。",
+      "en": "In terms of overall stage language, this production emphasizes the unity of Eastern mythological visuals, modern stage technology and emotional narrative, allowing audiences to feel a growth story about courage and not fleeing within a grand spectacle."
+    },
+    "puppetP3": {
+      "zh": "在终幕对抗与高潮段落中，巨偶的登场将带来极强的视觉冲击，也成为该剧在宣传与传播中最具辨识度的核心画面之一。",
+      "en": "In the final battle and climax scenes, the appearance of giant puppets brings extremely strong visual impact, becoming one of the most recognizable core images of the production in promotion and dissemination."
+    },
+    "spaceP2": {
+      "zh": "舞台并不依赖单一写实场景，而是通过神话化、奇观化的舞台视觉，在有限的镜框空间中完成多重空间转换。观众将看到山海异境、神兽试炼、终幕对抗等多个层层推进的舞台场面。",
+      "en": "Rather than one literal set, mythic and spectacular visuals transform the proscenium through layered spaces — strange realms, beast trials and a climactic final confrontation."
+    },
+    "spaceP3": {
+      "zh": "整体设计强调\"视觉奇观级\"呈现：既有适合青少年观众的明确叙事与冒险推进，也有适合大剧场传播的仪式感高潮与史诗性场面。",
+      "en": "The design aims at 'spectacle-level' theatre: clear narrative and adventure for younger viewers, plus ritual climax and epic scale suited to major houses and touring."
+    },
+    "infYearV": {
+      "zh": "2026",
+      "en": "2026"
+    },
+    "infPartner": {
+      "zh": "演出单位",
+      "en": "Presented by"
+    },
+    "infPartnerV": {
+      "zh": "江苏省木偶剧团、扬州市木偶研究所",
+      "en": "Jiangsu Provincial Puppet Troupe, Yangzhou Puppet Research Institute"
+    },
+    "infAge": {
+      "zh": "适合年龄",
+      "en": "Age"
+    },
+    "infAgeV": {
+      "zh": "4岁以上",
+      "en": "Ages 4+"
+    },
+    "tips3": {
+      "zh": "演出中包含强光、烟雾及多媒体舞台效果，请提前知悉",
+      "en": "The performance includes intense lighting, smoke and multimedia stage effects, please be aware in advance"
+    },
+    "tips4": {
+      "zh": "请保持手机静音，不要使用闪光灯拍照",
+      "en": "Please keep phone on silent and do not use flash photography"
+    },
+    "tips5": {
+      "zh": "建议提前到场，以便顺利完成检票与入场",
+      "en": "Arrive early to complete ticket checking and entry smoothly"
+    },
+    "hi6": {
+      "zh": "机械装置 — 结合现代结构与传动设计，让巨偶与神兽拥有细腻动态",
+      "en": "Mechanical installation — combining modern structure and transmission design for delicate movements"
+    },
+    "hi7": {
+      "zh": "国际音乐设计 — 特邀 Sid Peacock 参与音乐设计，强化神话史诗感",
+      "en": "International music design — featuring Sid Peacock to enhance mythic epic quality"
+    },
+    "hi8": {
+      "zh": "合家欢属性 — 兼具儿童冒险观看乐趣与成人情感共鸣，适合亲子及家庭观众",
+      "en": "Family-friendly — combining children's adventure viewing pleasure with adult emotional resonance"
+    },
+    "hi5": {
+      "zh": "非遗传承 — 由 Jiangsu Provincial Puppet Troupe（江苏省木偶剧团）、扬州市木偶研究所参与保障与呈现",
+      "en": "Intangible heritage — presented with Jiangsu Provincial Puppet Troupe and Yangzhou Puppet Research Institute"
+    },
+    "subNavOverview": {
+      "zh": "概览",
+      "en": "Overview"
+    },
+    "subNavStory": {
+      "zh": "故事",
+      "en": "Story"
+    },
+    "subNavStage": {
+      "zh": "舞台",
+      "en": "Stage"
+    },
+    "subNavGallery": {
+      "zh": "图集",
+      "en": "Gallery"
+    },
+    "subNavVisit": {
+      "zh": "观演",
+      "en": "Visit"
+    },
+    "backToShanhaiHub": {
+      "zh": "← 返回《山海经·巨灵之梦》概览",
+      "en": "← Back to Shan Hai Jing hub"
+    },
+    "hubTeaser": {
+      "zh": "以下分区将叙事、舞台制作与观演信息拆开呈现——先看图，再按需深入阅读。",
+      "en": "Narrative, craft and visitor info live on separate pages — scroll the imagery first, then go deeper where you care."
+    },
+    "showpieceMoreStory": {
+      "zh": "完整故事与创作理念 →",
+      "en": "Full story & concept →"
+    },
+    "showpieceMoreGallery": {
+      "zh": "进入现场图集 →",
+      "en": "Enter production gallery →"
+    },
+    "cinematicCaption1": {
+      "zh": "现场剧照 · 光与体量",
+      "en": "Production still — light & scale"
+    },
+    "exploreCardKicker": {
+      "zh": "深入了解",
+      "en": "Explore"
+    },
+    "exploreStoryTitle": {
+      "zh": "故事与世界观",
+      "en": "Story & world"
+    },
+    "exploreStoryDesc": {
+      "zh": "典籍母题、当代叙事与少年试炼。",
+      "en": "Classic text, contemporary arc, trials of youth."
+    },
+    "exploreStageTitle": {
+      "zh": "舞台与巨偶",
+      "en": "Stage & colossus"
+    },
+    "exploreStageDesc": {
+      "zh": "尺度、机械、多媒体与非遗同台。",
+      "en": "Scale, machinery, media and heritage craft."
+    },
+    "exploreGalleryTitle": {
+      "zh": "现场图集",
+      "en": "Gallery"
+    },
+    "exploreGalleryDesc": {
+      "zh": "全幅剧照横向浏览，可点击放大。",
+      "en": "Full-bleed stills — tap to enlarge."
+    },
+    "exploreVisitTitle": {
+      "zh": "演出与观演",
+      "en": "Show & visit"
+    },
+    "exploreVisitDesc": {
+      "zh": "时长、场地、受众与入场提示。",
+      "en": "Runtime, venue, audience and house rules."
+    },
+    "filmstripHeading": {
+      "zh": "更多现场画面",
+      "en": "More production frames"
+    },
+    "highlightsTeaserH": {
+      "zh": "核心亮点",
+      "en": "Highlights"
+    },
+    "highlightsTeaserLink": {
+      "zh": "查看舞台、巨偶与技术细节 →",
+      "en": "Stage, puppet & tech details →"
+    },
+    "hiTeaser1": {
+      "zh": "巨偶奇观 — 6×10 米巨灵，终幕视觉记忆点。",
+      "en": "Colossus — 6×10 m puppet, iconic climax."
+    },
+    "hiTeaser2": {
+      "zh": "神兽宇宙 — 毕方、九尾、精卫、应龙同台。",
+      "en": "Sacred beasts — Bi Fang, nine-tail fox, Jingwei, Ying Long."
+    },
+    "hiTeaser3": {
+      "zh": "成长内核 — 勇气与不逃避，亲子与成人共鸣。",
+      "en": "Growth — courage without fleeing; all ages."
+    },
+    "hiTeaser4": {
+      "zh": "声场设计 — Sid Peacock 音乐，神话史诗感。",
+      "en": "Score — Sid Peacock, mythic epic tone."
+    },
+    "visitTeaserH": {
+      "zh": "演出与观演",
+      "en": "Show & visit"
+    },
+    "visitTeaserLink": {
+      "zh": "完整信息、适龄与观演提示 →",
+      "en": "Full details, age guide & tips →"
+    },
+    "ctaBarCopy": {
+      "zh": "城市巡演、驻场版本与巨偶物流 — 欢迎洽谈合作。",
+      "en": "Touring, residencies and colossus logistics — let's talk."
+    },
+    "ctaBarBtn": {
+      "zh": "联系巡演驻场",
+      "en": "Contact touring team"
+    },
+    "storyPageMetaTitle": {
+      "zh": "故事与世界观 — 山海经·巨灵之梦",
+      "en": "Story & World — Shan Hai Jing: Dream of the Colossus"
+    },
+    "storyPageMetaDesc": {
+      "zh": "《山海经》母题、2080 AI 线与少年冒险叙事。",
+      "en": "Shan Hai Jing roots, 2080 AI thread and the hero's journey."
+    },
+    "storyPageH1": {
+      "zh": "故事与世界观",
+      "en": "Story & world"
+    },
+    "storyPageDek": {
+      "zh": "从典籍到剧场：神话现场与当代表达。",
+      "en": "From ancient text to stage — myth made present."
+    },
+    "stagePageMetaTitle": {
+      "zh": "舞台与巨偶 — 山海经·巨灵之梦",
+      "en": "Stage & Colossus — Shan Hai Jing: Dream of the Colossus"
+    },
+    "stagePageMetaDesc": {
+      "zh": "核心亮点、巨灵巨偶与镜框大剧场空间设计。",
+      "en": "Highlights, the colossus puppet and proscenium design."
+    },
+    "stagePageH1": {
+      "zh": "舞台与巨偶",
+      "en": "Stage & colossus"
+    },
+    "stagePageDek": {
+      "zh": "视觉奇观、机械与多媒体如何托起山海世界。",
+      "en": "How spectacle, machinery and media hold up the myth-world."
+    },
+    "galleryPageMetaTitle": {
+      "zh": "现场图集 — 山海经·巨灵之梦",
+      "en": "Gallery — Shan Hai Jing: Dream of the Colossus"
+    },
+    "galleryPageMetaDesc": {
+      "zh": "剧场剧照全览、宣传片与高清画面。",
+      "en": "Production stills, trailer and key visuals."
+    },
+    "galleryPageH1": {
+      "zh": "现场图集",
+      "en": "Production gallery"
+    },
+    "galleryPageDek": {
+      "zh": "横向滑动浏览；点击画面可全屏查看。",
+      "en": "Scroll horizontally; tap any image for full screen."
+    },
+    "visitPageMetaTitle": {
+      "zh": "演出与观演 — 山海经·巨灵之梦",
+      "en": "Show & Visit — Shan Hai Jing: Dream of the Colossus"
+    },
+    "visitPageMetaDesc": {
+      "zh": "演出时长、场地、受众与观演提示。",
+      "en": "Runtime, venue, audience and house tips."
+    },
+    "visitPageH1": {
+      "zh": "演出与观演",
+      "en": "Show & visit"
+    },
+    "visitPageDek": {
+      "zh": "行前必读：容量、适龄与现场效果说明。",
+      "en": "Before you go — capacity, ages and effects."
+    }
+  },
+  "projectMath": {
+    "metaTitle": {
+      "zh": "数学秀 — 惊喜之夜",
+      "en": "Math Show — Surprise Night"
+    },
+    "metaDesc": {
+      "zh": "数学与沉浸戏剧的跨界实验。往期回顾，暂不开放巡演。",
+      "en": "Math meets immersive theatre — archive; not currently touring."
+    },
+    "back": {
+      "zh": "← 返回作品",
+      "en": "← Works"
+    },
+    "tag1": {
+      "zh": "往期回顾",
+      "en": "Archive"
+    },
+    "tag2": {
+      "zh": "体验式演出",
+      "en": "Experiential"
+    },
+    "h1": {
+      "zh": "数学秀",
+      "en": "Math Show"
+    },
+    "tagline": {
+      "zh": "用沉浸语言诠释数学概念——几何、光影与身体共同构成的可行走公式。",
+      "en": "Mathematical ideas through immersion — geometry, light and bodies as a walkable equation."
+    },
+    "introH": {
+      "zh": "项目简介",
+      "en": "Introduction"
+    },
+    "introP": {
+      "zh": "《数学秀》是惊喜之夜与深圳剧市好看科技有限公司合作的创新项目，尝试用沉浸式戏剧的语言诠释数学概念。观众将进入由几何图形构建的空间，亲身体验数学公式如何转化为建筑、光影与运动轨迹。",
+      "en": "Math Show is an innovative project by Surprise Night in collaboration with Shenzhen Jushi Haokan Technology Co., Ltd., attempting to interpret mathematical concepts through immersive theatre language. Audiences enter spaces constructed by geometric shapes, experiencing firsthand how mathematical formulas transform into architecture, light and motion trajectories."
+    },
+    "noteH": {
+      "zh": "项目状态",
+      "en": "Status"
+    },
+    "noteP": {
+      "zh": "本项目为往期实验性作品，目前暂未开放巡演；正在升级中合作模式仍可供参考洽谈。",
+      "en": "This is a past experimental project, currently not open for touring; collaboration models are still available for reference and discussion during upgrades."
+    },
+    "hiH": {
+      "zh": "核心概念",
+      "en": "Concepts"
+    },
+    "hi1": {
+      "zh": "几何空间：以柏拉图立体构建可行走的数学建筑",
+      "en": "Platonic solids as architecture you walk through"
+    },
+    "hi2": {
+      "zh": "光影演绎：用投影呈现数学公式的美感",
+      "en": "Projection renders the beauty of formulae"
+    },
+    "hi3": {
+      "zh": "身体数学：观众动作实时生成几何图形",
+      "en": "Audience movement generates live geometry"
+    },
+    "hi4": {
+      "zh": "教育跨界：数学教育与艺术表达的实验性融合",
+      "en": "Experimental bridge between STEM and art"
+    },
+    "infoH": {
+      "zh": "演出信息（历史）",
+      "en": "Historical info"
+    },
+    "infDur": {
+      "zh": "演出时长",
+      "en": "Duration"
+    },
+    "infDurV": {
+      "zh": "80 分钟",
+      "en": "80 min"
+    },
+    "infCap": {
+      "zh": "单场容量",
+      "en": "Capacity"
+    },
+    "infCapV": {
+      "zh": "1000 人",
+      "en": "1000"
+    },
+    "infYear": {
+      "zh": "首演年份",
+      "en": "Premiere"
+    },
+    "infYearV": {
+      "zh": "2025",
+      "en": "2025"
+    },
+    "galH": {
+      "zh": "视觉资料",
+      "en": "Gallery"
+    },
+    "galNote": {
+      "zh": "官方剧照与空间效果图待资料包统一提供；当前图为气质示意。",
+      "en": "Official stills pending — placeholder visuals for tone only."
+    },
+    "sideH": {
+      "zh": "合作参考",
+      "en": "Reference"
+    },
+    "sideP": {
+      "zh": "若关注教育跨界、轻量沉浸体验设计，欢迎通过联系表单说明场景与对象。",
+      "en": "For education-led or lightweight immersive formats, tell us your context via the form."
+    },
+    "sideLink": {
+      "zh": "联系团队 →",
+      "en": "Contact →"
+    },
+    "footBack": {
+      "zh": "返回作品列表",
+      "en": "Back to works"
+    },
+    "footCopy": {
+      "zh": "© 2026 惊喜之夜",
+      "en": "© 2026 Surprise Night"
+    },
+    "infAge": {
+      "zh": "适合年龄",
+      "en": "Age"
+    },
+    "infAgeV": {
+      "zh": "7 岁以上",
+      "en": "Ages 7+"
+    },
+    "videoBtn": {
+      "zh": "▶ 点击观看宣传片",
+      "en": "▶ Watch trailer"
+    }
+  },
+  "projectNie": {
+    "metaTitle": {
+      "zh": "聂小倩 — 惊喜之夜",
+      "en": "Nie Xiaoqian — Surprise Night"
+    },
+    "metaDesc": {
+      "zh": "沉浸新中式湘剧《聂小倩》。聊斋故事、兰若寺空间与湘剧唱腔。",
+      "en": "Neo-Chinese Xiang opera — Liaozhai, Lanruo Temple, immersive space."
+    },
+    "back": {
+      "zh": "← 返回作品",
+      "en": "← Works"
+    },
+    "tag1": {
+      "zh": "即将上映",
+      "en": "Coming soon"
+    },
+    "tag2": {
+      "zh": "新中式戏曲",
+      "en": "Neo-Chinese opera"
+    },
+    "h1": {
+      "zh": "沉浸新中式湘剧《聂小倩》",
+      "en": "Nie Xiaoqian — immersive Xiang opera"
+    },
+    "tagline": {
+      "zh": "不是把戏曲搬进小剧场，而是让观众走进戏曲的世界。",
+      "en": "Not opera in a small room — audiences walk into the world of opera."
+    },
+    "introH": {
+      "zh": "项目简介",
+      "en": "Introduction"
+    },
+    "introP": {
+      "zh": "取材自《聊斋志异》，保留湘剧唱腔与表演精髓，引入沉浸式空间叙事与观众互动。观众将进入「兰若寺」的构建空间，在故事现场自由穿行，成为这段人鬼情缘的见证者或参与者。",
+      "en": "From Liaozhai — Xiang opera singing and essence, plus immersive space and interaction. The theatre becomes Lanruo Temple; you move through the tale."
+    },
+    "quote": {
+      "zh": "不是把戏曲搬进小剧场，而是让观众走进戏曲的世界。",
+      "en": "Not moving opera into a small theatre, but bringing audiences into the world of opera."
+    },
+    "hiH": {
+      "zh": "艺术特色",
+      "en": "Features"
+    },
+    "hi1": {
+      "zh": "湘剧唱腔：保留传统湘剧高腔特色",
+      "en": "Xiang opera vocal tradition preserved"
+    },
+    "hi2": {
+      "zh": "沉浸空间：剧场改造为兰若寺虚实场景",
+      "en": "Venue as Lanruo — real and imagined"
+    },
+    "hi3": {
+      "zh": "近距离观演：观众与演员最近不足一米",
+      "en": "Under a metre from the cast"
+    },
+    "hi4": {
+      "zh": "互动叙事：观众选择影响部分情节展开",
+      "en": "Audience choices branch parts of the plot"
+    },
+    "hi5": {
+      "zh": "东方美学：写意留白与当代空间设计融合",
+      "en": "Eastern negative space meets contemporary design"
+    },
+    "infoH": {
+      "zh": "演出信息",
+      "en": "Show info"
+    },
+    "infDur": {
+      "zh": "演出时长",
+      "en": "Duration"
+    },
+    "infDurV": {
+      "zh": "80 分钟",
+      "en": "80 min"
+    },
+    "infCap": {
+      "zh": "单场容量",
+      "en": "Capacity"
+    },
+    "infCapV": {
+      "zh": "300 人",
+      "en": "300"
+    },
+    "infYear": {
+      "zh": "首演年份",
+      "en": "Premiere"
+    },
+    "infYearV": {
+      "zh": "2024",
+      "en": "2024"
+    },
+    "infType": {
+      "zh": "戏曲类型",
+      "en": "Genre"
+    },
+    "infTypeV": {
+      "zh": "湘剧",
+      "en": "Xiang opera"
+    },
+    "galH": {
+      "zh": "视觉资料",
+      "en": "Gallery"
+    },
+    "galNote": {
+      "zh": "定妆照、剧照与兰若寺空间图待官方素材包发布后替换。",
+      "en": "Costume stills and Lanruo visuals to follow official release."
+    },
+    "sideH": {
+      "zh": "合作咨询",
+      "en": "Collaboration"
+    },
+    "sideP": {
+      "zh": "适合院团联合制作、文旅演艺与文化交流；欢迎说明合作类型与档期。",
+      "en": "Co-productions, tourism runs and exchange — state your format and dates."
+    },
+    "sideLink": {
+      "zh": "戏曲与创新合作 →",
+      "en": "Opera innovation →"
+    },
+    "footBack": {
+      "zh": "返回作品列表",
+      "en": "Back to works"
+    },
+    "footCopy": {
+      "zh": "© 2026 惊喜之夜",
+      "en": "© 2026 Surprise Night"
+    }
+  },
+  "projectUltimateCon": {
+    "metaTitle": {
+      "zh": "终极骗局 3.0 — 惊喜之夜",
+      "en": "The Ultimate Con 3.0 — Surprise Night"
+    },
+    "metaDesc": {
+      "zh": "一场关于信任与欺骗的沉浸式博弈。你不仅是观众，更是玩家。",
+      "en": "An immersive game of trust and deception. You're not just the audience, but also the player."
+    },
+    "h1": {
+      "zh": "终极骗局 3.0",
+      "en": "The Ultimate Con 3.0"
+    },
+    "tag1": {
+      "zh": "正在上演",
+      "en": "Now playing"
+    },
+    "tag2": {
+      "zh": "沉浸式戏剧",
+      "en": "Immersive theatre"
+    },
+    "tagline": {
+      "zh": "一场关于信任与欺骗的沉浸式博弈。你不仅是观众，更是玩家。",
+      "en": "An immersive game of trust and deception. You're not just the audience, but also the player."
+    },
+    "back": {
+      "zh": "← 返回作品",
+      "en": "← Back to works"
+    },
+    "introH": {
+      "zh": "项目简介",
+      "en": "Introduction"
+    },
+    "introP": {
+      "zh": "《终极骗局》是惊喜之夜的旗舰沉浸式互动游戏戏剧，将观众带入一场虚实交错的社交实验。在精心设计的场域中，每位观众化身为玩家，通过博弈、推理与互动推动剧情发展。作品以互动叙事为核心，让每一次选择都可能改变结局的走向，打破传统观演关系，让对话与行动成为剧情的一部分。",
+      "en": "The Ultimate Con is Surprise Night's flagship immersive interactive game theatre, bringing audiences into a social experiment that blurs the line between reality and fiction. In a meticulously designed space, every audience member becomes a player, driving the narrative forward through games, reasoning and interaction. With interactive storytelling at its core, every choice can alter the ending, breaking traditional performer-audience relationships and making dialogue and action integral to the story."
+    },
+    "hiH": {
+      "zh": "演出亮点",
+      "en": "Highlights"
+    },
+    "hi1": {
+      "zh": "沉浸式互动",
+      "en": "Immersive interaction"
+    },
+    "hi2": {
+      "zh": "多重结局",
+      "en": "Multiple endings"
+    },
+    "hi3": {
+      "zh": "社交博弈",
+      "en": "Social game"
+    },
+    "hi4": {
+      "zh": "推理探索",
+      "en": "Reasoning exploration"
+    },
+    "hi5": {
+      "zh": "角色扮演",
+      "en": "Role playing"
+    },
+    "infoH": {
+      "zh": "演出信息",
+      "en": "Performance info"
+    },
+    "infCap": {
+      "zh": "单场容量",
+      "en": "Capacity"
+    },
+    "infCapV": {
+      "zh": "135 人",
+      "en": "135"
+    },
+    "infDur": {
+      "zh": "演出时长",
+      "en": "Duration"
+    },
+    "infDurV": {
+      "zh": "约 150 分钟",
+      "en": "Approx. 150 min"
+    },
+    "infCities": {
+      "zh": "演出城市",
+      "en": "Cities"
+    },
+    "infCitiesV": {
+      "zh": "长沙、青岛、南昌、重庆等",
+      "en": "Changsha, Qingdao, Nanchang, Chongqing, etc."
+    },
+    "sideH": {
+      "zh": "合作咨询",
+      "en": "Collaboration"
+    },
+    "sideP": {
+      "zh": "若你希望将本剧引入所在城市，或探讨驻演、定制与品牌合作，欢迎与我们联系，说明城市、档期与场地类型。",
+      "en": "If you'd like to bring this production to your city, or discuss residencies, customization and brand partnerships, please contact us with your city, schedule and venue type."
+    },
+    "sideLink": {
+      "zh": "了解合作方式 →",
+      "en": "Learn about collaboration →"
+    },
+    "galH": {
+      "zh": "视觉资料",
+      "en": "Gallery"
+    },
+    "footBack": {
+      "zh": "返回作品列表",
+      "en": "Back to works"
+    },
+    "footCopy": {
+      "zh": "© 2026 惊喜之夜",
+      "en": "© 2026 Surprise Night"
+    },
+    "introP2": {
+      "zh": "自首演以来，《终极骗局》已完成 3.0 版本迭代，在长沙、青岛、南昌、重庆等多个城市落地演出，累计演出超过 500 场，观众反响热烈。每场演出可容纳 135 位玩家，演出时长约 150 分钟，是一场关于信任与欺骗的深度博弈。",
+      "en": "Since its premiere, 'The Ultimate Con' has completed version 3.0 iteration, performed in multiple cities including Changsha, Qingdao, Nanchang, and Chongqing, with over 500 cumulative performances and enthusiastic audience responses. Each show can accommodate 135 players, approximately 150 minutes long, a deep game about trust and deception."
+    },
+    "infYear": {
+      "zh": "首演年份",
+      "en": "Premiere"
+    },
+    "infYearV": {
+      "zh": "2021",
+      "en": "2021"
+    },
+    "infShows": {
+      "zh": "累计演出",
+      "en": "Total shows"
+    },
+    "infShowsV": {
+      "zh": "500+",
+      "en": "500+"
+    },
+    "infVenue": {
+      "zh": "首演场地",
+      "en": "Premiere venue"
+    },
+    "infVenueV": {
+      "zh": "长沙",
+      "en": "Changsha"
+    },
+    "reviewH": {
+      "zh": "媒体评价",
+      "en": "Press"
+    },
+    "review1": {
+      "zh": "不一样的沉浸式体验，值得 N 刷！",
+      "en": "A unique immersive experience, worth watching N times!"
+    },
+    "review2": {
+      "zh": "一场打破第四面墙的沉浸式博弈体验。",
+      "en": "An immersive game experience that breaks the fourth wall."
+    },
+    "review3": {
+      "zh": "惊喜之夜最具代表性的互动戏剧作品。",
+      "en": "The most iconic interactive theatre work of Surprise Night."
+    },
+    "videoLabel": {
+      "zh": "点击观看预告片",
+      "en": "Click to watch trailer"
+    },
+    "mediaPlaceholder": {
+      "zh": "媒体评价视频待补",
+      "en": "Press videos pending"
+    }
+  },
+  "projectSurvivor": {
+    "metaTitle": {
+      "zh": "生存游戏 — 惊喜之夜",
+      "en": "THE SURVIVOR — Surprise Night"
+    },
+    "metaDesc": {
+      "zh": "想尽一切办法活下去——超感体验未来世界，多版本结局由你决定。",
+      "en": "Survive at all costs — experience the future world with multiple endings decided by you."
+    },
+    "h1": {
+      "zh": "生存游戏",
+      "en": "THE SURVIVOR"
+    },
+    "tag1": {
+      "zh": "往期回顾",
+      "en": "Past"
+    },
+    "tag2": {
+      "zh": "沉浸式互动游戏戏剧",
+      "en": "Immersive game theatre"
+    },
+    "tagline": {
+      "zh": "Mission：想尽一切办法活下去……超感体验未来世界；智能 AI 对决复杂人性；多版本结局由你决定。",
+      "en": "Mission: Survive at all costs... Experience the future world; AI confronts complex human nature; Multiple endings decided by you."
+    },
+    "back": {
+      "zh": "← 返回作品",
+      "en": "← Back to works"
+    },
+    "introH": {
+      "zh": "项目简介",
+      "en": "Introduction"
+    },
+    "introP": {
+      "zh": "《生存游戏》是重庆演出股份有限公司委托惊喜之夜打造的一部沉浸式互动游戏戏剧，将观众带入一个设定在未来世界的生存挑战中。观众不再是旁观者，而是参与者，需要在规则与伦理的张力中做出选择，体验智能 AI 对决复杂人性的深度博弈。每一个决定都可能改变故事走向，最终导向不同的结局。",
+      "en": "THE SURVIVOR is an immersive interactive game theatre commissioned by Chongqing Performance Co., Ltd. and created by Surprise Night, bringing audiences into a survival challenge set in a future world. Audiences are no longer spectators but participants who must make choices within the tension of rules and ethics, experiencing the deep game where AI confronts complex human nature. Every decision can change the story's direction, leading to different endings."
+    },
+    "storyH": {
+      "zh": "故事背景",
+      "en": "Story background"
+    },
+    "storyP": {
+      "zh": "作品于 2023 年 12 月在重演浸空间（金源店）完成首轮驻演，获得观众热烈反响。该剧适合作为「现成项目引进」与驻场合作的参考案例，可根据不同场地条件进行灵活调整。",
+      "en": "The production completed its first residency at Chongyan Immersive Space (Jinyuan Branch) in December 2023, receiving enthusiastic audience response. This show serves as a reference case for 'ready-made production imports' and residency collaborations, with flexible adaptation to different venue conditions."
+    },
+    "hiH": {
+      "zh": "演出亮点",
+      "en": "Highlights"
+    },
+    "hi1": {
+      "zh": "未来世界观",
+      "en": "Future world setting"
+    },
+    "hi2": {
+      "zh": "AI 对决",
+      "en": "AI confrontation"
+    },
+    "hi3": {
+      "zh": "多版本结局",
+      "en": "Multiple endings"
+    },
+    "hi4": {
+      "zh": "伦理抉择",
+      "en": "Ethical choices"
+    },
+    "hi5": {
+      "zh": "沉浸式体验",
+      "en": "Immersive experience"
+    },
+    "infoH": {
+      "zh": "演出信息",
+      "en": "Performance info"
+    },
+    "infCap": {
+      "zh": "单场容量",
+      "en": "Capacity"
+    },
+    "infCapV": {
+      "zh": "300 人",
+      "en": "300"
+    },
+    "infDur": {
+      "zh": "演出时长",
+      "en": "Duration"
+    },
+    "infDurV": {
+      "zh": "120 分钟",
+      "en": "120 min"
+    },
+    "infCreator": {
+      "zh": "编剧 / 导演",
+      "en": "Playwright / Director"
+    },
+    "infCreatorV": {
+      "zh": "瞿菡、袁冶 / 袁冶",
+      "en": "Qu Han, Yuan Ye / Yuan Ye"
+    },
+    "sideH": {
+      "zh": "合作咨询",
+      "en": "Collaboration"
+    },
+    "sideP": {
+      "zh": "若希望引进类似形态项目或联合驻演，请说明城市、档期与场地条件。",
+      "en": "If you'd like to import similar productions or collaborate on residencies, please specify city, schedule and venue conditions."
+    },
+    "sideLink": {
+      "zh": "了解引进与合作 →",
+      "en": "Learn about import & collaboration →"
+    },
+    "galH": {
+      "zh": "视觉资料",
+      "en": "Gallery"
+    },
+    "footBack": {
+      "zh": "返回作品列表",
+      "en": "Back to works"
+    },
+    "footCopy": {
+      "zh": "© 2026 惊喜之夜",
+      "en": "© 2026 Surprise Night"
+    },
+    "infYear": {
+      "zh": "首演年份",
+      "en": "Premiere"
+    },
+    "infYearV": {
+      "zh": "2023",
+      "en": "2023"
+    },
+    "infRun": {
+      "zh": "演出轮次",
+      "en": "Runs"
+    },
+    "infRunV": {
+      "zh": "首轮驻演",
+      "en": "First residency"
+    },
+    "infVenue": {
+      "zh": "演出场馆",
+      "en": "Venue"
+    },
+    "infVenueV": {
+      "zh": "重演浸空间（金源店）",
+      "en": "Chongyan Immersive Space (Jinyuan Branch)"
+    },
+    "reviewH": {
+      "zh": "观众评价",
+      "en": "Reviews"
+    },
+    "review1": {
+      "zh": "沉浸感很强，每个选择都让人纠结！",
+      "en": "Incredibly immersive, every choice is agonizing!"
+    },
+    "review2": {
+      "zh": "剧情设计巧妙，二刷依然有新鲜感。",
+      "en": "Clever plot design, still fresh on the second visit."
+    },
+    "review3": {
+      "zh": "演员演技在线，AI 互动环节很有创意。",
+      "en": "Solid acting, creative AI interaction segments."
+    }
+  },
+  "projectYaonan": {
+    "metaTitle": {
+      "zh": "妖男夜行录 — 惊喜之夜",
+      "en": "Night of the Demon — Surprise Night"
+    },
+    "metaDesc": {
+      "zh": "中式志怪新说——在东方神秘美学中探索人性的幽微之处。",
+      "en": "Chinese folklore reimagined — exploring the subtle depths of human nature through Eastern mystical aesthetics."
+    },
+    "h1": {
+      "zh": "妖男夜行录",
+      "en": "Night of the Demon"
+    },
+    "tag1": {
+      "zh": "正在开发",
+      "en": "In development"
+    },
+    "tag2": {
+      "zh": "沉浸式演艺",
+      "en": "Immersive performance"
+    },
+    "tagline": {
+      "zh": "中式志怪新说——在东方神秘美学中探索人性的幽微之处。",
+      "en": "Chinese folklore reimagined — exploring the subtle depths of human nature through Eastern mystical aesthetics."
+    },
+    "back": {
+      "zh": "← 返回作品",
+      "en": "← Back to works"
+    },
+    "introH": {
+      "zh": "项目简介",
+      "en": "Introduction"
+    },
+    "introP": {
+      "zh": "《妖男夜行录》是惊喜之夜正在开发的中式志怪题材沉浸式演艺项目。作品以中国古代志怪小说为灵感来源，将东方神秘美学与当代沉浸剧场语言相结合，构建一个亦真亦幻的魔幻世界。",
+      "en": "Night of the Demon is an immersive performance project in development by Surprise Night. Inspired by ancient Chinese folklore tales, it combines Eastern mystical aesthetics with contemporary immersive theatre language to construct a magical world that blurs reality and illusion."
+    },
+    "introP2": {
+      "zh": "观众将进入一个充满神秘色彩的夜间世界，与各种精怪角色相遇，在虚实交错的空间中探索人性的幽微之处。作品试图用当代视角重新诠释传统志怪文化，让古老的东方想象在沉浸式体验中获得新生。",
+      "en": "Audiences will enter a mysterious night world, encountering various spirit characters, exploring the subtle depths of human nature in a space where reality and illusion intertwine. The work attempts to reinterpret traditional folklore culture through a contemporary lens, giving ancient Eastern imagination new life through immersive experiences."
+    },
+    "audienceH": {
+      "zh": "观众体验",
+      "en": "Audience experience"
+    },
+    "audienceP": {
+      "zh": "观众将进入一个充满神秘色彩的夜间世界，与各种精怪角色相遇，在虚实交错的空间中探索人性的幽微之处。作品试图用当代视角重新诠释传统志怪文化，让古老的东方想象在沉浸式体验中获得新生。",
+      "en": "Audiences will enter a mysterious night world, encountering various spirit characters, exploring the subtle depths of human nature in a space where reality and illusion intertwine. The work attempts to reinterpret traditional folklore culture through a contemporary lens, giving ancient Eastern imagination new life through immersive experiences."
+    },
+    "conceptH": {
+      "zh": "创作理念",
+      "en": "Creative concept"
+    },
+    "conceptP": {
+      "zh": "从《聊斋志异》《子不语》等古典文本中汲取灵感，结合当代剧场技术与空间设计，打造具有东方美学特质的沉浸式演艺作品。",
+      "en": "Drawing inspiration from classical texts such as 'Strange Tales from a Chinese Studio' and 'What Confucius Did Not Speak Of', combined with contemporary theatre technology and spatial design, to create immersive performance works with Eastern aesthetic characteristics."
+    },
+    "conceptP2": {
+      "zh": "作品关注\"异类\"与\"常人\"的边界，通过精怪角色的视角审视人性，在神秘氛围中探讨身份认同、欲望与禁忌等永恒主题。",
+      "en": "The work explores the boundary between 'the other' and 'the ordinary', examining human nature through the perspective of spirit characters, discussing eternal themes such as identity, desire and taboo in a mysterious atmosphere."
+    },
+    "audienceH": {
+      "zh": "适合观众",
+      "en": "Target audience"
+    },
+    "audience1": {
+      "zh": "喜欢东方神秘文化与志怪故事的观众",
+      "en": "Audiences who enjoy Eastern mystical culture and folklore tales"
+    },
+    "audience2": {
+      "zh": "对沉浸式戏剧与互动体验感兴趣的观众",
+      "en": "Audiences interested in immersive theatre and interactive experiences"
+    },
+    "audience3": {
+      "zh": "寻求独特夜间娱乐体验的年轻群体",
+      "en": "Young audiences seeking unique nighttime entertainment experiences"
+    },
+    "audience4": {
+      "zh": "建议 16 岁以上观众观看",
+      "en": "Recommended for ages 16 and above"
+    },
+    "hiH": {
+      "zh": "演出亮点",
+      "en": "Highlights"
+    },
+    "hi1": {
+      "zh": "志怪题材",
+      "en": "Folklore theme"
+    },
+    "hi2": {
+      "zh": "东方美学",
+      "en": "Eastern aesthetics"
+    },
+    "hi3": {
+      "zh": "沉浸式体验",
+      "en": "Immersive experience"
+    },
+    "hi4": {
+      "zh": "精怪角色",
+      "en": "Spirit characters"
+    },
+    "hi5": {
+      "zh": "神秘空间",
+      "en": "Mysterious space"
+    },
+    "hi6": {
+      "zh": "当代诠释",
+      "en": "Contemporary interpretation"
+    },
+    "introP2": {
+      "zh": "观众将进入一个充满神秘色彩的夜间世界，与各种精怪角色相遇，在虚实交错的空间中探索人性的幽微之处。作品试图用当代视角重新诠释传统志怪文化，让古老的东方想象在沉浸式体验中获得新生。",
+      "en": "Audiences will enter a mysterious night world, encountering various spirit characters, exploring the subtle depths of human nature in a space where reality and illusion intertwine. The work attempts to reinterpret traditional folklore culture through a contemporary lens, giving ancient Eastern imagination new life through immersive experiences."
+    },
+    "conceptP2": {
+      "zh": "作品关注\"异类\"与\"常人\"的边界，通过精怪角色的视角审视人性，在神秘氛围中探讨身份认同、欲望与禁忌等永恒主题。",
+      "en": "The work explores the boundary between 'the other' and 'the ordinary', examining human nature through the perspective of spirit characters, discussing eternal themes such as identity, desire and taboo in a mysterious atmosphere."
+    },
+    "sideH": {
+      "zh": "合作咨询",
+      "en": "Collaboration"
+    },
+    "sideP": {
+      "zh": "本项目开放场馆合作、品牌联名与定制开发。欢迎说明合作意向与场地条件。",
+      "en": "This project is open to venue partnerships, brand collaborations and custom development. Please share your collaboration intentions and venue conditions."
+    },
+    "sideLink": {
+      "zh": "预约项目咨询 →",
+      "en": "Book project consultation →"
+    },
+    "mediaPlaceholder": {
+      "zh": "视觉素材开发中",
+      "en": "Visual materials in development"
+    },
+    "galH": {
+      "zh": "视觉资料",
+      "en": "Gallery"
+    },
+    "footBack": {
+      "zh": "返回作品列表",
+      "en": "Back to works"
+    },
+    "footCopy": {
+      "zh": "© 2026 惊喜之夜",
+      "en": "© 2026 Surprise Night"
+    },
+    "statusH": {
+      "zh": "项目状态",
+      "en": "Status"
+    },
+    "statusP": {
+      "zh": "正在开发中，预计2025年与观众见面",
+      "en": "In development, expected to meet audiences in 2025"
+    },
+    "infoH": {
+      "zh": "演出信息（规划）",
+      "en": "Performance info (planned)"
+    },
+    "infDur": {
+      "zh": "演出时长",
+      "en": "Duration"
+    },
+    "infDurV": {
+      "zh": "90-120 分钟",
+      "en": "90-120 min"
+    },
+    "infCap": {
+      "zh": "单场容量",
+      "en": "Capacity"
+    },
+    "infYear": {
+      "zh": "首演年份",
+      "en": "Premiere"
+    },
+    "infYearV": {
+      "zh": "2025",
+      "en": "2025"
+    },
+    "infVenue": {
+      "zh": "首演场地",
+      "en": "Premiere venue"
+    },
+    "infVenueV": {
+      "zh": "待定",
+      "en": "TBD"
+    },
+    "infCapV": {
+      "zh": "待定",
+      "en": "TBD"
+    }
+  },
+  "projectSubmarine": {
+    "metaTitle": {
+      "zh": "海底两万里 — 惊喜之夜",
+      "en": "20,000 Leagues Under the Sea — Surprise Night"
+    },
+    "metaDesc": {
+      "zh": "跟随鹦鹉螺号潜入深海，开启一场科学与幻想的沉浸式探索之旅。",
+      "en": "Follow the Nautilus into the deep sea and embark on an immersive journey of science and fantasy."
+    },
+    "h1": {
+      "zh": "海底两万里",
+      "en": "20,000 Leagues Under the Sea"
+    },
+    "tag1": {
+      "zh": "正在上演",
+      "en": "Now playing"
+    },
+    "tag2": {
+      "zh": "沉浸式舞台剧",
+      "en": "Immersive stage play"
+    },
+    "tagline": {
+      "zh": "跟随鹦鹉螺号潜入深海，开启一场科学与幻想的沉浸式探索之旅。",
+      "en": "Follow the Nautilus into the deep sea and embark on an immersive journey of science and fantasy."
+    },
+    "back": {
+      "zh": "← 返回作品",
+      "en": "← Back to works"
+    },
+    "introH": {
+      "zh": "项目简介",
+      "en": "Introduction"
+    },
+    "introP": {
+      "zh": "《海底两万里》是惊喜之夜根据儒勒·凡尔纳经典科幻名著改编的沉浸式舞台剧，入选教育部中小学阅读指导目录推荐阅读书目。作品以巨型鲸鱼、复古潜水艇、深海探险为核心视觉符号，通过先进的舞台技术与艺术化呈现，将观众带入神秘莫测的海底世界。",
+      "en": "20,000 Leagues Under the Sea is an immersive stage play adapted by Surprise Night from Jules Verne's classic science fiction masterpiece, selected for the Ministry of Education's recommended reading list for primary and secondary schools. Featuring giant whales, vintage submarines and deep-sea exploration as core visual symbols, the production uses advanced stage technology and artistic presentation to bring audiences into the mysterious underwater world."
+    },
+    "infoH": {
+      "zh": "演出信息",
+      "en": "Performance info"
+    },
+    "infDur": {
+      "zh": "演出时长",
+      "en": "Duration"
+    },
+    "infDurV": {
+      "zh": "70 分钟",
+      "en": "70 min"
+    },
+    "infCap": {
+      "zh": "单场容量",
+      "en": "Capacity"
+    },
+    "infCapV": {
+      "zh": "1000 人",
+      "en": "1000"
+    },
+    "infVenue": {
+      "zh": "首演场地",
+      "en": "Premiere venue"
+    },
+    "infVenueV": {
+      "zh": "昌南文化中心5号馆",
+      "en": "Changnan Culture Centre Hall 5"
+    },
+    "infType": {
+      "zh": "适合场地",
+      "en": "Venue type"
+    },
+    "infTypeV": {
+      "zh": "剧院、文化中心、科技馆、文旅演艺场馆",
+      "en": "Theatre, culture centre, science museum, tourism venue"
+    },
+    "infAge": {
+      "zh": "适合年龄",
+      "en": "Age"
+    },
+    "infAgeV": {
+      "zh": "4-16 岁（亲子共赏）",
+      "en": "Ages 4-16 (family friendly)"
+    },
+    "infYear": {
+      "zh": "首演年份",
+      "en": "Premiere"
+    },
+    "infYearV": {
+      "zh": "2024",
+      "en": "2024"
+    },
+    "hiH": {
+      "zh": "演出亮点",
+      "en": "Highlights"
+    },
+    "hi1": {
+      "zh": "凡尔纳经典",
+      "en": "Verne classic"
+    },
+    "hi2": {
+      "zh": "巨型鲸鱼装置",
+      "en": "Giant whale installation"
+    },
+    "hi3": {
+      "zh": "复古潜水艇",
+      "en": "Vintage submarine"
+    },
+    "hi4": {
+      "zh": "深海探险",
+      "en": "Deep sea exploration"
+    },
+    "hi5": {
+      "zh": "亲子共赏",
+      "en": "Family friendly"
+    },
+    "reviewH": {
+      "zh": "观众评价",
+      "en": "Reviews"
+    },
+    "review1": {
+      "zh": "\"鲸鱼出现的那一刻，全场都屏住了呼吸，太震撼了！\"",
+      "en": "\"The moment the whale appeared, the entire audience held their breath — absolutely breathtaking!\""
+    },
+    "review2": {
+      "zh": "\"孩子学到了很多海洋知识，还说长大后要当海洋探险家。\"",
+      "en": "\"My child learned so much about the ocean and now wants to be a marine explorer when they grow up.\""
+    },
+    "review3": {
+      "zh": "\"舞台效果堪比大片，潜艇和潜水员的造型非常精致。\"",
+      "en": "\"The stage effects rival blockbuster films — the submarine and diver costumes are incredibly detailed.\""
+    },
+    "galH": {
+      "zh": "视觉资料",
+      "en": "Gallery"
+    },
+    "galNote": {
+      "zh": "剧照来自巡演现场（江苏大剧院、南通大剧院等）。",
+      "en": "Production stills from tour venues including Jiangsu Grand Theatre and Nantong Grand Theatre."
+    },
+    "videoYoutubeBtn": {
+      "zh": "YouTube 播放",
+      "en": "Play on YouTube"
+    },
+    "videoBilibiliBtn": {
+      "zh": "哔哩哔哩播放",
+      "en": "Play on Bilibili"
+    },
+    "videoNote": {
+      "zh": "宣传片可在 YouTube 或哔哩哔哩观看；封面为剧照。",
+      "en": "Watch the trailer on YouTube or Bilibili; cover image is a production still."
+    },
+    "mediaPlaceholder": {
+      "zh": "影像 / 预告占位",
+      "en": "Video / Trailer placeholder"
+    },
+    "sideH": {
+      "zh": "合作咨询",
+      "en": "Collaboration"
+    },
+    "sideP": {
+      "zh": "城市巡演引进、驻场演出或定制化版本，含大型装置运输、技术团队与科普教育配套。",
+      "en": "City tours, residencies or custom versions — includes large prop logistics, tech team and educational programming."
+    },
+    "sideLink": {
+      "zh": "了解引进与驻场 →",
+      "en": "Touring & residency →"
+    },
+    "footBack": {
+      "zh": "返回作品列表",
+      "en": "Back to works"
+    },
+    "footCopy": {
+      "zh": "© 2026 惊喜之夜",
+      "en": "© 2026 Surprise Night"
+    },
+    "introP2": {
+      "zh": "演出融合海洋科学知识普及与幻想冒险叙事，在震撼的视觉奇观中传递探索精神与人文关怀。观众将跟随鹦鹉螺号船员，与巨型海洋生物近距离接触，体验丁达尔效应光束穿透深海的神秘时刻，感受19世纪蒸汽朋克美学与未来想象的完美交融。自首演以来，已成为亲子家庭与科幻爱好者的必看剧目。",
+      "en": "The performance combines marine science education with fantasy adventure narrative, conveying the spirit of exploration and humanistic care through spectacular visuals. Audiences follow the Nautilus crew for close encounters with giant marine creatures, experiencing mysterious moments when Tyndall effect light beams pierce the deep sea, feeling the perfect fusion of 19th-century steampunk aesthetics and futuristic imagination. Since its premiere, it has become a must-see for families and sci-fi enthusiasts."
+    }
+  },
+  "projectArchive": {
+    "metaTitle": {
+      "zh": "项目档案 — 惊喜之夜",
+      "en": "Archive — Surprise Night"
+    },
+    "metaDesc": {
+      "zh": "从原创话剧、沉浸式演出到儿童剧与实验作品，这些过往项目构成了我们的创作轨迹。",
+      "en": "From original plays and immersive work to family theatre and experiments — our past projects trace our creative path."
+    },
+    "back": {
+      "zh": "← 返回作品",
+      "en": "← Back to works"
+    },
+    "h1": {
+      "zh": "项目档案",
+      "en": "Archive"
+    },
+    "h1Line2": {
+      "zh": "Archive",
+      "en": "Project archive"
+    },
+    "hint": {
+      "zh": "点击卡片可弹出完整介绍（不点击也可浏览卡片上的简介）",
+      "en": "Tap a card for the full note — one-line blurbs are visible without opening."
+    },
+    "footCopy": {
+      "zh": "© 2026 惊喜之夜",
+      "en": "© 2026 Surprise Night"
+    },
+    "footBack": {
+      "zh": "返回作品列表",
+      "en": "Back to works"
+    }
+  },
+  "projectBalala": {
+    "metaTitle": {
+      "zh": "巴啦啦小魔仙 — 惊喜之夜",
+      "en": "Balala the Fairies — Surprise Night"
+    },
+    "metaDesc": {
+      "zh": "经典IP改编舞台剧——魔法、友情与成长的梦幻之旅。",
+      "en": "Classic IP stage adaptation — a magical journey of friendship and growth."
+    },
+    "h1": {
+      "zh": "巴啦啦小魔仙",
+      "en": "Balala the Fairies"
+    },
+    "tag1": {
+      "zh": "往期回顾",
+      "en": "Past"
+    },
+    "tag2": {
+      "zh": "IP舞台剧",
+      "en": "IP stage play"
+    },
+    "tagline": {
+      "zh": "经典IP改编舞台剧——魔法、友情与成长的梦幻之旅。",
+      "en": "Classic IP stage adaptation — a magical journey of friendship and growth."
+    },
+    "back": {
+      "zh": "← 返回作品",
+      "en": "← Back to works"
+    },
+    "introH": {
+      "zh": "项目简介",
+      "en": "Introduction"
+    },
+    "introP": {
+      "zh": "《巴啦啦小魔仙》是惊喜之夜与奥飞娱乐合作推出的经典IP舞台剧项目。基于广受欢迎的中国原创少女魔法IP改编，将电视荧屏上的魔法世界搬上舞台，为观众呈现一场魔法、友情与成长的梦幻之旅。",
+      "en": "Balala the Fairies is a classic IP stage play project launched by Surprise Night in collaboration with Alpha Group. Based on the popular Chinese original magical girl IP, it brings the magical world from television to the stage, presenting audiences with a dreamy journey of magic, friendship and growth."
+    },
+    "storyH": {
+      "zh": "故事简介",
+      "en": "Story"
+    },
+    "storyP": {
+      "zh": "作品保留了原作中深受观众喜爱的角色与魔法元素，同时融入精心设计的舞台特效、华丽的服装造型与动人的音乐，打造一个充满想象力的魔法舞台世界。",
+      "en": "The production retains beloved characters and magical elements from the original while incorporating meticulously designed stage effects, gorgeous costumes and moving music, creating an imaginative magical stage world."
+    },
+    "tourH": {
+      "zh": "巡演足迹",
+      "en": "Tour history"
+    },
+    "tourP": {
+      "zh": "已在全国多个城市完成巡演，深受亲子家庭观众喜爱。",
+      "en": "Completed tours in multiple cities nationwide, beloved by family audiences."
+    },
+    "coopH": {
+      "zh": "合作模式",
+      "en": "Collaboration"
+    },
+    "infoH": {
+      "zh": "演出信息",
+      "en": "Performance info"
+    },
+    "infDur": {
+      "zh": "演出时长",
+      "en": "Duration"
+    },
+    "infDurV": {
+      "zh": "70 分钟",
+      "en": "70 min"
+    },
+    "infCap": {
+      "zh": "单场容量",
+      "en": "Capacity"
+    },
+    "infCapV": {
+      "zh": "800 人",
+      "en": "800"
+    },
+    "infVenue": {
+      "zh": "首演场地",
+      "en": "Premiere venue"
+    },
+    "infVenueV": {
+      "zh": "全国巡演",
+      "en": "National tour"
+    },
+    "infFormat": {
+      "zh": "演出形式",
+      "en": "Format"
+    },
+    "infFormatV": {
+      "zh": "舞台剧",
+      "en": "Stage play"
+    },
+    "infAudience": {
+      "zh": "适合观众",
+      "en": "Audience"
+    },
+    "infAudienceV": {
+      "zh": "亲子家庭",
+      "en": "Families"
+    },
+    "infYear": {
+      "zh": "首演年份",
+      "en": "Premiere"
+    },
+    "infYearV": {
+      "zh": "2024",
+      "en": "2024"
+    },
+    "hiH": {
+      "zh": "演出亮点",
+      "en": "Highlights"
+    },
+    "hi1": {
+      "zh": "经典IP",
+      "en": "Classic IP"
+    },
+    "hi2": {
+      "zh": "魔法世界",
+      "en": "Magical world"
+    },
+    "hi3": {
+      "zh": "华丽特效",
+      "en": "Spectacular effects"
+    },
+    "hi4": {
+      "zh": "亲子共赏",
+      "en": "Family friendly"
+    },
+    "hi5": {
+      "zh": "成长主题",
+      "en": "Growth theme"
+    },
+    "hi6": {
+      "zh": "全国巡演",
+      "en": "National tour"
+    },
+    "introP2": {
+      "zh": "作品保留了原作中深受观众喜爱的角色与魔法元素，同时融入精心设计的舞台特效、华丽的服装造型与动人的音乐，打造一个充满想象力与正能量的魔法世界。适合全家观看，是亲子娱乐与儿童艺术启蒙的绝佳选择。",
+      "en": "The production retains beloved characters and magical elements from the original, incorporating meticulously designed stage effects, gorgeous costumes and moving music to create a magical world full of imagination and positive energy. Suitable for the whole family, it's an excellent choice for parent-child entertainment and children's art education."
+    },
+    "coop1": {
+      "zh": "<strong>城市巡演引进</strong> — 适合剧院、演艺中心，完整团队与设备落地",
+      "en": "<strong>City Tour Import</strong> — Suitable for theatres and performing arts centres, complete team and equipment provided"
+    },
+    "coop2": {
+      "zh": "<strong>驻场演出</strong> — 适合文旅景区、主题乐园，长期驻场运营",
+      "en": "<strong>Residency</strong> — Suitable for cultural tourism destinations and theme parks, long-term operation"
+    },
+    "coop3": {
+      "zh": "<strong>品牌联名</strong> — 与儿童品牌、教育机构等合作定制版本",
+      "en": "<strong>Brand Partnership</strong> — Custom versions in collaboration with children's brands and educational institutions"
+    },
+    "mediaPlaceholder": {
+      "zh": "剧照与宣传视频",
+      "en": "Production stills and promotional video"
+    },
+    "sideH": {
+      "zh": "合作咨询",
+      "en": "Collaboration"
+    },
+    "sideP": {
+      "zh": "本项目开放全国巡演合作与驻场演出。欢迎剧院、文旅项目与品牌方联系洽谈。",
+      "en": "This project is open to national tour partnerships and residency performances. Theatres, tourism projects and brands are welcome to discuss collaboration."
+    },
+    "sideLink": {
+      "zh": "了解合作方式 →",
+      "en": "Learn about collaboration →"
+    },
+    "galH": {
+      "zh": "视觉资料",
+      "en": "Gallery"
+    },
+    "footBack": {
+      "zh": "返回作品列表",
+      "en": "Back to works"
+    },
+    "footCopy": {
+      "zh": "© 2026 惊喜之夜",
+      "en": "© 2026 Surprise Night"
+    }
+  }
+}

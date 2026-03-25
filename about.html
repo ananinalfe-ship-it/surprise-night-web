@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>关于 — 惊喜之夜</title>
+    <meta name="description" content="惊喜之夜品牌故事、创作方法论、团队与数据。沉浸式戏剧与体验式演出。" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Noto+Sans+SC:wght@300;400;500;600;700&family=Noto+Serif+SC:wght@400;500;600&family=Syne:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+    <style>
+      .about-section {
+        padding: 100px 20px;
+        position: relative;
+      }
+      
+      .about-section-alt {
+        background: linear-gradient(180deg, var(--surface) 0%, var(--bg) 100%);
+      }
+      
+      .about-intro {
+        max-width: 800px;
+        margin: 0 auto;
+        text-align: center;
+      }
+      
+      .about-intro h2 {
+        font-size: clamp(1.8rem, 4vw, 2.5rem);
+        font-weight: 400;
+        margin-bottom: 40px;
+        color: var(--text);
+      }
+      
+      .about-intro p {
+        font-size: 1.1rem;
+        line-height: 2;
+        color: var(--muted);
+        margin-bottom: 24px;
+      }
+      
+      .story-timeline {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 60px 0;
+      }
+      
+      .story-item {
+        display: grid;
+        grid-template-columns: 120px 1fr;
+        gap: 40px;
+        margin-bottom: 60px;
+        align-items: start;
+      }
+      
+      .story-year {
+        font-size: 2rem;
+        color: #c9a96e;
+        font-weight: 400;
+        text-align: right;
+      }
+      
+      .story-content h3 {
+        font-size: 1.3rem;
+        margin-bottom: 12px;
+        color: var(--text);
+      }
+      
+      .story-content p {
+        color: var(--muted);
+        line-height: 1.8;
+      }
+      
+      .philosophy-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 40px;
+        max-width: 1000px;
+        margin: 0 auto;
+      }
+      
+      @media (max-width: 768px) {
+        .philosophy-grid {
+          grid-template-columns: 1fr;
+        }
+        .story-item {
+          grid-template-columns: 1fr;
+          gap: 16px;
+        }
+        .story-year {
+          text-align: left;
+        }
+      }
+      
+      .philosophy-card {
+        padding: 40px;
+        border: 1px solid rgba(201, 169, 110, 0.2);
+        border-radius: 4px;
+        transition: all 0.3s ease;
+      }
+      
+      .philosophy-card:hover {
+        border-color: rgba(201, 169, 110, 0.5);
+        background: rgba(201, 169, 110, 0.05);
+      }
+      
+      .philosophy-card h3 {
+        font-size: 1.4rem;
+        color: #c9a96e;
+        margin-bottom: 16px;
+        font-weight: 400;
+      }
+      
+      .philosophy-card p {
+        color: var(--muted);
+        line-height: 1.8;
+      }
+      
+      .stats-section {
+        background: linear-gradient(180deg, var(--bg) 0%, #0a0a0a 100%);
+        padding: 100px 20px;
+        text-align: center;
+      }
+      
+      .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 40px;
+        max-width: 900px;
+        margin: 60px auto;
+      }
+      
+      @media (max-width: 768px) {
+        .stats-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+      
+      .stat-item .number {
+        font-size: 3.5rem;
+        color: #c9a96e;
+        font-weight: 400;
+        margin-bottom: 8px;
+      }
+      
+      .stat-item .label {
+        color: var(--muted);
+        font-size: 0.9rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+      }
+      
+      .partners-section {
+        padding: 80px 20px;
+        text-align: center;
+        border-top: 1px solid rgba(255,255,255,0.1);
+      }
+      
+      .partners-list {
+        color: var(--muted);
+        font-size: 0.95rem;
+        line-height: 2;
+        max-width: 800px;
+        margin: 40px auto 0;
+        opacity: 0.7;
+      }
+      
+      .about-cta {
+        padding: 120px 20px;
+        text-align: center;
+        background: linear-gradient(180deg, #0a0a0a 0%, var(--bg) 100%);
+      }
+      
+      .about-cta h2 {
+        font-size: 2.5rem;
+        margin-bottom: 24px;
+        font-weight: 400;
+      }
+      
+      .about-cta p {
+        color: var(--muted);
+        margin-bottom: 40px;
+        font-size: 1.1rem;
+      }
+      
+      .btn-gold {
+        display: inline-block;
+        padding: 16px 40px;
+        border: 1px solid #c9a96e;
+        color: #c9a96e;
+        text-decoration: none;
+        font-size: 0.9rem;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        transition: all 0.3s ease;
+      }
+      
+      .btn-gold:hover {
+        background: #c9a96e;
+        color: #000;
+      }
+      
+      .section-label {
+        color: #c9a96e;
+        font-size: 0.75rem;
+        letter-spacing: 0.3em;
+        text-transform: uppercase;
+        margin-bottom: 24px;
+      }
+    </style>
+  </head>
+  <body class="page-about" data-i18n-page="about">
+    <header class="site-header">
+      <div class="inner">
+        <a href="index.html" class="logo" style="display: flex; align-items: center; gap: 12px; font-size: 1.1rem;">
+          <img src="assets/images/logo.png" alt="" style="width: 32px; height: 32px; object-fit: contain;">
+          <span>惊喜之夜 <span style="opacity: 0.7; font-size: 0.75rem; font-weight: 400; margin-left: 4px;">/ Surprise Night</span></span>
+        </a>
+        <button type="button" class="nav-toggle" data-i18n="nav.menu" aria-expanded="false" aria-controls="primary-nav">
+          菜单
+        </button>
+        <nav>
+          <ul id="primary-nav" class="nav-links">
+            <li><a href="works.html" data-i18n="nav.works">作品</a></li>
+            <li><a href="collaborate.html" data-i18n="nav.collaborate">合作</a></li>
+            <li class="nav-item nav-item--has-sub">
+            <a href="about.html" aria-current="page" data-i18n="nav.about">关于</a>
+            <ul class="nav-sub" role="list">
+              <li><a href="collaborators.html" data-i18n="nav.collaborators">合作艺术家</a></li>
+            </ul>
+          </li>
+            <li><a href="contact.html" data-i18n="nav.contact">联系</a></li>
+            <li class="nav-lang" aria-label="Language">
+              <button type="button" class="lang-btn" data-set-lang="zh" aria-pressed="true">中</button>
+              <button type="button" class="lang-btn" data-set-lang="en" aria-pressed="false">EN</button>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <!-- Hero Section -->
+      <section class="about-hero" aria-label="关于惊喜之夜">
+        <div class="about-hero__slides" aria-hidden="true"></div>
+        <div class="about-hero__veil" aria-hidden="true"></div>
+        <div class="about-hero-content">
+          <h1 class="home-hero-title" data-i18n="aboutPage.h1" data-i18n-html="true">
+            <span class="about-hero-title__kicker">关于</span><span class="about-hero-title__display">惊喜之夜</span>
+          </h1>
+          <p class="home-hero-lead" data-i18n="aboutPage.lead" data-i18n-html="true">
+            我们相信，最好的故事不是被讲述的，<br />而是<span class="home-hero-accent">被体验的</span>。
+          </p>
+        </div>
+      </section>
+
+      <!-- Brand Story -->
+      <section class="about-section">
+        <div class="about-intro">
+          <p class="section-label" data-i18n="aboutPage.storyLabel">品牌故事</p>
+          <h2 data-i18n="aboutPage.storyH">从实验到沉淀</h2>
+          <p data-i18n="aboutPage.storyP1">
+            惊喜之夜创立于 2018 年，从一场小型实验演出起步，逐渐成长为专注于沉浸式戏剧与体验式内容的创作团体。
+          </p>
+          <p data-i18n="aboutPage.storyP2">
+            我们相信剧场不必局限于镜框式舞台——它可以是一座建筑、一条走廊、一座城市，甚至是观众彼此之间的关系。
+          </p>
+        </div>
+        
+        <div class="story-timeline">
+          <div class="story-item">
+            <div class="story-year">2018</div>
+            <div class="story-content">
+              <h3 data-i18n="aboutPage.timeline2018Title">起点</h3>
+              <p data-i18n="aboutPage.timeline2018Desc">从实验性小型演出开始，探索沉浸式叙事的可能性。</p>
+            </div>
+          </div>
+          <div class="story-item">
+            <div class="story-year">2020</div>
+            <div class="story-content">
+              <h3 data-i18n="aboutPage.timeline2020Title">突破</h3>
+              <p data-i18n="aboutPage.timeline2020Desc">《终极骗局》首演，确立互动式沉浸戏剧的创作方向。</p>
+            </div>
+          </div>
+          <div class="story-item">
+            <div class="story-year">2023</div>
+            <div class="story-content">
+              <h3 data-i18n="aboutPage.timeline2023Title">多元</h3>
+              <p data-i18n="aboutPage.timeline2023Desc">从神话史诗到未来科幻，从东方美学到互动博弈，作品矩阵逐渐丰富。</p>
+            </div>
+          </div>
+          <div class="story-item">
+            <div class="story-year">2024</div>
+            <div class="story-content">
+              <h3 data-i18n="aboutPage.timeline2024Title">生长</h3>
+              <p data-i18n="aboutPage.timeline2024Desc">《山海经·巨灵之梦》首演，与扬州木偶剧团合作，开启传统与当代的融合实验。</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Philosophy -->
+      <section class="about-section about-section-alt">
+        <div class="container">
+          <div class="about-intro">
+            <p class="section-label" data-i18n="aboutPage.methodLabel">创作方法论</p>
+            <h2 data-i18n="aboutPage.methodTitle">我们的工作方式</h2>
+          </div>
+          
+          <div class="philosophy-grid">
+            <div class="philosophy-card">
+              <h3 data-i18n="aboutPage.m1h">空间即剧本</h3>
+              <p data-i18n="aboutPage.m1d">我们从物理空间与动线出发构思叙事：光从哪里亮起、观众在哪里转身，本身就是台词与节奏。</p>
+            </div>
+            <div class="philosophy-card">
+              <h3 data-i18n="aboutPage.m2h">观众即主角</h3>
+              <p data-i18n="aboutPage.m2d">每一次停留、对话与选择都可能牵动剧情。你不是背景，而是故事得以发生的原因之一。</p>
+            </div>
+            <div class="philosophy-card">
+              <h3 data-i18n="aboutPage.m3h">留白与节制</h3>
+              <p data-i18n="aboutPage.m3d">我们刻意保留未说满的瞬间，让想象与情绪在黑暗中发酵——克制，是另一种强度。</p>
+            </div>
+            <div class="philosophy-card">
+              <h3 data-i18n="aboutPage.m4h">东方诗性</h3>
+              <p data-i18n="aboutPage.m4d">在传统意境与当代表达之间寻找语言，让意象、声场与身体共同构成「可行走的诗」。</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Stats -->
+      <section class="stats-section">
+        <p class="section-label" data-i18n="aboutPage.statsLabel">数据与足迹</p>
+        <div class="stats-grid">
+          <div class="stat-item">
+            <div class="number">30+</div>
+            <div class="label" data-i18n="aboutPage.statCities">演出城市</div>
+          </div>
+          <div class="stat-item">
+            <div class="number">2000+</div>
+            <div class="label" data-i18n="aboutPage.statShows">演出场次</div>
+          </div>
+          <div class="stat-item">
+            <div class="number">100K+</div>
+            <div class="label" data-i18n="aboutPage.statAudiences">观众人次</div>
+          </div>
+          <div class="stat-item">
+            <div class="number">8+</div>
+            <div class="label" data-i18n="aboutPage.statWorks">原创剧目</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Partners -->
+      <section class="partners-section">
+        <p class="section-label" data-i18n="aboutPage.partnersLabel">合作与落地足迹</p>
+        <div class="partners-list" data-i18n="aboutPage.partnersList">
+          北京朝阳剧场 / 湖南大剧院 / 梅溪湖大剧院 / 重庆大剧院 / 深圳滨海艺术中心 / 上海虹桥艺术中心 / 辽宁大剧院 / 广州大剧院 / 佛山大剧院 / 合肥大剧院 / 江苏大剧院 / 南通大剧院 / 扬州运河大剧院 / 义乌文化广场剧院 / 余姚大剧院 / 会昌戏剧小镇
+        </div>
+      </section>
+
+      <!-- CTA -->
+      <section class="about-cta">
+        <h2 data-i18n="aboutPage.ctaTitle">与我们合作</h2>
+        <p data-i18n="aboutPage.ctaDesc">驻演引进、内容定制与城市巡演，欢迎从合作中心开始对话。</p>
+        <a href="collaborate.html" class="btn-gold" data-i18n="aboutPage.ctaBtn">进入合作中心 →</a>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="inner">
+        <span data-i18n="aboutPage.footerCopy">© 2026 惊喜之夜 Surprise Night</span>
+        <a href="contact.html" data-i18n="aboutPage.footerContact">联系我们</a>
+      </div>
+    </footer>
+
+    <script src="js/i18n.js" defer></script>
+    <script src="js/about-hero-slides.js" defer></script>
+    <script src="js/main.js" defer></script>
+  </body>
+</html>

@@ -1,0 +1,166 @@
+{
+  "intro": {
+    "zh": "从原创话剧、沉浸式演出到儿童剧与实验作品，这些过往项目构成了我们的创作轨迹。",
+    "en": "From original plays and immersive work to family theatre and experiments, these past projects trace our creative path."
+  },
+  "items": [
+    {
+      "id": "p7080",
+      "section": "urban",
+      "image": "assets/images/gallery/archive/still-01.png",
+      "title": { "zh": "7080", "en": "7080" },
+      "typeTag": { "zh": "都市情感喜剧", "en": "Urban romantic comedy" },
+      "oneLine": {
+        "zh": "围绕四位在爱情中迷失的都市青年，呈现当代城市生活中的亲密关系困境与情感焦虑。",
+        "en": "Four young urbanites lost in love — intimacy, mismatch and anxiety in the contemporary city."
+      },
+      "status": { "zh": "往期展演", "en": "Past runs" },
+      "detail": {
+        "zh": "围绕四位在爱情中迷失的都市青年展开，通过年龄差、关系错位与情感选择，呈现当代城市生活中的亲密关系困境与情感焦虑。该作品曾入选全国小剧场优秀剧目展演，并获得深圳城市戏剧节、重庆青年戏剧季等多个奖项。",
+        "en": "Four urban protagonists navigate age gaps, relational mismatch and emotional choices. Selected for the National Small Theatre Showcase; awarded at Shenzhen Urban Theatre Festival, Chongqing Youth Theatre Season and others."
+      }
+    },
+    {
+      "id": "p8090",
+      "section": "urban",
+      "image": "assets/images/gallery/archive/still-02.png",
+      "title": { "zh": "8090", "en": "8090" },
+      "typeTag": { "zh": "都市情感喜剧", "en": "Urban romantic comedy" },
+      "oneLine": {
+        "zh": "以 80 后与 90 后的爱情碰撞为核心，描绘快节奏都市中的代际情感观与亲密关系博弈。",
+        "en": "Post-80s meet post-90s — love, values and negotiation in fast urban life."
+      },
+      "status": { "zh": "往期展演", "en": "Past runs" },
+      "detail": {
+        "zh": "以80后与90后之间的爱情碰撞为核心，描绘快节奏都市生活中不同代际的情感观、价值观与亲密关系博弈，是一部兼具轻盈节奏与现实观察的原创情感作品。",
+        "en": "Centred on romance across the post-80s and post-90s divide — a light-footed yet observant play about generational views of love and partnership."
+      }
+    },
+    {
+      "id": "p-only-name",
+      "section": "urban",
+      "image": "assets/images/gallery/archive/still-03.png",
+      "title": { "zh": "只有，一个名字", "en": "Only a Name" },
+      "typeTag": { "zh": "温情喜剧", "en": "Warm comedy" },
+      "oneLine": {
+        "zh": "从一场毕业旅行出发，在重庆串联父女、友情与爱情，追问「人生最后会记住谁」。",
+        "en": "A graduation trip across Chongqing — fathers, friends, lovers — and who we finally remember."
+      },
+      "status": { "zh": "往期展演", "en": "Past runs" },
+      "detail": {
+        "zh": "从一场毕业旅行展开，在重庆城市空间中串联起父女重逢、友情交错与爱情选择。作品在闹剧感与温暖底色之间，讨论「人生最后会记住谁」这一关于情感与记忆的问题。",
+        "en": "Starting from a graduation trip, the play threads reunion, friendship and romance through Chongqing — between farce and warmth, it asks who remains when memory ends."
+      }
+    },
+    {
+      "id": "p-murder",
+      "section": "suspense",
+      "image": "assets/images/gallery/archive/still-04.png",
+      "title": { "zh": "不完美谋杀", "en": "Imperfect Murder" },
+      "typeTag": { "zh": "悬疑推理剧", "en": "Mystery thriller" },
+      "oneLine": {
+        "zh": "婚外情调查牵出谋杀案，在反转中直面家暴议题与女性在暴力关系中的处境。",
+        "en": "An affair investigation becomes murder — twists lead to domestic violence and women's lived reality."
+      },
+      "status": { "zh": "往期展演", "en": "Past runs" },
+      "detail": {
+        "zh": "以一宗婚外情调查引发的谋杀案为入口，将私人侦探叙事、悬疑推理结构与现实社会中的家暴议题结合。作品在戏剧推进中不断反转，并以更直接的方式引导观众关注女性在暴力关系中的真实处境。",
+        "en": "Private-eye noir meets whodunit structure and domestic violence as a social fact — each reversal pushes the audience to face women's experience inside abusive relationships."
+      }
+    },
+    {
+      "id": "p-lianmu",
+      "section": "suspense",
+      "image": "assets/images/gallery/archive/still-05.png",
+      "title": { "zh": "连木", "en": "Lian Mu" },
+      "typeTag": { "zh": "环境戏剧 / 实验表达", "en": "Environmental / experimental" },
+      "oneLine": {
+        "zh": "从巴渝「目连救母」传说出发，以悬疑与解构重探慈悲、误解、真相与重建。",
+        "en": "From the Bayu Mulian legend — suspense and deconstruction around compassion, misunderstanding and truth."
+      },
+      "status": { "zh": "往期展演", "en": "Past runs" },
+      "detail": {
+        "zh": "从巴渝民间「目连救母」传说出发，以更具悬疑感和解构性的方式重构传统母题。作品结合地方文化、戏曲元素与实验性叙事语言，讨论慈悲、误解、真相与重建。",
+        "en": "Reimagines the Mulian saves-his-mother tale with local culture, opera traces and experimental narrative — mercy, misreading, truth and rebuilding."
+      }
+    },
+    {
+      "id": "p-no-photo",
+      "section": "suspense",
+      "image": "assets/images/gallery/archive/still-06.png",
+      "title": { "zh": "禁止拍照", "en": "No Photos" },
+      "typeTag": { "zh": "黑色幽默", "en": "Black comedy" },
+      "oneLine": {
+        "zh": "酒吧里被打乱的牛皮纸袋，牵出欲望、秘密与身份伪装下的信任危机。",
+        "en": "A kraft bag in a bar unravels desire, secrets and the crisis of trust in the city."
+      },
+      "status": { "zh": "往期展演", "en": "Past runs" },
+      "detail": {
+        "zh": "从酒吧里被打乱的「牛皮纸袋」展开，逐步揭开人物背后的欲望、秘密与身份伪装。作品聚焦浮躁都市中人与人之间的信任危机，以及在欲望和现实挤压下「真实自我」的消失。",
+        "en": "From a scattered kraft bag in a bar — desire, camouflage and who we are when masks slip under urban pressure."
+      }
+    },
+    {
+      "id": "p-nxq",
+      "section": "traditional",
+      "image": "assets/images/gallery/archive/still-07.png",
+      "title": { "zh": "聂小倩与宁采臣", "en": "Nie Xiaoqian & Ning Caichen" },
+      "typeTag": { "zh": "当代川剧 / 经典改编", "en": "Contemporary Sichuan opera" },
+      "oneLine": {
+        "zh": "《聊斋》经典以川剧、舞美与舞蹈语言重构，委约于第十九届上海国际艺术节。",
+        "en": "Liaozhai reimagined through Sichuan opera, design and dance — commissioned by China Shanghai International Arts Festival."
+      },
+      "status": { "zh": "往期展演", "en": "Past runs" },
+      "detail": {
+        "zh": "基于《聊斋志异》重新演绎聂小倩与宁采臣的故事，以现代戏剧手法结合川剧表演、舞美、造型与舞蹈语言，重构经典爱情母题，呈现「唯付真情才是爱」的情感命题。该作品为第十九届上海国际艺术节委约作品。",
+        "en": "A contemporary staging of Liaozhai's Nie and Ning — Sichuan opera, set, costume and dance argue that only wholehearted feeling counts as love. Commissioned for the 19th China Shanghai International Arts Festival."
+      }
+    },
+    {
+      "id": "p-baixiang",
+      "section": "traditional",
+      "image": "assets/images/gallery/archive/still-08.png",
+      "title": { "zh": "白象1938", "en": "Baixiang 1938" },
+      "typeTag": { "zh": "沉浸式 / 城市文化演出", "en": "Immersive / city narrative" },
+      "oneLine": {
+        "zh": "以重庆白象街为场域，民国叙事与非遗线索交织的浸没式城市爱情故事。",
+        "en": "Immersive love and nation on Chongqing's Baixiang Street — Republic-era memory and heritage."
+      },
+      "status": { "zh": "往期展演", "en": "Past runs" },
+      "detail": {
+        "zh": "以重庆白象街为核心场域，结合民国叙事、地方饮食线索与城市记忆，重构一个具有重庆地域气质的中国式爱情与家国故事。作品以浸没式互动方式融合重庆非遗文化，强调城市精神与人文气质的呈现。",
+        "en": "Uses Baixiang Street as its terrain — Republic-era plot, foodways and civic memory in an immersive format with Chongqing intangible heritage woven through."
+      }
+    },
+    {
+      "id": "p-gutangwan",
+      "section": "traditional",
+      "image": "assets/images/gallery/archive/still-09.png",
+      "title": { "zh": "古塘湾1930", "en": "Gutangwan 1930" },
+      "typeTag": { "zh": "政府合作项目", "en": "Government co-production" },
+      "oneLine": {
+        "zh": "以信仰为核，自「马日事变」起笔，讲述叶魁与古塘湾共产党员在长沙河西的白色恐怖岁月中奋起抗争的故事。",
+        "en": "Faith at its core — from the May 21 Incident to Ye Kui and Gutangwan communists fighting white terror west of Changsha."
+      },
+      "status": { "zh": "往期展演", "en": "Past runs" },
+      "detail": {
+        "zh": "该剧以信仰为核心主题，以「马日事变」为叙事起点，以险境、火种、亮帜、低谷、拜月、追寻、诀别等篇章结构全剧，讲述上世纪二十年代末白色恐怖时期，以叶魁为首的古塘湾共产党员组成「复仇大队」，积极响应党组织领导的农民革命运动，在长沙河西地区英勇斗争的故事。",
+        "en": "Centred on faith and opening from the May 21 Incident (1927), the play unfolds in chapters — peril, spark, banner, low tide, moon, pursuit and farewell — following Ye Kui and Gutangwan Party members who form the “Vengeance Brigade”, answer the call of the peasant revolution led by the Party, and fight white terror west of Changsha in the late 1920s."
+      }
+    }
+  ],
+  "sectionLabels": {
+    "urban": {
+      "zh": "A. 都市情感",
+      "en": "A. Urban drama"
+    },
+    "suspense": {
+      "zh": "B. 悬疑 / 实验 / 黑色表达",
+      "en": "B. Suspense · experiment · noir"
+    },
+    "traditional": {
+      "zh": "C. 传统戏曲 / 沉浸表达 / 政府合作",
+      "en": "C. Traditional opera · immersion · government co-production"
+    }
+  }
+}

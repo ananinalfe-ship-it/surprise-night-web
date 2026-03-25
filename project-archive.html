@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>项目档案 — 惊喜之夜</title>
+    <meta
+      name="description"
+      content="过往原创话剧、沉浸演出与实验作品精选，呈现惊喜之夜的创作轨迹。"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600&family=Noto+Serif+SC:wght@500;600&family=Syne:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body class="page-archive" data-i18n-page="project-archive">
+    <header class="site-header">
+      <div class="inner">
+        <a href="index.html" class="logo" style="display: flex; align-items: center; gap: 12px; font-size: 1.1rem">
+          <img src="assets/images/logo.png" alt="" style="width: 32px; height: 32px; object-fit: contain" />
+          <span
+            >惊喜之夜
+            <span style="opacity: 0.7; font-size: 0.75rem; font-weight: 400; margin-left: 4px">/ Surprise Night</span></span
+          >
+        </a>
+        <button type="button" class="nav-toggle" data-i18n="nav.menu" aria-expanded="false" aria-controls="primary-nav">
+          菜单
+        </button>
+        <nav>
+          <ul id="primary-nav" class="nav-links">
+            <li><a href="works.html" data-i18n="nav.works">作品</a></li>
+            <li><a href="collaborate.html" data-i18n="nav.collaborate">合作</a></li>
+            <li class="nav-item nav-item--has-sub">
+            <a href="about.html" data-i18n="nav.about">关于</a>
+            <ul class="nav-sub" role="list">
+              <li><a href="collaborators.html" data-i18n="nav.collaborators">合作艺术家</a></li>
+            </ul>
+          </li>
+            <li><a href="contact.html" data-i18n="nav.contact">联系</a></li>
+            <li class="nav-lang" aria-label="Language">
+              <button type="button" class="lang-btn" data-set-lang="zh" aria-pressed="true">中</button>
+              <button type="button" class="lang-btn" data-set-lang="en" aria-pressed="false">EN</button>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="archive-hero">
+        <div class="container">
+          <a class="back-link" href="works.html" data-i18n="projectArchive.back">← 返回作品</a>
+          <div class="archive-hero__titles">
+            <h1 class="archive-hero__h1" data-i18n="projectArchive.h1">项目档案</h1>
+            <span class="archive-hero__en" data-i18n="projectArchive.h1Line2">Archive</span>
+          </div>
+          <p id="archive-intro" class="archive-intro"></p>
+          <p class="archive-hint" data-i18n="projectArchive.hint">点击卡片查看完整介绍</p>
+        </div>
+      </section>
+
+      <div id="archive-app" class="container archive-app"></div>
+
+      <div id="archiveModal" class="archive-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-label="作品介绍">
+        <div class="archive-modal__backdrop" aria-hidden="true"></div>
+        <div class="archive-modal__dialog" onclick="event.stopPropagation()">
+          <button type="button" class="archive-modal__close" data-archive-modal-close aria-label="Close">×</button>
+          <div id="archiveModalBody" class="archive-modal__inner"></div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="inner">
+        <span data-i18n="projectArchive.footCopy">© 2026 惊喜之夜</span>
+        <a href="works.html" data-i18n="projectArchive.footBack">返回作品列表</a>
+      </div>
+    </footer>
+
+    <script src="js/i18n.js" defer></script>
+    <script src="js/main.js" defer></script>
+    <script src="js/archive-page.js" defer></script>
+  </body>
+</html>

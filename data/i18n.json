@@ -1,0 +1,208 @@
+{
+  "nav": {
+    "works": { "zh": "作品", "en": "Works" },
+    "collaborate": { "zh": "合作", "en": "Collaborate" },
+    "about": { "zh": "关于", "en": "About" },
+    "collaborators": { "zh": "合作艺术家", "en": "Collaborators" },
+    "contact": { "zh": "联系", "en": "Contact" },
+    "menu": { "zh": "菜单", "en": "Menu" },
+    "langZh": { "zh": "中", "en": "中" },
+    "langEn": { "zh": "EN", "en": "EN" }
+  },
+  "index": {
+    "metaTitle": {
+      "zh": "惊喜之夜 - 沉浸式喜剧与体验式演出",
+      "en": "Surprise Night - Immersive Comedy & Experiential Performance"
+    },
+    "metaDesc": {
+      "zh": "惊喜之夜 Surprise Night - 沉浸式喜剧与体验式演出、品牌激活、文旅叙事与 IP 开发。让故事从你的脚下开始。",
+      "en": "Surprise Night - immersive comedy & experiential performance, brand activations, cultural tourism and IP. Where stories begin beneath your feet."
+    },
+    "heroBrand": {
+      "zh": "Surprise Night - Where stories begin beneath your feet.",
+      "en": "Surprise Night - Where stories begin beneath your feet."
+    },
+    "heroH1": {
+      "zh": "<span class=\"home-hero-title__line home-hero-title__line--light\">让故事从</span><br /><span class=\"home-hero-title__line home-hero-title__line--bold\">你的脚下开始</span>",
+      "en": "<span class=\"home-hero-title__line home-hero-title__line--heavy\">WHERE STORIES</span><br /><span class=\"home-hero-title__line home-hero-title__line--thin\">begin beneath your feet</span>"
+    },
+    "heroLead": {
+      "zh": "惊喜之夜创造沉浸式喜剧与体验式演出",
+      "en": "Surprise Night creates immersive comedy and experiential performance."
+    },
+    "heroTagline": {
+      "zh": "我们不设观众席，<span class=\"home-hero-accent\">只造世界</span>。",
+      "en": "We don't set up seats—<span class=\"home-hero-accent\">we build worlds</span>."
+    },
+    "heroKeywords": {
+      "zh": "Immersive Theatre · Brand Activations · Cultural Tourism · IP Development",
+      "en": "Immersive Theatre · Brand Activations · Cultural Tourism · IP Development"
+    },
+    "heroSub": {
+      "zh": "惊喜之夜创造沉浸式喜剧与体验式演出。我们不设观众席，只造世界。",
+      "en": "We create immersive comedy and experiential performance. We don't set up seats—we build worlds."
+    },
+    "ctaBusiness": { "zh": "商务合作咨询", "en": "Business Enquiry" },
+    "ctaExplore": { "zh": "探索作品", "en": "Explore Works" },
+    "quoteBody": {
+      "zh": "我们不制造幻觉。我们建造真实——一个更沉浸的真实世界。",
+      "en": "We don't manufacture illusion. We build reality — a more immersive real world."
+    },
+    "quoteCite": { "zh": "惊喜之夜，2018 年创立于中国", "en": "Surprise Night — founded in China, 2018" },
+    "brandLabel": { "zh": "品牌宣言", "en": "Brand Manifesto" },
+    "worksTitle": { "zh": "主推与谱系", "en": "Flagship & spectrum" },
+    "worksSubtitle": {
+      "zh": "首页仅展示三部：年度旗舰与两条不同创作线。更多剧目与分类请前往作品页浏览。",
+      "en": "Three curated picks on the home page — our flagship plus two distinct lines. Browse the full catalogue and filters on Works."
+    },
+    "viewAllWorks": { "zh": "进入作品目录（含全部分类）→", "en": "Full catalogue & filters →" },
+    "partnersLabel": { "zh": "合作与落地足迹", "en": "Partners & Touring Footprint" },
+    "collabBtn": { "zh": "合作咨询", "en": "Collaborate" },
+    "contactLabel": { "zh": "联系", "en": "Contact" },
+    "ctaWorks": { "zh": "正在上演", "en": "Now Playing" },
+    "pressH": { "zh": "声音", "en": "Voices" },
+    "pressQ1": {
+      "zh": "惊喜之夜把剧场拆成一条可走的路径，而你是路径本身。",
+      "en": "Surprise Night turns the theatre into a path you walk — and you are the path."
+    },
+    "pressQ2": {
+      "zh": "在惊喜之夜，故事不是被观看的，而是被进入的。",
+      "en": "At Surprise Night, stories aren't watched — they're entered."
+    },
+    "pressQ3": {
+      "zh": "它不急着解释一切，而是先让你相信这个世界真的存在。",
+      "en": "It doesn't rush to explain everything — first it lets you believe this world truly exists."
+    },
+    "pressQ4": {
+      "zh": "这不是一次演出安排，而是一种被精心建造的在场经验。",
+      "en": "This isn't a show on a schedule — it's a carefully built experience of presence."
+    },
+    "pressMark1": { "zh": "路径", "en": "PATH" },
+    "pressMark2": { "zh": "进入", "en": "ENTRY" },
+    "pressMark3": { "zh": "世界", "en": "WORLD" },
+    "pressMark4": { "zh": "在场", "en": "PRESENCE" },
+    "press1Src": { "zh": "合作方与观众反馈（摘录）", "en": "Partners & audience notes" },
+    "press2": {
+      "zh": "在东方留白里做沉浸，需要勇气；他们有这样的勇气。",
+      "en": "Immersive work with Eastern restraint takes nerve - they have it."
+    },
+    "press2Src": { "zh": "行业观察（摘录）", "en": "Industry note" },
+    "press3": {
+      "zh": "不是「看戏」，是被放进故事里--这一点，他们说得诚实。",
+      "en": "Not watching a show - being placed inside the story. They mean it."
+    },
+    "press3Src": { "zh": "媒体合作（摘录）", "en": "Press collaboration" },
+    "servicesH": { "zh": "我们能帮你做什么？", "en": "What we can do for you" },
+    "servicesLink": { "zh": "进入合作中心 →", "en": "Collaborate hub →" },
+    "svc1t": { "zh": "现成项目引进", "en": "Ready-made productions" },
+    "svc1d": {
+      "zh": "将成熟项目带入剧院、商业体与城市更新空间，完整制作与巡演执行。",
+      "en": "Bring proven shows to theatres, retail spaces and urban projects - full production and touring."
+    },
+    "svc2t": { "zh": "驻场演艺合作", "en": "Resident performance" },
+    "svc2d": {
+      "zh": "为文旅、酒店与综合体打造专属驻演，内容与运营一体生长。",
+      "en": "Long-run shows for culture, hospitality and mixed-use - content and operations together."
+    },
+    "svc3t": { "zh": "文旅沉浸式定制", "en": "Immersive tourism" },
+    "svc3d": {
+      "zh": "从 0 到 1 的沉浸式叙事与空间体验，为目的地建立差异化内容资产。",
+      "en": "From scratch: narrative and spatial experience that differentiates a destination."
+    },
+    "svc4t": { "zh": "戏曲创新开发", "en": "Opera innovation" },
+    "svc4d": {
+      "zh": "与院团共创：用当代沉浸语言重塑传统戏曲，触达年轻观众。",
+      "en": "With companies: reframe traditional opera for younger audiences through immersion."
+    },
+    "svc5t": { "zh": "国际巡演合作", "en": "International touring" },
+    "svc5d": {
+      "zh": "项目出海与引进双向通道，国际制作协作与文化交流报批支持。",
+      "en": "Export and import tours - production partnerships and cultural exchange support."
+    },
+    "svc6t": { "zh": "品牌联名合作", "en": "Brand collaborations" },
+    "svc6d": {
+      "zh": "沉浸式品牌体验与事件传播，兼顾质感与 UGC 友好设计。",
+      "en": "Immersive brand worlds and events - crafted for shareability."
+    },
+    "svc7t": { "zh": "IP 孵化与联合开发", "en": "IP incubation" },
+    "svc7d": {
+      "zh": "文学、影视、游戏与世界观 IP 的线下沉浸转译与长期运营。",
+      "en": "Turn literature, film, games and lore into walkable experiences - built to last."
+    },
+    "svcMore": { "zh": "了解详情 →", "en": "Learn more →" },
+    "worksH": { "zh": "精选呈现", "en": "Curated highlights" },
+    "worksKicker": { "zh": "正在发生", "en": "What's on" },
+    "worksLink": { "zh": "查看全部作品 →", "en": "See all works →" },
+    "trustH": { "zh": "伙伴与认可", "en": "Partners & recognition" },
+    "st1": { "zh": "演出场次", "en": "Performances" },
+    "st2": { "zh": "观众人次", "en": "Audience" },
+    "st3": { "zh": "落地城市", "en": "Cities" },
+    "st4": { "zh": "原创剧目", "en": "Original works" },
+    "logoWall": {
+      "zh": "<span class=\"home-partners__chip\">北京朝阳剧场</span><span class=\"home-partners__chip\">湖南大剧院</span><span class=\"home-partners__chip\">梅溪湖大剧院</span><span class=\"home-partners__chip\">重庆大剧院</span><span class=\"home-partners__chip\">深圳滨海艺术中心</span><span class=\"home-partners__chip\">上海虹桥艺术中心</span><span class=\"home-partners__chip\">辽宁大剧院</span><span class=\"home-partners__chip\">广州大剧院</span><span class=\"home-partners__chip\">佛山大剧院</span><span class=\"home-partners__chip\">合肥大剧院</span><span class=\"home-partners__chip\">江苏大剧院</span><span class=\"home-partners__chip\">南通大剧院</span><span class=\"home-partners__chip\">扬州运河大剧院</span><span class=\"home-partners__chip\">义乌文化广场剧院</span><span class=\"home-partners__chip\">余姚大剧院</span><span class=\"home-partners__chip\">会昌戏剧小镇</span>",
+      "en": "<span class=\"home-partners__chip\">Beijing Chaoyang Theatre</span><span class=\"home-partners__chip\">Hunan Grand Theatre</span><span class=\"home-partners__chip\">Meixi Lake Grand Theatre</span><span class=\"home-partners__chip\">Chongqing Grand Theatre</span><span class=\"home-partners__chip\">Shenzhen Binhai Art Center</span><span class=\"home-partners__chip\">Shanghai Hongqiao Art Center</span><span class=\"home-partners__chip\">Liaoning Grand Theatre</span><span class=\"home-partners__chip\">Guangzhou Grand Theatre</span><span class=\"home-partners__chip\">Foshan Grand Theatre</span><span class=\"home-partners__chip\">Hefei Grand Theatre</span><span class=\"home-partners__chip\">Jiangsu Grand Theatre</span><span class=\"home-partners__chip\">Nantong Grand Theatre</span><span class=\"home-partners__chip\">Yangzhou Grand Canal Theatre</span><span class=\"home-partners__chip\">Yiwu Cultural Plaza Theatre</span><span class=\"home-partners__chip\">Yuyao Grand Theatre</span><span class=\"home-partners__chip\">Huichang Drama Town</span>"
+    },
+    "serveH": { "zh": "我们服务谁", "en": "Who we serve" },
+    "serve1t": { "zh": "品牌方", "en": "Brands" },
+    "serve1d": {
+      "zh": "市场部与品牌总监关注传播势能与调性匹配。我们提供可量化社交扩散的沉浸事件与共创叙事。",
+      "en": "Marketing and brand leads care about reach and fit - we deliver immersive events built to travel."
+    },
+    "serve2t": { "zh": "文旅 / 城市更新", "en": "Culture & cities" },
+    "serve2d": {
+      "zh": "项目总与运营团队关注客流、复购与内容差异化。我们用空间叙事拉长停留与回访理由。",
+      "en": "Developers and operators need dwell time and return visits - spatial narrative is our lever."
+    },
+    "serve3t": { "zh": "活动与场馆", "en": "Venues & events" },
+    "serve3d": {
+      "zh": "策划与项目经理关注执行效率与创意唯一性。我们交付从概念到现场的全链路制作统筹。",
+      "en": "Producers need execution and singularity - concept to show floor, one team."
+    },
+    "serveCta": { "zh": "了解合作方式", "en": "How we collaborate" },
+    "newsH": { "zh": "最新动态", "en": "Latest" },
+    "newsLink": { "zh": "关于与媒体 →", "en": "About & press →" },
+    "news1": {
+      "zh": "官网策划 V2 上线：合作产品矩阵与逐屏线框同步至开发实现。",
+      "en": "Site V2 live: collaboration matrix and screen blueprints shipped to build."
+    },
+    "news2": {
+      "zh": "旗舰项目持续巡演筹备中，欢迎通过合作中心获取引进资料包。",
+      "en": "Flagship tours in prep - request touring packs via Collaborate."
+    },
+    "news3": {
+      "zh": "沉浸式互动剧目《生存游戏》于重演浸空间（金源店）完成首轮驻演。",
+      "en": "THE SURVIVOR completed its first run at Chongyan Immersive Space (Jinyuan)."
+    },
+    "finalH": {
+      "zh": "无论是演出咨询、品牌合作，还是只是想聊聊--我们在这里。",
+      "en": "Show inquiry, brand collaboration, or just a conversation - we're here."
+    },
+    "finalSub": {
+      "zh": "Whether it's a show inquiry, brand collaboration, or just a conversation - we're here.",
+      "en": "Whether it's a show inquiry, brand collaboration, or just a conversation - we're here."
+    },
+    "finalCta": { "zh": "发起合作咨询", "en": "Start a conversation" },
+    "finalEmail": { "zh": "商务邮箱：", "en": "Business email:" },
+    "footerCopy": { "zh": "© 2026 惊喜之夜 Surprise Night", "en": "© 2026 Surprise Night" },
+    "footerContact": { "zh": "联系我们", "en": "Contact" }
+  },
+  "worksPage": {
+    "metaTitle": { "zh": "作品 - 惊喜之夜", "en": "Works - Surprise Night" },
+    "metaDesc": {
+      "zh": "惊喜之夜作品列表：沉浸式戏剧、体验式演出、新中式戏曲。",
+      "en": "Surprise Night works - immersive theatre, experiential performance, neo-Chinese opera."
+    },
+    "heroEyebrow": { "zh": "剧目与项目", "en": "Production catalogue" },
+    "h1": { "zh": "作品", "en": "Works" },
+    "lead": {
+      "zh": "按体验类型浏览。旗舰制作与沉浸、体验式与新中式戏曲并列呈现——点开卡片进入完整介绍。",
+      "en": "Browse by experience line — flagship, immersive, experiential and neo-Chinese opera. Each card opens the full production brief."
+    },
+    "fAll": { "zh": "全部", "en": "All" },
+    "fImmersive": { "zh": "沉浸式戏剧", "en": "Immersive" },
+    "fExp": { "zh": "体验式演出", "en": "Experiential" },
+    "fNeo": { "zh": "新中式戏曲", "en": "Neo-Chinese" },
+    "footerLink": { "zh": "合作咨询", "en": "Collaborate" },
+    "footerCopy": { "zh": "© 2026 惊喜之夜", "en": "© 2026 Surprise Night" }
+  }
+}
