@@ -152,7 +152,7 @@ export async function onRequestPost(context) {
     { role: "user", content: userMessage },
   ];
 
-  // 调用 MiniMax API（流式）
+  // 调用 MiniMax API（非流式，方便过滤 think 标签）
   var apiResp = await fetch("https://api.minimax.chat/v1/chat/completions", {
     method: "POST",
     headers: {
@@ -164,7 +164,7 @@ export async function onRequestPost(context) {
       messages: messages,
       max_tokens: 500,
       temperature: 0.7,
-      stream: true,
+      stream: false,
     }),
   });
 
@@ -174,8 +174,21 @@ export async function onRequestPost(context) {
     return jsonResp({ error: "AI 服务暂时不可用" }, 502);
   }
 
-  // 透传流式响应
-  return new Response(apiResp.body, {
+  var data = await apiResp.json();
+  var reply = (data.choices && data.choices[0] && data.choices[0].message && data.choices[0].message.content) || "";
+
+  // 过滤 <think>...</think> 内容
+  reply = reply.replace(/<think>[\s\S]*?<\/think>/g, "").trim();
+  // 过滤 Markdown 粗体
+  reply = reply.replace(/\*\*/g, "");
+
+  // 用 SSE 格式返回（兼容前端现有的流式解析逻辑）
+  var sseData = JSON.stringify({
+    choices: [{ delta: { content: reply }, finish_reason: "stop" }]
+  });
+  var sseBody = "data: " + sseData + "\n\ndata: [DONE]\n\n";
+
+  return new Response(sseBody, {
     headers: {
       "Content-Type": "text/event-stream",
       "Cache-Control": "no-cache",
