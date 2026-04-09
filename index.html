@@ -77,8 +77,35 @@
           <h1 class="home-hero-title" data-i18n="index.heroH1" data-i18n-html="true">让故事从<br />你的脚下开始</h1>
           <p class="home-hero-lead" data-i18n="index.heroLead">惊喜之夜创造沉浸式喜剧与体验式演出</p>
           <p class="home-hero-tagline" data-i18n="index.heroTagline" data-i18n-html="true">我们不设观众席，<span class="home-hero-accent">只造世界</span>。</p>
-          <div class="hero-cta">
-            <a class="btn btn-primary" href="works.html" data-i18n="index.ctaWorks">正在上演</a>
+          <!-- AI 问答框（替代原"正在上演"按钮） -->
+          <div id="sn-ask" class="sn-ask">
+            <div class="sn-ask-box">
+              <span class="sn-ask-top-glow" aria-hidden="true"></span>
+              <span class="sn-ask-left-glow" aria-hidden="true"></span>
+              <span class="sn-ask-right-glow" aria-hidden="true"></span>
+              <textarea id="sn-ask-input" placeholder="你好，我是惊喜，AI机器人，有什么需要了解的，可以问我 / Hi, I am Surprise AI. What would you like to know?" rows="1"></textarea>
+              <button id="sn-ask-send" class="sn-ask-send" title="发送">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+              </button>
+            </div>
+            <div class="sn-ask-guides" aria-label="推荐提问">
+              <button type="button" class="sn-ask-guide" data-ask-prompt="你们提供哪些服务？">
+                <span class="sn-ask-guide-zh-prompt" data-ask-zh="你们提供哪些服务？" data-ask-en="What services do you provide?"></span>
+                <span class="sn-ask-guide-zh">你们提供哪些服务？</span>
+                <span class="sn-ask-guide-en">What services do you provide?</span>
+              </button>
+              <button type="button" class="sn-ask-guide" data-ask-prompt="山海经·巨灵之梦团队多少人？">
+                <span class="sn-ask-guide-zh-prompt" data-ask-zh="山海经·巨灵之梦团队多少人？" data-ask-en="How many members are in the team of Shan Hai Jing: Giant Spirit Dream?"></span>
+                <span class="sn-ask-guide-zh">山海经·巨灵之梦团队多少人？</span>
+                <span class="sn-ask-guide-en">How many members are in the team of Shan Hai Jing: Giant Spirit Dream?</span>
+              </button>
+              <button type="button" class="sn-ask-guide" data-ask-prompt="有沉浸式演出吗？">
+                <span class="sn-ask-guide-zh-prompt" data-ask-zh="有沉浸式演出吗？" data-ask-en="Do you have immersive performances?"></span>
+                <span class="sn-ask-guide-zh">有沉浸式演出吗？</span>
+                <span class="sn-ask-guide-en">Do you have immersive performances?</span>
+              </button>
+            </div>
+            <div id="sn-ask-reply" class="sn-ask-reply"></div>
           </div>
         </div>
         <div class="hero-scroll" aria-hidden="true">↓</div>
@@ -233,5 +260,409 @@
     <script src="js/i18n.js" defer></script>
     <script src="js/main.js" defer></script>
     <script src="js/works-render.js" defer></script>
+
+    <!-- AI 问答助手 样式 -->
+    <style>
+      /* === 输入框容器 === */
+      .sn-ask {
+        margin-top: 62px;
+        width: min(54vw, 930px);
+        max-width: none;
+        left: 50%;
+        transform: translateX(-50%);
+        position: relative;
+        z-index: 5;
+      }
+
+      /* === 主输入框（Grok 风格） === */
+      .sn-ask-box {
+        position: relative;
+        isolation: isolate;
+        background: rgba(255,255,255,0.05);
+        border: 1px solid rgba(255,255,255,0.12);
+        border-radius: 28px;
+        padding: 24px 28px;
+        padding-right: 76px;
+        min-height: 96px;
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        transition: border-color 0.35s, background 0.35s, box-shadow 0.35s;
+      }
+      .sn-ask-box::before {
+        content: "";
+        position: absolute;
+        inset: -2px;
+        border-radius: inherit;
+        padding: 1px;
+        pointer-events: none;
+        background: linear-gradient(120deg, rgba(124, 214, 255, 0.9), rgba(138, 117, 255, 0.9), rgba(255, 131, 198, 0.88), rgba(124, 214, 255, 0.9));
+        background-size: 220% 220%;
+        -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+        mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+        -webkit-mask-composite: xor;
+        mask-composite: exclude;
+        opacity: 0.82;
+        filter: saturate(1.05);
+        animation: snRingFlow 9s ease-in-out infinite;
+        z-index: 0;
+      }
+      .sn-ask-box::after {
+        content: "";
+        position: absolute;
+        left: 0%;
+        right: 0%;
+        bottom: -8px;
+        height: 12px;
+        border-radius: 999px;
+        pointer-events: none;
+        background: linear-gradient(
+          90deg,
+          rgba(82, 219, 255, 0.9),
+          rgba(113, 153, 255, 0.95),
+          rgba(167, 120, 255, 0.92),
+          rgba(255, 129, 202, 0.88),
+          rgba(255, 191, 108, 0.86),
+          rgba(120, 245, 197, 0.9),
+          rgba(82, 219, 255, 0.9)
+        );
+        background-size: 240% 100%;
+        filter: blur(10px);
+        opacity: 0.82;
+        animation: snSpectrumFlow 6.5s linear infinite;
+        z-index: 0;
+      }
+      .sn-ask-box .sn-ask-top-glow {
+        position: absolute;
+        left: 6px;
+        right: 6px;
+        top: -8px;
+        height: 12px;
+        border-radius: 16px 16px 999px 999px;
+        pointer-events: none;
+        background: linear-gradient(
+          90deg,
+          rgba(82, 219, 255, 0.9),
+          rgba(113, 153, 255, 0.95),
+          rgba(167, 120, 255, 0.92),
+          rgba(255, 129, 202, 0.88),
+          rgba(255, 191, 108, 0.86),
+          rgba(120, 245, 197, 0.9),
+          rgba(82, 219, 255, 0.9)
+        );
+        background-size: 240% 100%;
+        filter: blur(10px);
+        opacity: 0.82;
+        animation: snSpectrumFlow 6.5s linear infinite;
+        z-index: 0;
+      }
+      .sn-ask-box .sn-ask-left-glow,
+      .sn-ask-box .sn-ask-right-glow {
+        position: absolute;
+        top: -8px;
+        bottom: -8px;
+        width: 12px;
+        border-radius: 999px;
+        pointer-events: none;
+        background: linear-gradient(
+          180deg,
+          rgba(82, 219, 255, 0.9),
+          rgba(113, 153, 255, 0.95),
+          rgba(167, 120, 255, 0.92),
+          rgba(255, 129, 202, 0.88),
+          rgba(255, 191, 108, 0.86),
+          rgba(120, 245, 197, 0.9),
+          rgba(82, 219, 255, 0.9)
+        );
+        background-size: 100% 240%;
+        filter: blur(10px);
+        opacity: 0.82;
+        animation: snSpectrumFlowY 6.5s linear infinite;
+        z-index: 0;
+      }
+      .sn-ask-box .sn-ask-left-glow { left: -8px; }
+      .sn-ask-box .sn-ask-right-glow { right: -8px; }
+
+      .sn-ask-box::after {
+        left: 6px;
+        right: 6px;
+        border-radius: 999px 999px 16px 16px;
+      }
+      .sn-ask-box:focus-within {
+        border-color: rgba(255,255,255,0.28);
+        background: rgba(255,255,255,0.08);
+        box-shadow: 0 0 0 1px rgba(255,255,255,0.06), 0 8px 40px rgba(0,0,0,0.3);
+      }
+      .sn-ask-box textarea {
+        width: 100%;
+        background: none;
+        border: none;
+        outline: none;
+        color: rgba(255,255,255,0.78);
+        font-size: 15px;
+        font-family: "Noto Sans SC", -apple-system, BlinkMacSystemFont, sans-serif;
+        line-height: 1.6;
+        resize: none;
+        min-height: 32px;
+        max-height: 148px;
+        letter-spacing: 0.02em;
+      }
+      .sn-ask-box textarea::placeholder {
+        color: rgba(255,255,255,0.4);
+        font-size: 14px;
+      }
+
+      /* === 发送按钮（右下角） === */
+      .sn-ask-send {
+        position: absolute;
+        bottom: 16px;
+        right: 16px;
+        width: 36px; height: 36px;
+        border-radius: 50%;
+        border: 1px solid rgba(255,255,255,0.18);
+        background: rgba(255,255,255,0.07);
+        color: rgba(255,255,255,0.5);
+        cursor: pointer;
+        display: flex; align-items: center; justify-content: center;
+        flex-shrink: 0;
+        transition: all 0.3s;
+      }
+      .sn-ask-send:hover {
+        background: rgba(255,255,255,0.18);
+        color: #fff;
+        border-color: rgba(255,255,255,0.4);
+        transform: scale(1.06);
+      }
+      .sn-ask-send:disabled { opacity: 0.25; cursor: not-allowed; transform: none; }
+
+      .sn-ask-guides {
+        margin-top: 14px;
+        margin-left: 18px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+      }
+      .sn-ask-guide {
+        appearance: none;
+        border: none;
+        background: transparent;
+        color: rgba(255, 255, 255, 0.74);
+        padding: 0;
+        font-size: 14px;
+        font-weight: 600;
+        line-height: 1.55;
+        cursor: pointer;
+        text-align: left;
+        transition: color 0.25s, transform 0.25s;
+      }
+      .sn-ask-guide-zh,
+      .sn-ask-guide-en {
+        display: block;
+      }
+      .sn-ask-guide-zh-prompt { display: none; }
+      .sn-ask-guide-zh {
+        color: rgba(255, 255, 255, 0.78);
+      }
+      .sn-ask-guide-en {
+        color: rgba(255, 255, 255, 0.48);
+        font-size: 12px;
+        font-weight: 500;
+        line-height: 1.35;
+        margin-top: 1px;
+      }
+      html[data-lang="zh"] .sn-ask-guide-en { display: none; }
+      html[data-lang="en"] .sn-ask-guide-zh { display: none; }
+      .sn-ask-guide:hover {
+        color: rgba(172, 221, 255, 0.95);
+        transform: translateY(-1px);
+      }
+
+      /* === 回答区域 === */
+      .sn-ask-reply {
+        margin-top: 18px;
+        max-height: 360px;
+        overflow-y: auto;
+        color: rgba(255,255,255,0.85);
+        font-size: 15px;
+        line-height: 1.8;
+        letter-spacing: 0.02em;
+        scrollbar-width: thin;
+        scrollbar-color: rgba(255,255,255,0.12) transparent;
+      }
+      .sn-ask-reply::-webkit-scrollbar { width: 3px; }
+      .sn-ask-reply::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.12); border-radius: 2px; }
+      .sn-ask-reply:empty { display: none; }
+      .sn-ask-reply .sn-ask-q {
+        color: rgba(255,255,255,0.35);
+        font-size: 13px;
+        margin-bottom: 8px;
+        padding-left: 2px;
+      }
+      .sn-ask-reply .sn-ask-a {
+        padding: 18px 22px;
+        background: rgba(255,255,255,0.04);
+        border-radius: 16px;
+        border: 1px solid rgba(255,255,255,0.07);
+        margin-bottom: 16px;
+      }
+      .sn-ask-cursor {
+        display: inline-block;
+        width: 2px; height: 17px;
+        background: rgba(255,255,255,0.55);
+        margin-left: 2px;
+        vertical-align: text-bottom;
+        animation: snBlink 0.8s infinite;
+      }
+      @keyframes snBlink { 0%,100%{opacity:1} 50%{opacity:0} }
+      @keyframes snRingFlow {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+      }
+      @keyframes snSpectrumFlow {
+        0% { background-position: 0% 50%; }
+        100% { background-position: 240% 50%; }
+      }
+      @keyframes snSpectrumFlowY {
+        0% { background-position: 50% 0%; }
+        100% { background-position: 50% 240%; }
+      }
+
+      /* === 响应式 === */
+      @media(max-width: 640px) {
+        .sn-ask { width: min(92vw, 760px); max-width: none; margin-top: 36px; left: 50%; transform: translateX(-50%); }
+        .sn-ask-box { min-height: 88px; padding: 20px 20px; padding-right: 68px; border-radius: 22px; }
+        .sn-ask-box textarea { font-size: 15px; }
+        .sn-ask-box textarea::placeholder { font-size: 15px; }
+        .sn-ask-guides { margin-top: 10px; margin-left: 12px; gap: 6px; }
+        .sn-ask-guide { font-size: 12px; }
+      }
+    </style>
+
+    <!-- AI 问答助手 逻辑 -->
+    <script>
+    (function(){
+      var input = document.getElementById('sn-ask-input');
+      var btn = document.getElementById('sn-ask-send');
+      var replyBox = document.getElementById('sn-ask-reply');
+      var guideButtons = document.querySelectorAll('.sn-ask-guide');
+      var history = [];
+      var streaming = false;
+
+      if (!input || !btn) return;
+
+      // 自动调整高度
+      input.addEventListener('input', function() {
+        this.style.height = 'auto';
+        this.style.height = Math.min(this.scrollHeight, 120) + 'px';
+      });
+
+      btn.addEventListener('click', send);
+      input.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); send(); }
+      });
+      function getLang() {
+        var l = document.documentElement.getAttribute('data-lang');
+        if (l === 'en' || l === 'zh') return l;
+        return document.documentElement.lang === 'en' ? 'en' : 'zh';
+      }
+      for (var g = 0; g < guideButtons.length; g++) {
+        guideButtons[g].addEventListener('click', function() {
+          var probe = this.querySelector('.sn-ask-guide-zh-prompt');
+          var lang = getLang();
+          var prompt = this.getAttribute('data-ask-prompt') || '';
+          if (probe) {
+            var zh = probe.getAttribute('data-ask-zh') || '';
+            var en = probe.getAttribute('data-ask-en') || '';
+            prompt = lang === 'en' ? en : zh;
+          }
+          input.value = prompt;
+          input.dispatchEvent(new Event('input'));
+          input.focus();
+          input.setSelectionRange(input.value.length, input.value.length);
+        });
+      }
+
+      async function send() {
+        if (streaming) return;
+        var q = input.value.trim();
+        if (!q) return;
+        input.value = '';
+        input.style.height = 'auto';
+
+        // 显示问题
+        var qDiv = document.createElement('div');
+        qDiv.className = 'sn-ask-q';
+        qDiv.textContent = '› ' + q;
+        replyBox.appendChild(qDiv);
+
+        // 回答容器
+        var aDiv = document.createElement('div');
+        aDiv.className = 'sn-ask-a';
+        var cursor = document.createElement('span');
+        cursor.className = 'sn-ask-cursor';
+        aDiv.appendChild(cursor);
+        replyBox.appendChild(aDiv);
+        replyBox.scrollTop = replyBox.scrollHeight;
+
+        streaming = true;
+        btn.disabled = true;
+
+        try {
+          var resp = await fetch('/api/chat', {
+            method: 'POST',
+            headers: {'Content-Type':'application/json'},
+            body: JSON.stringify({ message: q, history: history })
+          });
+
+          if (!resp.ok) {
+            aDiv.textContent = '抱歉，系统暂时出了点问题，请稍后再试。';
+            if (cursor.parentNode) cursor.parentNode.removeChild(cursor);
+            return;
+          }
+
+          var reader = resp.body.getReader();
+          var decoder = new TextDecoder();
+          var text = '';
+
+          while (true) {
+            var result = await reader.read();
+            if (result.done) break;
+            var chunk = decoder.decode(result.value, {stream:true});
+            var lines = chunk.split('\n');
+            for (var i = 0; i < lines.length; i++) {
+              if (lines[i].indexOf('data: ') === 0) {
+                var d = lines[i].slice(6);
+                if (d.trim() === '[DONE]') continue;
+                try {
+                  var p = JSON.parse(d);
+                  var c = (p.choices||[])[0];
+                  if (c && c.delta && c.delta.content) {
+                    text += c.delta.content;
+                    aDiv.textContent = text;
+                    aDiv.appendChild(cursor);
+                  }
+                } catch(e){}
+              }
+            }
+            replyBox.scrollTop = replyBox.scrollHeight;
+          }
+
+          if (cursor.parentNode) cursor.parentNode.removeChild(cursor);
+          history.push({role:'user', content:q});
+          history.push({role:'assistant', content:text});
+          if (history.length > 20) history = history.slice(-20);
+
+        } catch(err) {
+          aDiv.textContent = '网络似乎不太稳定，请稍后再试。';
+          if (cursor.parentNode) cursor.parentNode.removeChild(cursor);
+        } finally {
+          streaming = false;
+          btn.disabled = false;
+          input.focus();
+        }
+      }
+    })();
+    </script>
   </body>
 </html>
