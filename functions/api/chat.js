@@ -825,6 +825,23 @@ export async function onRequestPost(context) {
 
       // 流结束，发送 DONE
       await writer.write(encoder.encode("data: [DONE]\n\n"));
+
+      // 将问答记录存入 KV（如果已绑定）
+      if (env.CHAT_LOGS) {
+        try {
+          var finalReply = full.replace(/<think>[\s\S]*?<\/think>/g, "").replace(/\*\*/g, "").trim();
+          var logKey = "chat_" + Date.now() + "_" + Math.random().toString(36).slice(2, 8);
+          var logData = JSON.stringify({
+            time: new Date().toISOString(),
+            question: userMessage,
+            answer: finalReply,
+          });
+          // expirationTtl: 90天后自动过期
+          await env.CHAT_LOGS.put(logKey, logData, { expirationTtl: 7776000 });
+        } catch (logErr) {
+          console.log("KV log error:", logErr);
+        }
+      }
     } catch (e) {
       console.log("Stream relay error:", e);
     } finally {
