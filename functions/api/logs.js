@@ -56,7 +56,18 @@ export async function onRequestGet(context) {
       String(t.getSeconds()).padStart(2, "0");
     var q = (log.question || "").replace(/</g, "&lt;").replace(/>/g, "&gt;");
     var a = (log.answer || "").replace(/</g, "&lt;").replace(/>/g, "&gt;");
-    rows += "<tr><td>" + timeStr + "</td><td>" + q + "</td><td>" + a + "</td></tr>\n";
+    var ip = (log.ip || "—").replace(/</g, "&lt;");
+    var city = (log.city || "").replace(/</g, "&lt;");
+    var country = (log.country || "").replace(/</g, "&lt;");
+    var location = (city && country) ? city + ", " + country : (city || country || "");
+    // IP 脱敏：只显示前两段 + *.*
+    var ipShort = ip;
+    if (ip && ip !== "—" && ip.indexOf(".") > 0) {
+      var parts = ip.split(".");
+      ipShort = parts[0] + "." + parts[1] + ".*.*";
+    }
+    var visitorInfo = ipShort + (location ? " (" + location + ")" : "");
+    rows += "<tr><td>" + timeStr + "</td><td class='visitor'>" + visitorInfo + "</td><td>" + q + "</td><td>" + a + "</td></tr>\n";
   }
 
   var html = '<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8">' +
@@ -70,11 +81,11 @@ export async function onRequestGet(context) {
     'th{background:#1a1a2e;color:#fff;padding:12px;text-align:left;font-size:13px}' +
     'td{padding:10px 12px;border-bottom:1px solid #eee;font-size:13px;vertical-align:top;max-width:400px;word-wrap:break-word}' +
     'tr:hover{background:#f9f9f9}' +
-    '.q{color:#333;font-weight:500}.a{color:#555}' +
+    '.q{color:#333;font-weight:500}.a{color:#555}.visitor{color:#888;font-size:12px}' +
     '</style></head><body>' +
     '<h1>惊喜 AI 聊天记录</h1>' +
     '<div class="count">共 ' + logs.length + ' 条记录（最近90天）</div>' +
-    '<table><tr><th style="width:160px">时间</th><th>用户问题</th><th>AI 回答</th></tr>' +
+    '<table><tr><th style="width:140px">时间</th><th style="width:140px">访客</th><th>用户问题</th><th>AI 回答</th></tr>' +
     rows +
     '</table></body></html>';
 
