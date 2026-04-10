@@ -57,14 +57,11 @@
     ".sn-bub{padding:9px 13px;border-radius:14px;line-height:1.55;font-size:13.5px;word-break:break-word}",
     ".sn-msg.bot .sn-bub{background:#EDEAE5;color:#2D2A26;border-bottom-left-radius:4px}",
     ".sn-msg.user .sn-bub{background:#D4763C;color:#fff;border-bottom-right-radius:4px}",
-    // 打字动画
+    // 打字动画（随机提示语）
     ".sn-typing{display:none;align-self:flex-start;gap:8px;max-width:88%}",
     ".sn-typing.show{display:flex}",
-    ".sn-typing-dots{background:#EDEAE5;padding:10px 14px;border-radius:14px;border-bottom-left-radius:4px;display:flex;gap:4px}",
-    ".sn-typing-dots span{width:5px;height:5px;background:#aaa;border-radius:50%;animation:snBounce 1.4s infinite}",
-    ".sn-typing-dots span:nth-child(2){animation-delay:.2s}",
-    ".sn-typing-dots span:nth-child(3){animation-delay:.4s}",
-    "@keyframes snBounce{0%,60%,100%{transform:translateY(0)}30%{transform:translateY(-5px)}}",
+    ".sn-typing-hint{background:#EDEAE5;padding:9px 14px;border-radius:14px;border-bottom-left-radius:4px;font-size:13px;color:#9A948C;animation:snPulse 1.5s ease-in-out infinite}",
+    "@keyframes snPulse{0%,100%{opacity:1}50%{opacity:.4}}",
     // 快捷按钮
     "#sn-cw-quick{padding:6px 14px;display:flex;gap:6px;overflow-x:auto;flex-shrink:0;-webkit-overflow-scrolling:touch}",
     "#sn-cw-quick::-webkit-scrollbar{display:none}",
@@ -97,7 +94,7 @@
       '<div id="sn-cw-msgs"></div>' +
       '<div class="sn-typing" id="sn-cw-typing">' +
         '<div class="sn-av">\u{1F3D4}</div>' +
-        '<div class="sn-typing-dots"><span></span><span></span><span></span></div>' +
+        '<div class="sn-typing-hint" id="sn-cw-hint"></div>' +
       "</div>" +
       '<div id="sn-cw-quick"></div>' +
       '<div id="sn-cw-input">' +
@@ -120,7 +117,23 @@
   var dot = document.getElementById("sn-cw-dot");
   var msgs = document.getElementById("sn-cw-msgs");
   var typing = document.getElementById("sn-cw-typing");
+  var typingHint = document.getElementById("sn-cw-hint");
   var quickBox = document.getElementById("sn-cw-quick");
+
+  // === 等待提示语（随机） ===
+  var HINTS = [
+    "\u601d\u8003\u4e2d\u2026\u2026",
+    "\u5bb9\u6211\u60f3\u4e00\u60f3\u2026\u2026",
+    "\u7b49\u7b49\uff0c\u8ba9\u6211\u7ffb\u7ffb\u8d44\u6599\u2026\u2026",
+    "\u522b\u6025\uff0c\u9a6c\u4e0a\u5c31\u6765\u2026\u2026",
+    "\u8fd9\u4e2a\u95ee\u9898\u6709\u70b9\u610f\u601d\u2026\u2026",
+    "\u6211\u7ec4\u7ec7\u4e00\u4e0b\u8bed\u8a00\u2026\u2026",
+    "\u597d\u95ee\u9898\uff0c\u5bb9\u6211\u60f3\u60f3\u2026\u2026",
+    "\u563f\uff0c\u7a0d\u7b49\u2026\u2026",
+    "\u6b63\u5728\u8c03\u7528\u6211\u7684\u77e5\u8bc6\u5e93\u2026\u2026",
+    "\u8fd9\u4e2a\u6211\u719f\uff0c\u7b49\u4e00\u4e0b\u2026\u2026",
+    "\u8ba9\u6211\u68b3\u7406\u4e00\u4e0b\u2026\u2026",
+  ];
   var ta = document.getElementById("sn-cw-ta");
   var sendBtn = document.getElementById("sn-cw-send");
 
@@ -198,6 +211,7 @@
 
     isStreaming = true;
     sendBtn.disabled = true;
+    typingHint.textContent = HINTS[Math.floor(Math.random() * HINTS.length)];
     typing.classList.add("show");
 
     try {
