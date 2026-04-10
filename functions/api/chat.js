@@ -708,7 +708,7 @@ export async function onRequestPost(context) {
     { role: "user", content: userMessage },
   ];
 
-  // 调用 MiniMax API（非流式，方便过滤 think 标签）
+  // 调用 MiniMax API（流式，实现打字机效果）
   var apiResp = await fetch("https://api.minimax.chat/v1/chat/completions", {
     method: "POST",
     headers: {
@@ -720,7 +720,7 @@ export async function onRequestPost(context) {
       messages: messages,
       max_tokens: 500,
       temperature: 0.7,
-      stream: false,
+      stream: true,
     }),
   });
 
@@ -730,21 +730,109 @@ export async function onRequestPost(context) {
     return jsonResp({ error: "AI 服务暂时不可用" }, 502);
   }
 
-  var data = await apiResp.json();
-  var reply = (data.choices && data.choices[0] && data.choices[0].message && data.choices[0].message.content) || "";
+  // 流式转发：从 MiniMax 读取 SSE → 过滤 think 标签 → 转发给前端
+  var { readable, writable } = new TransformStream();
+  var writer = writable.getWriter();
+  var encoder = new TextEncoder();
 
-  // 过滤 <think>...</think> 内容
-  reply = reply.replace(/<think>[\s\S]*?<\/think>/g, "").trim();
-  // 过滤 Markdown 粗体
-  reply = reply.replace(/\*\*/g, "");
+  // 后台异步处理流
+  (async function () {
+    var reader = apiResp.body.getReader();
+    var decoder = new TextDecoder();
+    var buf = "";          // SSE 行缓冲
+    var full = "";         // 已收到的全部文本
+    var inThink = false;   // 是否在 <think> 块内
+    var thinkDone = false; // think 块是否已结束
+    var flushed = "";      // 已发送给前端的文本
 
-  // 用 SSE 格式返回（兼容前端现有的流式解析逻辑）
-  var sseData = JSON.stringify({
-    choices: [{ delta: { content: reply }, finish_reason: "stop" }]
-  });
-  var sseBody = "data: " + sseData + "\n\ndata: [DONE]\n\n";
+    // 向前端发送一段文字
+    async function send(text) {
+      if (!text) return;
+      var d = JSON.stringify({ choices: [{ delta: { content: text } }] });
+      await writer.write(encoder.encode("data: " + d + "\n\n"));
+    }
 
-  return new Response(sseBody, {
+    try {
+      while (true) {
+        var chunk = await reader.read();
+        if (chunk.done) break;
+        buf += decoder.decode(chunk.value, { stream: true });
+
+        // 按行切分 SSE
+        var lines = buf.split("\n");
+        buf = lines.pop() || "";
+
+        for (var i = 0; i < lines.length; i++) {
+          var line = lines[i];
+          if (line.indexOf("data: ") !== 0) continue;
+          var payload = line.slice(6).trim();
+          if (payload === "[DONE]") continue;
+
+          var parsed;
+          try { parsed = JSON.parse(payload); } catch (e) { continue; }
+          var content = "";
+          if (parsed.choices && parsed.choices[0]) {
+            var delta = parsed.choices[0].delta;
+            if (delta) content = delta.content || "";
+          }
+          if (!content) continue;
+
+          full += content;
+
+          // —— think 标签过滤逻辑 ——
+          if (!thinkDone) {
+            // 检测 <think> 开始
+            if (!inThink && full.indexOf("<think>") !== -1) {
+              inThink = true;
+            }
+            // 还没遇到 <think>，且已经有足够内容确认不会有
+            if (!inThink && full.length > 7) {
+              thinkDone = true;
+              // 补发之前缓冲的内容
+              var cleaned = full.replace(/\*\*/g, "");
+              await send(cleaned);
+              flushed = full;
+              continue;
+            }
+            // 在 think 块内，等 </think> 结束
+            if (inThink) {
+              var endIdx = full.indexOf("</think>");
+              if (endIdx !== -1) {
+                // think 块结束，去掉整个 think 内容
+                full = full.replace(/<think>[\s\S]*?<\/think>/g, "").trimStart();
+                thinkDone = true;
+                inThink = false;
+                if (full) {
+                  var cleaned2 = full.replace(/\*\*/g, "");
+                  await send(cleaned2);
+                  flushed = full;
+                }
+              }
+              continue; // think 块未结束，继续缓冲
+            }
+            continue; // 还在检测阶段
+          }
+
+          // —— think 已处理完，正常转发新增内容 ——
+          var newPart = full.slice(flushed.length);
+          flushed = full;
+          if (newPart) {
+            var cleaned3 = newPart.replace(/\*\*/g, "");
+            await send(cleaned3);
+          }
+        }
+      }
+
+      // 流结束，发送 DONE
+      await writer.write(encoder.encode("data: [DONE]\n\n"));
+    } catch (e) {
+      console.log("Stream relay error:", e);
+    } finally {
+      await writer.close();
+    }
+  })();
+
+  return new Response(readable, {
     headers: {
       "Content-Type": "text/event-stream",
       "Cache-Control": "no-cache",
