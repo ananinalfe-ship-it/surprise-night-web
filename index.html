@@ -514,6 +514,12 @@
         animation: snBlink 0.8s infinite;
       }
       @keyframes snBlink { 0%,100%{opacity:1} 50%{opacity:0} }
+      .sn-ask-hint {
+        color: rgba(255,255,255,0.35);
+        font-size: 13px;
+        animation: snPulse 1.5s ease-in-out infinite;
+      }
+      @keyframes snPulse { 0%,100%{opacity:1} 50%{opacity:.3} }
       @keyframes snRingFlow {
         0% { background-position: 0% 50%; }
         50% { background-position: 100% 50%; }
@@ -548,6 +554,13 @@
       var guideButtons = document.querySelectorAll('.sn-ask-guide');
       var history = [];
       var streaming = false;
+      var HINTS = [
+        '思考中……','容我想一想……','等等，让我翻翻资料……',
+        '别急，马上就来……','这个问题有点意思……','我组织一下语言……',
+        '好问题，容我想想……','嘿，稍等……','正在调用我的知识库……',
+        '这个我熟，等一下……','让我梳理一下……','你等等啊……',
+        '这个得好好说说……','我想想怎么跟你讲……'
+      ];
 
       if (!input || !btn) return;
 
@@ -599,9 +612,12 @@
         // 回答容器
         var aDiv = document.createElement('div');
         aDiv.className = 'sn-ask-a';
+        var hint = document.createElement('span');
+        hint.className = 'sn-ask-hint';
+        hint.textContent = HINTS[Math.floor(Math.random() * HINTS.length)];
+        aDiv.appendChild(hint);
         var cursor = document.createElement('span');
         cursor.className = 'sn-ask-cursor';
-        aDiv.appendChild(cursor);
         replyBox.appendChild(aDiv);
         replyBox.scrollTop = replyBox.scrollHeight;
 
@@ -616,6 +632,7 @@
           });
 
           if (!resp.ok) {
+            if (hint.parentNode) hint.parentNode.removeChild(hint);
             aDiv.textContent = '抱歉，系统暂时出了点问题，请稍后再试。';
             if (cursor.parentNode) cursor.parentNode.removeChild(cursor);
             return;
@@ -638,6 +655,7 @@
                   var p = JSON.parse(d);
                   var c = (p.choices||[])[0];
                   if (c && c.delta && c.delta.content) {
+                    if (hint.parentNode) hint.parentNode.removeChild(hint);
                     text += c.delta.content;
                     aDiv.textContent = text;
                     aDiv.appendChild(cursor);
@@ -654,6 +672,7 @@
           if (history.length > 20) history = history.slice(-20);
 
         } catch(err) {
+          if (hint.parentNode) hint.parentNode.removeChild(hint);
           aDiv.textContent = '网络似乎不太稳定，请稍后再试。';
           if (cursor.parentNode) cursor.parentNode.removeChild(cursor);
         } finally {
