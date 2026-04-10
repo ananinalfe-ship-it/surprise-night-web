@@ -559,8 +559,14 @@
         '别急，马上就来……','这个问题有点意思……','我组织一下语言……',
         '好问题，容我想想……','嘿，稍等……','正在调用我的知识库……',
         '这个我熟，等一下……','让我梳理一下……','你等等啊……',
-        '这个得好好说说……','我想想怎么跟你讲……'
+        '这个得好好说说……','我想想怎么跟你讲……','诶，好问题……',
+        '我翻一下我的小本本……','稍等，脑子转一下……','emmm……',
+        '等我捋一捋……','这个有故事，等一下……','让我认真回答你……',
+        '哎呀，这个问题不简单……','我查查我的知识库……','收到，想想怎么说……',
+        '你问到点子上了……','等一下，马上输出……','好的好的，想想……',
+        '来了来了……','这题我会，稍等……','脑子里在搜索中……'
       ];
+      var lastHintIdx = -1;
 
       if (!input || !btn) return;
 
@@ -614,7 +620,10 @@
         aDiv.className = 'sn-ask-a';
         var hint = document.createElement('span');
         hint.className = 'sn-ask-hint';
-        hint.textContent = HINTS[Math.floor(Math.random() * HINTS.length)];
+        var hi = Math.floor(Math.random() * HINTS.length);
+        if (hi === lastHintIdx) hi = (hi + 1) % HINTS.length;
+        lastHintIdx = hi;
+        hint.textContent = HINTS[hi];
         aDiv.appendChild(hint);
         var cursor = document.createElement('span');
         cursor.className = 'sn-ask-cursor';
