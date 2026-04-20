@@ -1,139 +1,993 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>数学秀 — 惊喜之夜</title>
-    <meta name="description" content="数学与沉浸戏剧的跨界实验。往期回顾。" />
-    <link rel="stylesheet" href="css/styles.css" />
-  </head>
-  <body data-i18n-page="project-math">
-    <header class="site-header">
-      <div class="inner">
-        <a href="index.html" class="logo" style="display: flex; align-items: center; gap: 12px; font-size: 1.1rem;"> <img src="assets/images/logo.png" alt="" style="width: 32px; height: 32px; object-fit: contain;"> <span>惊喜之夜 <span style="opacity: 0.7; font-size: 0.75rem; font-weight: 400; margin-left: 4px;">/ Surprise Night</span></span> </a>
-        <button type="button" class="nav-toggle" data-i18n="nav.menu" aria-expanded="false" aria-controls="primary-nav">
-          菜单
-        </button>
-        <nav>
-          <ul id="primary-nav" class="nav-links">
-            <li><a href="works.html" data-i18n="nav.works">作品</a></li>
-            <li><a href="collaborate.html" data-i18n="nav.collaborate">合作</a></li>
-            <li class="nav-item nav-item--has-sub">
-            <a href="about.html" data-i18n="nav.about">关于</a>
-            <ul class="nav-sub" role="list">
-              <li><a href="collaborators.html" data-i18n="nav.collaborators">合作艺术家</a></li>
-            </ul>
-          </li>
-            <li><a href="contact.html" data-i18n="nav.contact">联系</a></li>
-            <li class="nav-lang" aria-label="Language">
-              <button type="button" class="lang-btn" data-set-lang="zh" aria-pressed="true">中</button>
-              <button type="button" class="lang-btn" data-set-lang="en" aria-pressed="false">EN</button>
-            </li>
-          </ul>
-        </nav>
-      </div>
-    </header>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title data-i18n="page.title.math">数学秀 — Math Show</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Noto+Sans+SC:wght@300;400;500;600;700&family=Noto+Serif+SC:wght@400;500;600;700&family=Syne:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="v3-shared.css" />
+<style>
+  .mx-hero {
+    min-height: 90vh;
+    padding: 160px var(--pad) 60px;
+    position: relative; overflow: hidden;
+    display: flex; align-items: center;
+    isolation: isolate;
+  }
+  .mx-hero__photo {
+    position: absolute; inset: 0; z-index: -3;
+    background: url('../assets/works/math/hero.jpg') center / cover no-repeat;
+    filter: brightness(.38) saturate(.72);
+  }
+  .mx-hero__bg {
+    position: absolute; inset: 0; z-index: -2;
+    background:
+      radial-gradient(ellipse 60% 60% at 75% 40%, rgba(196,53,74,0.14), transparent 60%),
+      linear-gradient(180deg, rgba(5,6,10,0.88) 0%, rgba(10,8,16,0.82) 60%, rgba(5,6,10,0.92) 100%);
+  }
+  .mx-hero__grid {
+    position: absolute; inset: 0; z-index: -1;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+    background-size: 60px 60px;
+    mask-image: radial-gradient(ellipse 80% 60% at 50% 50%, black 30%, transparent 80%);
+    -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 50%, black 30%, transparent 80%);
+  }
+  .mx-hero__inner {
+    max-width: 1280px; width: 100%; margin: 0 auto;
+    display: grid; grid-template-columns: 1.1fr 1fr; gap: 60px; align-items: center;
+  }
+  @media (max-width: 900px){ .mx-hero__inner { grid-template-columns: 1fr; gap: 40px; } }
 
-    <main>
-      <section class="project-hero">
-        <div class="bg" style="background-image: url('assets/images/work-math.jpg')"></div>
-        <div class="inner">
-          <a class="back-link" href="works.html" data-i18n="projectMath.back">← 返回作品</a>
-          <div class="tags-row">
-            <span class="tag-pill tag-pill--muted" data-i18n="projectMath.tag1">往期回顾</span>
-            <span class="tag-pill outline" data-i18n="projectMath.tag2">体验式演出</span>
-          </div>
-          <h1 data-i18n="projectMath.h1">数学秀</h1>
-          <p class="tagline" data-i18n="projectMath.tagline">
-            用沉浸语言诠释数学概念——几何、光影与身体共同构成的可行走公式。
-          </p>
+  .mx-eyebrow {
+    font-family: var(--display); font-size: 11px;
+    letter-spacing: .32em; text-transform: uppercase;
+    color: var(--text-3); margin-bottom: 24px;
+    display: inline-flex; gap: 10px; align-items: center;
+  }
+  .mx-eyebrow::before { content:''; width: 40px; height: 1px; background: var(--accent); }
+  .mx-h {
+    font-family: var(--serif-cn); font-weight: 500;
+    font-size: clamp(52px, 8vw, 120px); line-height: .95;
+    letter-spacing: -0.02em; margin-bottom: 22px;
+  }
+  .mx-h em { font-family: var(--serif-en); font-style: italic; color: var(--accent); font-weight: 500; display: block; font-size: .4em; margin-top: 10px; }
+  .mx-lead {
+    font-family: var(--serif-cn); font-size: clamp(15px, 1.5vw, 19px);
+    color: var(--text-2); line-height: 1.9; max-width: 540px; margin-bottom: 20px;
+  }
+  .mx-formula {
+    font-family: var(--mono); font-size: 13px;
+    color: var(--accent); letter-spacing: .08em;
+    padding: 10px 16px; border: 1px dashed rgba(196,53,74,0.4);
+    display: inline-block; border-radius: 4px;
+  }
+
+  /* 3D polyhedron */
+  .solid-stage {
+    position: relative;
+    width: 100%; aspect-ratio: 1/1;
+    display: grid; place-items: center;
+    perspective: 1000px;
+  }
+  .solid {
+    width: 60%; height: 60%;
+    position: relative;
+    transform-style: preserve-3d;
+    transform: rotateX(-20deg) rotateY(0deg);
+    will-change: transform;
+  }
+  .solid.is-transitioning {
+    transition: transform .9s cubic-bezier(.25,.8,.25,1);
+  }
+
+  .face {
+    position: absolute;
+    top: 50%; left: 50%;
+    width: 220px; height: 220px;
+    background: linear-gradient(135deg, rgba(196,53,74,0.14), rgba(196,53,74,0.02));
+    border: 1px solid rgba(196,53,74,0.42);
+    backdrop-filter: blur(2px);
+    transform-origin: center;
+    overflow: hidden;
+    cursor: pointer;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    transition: background .35s ease, box-shadow .35s, border-color .35s, transform .55s cubic-bezier(.25,.8,.25,1);
+  }
+  .face.is-locked { pointer-events: none; }
+  .face__bg {
+    position: absolute; inset: 10px;
+    font-family: var(--mono); font-size: 9px;
+    color: rgba(255,255,255,0.14);
+    line-height: 1.7;
+    letter-spacing: .02em;
+    text-align: center;
+    pointer-events: none;
+    overflow: hidden;
+    transition: color .4s ease;
+  }
+  .face__mark {
+    position: absolute; top: 50%; left: 50%;
+    transform: translate(-50%,-50%);
+    font-family: var(--serif-cn); font-weight: 500;
+    font-size: 102px; line-height: 1;
+    color: rgba(255,255,255,0.98);
+    z-index: 2;
+    text-shadow: 0 2px 12px rgba(0,0,0,0.5);
+    transition: font-size .55s cubic-bezier(.3,.9,.3,1), color .3s, text-shadow .35s, letter-spacing .5s;
+  }
+  .face__mark em {
+    font-family: var(--serif-en); font-style: italic;
+  }
+  .face__sub {
+    position: absolute; left: 50%; bottom: 14px;
+    transform: translateX(-50%) translateY(8px);
+    font-family: var(--mono); font-size: 10px;
+    color: rgba(255,220,200,0.72);
+    letter-spacing: .12em;
+    line-height: 1.55;
+    max-width: 200px;
+    text-align: center;
+    z-index: 2;
+    opacity: 0;
+    transition: opacity .4s .08s, transform .45s .08s;
+  }
+  .face.is-focused {
+    background: rgba(196,53,74,0.32);
+    border-color: var(--accent);
+    box-shadow: 0 0 50px rgba(196,53,74,0.45), inset 0 0 40px rgba(196,53,74,0.12);
+    z-index: 10;
+  }
+  .face.is-focused .face__bg { color: rgba(255,255,255,0.38); }
+  .face.is-focused .face__mark {
+    font-size: 168px;
+    color: white;
+    text-shadow: 0 0 30px rgba(196,53,74,0.9), 0 0 70px rgba(196,53,74,0.55);
+    letter-spacing: -.02em;
+  }
+  .face.is-focused .face__sub {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+
+  /* 立方体6面：base 位置 */
+  .face--f { transform: translate(-50%,-50%) rotateY(0deg)   translateZ(110px); }
+  .face--b { transform: translate(-50%,-50%) rotateY(180deg) translateZ(110px); }
+  .face--l { transform: translate(-50%,-50%) rotateY(-90deg) translateZ(110px); }
+  .face--r { transform: translate(-50%,-50%) rotateY(90deg)  translateZ(110px); }
+  .face--t { transform: translate(-50%,-50%) rotateX(90deg)  translateZ(110px); }
+  .face--d { transform: translate(-50%,-50%) rotateX(-90deg) translateZ(110px); }
+  /* 聚焦时：沿自身法线飞出 */
+  .face--f.is-focused { transform: translate(-50%,-50%) rotateY(0deg)   translateZ(200px); }
+  .face--b.is-focused { transform: translate(-50%,-50%) rotateY(180deg) translateZ(200px); }
+  .face--l.is-focused { transform: translate(-50%,-50%) rotateY(-90deg) translateZ(200px); }
+  .face--r.is-focused { transform: translate(-50%,-50%) rotateY(90deg)  translateZ(200px); }
+  .face--t.is-focused { transform: translate(-50%,-50%) rotateX(90deg)  translateZ(200px); }
+  .face--d.is-focused { transform: translate(-50%,-50%) rotateX(-90deg) translateZ(200px); }
+
+  .solid__center {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%,-50%);
+    width: 240px; text-align: center;
+    pointer-events: none;
+  }
+  .solid__cn {
+    font-family: var(--serif-cn); font-weight: 600;
+    font-size: 26px; color: var(--text); line-height: 1;
+    margin-bottom: 6px;
+  }
+  .solid__en {
+    font-family: var(--serif-en); font-style: italic;
+    font-size: 12px; color: var(--accent);
+    letter-spacing: .1em;
+  }
+
+  .solid-switch {
+    position: absolute; bottom: 12px; left: 50%;
+    transform: translateX(-50%);
+    display: flex; gap: 6px;
+  }
+  .solid-switch button {
+    padding: 6px 12px;
+    border: 1px solid var(--line);
+    background: rgba(0,0,0,0.3);
+    color: var(--text-3);
+    font-family: var(--mono); font-size: 10px;
+    letter-spacing: .18em;
+    cursor: pointer;
+    transition: all .3s ease;
+  }
+  .solid-switch button:hover,
+  .solid-switch button.is-active {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  /* 轨道光点 */
+  .orbit-dot {
+    position: absolute; top: 50%; left: 50%;
+    width: 8px; height: 8px; border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 0 20px var(--accent);
+    transform-origin: 0 0;
+  }
+
+  /* ============================================================
+     Sections
+     ============================================================ */
+  .mx-section {
+    padding: 120px var(--pad);
+    position: relative;
+  }
+  .mx-section__inner { max-width: 1280px; margin: 0 auto; }
+  .mx-label {
+    font-family: var(--display); font-size: 11px;
+    letter-spacing: .3em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 14px;
+  }
+  .mx-section h2 {
+    font-family: var(--serif-cn); font-weight: 500;
+    font-size: clamp(32px, 4vw, 52px); line-height: 1.1;
+    margin-bottom: 30px;
+  }
+  .mx-section h2 em { font-family: var(--serif-en); font-style: italic; color: var(--accent); }
+
+  /* Axes —— 4 pillar */
+  .axes {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 0;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+  @media (max-width: 900px){ .axes { grid-template-columns: repeat(2,1fr); } }
+  @media (max-width: 520px){ .axes { grid-template-columns: 1fr; } }
+  .axis {
+    padding: 36px 28px 42px;
+    border-right: 1px solid var(--line);
+    position: relative;
+    transition: background .3s ease;
+  }
+  .axes .axis:last-child { border-right: 0; }
+  @media (max-width: 900px){ .axis:nth-child(2n) { border-right: 0; } }
+  @media (max-width: 520px){ .axis { border-right: 0; border-bottom: 1px solid var(--line); } }
+  .axis:hover { background: rgba(196,53,74,0.04); }
+  .axis__n {
+    font-family: var(--mono); font-size: 10px;
+    letter-spacing: .22em;
+    color: var(--accent); margin-bottom: 24px;
+  }
+  .axis__icon {
+    width: 48px; height: 48px; margin-bottom: 20px;
+    color: var(--text); opacity: .8;
+  }
+  .axis h3 {
+    font-family: var(--serif-cn); font-weight: 600;
+    font-size: 22px; margin-bottom: 10px;
+  }
+  .axis p {
+    font-size: 14px; line-height: 1.8; color: var(--text-2);
+  }
+
+  /* Moments */
+  .moments {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px;
+    background: var(--line);
+    border: 1px solid var(--line);
+  }
+  @media (max-width: 900px){ .moments { grid-template-columns: 1fr; } }
+  .moment {
+    background: var(--bg-1);
+    padding: 34px 28px 40px;
+    min-height: 260px;
+    display: flex; flex-direction: column;
+    transition: background .3s ease;
+  }
+  .moment:hover { background: rgba(196,53,74,0.04); }
+  .moment__n {
+    font-family: var(--mono); font-size: 11px;
+    color: var(--accent); letter-spacing: .22em;
+    margin-bottom: 14px;
+  }
+  .moment h3 {
+    font-family: var(--serif-cn); font-weight: 600;
+    font-size: 22px; margin-bottom: 14px;
+  }
+  .moment p {
+    font-size: 14px; line-height: 1.8; color: var(--text-2);
+    margin-bottom: 16px;
+  }
+  .moment__formula {
+    margin-top: auto;
+    font-family: var(--mono); font-size: 12px;
+    color: var(--text-3); letter-spacing: .05em;
+    padding: 10px 12px;
+    border-left: 2px solid var(--accent);
+    background: rgba(196,53,74,0.04);
+  }
+
+  /* Detail */
+  .mx-detail {
+    padding: 100px var(--pad);
+    max-width: 1000px; margin: 0 auto;
+  }
+  .mx-detail h2 {
+    font-family: var(--serif-cn); font-weight: 500;
+    font-size: clamp(26px, 3.5vw, 40px);
+    margin: 50px 0 20px; line-height: 1.2;
+  }
+  .mx-detail h2:first-child { margin-top: 0; }
+  .mx-detail p {
+    font-size: 15px; line-height: 1.9; color: var(--text-2); margin-bottom: 16px;
+  }
+  .mx-detail blockquote {
+    border-left: 3px solid var(--accent);
+    padding: 6px 0 6px 22px; margin: 26px 0;
+    font-family: var(--serif-cn); font-style: italic;
+    font-size: 18px; line-height: 1.7; color: var(--text);
+  }
+
+  /* CTA */
+  .mx-cta {
+    padding: 140px var(--pad);
+    text-align: center; position: relative;
+  }
+  .mx-cta::before {
+    content:''; position: absolute; inset: 0;
+    background: radial-gradient(ellipse 60% 70% at 50% 50%, rgba(196,53,74,0.14), transparent 60%);
+    pointer-events: none;
+  }
+  .mx-cta__h {
+    font-family: var(--serif-cn); font-weight: 500;
+    font-size: clamp(36px, 5vw, 68px); line-height: 1.1;
+    margin-bottom: 20px; position: relative;
+  }
+  .mx-cta__h em { font-family: var(--serif-en); font-style: italic; color: var(--accent); }
+  .mx-cta__p {
+    font-size: 15px; color: var(--text-2); max-width: 540px;
+    margin: 0 auto 40px; line-height: 1.8; position: relative;
+  }
+
+  /* === 核心概念 === */
+  .mx-concept {
+    padding: 140px var(--pad);
+    border-top: 1px solid var(--line);
+    background: radial-gradient(ellipse 50% 40% at 50% 0%, rgba(196,53,74,0.05), transparent 70%);
+  }
+  .mx-concept__inner { max-width: 1280px; margin: 0 auto; }
+  .mx-concept__head { text-align: center; margin-bottom: 60px; }
+  .mx-concept__grid {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px;
+    background: var(--line); border: 1px solid var(--line);
+  }
+  @media (max-width: 900px){ .mx-concept__grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 520px){ .mx-concept__grid { grid-template-columns: 1fr; } }
+  .mx-concept__cell {
+    background: var(--bg-1);
+    padding: 32px 24px 36px;
+    transition: background .3s;
+  }
+  .mx-concept__cell:hover { background: rgba(196,53,74,0.06); }
+  .mx-concept__n {
+    font-family: var(--display); font-weight: 700; font-size: 12px;
+    letter-spacing: .28em; color: var(--accent); margin-bottom: 14px;
+  }
+  .mx-concept__t {
+    font-family: var(--serif-cn); font-weight: 500; font-size: 20px;
+    margin-bottom: 10px; line-height: 1.3;
+  }
+  .mx-concept__p {
+    font-size: 13.5px; line-height: 1.75; color: var(--text-2);
+  }
+
+  /* === 演出信息 === */
+  .mx-info {
+    padding: 100px var(--pad);
+  }
+  .mx-info__inner { max-width: 1280px; margin: 0 auto; }
+  .mx-info__grid {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px;
+    background: var(--line); border: 1px solid var(--line);
+  }
+  @media (max-width: 860px){ .mx-info__grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 520px){ .mx-info__grid { grid-template-columns: 1fr; } }
+  .mx-info__cell {
+    background: var(--bg-1);
+    padding: 28px 24px;
+  }
+  .mx-info__k {
+    font-family: var(--display); font-size: 10px;
+    letter-spacing: .26em; text-transform: uppercase;
+    color: var(--text-3); margin-bottom: 10px;
+  }
+  .mx-info__v {
+    font-family: var(--serif-cn); font-size: 22px;
+    color: var(--text); line-height: 1.35;
+  }
+  .mx-info__v em { font-family: var(--serif-en); font-style: italic; color: var(--accent); font-size: 16px; margin-left: 4px; }
+
+  /* === 剧照 + 宣传片 === */
+  .mx-media {
+    padding: 0 var(--pad) 120px;
+  }
+  .mx-media__inner { max-width: 1280px; margin: 0 auto; display: grid; gap: 14px; }
+  .mx-gallery {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px;
+  }
+  @media (max-width: 860px){ .mx-gallery { grid-template-columns: 1fr; } }
+  .mx-gallery__item {
+    aspect-ratio: 4/3;
+    background-size: cover; background-position: center;
+    border: 1px solid var(--line);
+    cursor: zoom-in;
+    overflow: hidden;
+    transition: border-color .3s, transform .4s;
+  }
+  .mx-gallery__item:hover { border-color: var(--accent); transform: translateY(-4px); }
+
+  .mx-video {
+    position: relative; aspect-ratio: 16/7;
+    border: 1px solid var(--line);
+    background: linear-gradient(180deg, rgba(5,6,10,0.35), rgba(5,6,10,0.75)),
+      url('../assets/works/math/hero.jpg') center / cover no-repeat;
+    cursor: pointer;
+    display: grid; place-items: center;
+    transition: transform .5s ease, border-color .3s;
+  }
+  .mx-video:hover { transform: translateY(-6px); border-color: var(--accent); }
+  .mx-video__play {
+    width: 84px; height: 84px; border-radius: 50%;
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(10px);
+    border: 1.5px solid rgba(255,255,255,0.35);
+    display: grid; place-items: center;
+    color: white; font-size: 22px;
+  }
+  .mx-video:hover .mx-video__play { background: var(--accent); border-color: var(--accent); }
+  .mx-video__label {
+    position: absolute; bottom: 22px; left: 26px;
+    font-family: var(--display); font-size: 11px;
+    letter-spacing: .3em; text-transform: uppercase;
+    color: rgba(255,255,255,0.88);
+  }
+  .mx-video__label em { color: var(--accent); font-style: normal; }
+
+  /* === Lightbox === */
+  .photo-lb {
+    position: fixed; inset: 0; z-index: 1000;
+    background: rgba(0,0,0,0.94);
+    display: none; padding: 40px;
+  }
+  .photo-lb.is-open { display: block; }
+  .photo-lb__stage { position: absolute; inset: 40px; display: grid; place-items: center; }
+  .photo-lb__img { max-width: 100%; max-height: 100%; object-fit: contain;
+    box-shadow: 0 30px 80px rgba(0,0,0,0.7); transition: opacity .2s; }
+  .photo-lb__close, .photo-lb__nav {
+    position: absolute;
+    background: rgba(255,255,255,0.08); backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.28); color: white;
+    cursor: pointer; display: grid; place-items: center;
+    transition: all .25s ease;
+  }
+  .photo-lb__close { top: 22px; right: 22px; width: 40px; height: 40px; border-radius: 50%; font-size: 22px; }
+  .photo-lb__nav { top: 50%; transform: translateY(-50%); width: 52px; height: 52px; border-radius: 50%; font-size: 20px; }
+  .photo-lb__nav--prev { left: 24px; } .photo-lb__nav--next { right: 24px; }
+  .photo-lb__close:hover, .photo-lb__nav:hover { background: var(--accent); border-color: var(--accent); }
+  .photo-lb__cap {
+    position: absolute; left: 50%; bottom: 28px; transform: translateX(-50%);
+    font-family: var(--display); font-size: 11px; letter-spacing: .28em; text-transform: uppercase;
+    color: rgba(255,255,255,0.72);
+  }
+  .photo-lb__cap em { color: var(--accent); font-style: normal; }
+
+  /* Video modal */
+  .video-modal { position: fixed; inset: 0; z-index: 1000; background: rgba(0,0,0,0.92);
+    display: none; place-items: center; padding: 40px; }
+  .video-modal.is-open { display: grid; }
+  .video-modal__content { position: relative; width: min(1100px, 96vw); aspect-ratio: 16/9; background: #000; }
+  .video-modal__close { position: absolute; top: -44px; right: 0; background: none; border: 0;
+    color: white; font-size: 32px; cursor: pointer; }
+  .video-modal iframe { width: 100%; height: 100%; border: 0; }
+</style>
+<script src="i18n.js"></script>
+</head>
+<body>
+<div class="grain"></div>
+<div class="cursor-glow"></div>
+
+<div class="curtain" aria-hidden="true">
+  <div class="curtain__panel curtain__panel--l"></div>
+  <div class="curtain__panel curtain__panel--r"></div>
+</div>
+<div class="curtain__logo">
+  MATH SHOW
+  <small data-i18n="show.math.curtain.small">数学秀 · 定制作品</small>
+</div>
+
+<nav class="nav">
+  <a href="index.html" class="nav__brand">
+    <span class="nav__mark">SN</span>
+    <span class="nav__brand-cn">惊喜之夜</span>
+    <span class="nav__brand-en">Surprise Night</span>
+  </a>
+  <div class="nav__links">
+    <a href="works.html" class="nav__link is-active" data-i18n="nav.works">作品</a>
+    <a href="collaborate.html" class="nav__link" data-i18n="nav.collaborate">合作</a>
+    <a href="about.html" class="nav__link" data-i18n="nav.about">关于</a>
+    <a href="collaborators.html" class="nav__link" data-i18n="nav.artists">艺术家</a>
+    <a href="contact.html" class="nav__link" data-i18n="nav.contact">联系</a>
+    <div class="nav__lang">
+      <button data-set-lang="zh">中</button>
+      <button data-set-lang="en">EN</button>
+    </div>
+  </div>
+  <button class="nav__burger" id="navBurger" aria-label="菜单" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<main>
+  <section class="mx-hero">
+    <div class="mx-hero__photo"></div>
+    <div class="mx-hero__bg"></div>
+    <div class="mx-hero__grid"></div>
+    <div class="mx-hero__inner">
+      <div>
+        <a href="works.html" class="back-link" data-i18n="show.math.back">← 返回作品</a>
+        <p class="mx-eyebrow" data-i18n="show.math.hero.eyebrow">Work · 体验式演出 · 定制作品</p>
+        <h1 class="mx-h" data-i18n="show.math.hero.title" data-i18n-html="true">数学秀<em>Math Show · A Stage Where Geometry Dances</em></h1>
+        <p class="mx-lead" data-i18n="show.math.hero.lead" data-i18n-html="true">
+          把抽象变成可感知的动作与光。当公式从黑板上走下来，<br/>
+          它们不再是作业——它们是魔术。
+        </p>
+        <div class="mx-formula">
+          φ = (1 + √5) / 2 ≈ 1.618…
         </div>
-      </section>
+      </div>
 
-      <div class="container detail-layout">
-        <div class="detail-main">
-          <h2 data-i18n="projectMath.introH">项目简介</h2>
-          <p data-i18n="projectMath.introP">
-            《数学秀》是惊喜之夜与深圳剧市好看科技有限公司合作的创新项目，尝试用沉浸式戏剧的语言诠释数学概念。观众将进入由几何图形构建的空间，亲身体验数学公式如何转化为建筑、光影与运动轨迹。
-          </p>
-
-          <h2 data-i18n="projectMath.noteH">项目状态</h2>
-          <p data-i18n="projectMath.noteP" style="color: var(--muted); border-left: 3px solid var(--accent); padding-left: 16px">
-            本项目为往期实验性作品，目前暂未开放巡演；正在升级中合作模式仍可供参考洽谈。
-          </p>
-
-          <h2 data-i18n="projectMath.hiH">核心概念</h2>
-          <ul class="highlight-list">
-            <li data-i18n="projectMath.hi1">几何空间：以柏拉图立体构建可行走的数学建筑</li>
-            <li data-i18n="projectMath.hi2">光影演绎：用投影呈现数学公式的美感</li>
-            <li data-i18n="projectMath.hi3">身体数学：观众动作实时生成几何图形</li>
-            <li data-i18n="projectMath.hi4">教育跨界：数学教育与艺术表达的实验性融合</li>
-          </ul>
-
-          <h2 data-i18n="projectMath.infoH">演出信息（历史）</h2>
-          <div class="info-grid">
-            <div class="info-cell">
-              <div class="label" data-i18n="projectMath.infDur">演出时长</div>
-              <div class="value" data-i18n="projectMath.infDurV">80 分钟</div>
-            </div>
-            <div class="info-cell">
-              <div class="label" data-i18n="projectMath.infCap">单场容量</div>
-              <div class="value" data-i18n="projectMath.infCapV">1000 人</div>
-            </div>
-            <div class="info-cell">
-              <div class="label" data-i18n="projectMath.infYear">首演年份</div>
-              <div class="value" data-i18n="projectMath.infYearV">2025</div>
-            </div>
-            <div class="info-cell">
-              <div class="label" data-i18n="projectMath.infAge">适合年龄</div>
-              <div class="value" data-i18n="projectMath.infAgeV">7 岁以上</div>
-            </div>
+      <div class="solid-stage">
+        <div class="solid" id="solid">
+          <div class="face face--f" data-target-y="0" data-target-x="-10">
+            <div class="face__bg">A=πr² · C=2πr · V=⁴⁄₃πr³ · sin(π)=0 · cos(π)=−1 · e^(iπ)+1=0 · T=2π√(L/g) · ∫₀^π sin x dx=2 · π/4=1−⅓+⅕−⅐… · π²/6=Σ1/n² · arctan(1)=π/4 · sin²θ+cos²θ=1</div>
+            <div class="face__mark">π</div>
+            <div class="face__sub" data-i18n="show.math.face1.sub">3.14159…　圆周率</div>
           </div>
-
-          <h2 data-i18n="projectMath.galH">视觉资料</h2>
-          
-          <!-- 宣传片 -->
-          <div class="video-card project-video" onclick="openVideoModal('//player.bilibili.com/player.html?bvid=BV1UzA3zKETb&page=1&high_quality=1&danmaku=0&autoplay=1')">
-            <div class="video-thumb" style="background-image: url('assets/images/work-math.jpg')">
-              <div class="play-btn">▶</div>
-            </div>
-            <p class="video-label" data-i18n="projectMath.videoBtn">▶ 点击观看宣传片</p>
+          <div class="face face--b" data-target-y="-180" data-target-x="-10">
+            <div class="face__bg">e^x=Σx^n/n! · d/dx e^x=e^x · ln(e)=1 · ∫(1/x)dx=ln|x| · lim(1+1/n)^n=e · e^(iπ)+1=0 · d/dx ln x=1/x · Γ(n+1)=n! · y'=ky → y=Ce^(kx) · Σ1/n!=e · e^x · e^y=e^(x+y) · cosh x=(e^x+e^(−x))/2</div>
+            <div class="face__mark"><em>e</em></div>
+            <div class="face__sub" data-i18n="show.math.face2.sub">2.71828…　自然对数底</div>
           </div>
-          
-          <!-- 剧照画廊 -->
-          <div class="gallery-grid">
-            <div class="gallery-item">
-              <img src="assets/images/gallery/math-1.jpg" alt="数学秀 剧照1" loading="lazy">
-            </div>
-            <div class="gallery-item">
-              <img src="assets/images/gallery/math-2.jpg" alt="数学秀 剧照2" loading="lazy">
-            </div>
-            <div class="gallery-item">
-              <img src="assets/images/gallery/math-3.jpg" alt="数学秀 剧照3" loading="lazy">
-            </div>
+          <div class="face face--l" data-target-y="90" data-target-x="-10">
+            <div class="face__bg" data-i18n="show.math.face3.bg">φ=(1+√5)/2 · φ²=φ+1 · 1/φ=φ−1 · F_{n+1}/F_n→φ · cos(π/5)=φ/2 · φ^n=F_n·φ+F_{n−1} · a/b=(a+b)/a · φ−1=0.618… · Σφ^(−n)=φ+1 · sin(18°)=1/(2φ) · 正五边形 · 黄金螺线 · r=a·φ^(θ/90°)</div>
+            <div class="face__mark">φ</div>
+            <div class="face__sub" data-i18n="show.math.face3.sub">1.61803…　黄金分割</div>
+          </div>
+          <div class="face face--r" data-target-y="-90" data-target-x="-10">
+            <div class="face__bg" data-i18n="show.math.face4.bg">i²=−1 · i³=−i · i⁴=1 · e^(iθ)=cos θ+i sin θ · (a+bi)(c+di)=(ac−bd)+(ad+bc)i · |z|²=z·z̄ · z^n=r^n(cos nθ+i sin nθ) · √(−1)=i · Re(z)=½(z+z̄) · Im(z)=(z−z̄)/(2i) · 复平面 · z=re^(iθ)</div>
+            <div class="face__mark"><em>i</em></div>
+            <div class="face__sub" data-i18n="show.math.face4.sub">i² = −1　虚数单位</div>
+          </div>
+          <div class="face face--t" data-target-y="0" data-target-x="-95">
+            <div class="face__bg" data-i18n="show.math.face5.bg">lim_{x→0} sin x / x = 1 · Σ1/n diverges · Σ1/n²=π²/6 · Σ1/n!=e · ℵ₀ &lt; ℵ₁ · 1+2+3+…=−1/12 (ζ) · lim(1+r/n)^(nt)=e^(rt) · ∫₀^∞ e^(−x²) dx=√π/2 · Cantor · ω · 连续统假设</div>
+            <div class="face__mark">∞</div>
+            <div class="face__sub" data-i18n="show.math.face5.sub">无限　极限之外</div>
+          </div>
+          <div class="face face--d" data-target-y="0" data-target-x="85">
+            <div class="face__bg" data-i18n="show.math.face6.bg">a·0=0 · a+0=a · 0!=1 · sin(0)=0 · tan(0)=0 · e^0=1 · log(1)=0 · lim_{x→0}(1−cos x)/x²=1/2 · ∫_a^a f dx=0 · Σ_{k=n}^{n−1} = 0 · 0/0 undefined · 空集 ∅ · |∅|=0 · {0,1,…}</div>
+            <div class="face__mark">0</div>
+            <div class="face__sub" data-i18n="show.math.face6.sub">零　一无所有，撑起所有</div>
           </div>
         </div>
-
-        <aside>
-          <div class="side-box">
-            <h3 data-i18n="projectMath.sideH">合作参考</h3>
-            <p data-i18n="projectMath.sideP">
-              若关注教育跨界、轻量沉浸体验设计，欢迎通过联系表单说明场景与对象。
-            </p>
-            <a class="link-accent" href="contact.html" data-i18n="projectMath.sideLink">联系团队 →</a>
-          </div>
-        </aside>
+        <div class="solid__center">
+          <div class="solid__cn" data-i18n="show.math.solid.cube.cn">立方</div>
+          <div class="solid__en">Hexahedron · 6 faces</div>
+        </div>
+        <div class="solid-switch">
+          <button class="is-active" data-speed="24" data-i18n="show.math.speed.slow">慢</button>
+          <button data-speed="10" data-i18n="show.math.speed.normal">常</button>
+          <button data-speed="4" data-i18n="show.math.speed.fast">快</button>
+          <button data-speed="0" data-i18n="show.math.speed.stop">停</button>
+        </div>
       </div>
-    </main>
+    </div>
+  </section>
 
-    <footer class="site-footer">
-      <div class="inner">
-        <span data-i18n="projectMath.footCopy">© 2026 惊喜之夜</span>
-        <a href="works.html" data-i18n="projectMath.footBack">返回作品列表</a>
+  <!-- Axes -->
+  <section class="mx-section">
+    <div class="mx-section__inner reveal">
+      <p class="mx-label" data-i18n="show.math.axes.label">◉ Four Axes</p>
+      <h2 data-i18n="show.math.axes.h" data-i18n-html="true">四个<em>维度</em>的数学</h2>
+      <div class="axes">
+        <div class="axis">
+          <div class="axis__n">AXIS 01</div>
+          <h3 data-i18n="show.math.ax1.h">几何之美</h3>
+          <p data-i18n="show.math.ax1.p">对称、分形、柏拉图立体。让眼睛看见公式背后的秩序。</p>
+        </div>
+        <div class="axis">
+          <div class="axis__n">AXIS 02</div>
+          <h3 data-i18n="show.math.ax2.h">数列之律</h3>
+          <p data-i18n="show.math.ax2.p">斐波那契、黄金比例、音乐频率——节奏原来是算出来的。</p>
+        </div>
+        <div class="axis">
+          <div class="axis__n">AXIS 03</div>
+          <h3 data-i18n="show.math.ax3.h">概率之诡</h3>
+          <p data-i18n="show.math.ax3.p">从赌局到生日悖论，直觉总在说谎——真相藏在计算里。</p>
+        </div>
+        <div class="axis">
+          <div class="axis__n">AXIS 04</div>
+          <h3 data-i18n="show.math.ax4.h">拓扑之异</h3>
+          <p data-i18n="show.math.ax4.p">莫比乌斯、克莱因瓶：一面也好，没有内外也罢，这才是空间的真相。</p>
+        </div>
       </div>
-    </footer>
+    </div>
+  </section>
 
-    <script src="js/i18n.js" defer></script>
-    <script src="js/main.js" defer></script>
-  </body>
+  <!-- Moments -->
+  <section class="mx-section" style="background:#0a0810;">
+    <div class="mx-section__inner reveal">
+      <p class="mx-label" data-i18n="show.math.moments.label">◉ Stage Moments</p>
+      <h2 data-i18n="show.math.moments.h" data-i18n-html="true">舞台上的<em>六个瞬间</em></h2>
+      <div class="moments">
+        <div class="moment">
+          <div class="moment__n">MOMENT 01</div>
+          <h3 data-i18n="show.math.m1.h">笛卡尔 · 定位飞机</h3>
+          <p data-i18n="show.math.m1.p">雷达失灵，飞机偏航——小队引入 X、Y、Z 三维坐标，用一个笛卡尔的方程，重新找回天空里的每一个点。</p>
+          <div class="moment__formula">(x, y, z) · a² + b² = c²</div>
+        </div>
+        <div class="moment">
+          <div class="moment__n">MOMENT 02</div>
+          <h3 data-i18n="show.math.m2.h">莫比乌斯 · 救援</h3>
+          <p data-i18n="show.math.m2.p">过山车断轨，乘客悬在外圈。把轨道扭转 180° 再首尾相连，内外化为同一个面——空间的把戏成了生命的通路。</p>
+          <div class="moment__formula">χ(M) = 0</div>
+        </div>
+        <div class="moment">
+          <div class="moment__n">MOMENT 03</div>
+          <h3 data-i18n="show.math.m3.h">拓扑 · 绳结解脱</h3>
+          <p data-i18n="show.math.m3.p">绑匪以为封死了结构，其实只是一个可以变形的结。不剪、不撕，只做一次"同伦变形"——绳子松开了，人走了出来。</p>
+          <div class="moment__formula">Topology ≠ Geometry</div>
+        </div>
+        <div class="moment">
+          <div class="moment__n">MOMENT 04</div>
+          <h3 data-i18n="show.math.m4.h">二进制 · 101 信号灯</h3>
+          <p data-i18n="show.math.m4.p">观众手中的灯变成一串串 0 和 1，错误的 "111 / 001" 被喊成 "101"，机场信号一灯一灯被纠正——满 2 进 1 补 0。</p>
+          <div class="moment__formula" data-i18n="show.math.m4.formula">101₂ = 5 · "满 2 进 1 补 0"</div>
+        </div>
+        <div class="moment">
+          <div class="moment__n">MOMENT 05</div>
+          <h3 data-i18n="show.math.m5.h">彩虹 · 42°</h3>
+          <p data-i18n="show.math.m5.p">一束手电、一块三棱镜，演员与观众在 42° 的夹角里同时制造出彩虹——自然的折射，其实是一个数学题。</p>
+          <div class="moment__formula">θ ≈ 42°</div>
+        </div>
+        <div class="moment">
+          <div class="moment__n">MOMENT 06</div>
+          <h3 data-i18n="show.math.m6.h">液氮 · 700 倍膨胀</h3>
+          <p data-i18n="show.math.m6.p">−196°C 的液氮倒入热水，白雾瞬间爆开。等比数列从 1、2、4、8…走到 1024——倍数增长，是现实里最强大的力量。</p>
+          <div class="moment__formula">aₙ = a₁ · rⁿ⁻¹</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="mx-detail">
+    <div class="reveal">
+      <h2 data-i18n="show.math.about.h">关于这部作品</h2>
+      <p data-i18n="show.math.about.p1">《数学秀》是惊喜之夜与深圳剧市好看科技有限公司合作的创新项目，尝试用沉浸式戏剧的语言诠释数学概念。观众将进入由几何图形构建的空间，亲身体验数学公式如何转化为建筑、光影与运动轨迹。</p>
+      <p data-i18n="show.math.about.p2">把看似抽象的数学转化为舞台上的魔术、装置与互动——观众不只是观看者，而是参与实验的一员。项目为特定场地、特定受众量身打造，可与博物馆、大学、教育机构、文旅项目合作开发定制版。</p>
+      <blockquote data-i18n="show.math.about.quote">数学不在黑板上——它在我们身边每一个角度、每一次心跳的节拍里。</blockquote>
+      <p style="color: var(--text-3); border-left: 3px solid var(--accent); padding-left: 16px; font-size: 14px;" data-i18n="show.math.about.note">本项目为往期实验性作品，目前暂未开放巡演；合作模式仍可供参考洽谈。</p>
+    </div>
+  </section>
+
+  <!-- 核心概念 -->
+  <section class="mx-concept">
+    <div class="mx-concept__inner">
+      <div class="mx-concept__head reveal">
+        <p class="mx-label" data-i18n="show.math.core.label">◉ Core Concepts · 核心概念</p>
+        <h2 class="mx-h" style="font-size:clamp(32px,4.5vw,56px)" data-i18n="show.math.core.h" data-i18n-html="true">四条<em>实验轴线</em></h2>
+      </div>
+      <div class="mx-concept__grid reveal">
+        <div class="mx-concept__cell">
+          <div class="mx-concept__n">01</div>
+          <h3 class="mx-concept__t" data-i18n="show.math.c1.h">几何空间</h3>
+          <p class="mx-concept__p" data-i18n="show.math.c1.p">以柏拉图立体构建可行走的数学建筑——观众穿过公式，不是看过。</p>
+        </div>
+        <div class="mx-concept__cell">
+          <div class="mx-concept__n">02</div>
+          <h3 class="mx-concept__t" data-i18n="show.math.c2.h">光影演绎</h3>
+          <p class="mx-concept__p" data-i18n="show.math.c2.p">用投影呈现数学公式的美感，抽象符号在空间里被重新"可见"。</p>
+        </div>
+        <div class="mx-concept__cell">
+          <div class="mx-concept__n">03</div>
+          <h3 class="mx-concept__t" data-i18n="show.math.c3.h">身体数学</h3>
+          <p class="mx-concept__p" data-i18n="show.math.c3.p">观众动作实时生成几何图形，运动本身成为一次证明。</p>
+        </div>
+        <div class="mx-concept__cell">
+          <div class="mx-concept__n">04</div>
+          <h3 class="mx-concept__t" data-i18n="show.math.c4.h">教育跨界</h3>
+          <p class="mx-concept__p" data-i18n="show.math.c4.p">数学教育与艺术表达的实验性融合，严谨与想象同台。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 演出信息 -->
+  <section class="mx-info">
+    <div class="mx-info__inner reveal">
+      <div class="mx-concept__head" style="margin-bottom:50px">
+        <p class="mx-label" data-i18n="show.math.info.label">◉ Show Info · 演出信息</p>
+        <h2 class="mx-h" style="font-size:clamp(32px,4.5vw,56px)" data-i18n="show.math.info.h" data-i18n-html="true">档案<em>Show File</em></h2>
+      </div>
+      <div class="mx-info__grid">
+        <div class="mx-info__cell">
+          <div class="mx-info__k" data-i18n="show.math.info.dur.k">演出时长</div>
+          <div class="mx-info__v">80 <em>min</em></div>
+        </div>
+        <div class="mx-info__cell">
+          <div class="mx-info__k" data-i18n="show.math.info.cap.k">单场容量</div>
+          <div class="mx-info__v">1000 <em>pax</em></div>
+        </div>
+        <div class="mx-info__cell">
+          <div class="mx-info__k" data-i18n="show.math.info.yr.k">首演年份</div>
+          <div class="mx-info__v">2025</div>
+        </div>
+        <div class="mx-info__cell">
+          <div class="mx-info__k" data-i18n="show.math.info.age.k">适合年龄</div>
+          <div class="mx-info__v">7 <em>+</em></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 剧照 + 宣传片 -->
+  <section class="mx-media">
+    <div class="mx-media__inner reveal">
+      <div class="mx-gallery">
+        <div class="mx-gallery__item" data-photo="../assets/works/math/stage-01.jpg" style="background-image:url('../assets/works/math/stage-01.jpg')"></div>
+        <div class="mx-gallery__item" data-photo="../assets/works/math/stage-02.jpg" style="background-image:url('../assets/works/math/stage-02.jpg')"></div>
+        <div class="mx-gallery__item" data-photo="../assets/works/math/stage-03.jpg" style="background-image:url('../assets/works/math/stage-03.jpg')"></div>
+      </div>
+      <div class="mx-video">
+        <div class="mx-video__play">▶</div>
+        <div class="mx-video__label" data-i18n="show.math.trailer.label" data-i18n-html="true"><em>Trailer</em> · 宣传片</div>
+        <div style="position:absolute; bottom:18px; right:22px; display:flex; gap:10px; z-index:2;">
+          <button type="button" data-video="youtube" style="
+            display:inline-flex; align-items:center; gap:8px;
+            padding:9px 16px;
+            border:1px solid rgba(255,255,255,0.35);
+            background:rgba(5,6,10,0.65);
+            backdrop-filter:blur(6px);
+            color:rgba(255,255,255,0.92);
+            font-family:var(--display); font-size:10.5px;
+            letter-spacing:.22em; text-transform:uppercase;
+            cursor:pointer; border-radius:999px;
+            transition:all .25s ease;
+          "><span style="width:6px;height:6px;border-radius:50%;background:currentColor"></span>YouTube</button>
+          <button type="button" data-video="bilibili" style="
+            display:inline-flex; align-items:center; gap:8px;
+            padding:9px 16px;
+            border:1px solid rgba(255,255,255,0.35);
+            background:rgba(5,6,10,0.65);
+            backdrop-filter:blur(6px);
+            color:rgba(255,255,255,0.92);
+            font-family:var(--display); font-size:10.5px;
+            letter-spacing:.22em; text-transform:uppercase;
+            cursor:pointer; border-radius:999px;
+            transition:all .25s ease;
+          "><span style="width:6px;height:6px;border-radius:50%;background:currentColor"></span><span data-i18n="show.math.trailer.bili">B 站</span></button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="mx-cta">
+    <h2 class="mx-cta__h" data-i18n="show.math.cta.h" data-i18n-html="true">为你的场地<em>定制一场</em></h2>
+    <p class="mx-cta__p" data-i18n="show.math.cta.p">科技馆 · 大学 · 博物馆 · 文旅综合体 都可定制开发。</p>
+    <a class="btn btn--primary" href="contact.html" data-i18n="show.math.cta.btn">联系定制 →</a>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="site-footer__inner">
+    <div class="site-footer__brand" data-i18n="footer.brand" data-i18n-html="true">© 2026 惊喜之夜 · <em>Surprise Night</em></div>
+    <div class="site-footer__links">
+      <a href="index.html" data-i18n="show.math.footer.home">首页</a>
+      <a href="works.html" data-i18n="show.math.footer.works">作品</a>
+      <a href="contact.html" data-i18n="show.math.footer.contact">联系</a>
+    </div>
+  </div>
+</footer>
+
+<div class="photo-lb" id="photoLb" aria-hidden="true">
+  <div class="photo-lb__stage">
+    <img class="photo-lb__img" id="photoLbImg" alt="" />
+  </div>
+  <button class="photo-lb__close" id="photoLbClose" aria-label="关闭">×</button>
+  <button class="photo-lb__nav photo-lb__nav--prev" id="photoLbPrev" aria-label="上一张">‹</button>
+  <button class="photo-lb__nav photo-lb__nav--next" id="photoLbNext" aria-label="下一张">›</button>
+  <div class="photo-lb__cap" id="photoLbCap"></div>
+</div>
+
+<div class="video-modal" id="videoModal">
+  <div class="video-modal__content">
+    <button class="video-modal__close">×</button>
+    <iframe allow="autoplay; encrypted-media" allowfullscreen></iframe>
+  </div>
+</div>
+
+<script src="v3-shared.js" defer></script>
+<script>
+  /* ========== 立方体：rAF 旋转 + 无缝暂停/恢复 ========== */
+  const solid = document.getElementById('solid');
+  const stage = document.querySelector('.solid-stage');
+  const allFaces = Array.from(document.querySelectorAll('.face'));
+  const facesByKey = {};
+  allFaces.forEach(f => {
+    const key = [...f.classList].find(c => c.startsWith('face--'));
+    if (key) facesByKey[key] = f;
+  });
+
+  let rotY = 0;
+  const baseX = -20;
+  let speed = 360 / 24000;
+  let mode = 'rotating';
+  let lastT = performance.now();
+  let animTimer = null;
+  let isAnimating = false;
+  let currentFocus = null;
+  let focusedY = 0;
+
+  function frame(now){
+    const dt = now - lastT;
+    lastT = now;
+    if (mode === 'rotating') {
+      rotY = (rotY + dt * speed) % 360;
+      solid.style.transform = `rotateX(${baseX}deg) rotateY(${rotY}deg)`;
+    }
+    requestAnimationFrame(frame);
+  }
+  requestAnimationFrame(frame);
+
+  // 根据当前 rotY 和鼠标 Y 位置推断"应聚焦的那一面"
+  // 不再依赖 CSS 3D 命中测试（它在旋转时会抖）
+  function pickFaceFromState(ev){
+    const rect = stage.getBoundingClientRect();
+    const yRatio = (ev.clientY - rect.top) / rect.height;
+    if (yRatio < 0.22) return facesByKey['face--t'];
+    if (yRatio > 0.78) return facesByKey['face--d'];
+    // 中间区域：看 rotY 当前最接近哪一面
+    const y = ((rotY % 360) + 540) % 360 - 180; // [-180, 180]
+    if (y >= -45 && y < 45)   return facesByKey['face--f'];
+    if (y >= 45 && y < 135)   return facesByKey['face--l'];
+    if (y >= 135 || y < -135) return facesByKey['face--b'];
+    return facesByKey['face--r'];
+  }
+
+  function applyFocusClass(face){
+    allFaces.forEach(f => f.classList.toggle('is-focused', f === face));
+  }
+
+  function focusFace(face){
+    if (currentFocus === face) return;
+    if (animTimer) clearTimeout(animTimer);
+    isAnimating = true;
+    currentFocus = face;
+    applyFocusClass(face);
+
+    const tx = parseFloat(face.dataset.targetX);
+    const ty = parseFloat(face.dataset.targetY);
+    const fromY = (mode === 'rotating') ? rotY : focusedY;
+    let deltaY = ((ty - fromY) % 360 + 540) % 360 - 180;
+    const newY = fromY + deltaY;
+    focusedY = newY;
+    mode = 'focused';
+    solid.classList.add('is-transitioning');
+    solid.style.transform = `rotateX(${tx}deg) rotateY(${newY}deg)`;
+
+    animTimer = setTimeout(()=>{ isAnimating = false; animTimer = null; }, 920);
+  }
+
+  function unfocusFace(){
+    if (!currentFocus) return;
+    if (animTimer) clearTimeout(animTimer);
+    isAnimating = true;
+    currentFocus = null;
+    applyFocusClass(null);
+    mode = 'resuming';
+    solid.classList.add('is-transitioning');
+    solid.style.transform = `rotateX(${baseX}deg) rotateY(${focusedY}deg)`;
+
+    animTimer = setTimeout(()=>{
+      rotY = focusedY;
+      solid.classList.remove('is-transitioning');
+      lastT = performance.now();
+      mode = 'rotating';
+      isAnimating = false;
+      animTimer = null;
+    }, 740);
+  }
+
+  // 统一监听 stage，不再依赖每个 .face 的 mouseenter
+  stage.addEventListener('mousemove', (ev)=>{
+    if (isAnimating) return;
+    const face = pickFaceFromState(ev);
+    if (face && face !== currentFocus) {
+      focusFace(face);
+    }
+  });
+  stage.addEventListener('mouseleave', ()=> unfocusFace());
+
+  /* ========== 速度切换按钮 ========== */
+  document.querySelectorAll('.solid-switch button').forEach(b=>{
+    b.addEventListener('click', ()=>{
+      document.querySelectorAll('.solid-switch button').forEach(x=>x.classList.remove('is-active'));
+      b.classList.add('is-active');
+      const sp = parseFloat(b.dataset.speed);
+      speed = sp === 0 ? 0 : 360 / (sp * 1000);
+    });
+  });
+
+  /* ========== 剧照 Lightbox ========== */
+  (function(){
+    const items = Array.from(document.querySelectorAll('.mx-gallery__item[data-photo]'));
+    if (!items.length) return;
+    const lb = document.getElementById('photoLb');
+    const lbImg = document.getElementById('photoLbImg');
+    const lbCap = document.getElementById('photoLbCap');
+    let idx = 0;
+    function show(i){
+      idx = (i + items.length) % items.length;
+      const src = items[idx].dataset.photo;
+      lbImg.style.opacity = '0';
+      const pre = new Image();
+      pre.onload = ()=>{ lbImg.src = src; lbImg.style.opacity = '1'; };
+      pre.src = src;
+      lbCap.innerHTML = `<em>STAGE ${String(idx+1).padStart(2,'0')}</em><span style="margin-left:14px;opacity:.5">${idx+1} / ${items.length}</span>`;
+    }
+    function open(i){ show(i); lb.classList.add('is-open'); document.body.style.overflow = 'hidden'; }
+    function close(){ lb.classList.remove('is-open'); document.body.style.overflow = ''; }
+    items.forEach((el, i)=> el.addEventListener('click', ()=> open(i)));
+    document.getElementById('photoLbClose').addEventListener('click', close);
+    document.getElementById('photoLbPrev').addEventListener('click', ()=> show(idx-1));
+    document.getElementById('photoLbNext').addEventListener('click', ()=> show(idx+1));
+    lb.addEventListener('click', (e)=>{ if (e.target === lb) close(); });
+    document.addEventListener('keydown', (e)=>{
+      if (!lb.classList.contains('is-open')) return;
+      if (e.key === 'Escape') close();
+      if (e.key === 'ArrowLeft')  show(idx-1);
+      if (e.key === 'ArrowRight') show(idx+1);
+    });
+  })();
+
+  /* ========== 宣传片弹窗 · 双源（YouTube / Bilibili）========== */
+  (function(){
+    const modal = document.getElementById('videoModal');
+    const iframe = modal?.querySelector('iframe');
+    const closeBtn = modal?.querySelector('.video-modal__close');
+    if (!modal || !iframe) return;
+    const SRC = {
+      youtube:  'https://www.youtube.com/embed/aMqSGP0UaQM?autoplay=1&rel=0',
+      bilibili: '//player.bilibili.com/player.html?bvid=BV1UzA3zKETb&page=1&high_quality=1&danmaku=0&autoplay=1'
+    };
+    function open(key){
+      iframe.src = SRC[key] || SRC.youtube;
+      modal.classList.add('is-open');
+      document.body.style.overflow = 'hidden';
+    }
+    function close(){
+      iframe.src = '';
+      modal.classList.remove('is-open');
+      document.body.style.overflow = '';
+    }
+    document.querySelectorAll('[data-video]').forEach(btn=>{
+      btn.addEventListener('click', (e)=>{ e.stopPropagation(); open(btn.dataset.video); });
+    });
+    closeBtn?.addEventListener('click', close);
+    modal.addEventListener('click', (e)=>{ if (e.target === modal) close(); });
+    document.addEventListener('keydown', (e)=>{ if (e.key === 'Escape') close(); });
+  })();
+</script>
+</body>
 </html>

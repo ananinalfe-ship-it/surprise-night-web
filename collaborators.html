@@ -1,80 +1,1094 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>合作艺术家 — 惊喜之夜</title>
-    <meta
-      name="description"
-      content="惊喜之夜合作艺术家：导演、编剧、音乐、舞蹈与制作团队。"
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Noto+Sans+SC:wght@300;400;500;600;700&family=Noto+Serif+SC:wght@400;500;600&family=Syne:wght@500;600;700;800&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="css/styles.css" />
-  </head>
-  <body class="page-collaborators" data-i18n-page="collaborators">
-    <header class="site-header">
-      <div class="inner">
-        <a href="index.html" class="logo" style="display: flex; align-items: center; gap: 12px; font-size: 1.1rem">
-          <img src="assets/images/logo.png" alt="" style="width: 32px; height: 32px; object-fit: contain" />
-          <span
-            >惊喜之夜
-            <span style="opacity: 0.7; font-size: 0.75rem; font-weight: 400; margin-left: 4px">/ Surprise Night</span></span
-          >
-        </a>
-        <button type="button" class="nav-toggle" data-i18n="nav.menu" aria-expanded="false" aria-controls="primary-nav">
-          菜单
-        </button>
-        <nav>
-          <ul id="primary-nav" class="nav-links">
-            <li><a href="works.html" data-i18n="nav.works">作品</a></li>
-            <li><a href="collaborate.html" data-i18n="nav.collaborate">合作</a></li>
-            <li class="nav-item nav-item--has-sub">
-              <a href="about.html" data-i18n="nav.about">关于</a>
-              <ul class="nav-sub" role="list">
-                <li>
-                  <a href="collaborators.html" aria-current="page" data-i18n="nav.collaborators">合作艺术家</a>
-                </li>
-              </ul>
-            </li>
-            <li><a href="contact.html" data-i18n="nav.contact">联系</a></li>
-            <li class="nav-lang" aria-label="Language">
-              <button type="button" class="lang-btn" data-set-lang="zh" aria-pressed="true">中</button>
-              <button type="button" class="lang-btn" data-set-lang="en" aria-pressed="false">EN</button>
-            </li>
-          </ul>
-        </nav>
-      </div>
-    </header>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title data-i18n="page.title.collaborators">合作艺术家 — 惊喜之夜 Surprise Night</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Noto+Sans+SC:wght@300;400;500;600;700&family=Noto+Serif+SC:wght@400;500;600;700&family=Syne:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="v3-shared.css" />
+<style>
+  /* ======================================================
+     HERO
+  ====================================================== */
+  .cc-hero {
+    min-height: 62vh;
+    padding: 160px var(--pad) 80px;
+    position: relative; overflow: hidden;
+    display: flex; align-items: flex-end;
+  }
+  .cc-hero__bg {
+    position: absolute; inset: 0; z-index: -2;
+    background:
+      radial-gradient(ellipse 70% 60% at 80% 30%, rgba(196,53,74,0.12), transparent 60%),
+      linear-gradient(180deg, #05060a 0%, #0a0810 60%, #05060a 100%);
+  }
+  .cc-hero__grid {
+    position: absolute; inset: 0; z-index: -1;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+    background-size: 80px 80px;
+    mask-image: radial-gradient(ellipse 80% 60% at 50% 50%, black 30%, transparent 80%);
+    -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 50%, black 30%, transparent 80%);
+  }
+  .cc-hero__inner {
+    max-width: 1320px; width: 100%; margin: 0 auto;
+    position: relative;
+    display: grid; grid-template-columns: 1.1fr .9fr; gap: 60px; align-items: end;
+  }
+  @media (max-width: 900px) { .cc-hero__inner { grid-template-columns: 1fr; gap: 40px; } }
 
-    <main>
-      <section class="collab-page-hero">
-        <div class="container">
-          <a class="back-link" href="about.html" data-i18n="collaboratorsPage.back">← 返回关于</a>
-          <p class="collab-page-hero__label" data-i18n="collaboratorsPage.kicker">Collaborators</p>
-          <h1 class="collab-page-hero__h1" data-i18n="collaboratorsPage.h1">合作艺术家</h1>
-          <p id="collab-intro" class="collab-page-hero__lead"></p>
+  .cc-hero__eyebrow {
+    font-family: var(--display); font-size: 11px; font-weight: 500;
+    letter-spacing: .32em; text-transform: uppercase;
+    color: var(--text-3); margin-bottom: 32px;
+    display: inline-flex; gap: 10px; align-items: center;
+  }
+  .cc-hero__eyebrow::before { content:''; width: 40px; height: 1px; background: var(--accent); }
+  .cc-hero__h {
+    font-family: var(--serif-cn); font-weight: 500;
+    font-size: clamp(48px, 7.5vw, 112px); line-height: .94;
+    letter-spacing: -0.03em; margin-bottom: 0;
+  }
+  .cc-hero__h em { font-family: var(--serif-en); font-style: italic; color: var(--accent); font-weight: 500; }
+  .cc-hero__meta {
+    padding-bottom: 14px;
+    border-top: 1px solid var(--line);
+    padding-top: 28px;
+  }
+  .cc-hero__meta-row {
+    display: flex; justify-content: space-between;
+    padding: 10px 0; gap: 20px;
+    font-family: var(--display); font-size: 10px;
+    letter-spacing: .22em; text-transform: uppercase;
+    color: var(--text-3);
+    border-bottom: 1px dashed rgba(255,255,255,0.08);
+  }
+  .cc-hero__meta-row strong {
+    color: var(--text); font-weight: 500; letter-spacing: .18em;
+    text-align: right;
+  }
+  .cc-hero__lead {
+    grid-column: 1 / -1;
+    font-family: var(--serif-cn); font-size: clamp(16px, 1.4vw, 19px);
+    color: var(--text-2); max-width: 720px; line-height: 1.8;
+    margin-top: 40px;
+  }
+  .cc-hero__lead em { font-family: var(--serif-en); font-style: italic; color: var(--accent-warm); }
+
+  /* ======================================================
+     NAME REEL (horizontal marquee — main artists)
+  ====================================================== */
+  .reel {
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    padding: 22px 0;
+    overflow: hidden;
+    position: relative;
+    background: rgba(255,255,255,0.015);
+  }
+  .reel__track {
+    display: flex; gap: 48px;
+    white-space: nowrap;
+    animation: reelSlide 64s linear infinite;
+    will-change: transform;
+  }
+  .reel:hover .reel__track { animation-play-state: paused; }
+  @keyframes reelSlide {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+  .reel__item {
+    display: inline-flex; align-items: baseline; gap: 14px;
+    font-family: var(--serif-cn); font-weight: 500;
+    font-size: 22px; color: var(--text);
+    letter-spacing: .01em;
+  }
+  .reel__item em {
+    font-family: var(--serif-en); font-style: italic;
+    font-size: 13px; color: var(--text-3);
+    letter-spacing: .05em;
+  }
+  .reel__item .dot {
+    width: 5px; height: 5px; border-radius: 50%;
+    background: var(--accent); flex-shrink: 0;
+    align-self: center;
+  }
+
+  /* ======================================================
+     ARTISTS GRID — compact, 3-column
+  ====================================================== */
+  .artists {
+    padding: 120px var(--pad) 80px;
+    max-width: 1320px; margin: 0 auto;
+  }
+  .artists__head {
+    display: grid; grid-template-columns: 1.5fr 1fr; gap: 40px;
+    padding-bottom: 48px; border-bottom: 1px solid var(--line);
+    margin-bottom: 72px;
+    align-items: end;
+  }
+  @media (max-width: 900px) { .artists__head { grid-template-columns: 1fr; } }
+  .artists__h {
+    font-family: var(--serif-cn); font-weight: 500;
+    font-size: clamp(36px, 4.5vw, 60px); line-height: 1.05;
+    letter-spacing: -0.02em;
+  }
+  .artists__h em { font-family: var(--serif-en); font-style: italic; color: var(--accent); }
+  .artists__sub {
+    font-family: var(--serif-en); font-style: italic;
+    color: var(--text-2); font-size: 16px; line-height: 1.7;
+    padding-left: 24px; border-left: 1px solid var(--line-strong);
+  }
+
+  .artists__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px 24px;
+  }
+  @media (max-width: 1200px) { .artists__grid { grid-template-columns: repeat(3, 1fr); } }
+  @media (max-width: 900px)  { .artists__grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 540px)  { .artists__grid { grid-template-columns: 1fr; } }
+
+  .artist {
+    position: relative;
+    display: flex; flex-direction: column;
+  }
+
+  .artist__media {
+    position: relative;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    background: #0a0a12;
+    margin-bottom: 14px;
+  }
+  .artist__media::before {
+    content: ''; position: absolute; inset: 0; z-index: 2;
+    pointer-events: none;
+    background: linear-gradient(180deg, transparent 55%, rgba(5,6,10,0.55) 100%);
+  }
+  .artist__media img {
+    width: 100%; height: 100%; object-fit: cover;
+    filter: grayscale(100%) contrast(1.05);
+    transition: filter 1s ease, transform 1.2s ease;
+  }
+  .artist:hover .artist__media img {
+    filter: grayscale(0%) contrast(1);
+    transform: scale(1.04);
+  }
+
+  /* filmstrip tick marks on top */
+  .artist__media::after {
+    content: '';
+    position: absolute; left: 0; right: 0; top: 0;
+    height: 14px;
+    background-image: linear-gradient(90deg, #05060a 50%, transparent 50%);
+    background-size: 18px 100%;
+    z-index: 3; opacity: .4;
+  }
+  .artist__id {
+    position: absolute; top: 14px; left: 12px;
+    font-family: var(--display); font-size: 9px;
+    letter-spacing: .3em; text-transform: uppercase;
+    color: rgba(255,255,255,0.92);
+    z-index: 4;
+    padding: 4px 8px;
+    background: rgba(196,53,74,0.88);
+  }
+  .artist__caption {
+    position: absolute; bottom: 12px; left: 12px; right: 12px;
+    z-index: 4;
+    font-family: var(--display); font-size: 9px;
+    letter-spacing: .26em; text-transform: uppercase;
+    color: rgba(255,255,255,0.72);
+    display: flex; justify-content: space-between; gap: 10px;
+  }
+
+  /* placeholder tile (for 罗丹 — no photo) */
+  .artist__placeholder {
+    position: absolute; inset: 0;
+    display: flex; align-items: center; justify-content: center;
+    background:
+      radial-gradient(circle at 30% 30%, rgba(196,53,74,0.12), transparent 60%),
+      linear-gradient(135deg, #1a1220 0%, #0a0a12 100%);
+  }
+  .artist__placeholder-mark {
+    font-family: var(--serif-cn); font-weight: 500;
+    font-size: 80px; color: rgba(255,255,255,0.14);
+    letter-spacing: -0.02em;
+  }
+  .artist__placeholder-note {
+    position: absolute; bottom: 38px; left: 0; right: 0;
+    text-align: center;
+    font-family: var(--display); font-size: 9px;
+    letter-spacing: .3em; text-transform: uppercase;
+    color: rgba(255,255,255,0.35);
+  }
+
+  /* ----- text column ------ */
+  .artist__role {
+    font-family: var(--display); font-size: 9px; font-weight: 500;
+    letter-spacing: .28em; text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 8px;
+    display: inline-flex; align-items: center; gap: 8px;
+  }
+  .artist__role::before {
+    content: ''; width: 16px; height: 1px; background: var(--accent);
+  }
+  .artist__name {
+    font-family: var(--serif-cn); font-weight: 500;
+    font-size: 22px;
+    line-height: 1.1; letter-spacing: -0.01em;
+    margin-bottom: 2px;
+  }
+  .artist__name-en {
+    font-family: var(--serif-en); font-style: italic;
+    font-size: 13px; color: var(--text-3);
+    margin-bottom: 12px;
+  }
+
+  .artist__bio {
+    font-family: var(--serif-cn); font-size: 12.5px;
+    color: var(--text-2); line-height: 1.65;
+    padding: 12px 0;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    margin-bottom: 12px;
+  }
+  .artist__bio p {
+    margin-bottom: 6px;
+    padding-left: 12px;
+    position: relative;
+  }
+  .artist__bio p:last-child { margin-bottom: 0; }
+  .artist__bio p::before {
+    content: ''; position: absolute; left: 0; top: 8px;
+    width: 3px; height: 3px; border-radius: 50%;
+    background: var(--accent);
+    opacity: .7;
+  }
+
+  .artist__works-label {
+    font-family: var(--display); font-size: 8.5px;
+    letter-spacing: .28em; text-transform: uppercase;
+    color: var(--text-3); margin-bottom: 8px;
+  }
+  .artist__works {
+    display: flex; flex-wrap: wrap; gap: 5px;
+  }
+  .artist__work {
+    font-family: var(--serif-cn); font-size: 11.5px;
+    padding: 4px 8px;
+    border: 1px solid var(--line-strong);
+    color: var(--text-2);
+    transition: all .25s ease;
+    cursor: default;
+    white-space: nowrap;
+  }
+  .artist__work:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+    background: rgba(196,53,74,0.05);
+  }
+
+  /* ======================================================
+     END CREDITS (片尾字幕 — all cast)
+  ====================================================== */
+  .credits {
+    padding: 120px var(--pad);
+    border-top: 1px solid var(--line);
+  }
+  .credits__inner { max-width: 1100px; margin: 0 auto; }
+
+  .credits__head {
+    display: grid; grid-template-columns: 1fr auto; gap: 30px;
+    align-items: end;
+    margin-bottom: 32px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--line);
+  }
+  @media (max-width: 720px) { .credits__head { grid-template-columns: 1fr; } }
+
+  .credits__title {
+    font-family: var(--serif-cn); font-weight: 500;
+    font-size: clamp(32px, 4vw, 48px); line-height: 1.1;
+    letter-spacing: -0.01em;
+  }
+  .credits__title em { font-family: var(--serif-en); font-style: italic; color: var(--accent); }
+  .credits__sub {
+    font-family: var(--serif-en); font-style: italic;
+    color: var(--text-3); font-size: 15px; margin-top: 6px;
+  }
+
+  .credits__bar {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 12px 18px;
+    border: 1px solid var(--line);
+    background: rgba(255,255,255,0.02);
+    margin-bottom: 20px;
+    flex-wrap: wrap; gap: 14px;
+  }
+  .credits__label {
+    font-family: var(--display); font-size: 10px;
+    letter-spacing: .24em; text-transform: uppercase;
+    color: var(--text-3);
+    display: flex; align-items: center; gap: 10px;
+  }
+  .credits__label .ldot {
+    width: 7px; height: 7px; border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 0 10px var(--accent);
+    animation: credPulse 2s ease-in-out infinite;
+  }
+  @keyframes credPulse {
+    0%, 100% { opacity: .5; }
+    50% { opacity: 1; }
+  }
+  .credits__controls { display: flex; gap: 6px; align-items: center; }
+  .credits__ctl {
+    padding: 5px 12px;
+    border: 1px solid var(--line-strong);
+    border-radius: 999px;
+    font-family: var(--display); font-size: 9px;
+    letter-spacing: .22em; text-transform: uppercase;
+    color: var(--text-2);
+    cursor: pointer;
+    background: transparent;
+    transition: all .3s ease;
+  }
+  .credits__ctl:hover, .credits__ctl.is-active {
+    color: white; background: var(--accent); border-color: var(--accent);
+  }
+
+  .credits__stage {
+    position: relative;
+    height: 680px;
+    overflow: hidden;
+    background:
+      linear-gradient(180deg, var(--bg-0) 0%, transparent 6%, transparent 94%, var(--bg-0) 100%),
+      radial-gradient(ellipse 80% 100% at 50% 50%, rgba(196,53,74,0.04), transparent);
+    border: 1px solid var(--line);
+  }
+  .credits__stage::before {
+    content: ''; position: absolute; inset: 0;
+    background-image: linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px);
+    background-size: 100% 40px;
+    pointer-events: none;
+    z-index: 1;
+  }
+  .credits__fade-top, .credits__fade-btm {
+    position: absolute; left: 0; right: 0; height: 120px;
+    z-index: 2; pointer-events: none;
+  }
+  .credits__fade-top { top: 0; background: linear-gradient(180deg, var(--bg-0), transparent); }
+  .credits__fade-btm { bottom: 0; background: linear-gradient(0deg, var(--bg-0), transparent); }
+
+  .credits__reel {
+    position: absolute; left: 0; right: 0;
+    padding: 0 40px;
+    animation: reelScroll 140s linear infinite;
+    text-align: center;
+    will-change: transform;
+  }
+  .credits__reel.is-paused { animation-play-state: paused; }
+  @keyframes reelScroll {
+    from { transform: translateY(0); }
+    to   { transform: translateY(-50%); }
+  }
+  .credits__reel > .cb:first-child { padding-top: 40px; }
+
+  .cb { margin-bottom: 64px; }
+  .cb__h {
+    font-family: var(--display); font-weight: 500;
+    font-size: 11px; letter-spacing: .36em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 26px;
+  }
+  .cb__h::before, .cb__h::after {
+    content: ''; display: inline-block;
+    width: 40px; height: 1px;
+    background: var(--line-strong);
+    vertical-align: middle;
+    margin: 0 16px;
+  }
+  .cb__quote {
+    font-family: var(--serif-en); font-style: italic;
+    font-size: 22px; color: var(--text-2);
+    max-width: 600px; margin: 0 auto 12px;
+    line-height: 1.7;
+  }
+  .cb__quote::before, .cb__quote::after {
+    content: '"'; color: var(--accent); font-size: 1.2em;
+  }
+  .cb__attr {
+    font-family: var(--display); font-size: 10px;
+    letter-spacing: .22em; text-transform: uppercase;
+    color: var(--text-3);
+  }
+
+  /* cast grid inside reel */
+  .cb__cast {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px 32px;
+    max-width: 860px;
+    margin: 0 auto;
+    text-align: left;
+  }
+  @media (max-width: 720px) { .cb__cast { grid-template-columns: repeat(2, 1fr); } }
+  .cb__row {
+    display: flex; justify-content: space-between;
+    padding: 6px 0;
+    font-size: 14.5px;
+    border-bottom: 1px dashed rgba(255,255,255,0.06);
+    transition: color .25s ease;
+  }
+  .cb__row:hover { color: var(--accent); }
+  .cb__row .cn {
+    font-family: var(--serif-cn); color: var(--text);
+    font-weight: 500;
+  }
+  .cb__row .en {
+    font-family: var(--serif-en); font-style: italic;
+    color: var(--text-3); font-size: 12.5px;
+  }
+  .cb__row:hover .en { color: var(--accent); }
+
+  /* final titlecard */
+  .cb__final {
+    font-family: var(--serif-cn); font-weight: 500;
+    font-size: 52px; line-height: 1.1;
+  }
+  .cb__final em {
+    font-family: var(--serif-en); font-style: italic; color: var(--accent);
+    display: block; font-size: 17px; margin-top: 10px;
+    letter-spacing: .05em;
+  }
+
+  /* ======================================================
+     CTA
+  ====================================================== */
+  .cc-cta {
+    padding: 140px var(--pad);
+    text-align: center;
+    position: relative;
+    border-top: 1px solid var(--line);
+    overflow: hidden;
+  }
+  .cc-cta::before {
+    content:''; position: absolute; inset: 0;
+    background: radial-gradient(ellipse 60% 70% at 50% 50%, rgba(196,53,74,0.10), transparent 60%);
+    pointer-events: none;
+  }
+  .cc-cta__eyebrow {
+    font-family: var(--display); font-size: 11px; letter-spacing: .32em;
+    text-transform: uppercase; color: var(--text-3); margin-bottom: 20px;
+    position: relative;
+  }
+  .cc-cta__h {
+    font-family: var(--serif-cn); font-weight: 500;
+    font-size: clamp(36px, 5vw, 68px); margin-bottom: 22px;
+    line-height: 1.1; position: relative;
+    letter-spacing: -0.02em;
+  }
+  .cc-cta__h em { font-family: var(--serif-en); font-style: italic; color: var(--accent); }
+  .cc-cta__p {
+    font-size: 15px; color: var(--text-2); max-width: 540px; margin: 0 auto 40px;
+    line-height: 1.8; position: relative;
+    font-family: var(--serif-cn);
+  }
+</style>
+<script src="i18n.js"></script>
+</head>
+<body>
+<div class="grain"></div>
+<div class="cursor-glow"></div>
+
+<div class="curtain" aria-hidden="true">
+  <div class="curtain__panel curtain__panel--l"></div>
+  <div class="curtain__panel curtain__panel--r"></div>
+</div>
+<div class="curtain__logo">
+  COLLABORATORS
+  <small data-i18n="collabs.curtain.small">合作艺术家 · 惊喜之夜</small>
+</div>
+
+<nav class="nav">
+  <a href="index.html" class="nav__brand">
+    <span class="nav__mark">SN</span>
+    <span class="nav__brand-cn">惊喜之夜</span>
+    <span class="nav__brand-en">Surprise Night</span>
+  </a>
+  <div class="nav__links">
+    <a href="works.html" class="nav__link" data-i18n="nav.works">作品</a>
+    <a href="collaborate.html" class="nav__link" data-i18n="nav.collaborate">合作</a>
+    <a href="about.html" class="nav__link" data-i18n="nav.about">关于</a>
+    <a href="collaborators.html" class="nav__link is-active" data-i18n="nav.artists">艺术家</a>
+    <a href="contact.html" class="nav__link" data-i18n="nav.contact">联系</a>
+    <div class="nav__lang">
+      <button data-set-lang="zh">中</button>
+      <button data-set-lang="en">EN</button>
+    </div>
+  </div>
+  <button class="nav__burger" id="navBurger" aria-label="菜单" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<main>
+  <!-- ============== HERO ============== -->
+  <section class="cc-hero" data-screen-label="01 Hero">
+    <div class="cc-hero__bg"></div>
+    <div class="cc-hero__grid"></div>
+    <div class="cc-hero__inner">
+      <div>
+        <p class="cc-hero__eyebrow" data-i18n="cc.hero.eyebrow">Collaborators · 艺术家</p>
+        <h1 class="cc-hero__h" data-i18n="cc.hero.h" data-i18n-html="true">撑开舞台<em>边界</em>的人。</h1>
+      </div>
+      <div class="cc-hero__meta">
+        <div class="cc-hero__meta-row"><span>Artists</span><strong>10 Core · 80+ Cast</strong></div>
+        <div class="cc-hero__meta-row"><span>Disciplines</span><strong>Direction · Writing · Music · Dance · Production</strong></div>
+        <div class="cc-hero__meta-row"><span>Territory</span><strong>CN · UK · International</strong></div>
+        <div class="cc-hero__meta-row"><span>Updated</span><strong data-i18n="cc.meta.updated">2026 · 春</strong></div>
+      </div>
+      <p class="cc-hero__lead" data-i18n="cc.hero.lead" data-i18n-html="true">
+        与我们一起工作的导演、编剧、音乐、舞蹈与制作同仁——他们以<em>专业与实验精神</em>，共同撑开舞台的边界。名单之上，名单之外，是这群人让每一出作品有了自己的呼吸。
+      </p>
+    </div>
+  </section>
+
+  <!-- ============== NAME REEL ============== -->
+  <section class="reel" aria-label="艺术家名字滚动">
+    <div class="reel__track" id="reelTrack">
+      <span class="reel__item">袁冶 <em>Yuan Ye</em><span class="dot"></span></span>
+      <span class="reel__item">西岭雪 <em>Xi Lingxue</em><span class="dot"></span></span>
+      <span class="reel__item">Sid Peacock <em>Music Design</em><span class="dot"></span></span>
+      <span class="reel__item">刘洋 <em>Liu Yang</em><span class="dot"></span></span>
+      <span class="reel__item">郭贝贝 <em>Guo Beibei</em><span class="dot"></span></span>
+      <span class="reel__item">罗丹 <em>Luo Dan</em><span class="dot"></span></span>
+      <span class="reel__item">文冬 <em>Wen Dong</em><span class="dot"></span></span>
+      <span class="reel__item">瞿菡 <em>Qu Han</em><span class="dot"></span></span>
+      <span class="reel__item">孙荣波 <em>Sun Rongbo</em><span class="dot"></span></span>
+      <span class="reel__item">吴雨田 <em>Wu Yutian</em><span class="dot"></span></span>
+    </div>
+  </section>
+
+  <!-- ============== ARTISTS GRID ============== -->
+  <section class="artists">
+    <div class="artists__head">
+      <h2 class="artists__h" data-i18n="cc.artists.h" data-i18n-html="true">合作<em>艺术家</em><br/>Our Collaborators.</h2>
+      <p class="artists__sub" data-i18n="cc.artists.sub">Not a roster. A circle. Each of them has taught us something about how a scene breathes, how a silence holds, how a stranger becomes an audience.</p>
+    </div>
+
+    <div class="artists__grid">
+
+      <!-- 01 · 袁冶 -->
+      <article class="artist">
+        <div class="artist__media">
+          <span class="artist__id">N° 01</span>
+          <img src="images/artist-yuan-ye.png" alt="袁冶 Yuan Ye" style="object-position: 28% 34%;" />
+          <div class="artist__caption"><span>Yuan Ye</span><span>Director</span></div>
         </div>
-      </section>
+        <div class="artist__role" data-i18n="cc.role.director">Director · 导演</div>
+        <h3 class="artist__name">袁冶</h3>
+        <div class="artist__name-en">Yuan Ye</div>
+        <div class="artist__bio">
+          <p data-i18n="cc.a01.bio1">中宣部「四个一批」人才；303 戏剧艺术中心艺术总监；惊喜之夜艺术总监。</p>
+          <p data-i18n="cc.a01.bio2">全民戏剧工作坊发起人；多次受邀参加柏林戏剧节、爱丁堡艺术节、雅典戏剧节等。</p>
+        </div>
+        <div class="artist__works-label" data-i18n="cc.worksLabel.selected">Selected Works</div>
+        <div class="artist__works">
+          <span class="artist__work">《7080》</span>
+          <span class="artist__work">《8090》</span>
+          <span class="artist__work">《聂小倩与宁采臣》</span>
+          <span class="artist__work">《终极骗局》</span>
+          <span class="artist__work">《生存游戏》</span>
+        </div>
+      </article>
 
-      <div class="container collab-page-main">
-        <div id="collab-app"></div>
+      <!-- 02 · 西岭雪 -->
+      <article class="artist">
+        <div class="artist__media">
+          <span class="artist__id">N° 02</span>
+          <img src="images/artist-xi-lingxue.jpg" alt="西岭雪 Xi Lingxue" style="object-position: 50% 28%;" />
+          <div class="artist__caption"><span>Xi Lingxue</span><span>Playwright</span></div>
+        </div>
+        <div class="artist__role" data-i18n="cc.role.playwright">Playwright · 编剧</div>
+        <h3 class="artist__name">西岭雪</h3>
+        <div class="artist__name-en">Xi Lingxue</div>
+        <div class="artist__bio">
+          <p data-i18n="cc.a02.bio1">本名刘恺怡，当代作家、编剧，西周私塾创始人，上海戏剧家协会特约编剧。</p>
+          <p data-i18n="cc.a02.bio2">新版电视剧《红楼梦》特约顾问，素有民间「女性红学第一人」之称；著有长篇小说、红学专著、人物传记等七十余部。</p>
+        </div>
+        <div class="artist__works-label" data-i18n="cc.worksLabel.selected">Selected Works</div>
+        <div class="artist__works">
+          <span class="artist__work">昆曲《宝黛红楼》</span>
+          <span class="artist__work">秦腔《再续红梅缘》</span>
+          <span class="artist__work">话剧《只有一个名字》</span>
+          <span class="artist__work">《每个女人都很孤单》</span>
+          <span class="artist__work">舞台剧《寻找张爱玲》</span>
+          <span class="artist__work">大清三部曲</span>
+          <span class="artist__work">西续红楼梦系列</span>
+        </div>
+      </article>
+
+      <!-- 03 · Sid Peacock -->
+      <article class="artist">
+        <div class="artist__media">
+          <span class="artist__id">N° 03</span>
+          <img src="images/artist-sid-peacock.png" alt="Sid Peacock" style="object-position: 50% 36%;" />
+          <div class="artist__caption"><span>Sid Peacock</span><span>Music Design</span></div>
+        </div>
+        <div class="artist__role" data-i18n="cc.role.musicDesign">Music Design · 音乐设计</div>
+        <h3 class="artist__name">Sid Peacock</h3>
+        <div class="artist__name-en">Composer · Belfast / Birmingham</div>
+        <div class="artist__bio">
+          <p data-i18n="cc.a03.bio1">北爱尔兰作曲家；英格兰艺术委员会合作艺术家；Surge 管弦乐团艺术总监。</p>
+          <p data-i18n="cc.a03.bio2">奥斯特大学作曲博士；伯明翰城市大学研究员；伯明翰音乐学院客座讲师。</p>
+        </div>
+        <div class="artist__works-label" data-i18n="cc.worksLabel.selected">Selected Works</div>
+        <div class="artist__works">
+          <span class="artist__work">La Fête</span>
+          <span class="artist__work">Valley of Angels</span>
+          <span class="artist__work">Live in Birmingham 04</span>
+          <span class="artist__work">Thomas Carnduff</span>
+          <span class="artist__work">Little Bird</span>
+          <span class="artist__work">Love Forgiven</span>
+        </div>
+      </article>
+
+      <!-- 04 · 刘洋 -->
+      <article class="artist">
+        <div class="artist__media">
+          <span class="artist__id">N° 04</span>
+          <img src="images/artist-liu-yang.png" alt="刘洋 Liu Yang" style="object-position: 50% 32%;" />
+          <div class="artist__caption"><span>Liu Yang</span><span>Producer</span></div>
+        </div>
+        <div class="artist__role" data-i18n="cc.role.producer">Producer · 制作人</div>
+        <h3 class="artist__name">刘洋</h3>
+        <div class="artist__name-en">Liu Yang</div>
+        <div class="artist__bio">
+          <p data-i18n="cc.a04.bio1">资深戏剧制作人、影视娱乐营销顾问；中央戏剧学院研究生实践导师、客座讲师。</p>
+          <p data-i18n="cc.a04.bio2">与北京人民艺术剧院合作《茶馆》《雷雨》《原野》等；曾任万达传媒总经理。</p>
+        </div>
+        <div class="artist__works-label" data-i18n="cc.worksLabel.credits">Selected Credits</div>
+        <div class="artist__works">
+          <span class="artist__work">《茶馆》</span>
+          <span class="artist__work">《雷雨》</span>
+          <span class="artist__work">《原野》</span>
+          <span class="artist__work">《唐人街探案2》</span>
+          <span class="artist__work">《大黄蜂》</span>
+          <span class="artist__work">《权力的游戏》</span>
+        </div>
+      </article>
+
+      <!-- 05 · 郭贝贝 -->
+      <article class="artist">
+        <div class="artist__media">
+          <span class="artist__id">N° 05</span>
+          <img src="images/artist-guo-beibei.png" alt="郭贝贝 Guo Beibei" style="object-position: 48% 32%;" />
+          <div class="artist__caption"><span>Guo Beibei</span><span>Choreography</span></div>
+        </div>
+        <div class="artist__role" data-i18n="cc.role.choreography">Choreography · 舞蹈编导</div>
+        <h3 class="artist__name">郭贝贝</h3>
+        <div class="artist__name-en">Guo Beibei</div>
+        <div class="artist__bio">
+          <p data-i18n="cc.a05.bio1">青年舞蹈家；中南大学音乐舞蹈系副教授。</p>
+          <p data-i18n="cc.a05.bio2">湖南省舞蹈家协会理事；长沙市舞蹈家协会副主席。</p>
+        </div>
+        <div class="artist__works-label" data-i18n="cc.worksLabel.selected">Selected Works</div>
+        <div class="artist__works">
+          <span class="artist__work">舞剧《君生我未生》</span>
+          <span class="artist__work">《中南故事》</span>
+          <span class="artist__work">《湘灵》</span>
+          <span class="artist__work">《半条被子》</span>
+          <span class="artist__work">《湘江浴月》</span>
+        </div>
+      </article>
+
+      <!-- 06 · 罗丹 -->
+      <article class="artist">
+        <div class="artist__media">
+          <span class="artist__id">N° 06</span>
+          <img src="images/artist-luo-dan.png" alt="罗丹 Luo Dan" style="object-position: 50% 30%;" />
+          <div class="artist__caption"><span>Luo Dan</span><span>Choreography</span></div>
+        </div>
+        <div class="artist__role" data-i18n="cc.role.choreography">Choreography · 舞蹈编导</div>
+        <h3 class="artist__name">罗丹</h3>
+        <div class="artist__name-en">Luo Dan</div>
+        <div class="artist__bio">
+          <p data-i18n="cc.a06.bio1">惊喜之夜长期合作舞蹈编导，重要主创之一。</p>
+          <p data-i18n="cc.a06.bio2">参与《山海经·巨灵之梦》《妖男夜行录》等多部作品，负责舞蹈编排与排练指导。</p>
+        </div>
+        <div class="artist__works-label" data-i18n="cc.worksLabel.selected">Selected Works</div>
+        <div class="artist__works">
+          <span class="artist__work">《山海经·巨灵之梦》</span>
+          <span class="artist__work">《妖男夜行录》</span>
+        </div>
+      </article>
+
+      <!-- 07 · 孙荣波 -->
+      <article class="artist">
+        <div class="artist__media">
+          <span class="artist__id">N° 07</span>
+          <img src="images/artist-sun-rongbo.png" alt="孙荣波 Sun Rongbo" style="object-position: 44% 32%;" />
+          <div class="artist__caption"><span>Sun Rongbo</span><span>Installation Art</span></div>
+        </div>
+        <div class="artist__role" data-i18n="cc.role.install">Installation Art · 特殊装置设计</div>
+        <h3 class="artist__name">孙荣波</h3>
+        <div class="artist__name-en">Sun Rongbo</div>
+        <div class="artist__bio">
+          <p data-i18n="cc.a07.bio1">艺术节制作人、戏剧制作人、导演、演员；上海乌龙剧团艺术总监。</p>
+          <p data-i18n="cc.a07.bio2">赴法学习环境戏剧，作品《当月亮升起的时候…》参演瑟堡艺术节（IN 单元）、奥利亚克艺术节（IN 单元）。</p>
+        </div>
+        <div class="artist__works-label" data-i18n="cc.worksLabel.projects">Selected Projects</div>
+        <div class="artist__works">
+          <span class="artist__work">《当月亮升起的时候…》</span>
+          <span class="artist__work">乌镇戏剧节 · 古镇嘉年华</span>
+          <span class="artist__work">StArtFestival</span>
+          <span class="artist__work">上海国际喜剧节</span>
+          <span class="artist__work">《乌龙事务所》</span>
+        </div>
+      </article>
+
+      <!-- 08 · 瞿菡 -->
+      <article class="artist">
+        <div class="artist__media">
+          <span class="artist__id">N° 08</span>
+          <img src="images/artist-qu-han.png" alt="瞿菡 Qu Han" style="object-position: 50% 30%;" />
+          <div class="artist__caption"><span>Qu Han</span><span>Playwright</span></div>
+        </div>
+        <div class="artist__role" data-i18n="cc.role.dramaturge">Playwright · Dramaturge</div>
+        <h3 class="artist__name">瞿菡</h3>
+        <div class="artist__name-en">Qu Han</div>
+        <div class="artist__bio">
+          <p data-i18n="cc.a08.bio1">格拉斯哥大学戏剧构作与编剧硕士；首部沉浸式互动游戏戏剧《终极骗局》编剧。</p>
+          <p data-i18n="cc.a08.bio2">岳麓山青年戏剧节嘉宾与节目统筹；格拉斯哥国际戏剧节 Surge Festival 实习顾问。</p>
+        </div>
+        <div class="artist__works-label" data-i18n="cc.worksLabel.selected">Selected Works</div>
+        <div class="artist__works">
+          <span class="artist__work">《终极骗局》</span>
+          <span class="artist__work">《女儿18我28》</span>
+          <span class="artist__work">《古塘湾1930》</span>
+          <span class="artist__work">《我不是孙悟空》</span>
+          <span class="artist__work">《芝居》</span>
+          <span class="artist__work">Mother Grand</span>
+        </div>
+      </article>
+
+      <!-- 09 · 文冬 -->
+      <article class="artist">
+        <div class="artist__media">
+          <span class="artist__id">N° 09</span>
+          <img src="images/artist-wen-dong.png" alt="文冬 Wen Dong" style="object-position: 50% 36%;" />
+          <div class="artist__caption"><span>Wen Dong</span><span>Assistant Director</span></div>
+        </div>
+        <div class="artist__role" data-i18n="cc.role.assistDir">Assistant Director · 副导演</div>
+        <h3 class="artist__name">文冬</h3>
+        <div class="artist__name-en">Wen Dong</div>
+        <div class="artist__bio">
+          <p data-i18n="cc.a09.bio1">成都市川剧研究院，国家一级演员；四川省艺术节「文华奖·个人表演奖」得主。</p>
+          <p data-i18n="cc.a09.bio2">多次赴美、韩、日、德、英、葡等十余国文化交流演出。</p>
+        </div>
+        <div class="artist__works-label" data-i18n="cc.worksLabel.directed">Directed Works</div>
+        <div class="artist__works">
+          <span class="artist__work">《武·生》</span>
+          <span class="artist__work">《盗冠袍》</span>
+          <span class="artist__work">《医生》</span>
+          <span class="artist__work">《禹门关》</span>
+          <span class="artist__work">《望娘滩》</span>
+          <span class="artist__work">《梁红玉》</span>
+        </div>
+      </article>
+
+      <!-- 10 · 吴雨田 -->
+      <article class="artist">
+        <div class="artist__media">
+          <span class="artist__id">N° 10</span>
+          <img src="images/artist-wu-yutian.png" alt="吴雨田 Wu Yutian" style="object-position: 50% 38%;" />
+          <div class="artist__caption"><span>Wu Yutian</span><span>Music Production</span></div>
+        </div>
+        <div class="artist__role" data-i18n="cc.role.musicProd">Music Production · 音乐制作</div>
+        <h3 class="artist__name">吴雨田</h3>
+        <div class="artist__name-en">Wu Yutian</div>
+        <div class="artist__bio">
+          <p data-i18n="cc.a10.bio1">职业作曲家，文华奖、群星奖获得者；重庆市第四届音协理事。</p>
+          <p data-i18n="cc.a10.bio2">中国音协「新时代词曲创作领军人物高级研修班」学员；重庆魔钹瑞琶文化传播有限公司法人。</p>
+        </div>
+        <div class="artist__works-label" data-i18n="cc.worksLabel.honors">Honors</div>
+        <div class="artist__works">
+          <span class="artist__work">文华奖</span>
+          <span class="artist__work">群星奖</span>
+          <span class="artist__work">重庆市音协理事</span>
+          <span class="artist__work">巴渝文艺新秀</span>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ============== END CREDITS ============== -->
+  <section class="credits" data-screen-label="11 End Credits">
+    <div class="credits__inner">
+      <div class="credits__head">
+        <div>
+          <h2 class="credits__title" data-i18n="cc.credits.title" data-i18n-html="true">我们的<em>伙伴</em></h2>
+          <p class="credits__sub" data-i18n="cc.credits.sub">Our Partners — to everyone who has stood on our stage.</p>
+        </div>
       </div>
-    </main>
 
-    <footer class="site-footer">
-      <div class="inner">
-        <span data-i18n="collaboratorsPage.footCopy">© 2026 惊喜之夜</span>
-        <a href="about.html" data-i18n="collaboratorsPage.footAbout">关于</a>
+      <div class="credits__bar">
+        <div class="credits__label" data-i18n="cc.credits.label" data-i18n-html="true"><span class="ldot"></span>End Credits · 片尾字幕 · 悬停暂停</div>
+        <div class="credits__controls">
+          <button class="credits__ctl" data-speed="240" data-i18n="cc.credits.slow">慢</button>
+          <button class="credits__ctl is-active" data-speed="140" data-i18n="cc.credits.normal">常速</button>
+          <button class="credits__ctl" data-speed="70" data-i18n="cc.credits.fast">快</button>
+          <button class="credits__ctl" id="pauseToggle" data-i18n="cc.credits.pause">暂停</button>
+        </div>
       </div>
-    </footer>
 
-    <script src="js/i18n.js" defer></script>
-    <script src="js/collaborators-page.js" defer></script>
-    <script src="js/main.js" defer></script>
-  </body>
+      <div class="credits__stage">
+        <div class="credits__fade-top"></div>
+        <div class="credits__fade-btm"></div>
+
+        <div class="credits__reel" id="reel">
+
+          <div class="cb">
+            <div class="cb__quote">The stage is not a wall, but a door.</div>
+            <div class="cb__attr">—— Surprise Night 2026</div>
+          </div>
+
+          <div class="cb">
+            <div class="cb__h" data-i18n="cc.credits.h.team">主 创 团 队 · Creative Team</div>
+            <div class="cb__cast">
+              <div class="cb__row"><span class="cn">袁冶</span><span class="en">Yuan Ye</span></div>
+              <div class="cb__row"><span class="cn">西岭雪</span><span class="en">Xi Lingxue</span></div>
+              <div class="cb__row"><span class="cn">Sid Peacock</span><span class="en">Sid Peacock</span></div>
+              <div class="cb__row"><span class="cn">刘洋</span><span class="en">Liu Yang</span></div>
+              <div class="cb__row"><span class="cn">郭贝贝</span><span class="en">Guo Beibei</span></div>
+              <div class="cb__row"><span class="cn">罗丹</span><span class="en">Luo Dan</span></div>
+              <div class="cb__row"><span class="cn">文冬</span><span class="en">Wen Dong</span></div>
+              <div class="cb__row"><span class="cn">瞿菡</span><span class="en">Qu Han</span></div>
+              <div class="cb__row"><span class="cn">孙荣波</span><span class="en">Sun Rongbo</span></div>
+              <div class="cb__row"><span class="cn">吴雨田</span><span class="en">Wu Yutian</span></div>
+            </div>
+          </div>
+
+          <div class="cb">
+            <div class="cb__h" data-i18n="cc.credits.h.castBH">合 作 演 员 · Cast · B—H</div>
+            <div class="cb__cast">
+              <div class="cb__row"><span class="cn">边关</span><span class="en">Bian Guan</span></div>
+              <div class="cb__row"><span class="cn">蔡玉儿</span><span class="en">Cai Yuer</span></div>
+              <div class="cb__row"><span class="cn">程志远</span><span class="en">Cheng Zhiyuan</span></div>
+              <div class="cb__row"><span class="cn">陈昊旭</span><span class="en">Chen Haoxu</span></div>
+              <div class="cb__row"><span class="cn">陈俊霖</span><span class="en">Chen Junlin</span></div>
+              <div class="cb__row"><span class="cn">陈淼淼</span><span class="en">Chen Miaomiao</span></div>
+              <div class="cb__row"><span class="cn">陈星宇</span><span class="en">Chen Xingyu</span></div>
+              <div class="cb__row"><span class="cn">陈亚超</span><span class="en">Chen Yachao</span></div>
+              <div class="cb__row"><span class="cn">崔萌瑶</span><span class="en">Cui Mengyao</span></div>
+              <div class="cb__row"><span class="cn">戴昌维</span><span class="en">Dai Changwei</span></div>
+              <div class="cb__row"><span class="cn">邓瑶</span><span class="en">Deng Yao</span></div>
+              <div class="cb__row"><span class="cn">董戈玫</span><span class="en">Dong Gemei</span></div>
+              <div class="cb__row"><span class="cn">董续</span><span class="en">Dong Xu</span></div>
+              <div class="cb__row"><span class="cn">梵蝶</span><span class="en">Fan Die</span></div>
+              <div class="cb__row"><span class="cn">高高</span><span class="en">Gao Gao</span></div>
+              <div class="cb__row"><span class="cn">高冉</span><span class="en">Gao Ran</span></div>
+              <div class="cb__row"><span class="cn">郭纪新</span><span class="en">Guo Jixin</span></div>
+              <div class="cb__row"><span class="cn">何佳怡</span><span class="en">He Jiayi</span></div>
+              <div class="cb__row"><span class="cn">胡志豪</span><span class="en">Hu Zhihao</span></div>
+              <div class="cb__row"><span class="cn">黄隼翼</span><span class="en">Huang Sunyi</span></div>
+              <div class="cb__row"><span class="cn">黄棕君</span><span class="en">Huang Zongjun</span></div>
+            </div>
+          </div>
+
+          <div class="cb">
+            <div class="cb__h" data-i18n="cc.credits.h.castJL">合 作 演 员 · Cast · J—L</div>
+            <div class="cb__cast">
+              <div class="cb__row"><span class="cn">贾鸿赫</span><span class="en">Jia Honghe</span></div>
+              <div class="cb__row"><span class="cn">蒋矩明</span><span class="en">Jiang Juming</span></div>
+              <div class="cb__row"><span class="cn">姜维羽</span><span class="en">Jiang Weiyu</span></div>
+              <div class="cb__row"><span class="cn">蒋莹琳</span><span class="en">Jiang Yinglin</span></div>
+              <div class="cb__row"><span class="cn">李嘉诚</span><span class="en">Li Jiacheng</span></div>
+              <div class="cb__row"><span class="cn">李林峰</span><span class="en">Li Linfeng</span></div>
+              <div class="cb__row"><span class="cn">林甜笑</span><span class="en">Lin Tianxiao</span></div>
+              <div class="cb__row"><span class="cn">李倩</span><span class="en">Li Qian</span></div>
+              <div class="cb__row"><span class="cn">李帅龙</span><span class="en">Li Shuailong</span></div>
+              <div class="cb__row"><span class="cn">刘柯逸</span><span class="en">Liu Keyi</span></div>
+              <div class="cb__row"><span class="cn">刘李如玉</span><span class="en">Liu Li Ruyu</span></div>
+              <div class="cb__row"><span class="cn">刘心语</span><span class="en">Liu Xinyu</span></div>
+              <div class="cb__row"><span class="cn">刘焱</span><span class="en">Liu Yan</span></div>
+              <div class="cb__row"><span class="cn">刘耘彤</span><span class="en">Liu Yuntong</span></div>
+              <div class="cb__row"><span class="cn">楼佳宜</span><span class="en">Lou Jiayi</span></div>
+              <div class="cb__row"><span class="cn">卢承华</span><span class="en">Lu Chenghua</span></div>
+              <div class="cb__row"><span class="cn">罗康旭</span><span class="en">Luo Kangxu</span></div>
+              <div class="cb__row"><span class="cn">罗炜</span><span class="en">Luo Wei</span></div>
+              <div class="cb__row"><span class="cn">罗朝阳</span><span class="en">Luo Zhaoyang</span></div>
+            </div>
+          </div>
+
+          <div class="cb">
+            <div class="cb__h" data-i18n="cc.credits.h.castMS">合 作 演 员 · Cast · M—S</div>
+            <div class="cb__cast">
+              <div class="cb__row"><span class="cn">马嘉明</span><span class="en">Ma Jiaming</span></div>
+              <div class="cb__row"><span class="cn">马帅威</span><span class="en">Ma Shuaiwei</span></div>
+              <div class="cb__row"><span class="cn">马玉瑞</span><span class="en">Ma Yurui</span></div>
+              <div class="cb__row"><span class="cn">其勒木格</span><span class="en">Qi Leimuge</span></div>
+              <div class="cb__row"><span class="cn">邱楠</span><span class="en">Qiu Nan</span></div>
+              <div class="cb__row"><span class="cn">漆学煌</span><span class="en">Qi Xuehuang</span></div>
+              <div class="cb__row"><span class="cn">申玥</span><span class="en">Shen Yue</span></div>
+              <div class="cb__row"><span class="cn">史鹏飞</span><span class="en">Shi Pengfei</span></div>
+              <div class="cb__row"><span class="cn">宋雨萱</span><span class="en">Song Yuxuan</span></div>
+              <div class="cb__row"><span class="cn">孙然</span><span class="en">Sun Ran</span></div>
+              <div class="cb__row"><span class="cn">孙若飞</span><span class="en">Sun Ruofei</span></div>
+              <div class="cb__row"><span class="cn">孙世嘉</span><span class="en">Sun Shijia</span></div>
+            </div>
+          </div>
+
+          <div class="cb">
+            <div class="cb__h" data-i18n="cc.credits.h.castTX">合 作 演 员 · Cast · T—X</div>
+            <div class="cb__cast">
+              <div class="cb__row"><span class="cn">唐昌芮</span><span class="en">Tang Changrui</span></div>
+              <div class="cb__row"><span class="cn">童霖</span><span class="en">Tong Lin</span></div>
+              <div class="cb__row"><span class="cn">王艾伦</span><span class="en">Wang Ailun</span></div>
+              <div class="cb__row"><span class="cn">王铎为</span><span class="en">Wang Duowei</span></div>
+              <div class="cb__row"><span class="cn">王佳豪</span><span class="en">Wang Jiahao</span></div>
+              <div class="cb__row"><span class="cn">王盛</span><span class="en">Wang Sheng</span></div>
+              <div class="cb__row"><span class="cn">王鑫</span><span class="en">Wang Xin</span></div>
+              <div class="cb__row"><span class="cn">王誉</span><span class="en">Wang Yu</span></div>
+              <div class="cb__row"><span class="cn">王梓</span><span class="en">Wang Zi</span></div>
+              <div class="cb__row"><span class="cn">文韬</span><span class="en">Wen Tao</span></div>
+              <div class="cb__row"><span class="cn">文艺静</span><span class="en">Wen Yijing</span></div>
+              <div class="cb__row"><span class="cn">肖俊聪</span><span class="en">Xiao Juncong</span></div>
+              <div class="cb__row"><span class="cn">肖康妮</span><span class="en">Xiao Kangni</span></div>
+              <div class="cb__row"><span class="cn">徐臻</span><span class="en">Xu Zhen</span></div>
+            </div>
+          </div>
+
+          <div class="cb">
+            <div class="cb__h" data-i18n="cc.credits.h.castY">合 作 演 员 · Cast · Y</div>
+            <div class="cb__cast">
+              <div class="cb__row"><span class="cn">杨避逍</span><span class="en">Yang Bixiao</span></div>
+              <div class="cb__row"><span class="cn">杨光</span><span class="en">Yang Guang</span></div>
+              <div class="cb__row"><span class="cn">杨惠轩</span><span class="en">Yang Huixuan</span></div>
+              <div class="cb__row"><span class="cn">杨君</span><span class="en">Yang Jun</span></div>
+              <div class="cb__row"><span class="cn">杨开亮</span><span class="en">Yang Kailiang</span></div>
+              <div class="cb__row"><span class="cn">姚迪</span><span class="en">Yao Di</span></div>
+              <div class="cb__row"><span class="cn">姚锦程</span><span class="en">Yao Jincheng</span></div>
+              <div class="cb__row"><span class="cn">叶堃</span><span class="en">Ye Kun</span></div>
+              <div class="cb__row"><span class="cn">叶文</span><span class="en">Ye Wen</span></div>
+              <div class="cb__row"><span class="cn">殷宪钰</span><span class="en">Yin Xianyu</span></div>
+              <div class="cb__row"><span class="cn">余逸巍</span><span class="en">Yu Yiwei</span></div>
+              <div class="cb__row"><span class="cn">袁泉</span><span class="en">Yuan Quan</span></div>
+              <div class="cb__row"><span class="cn">袁也</span><span class="en">Yuan Ye</span></div>
+            </div>
+          </div>
+
+          <div class="cb">
+            <div class="cb__h" data-i18n="cc.credits.h.castZ">合 作 演 员 · Cast · Z</div>
+            <div class="cb__cast">
+              <div class="cb__row"><span class="cn">张超</span><span class="en">Zhang Chao</span></div>
+              <div class="cb__row"><span class="cn">张可郁</span><span class="en">Zhang Keyu</span></div>
+              <div class="cb__row"><span class="cn">张美艳</span><span class="en">Zhang Meiyan</span></div>
+              <div class="cb__row"><span class="cn">张琦川</span><span class="en">Zhang Qichuan</span></div>
+              <div class="cb__row"><span class="cn">张森</span><span class="en">Zhang Sen</span></div>
+              <div class="cb__row"><span class="cn">张滩杉</span><span class="en">Zhang Tanshan</span></div>
+              <div class="cb__row"><span class="cn">张艺豪</span><span class="en">Zhang Yihao</span></div>
+              <div class="cb__row"><span class="cn">张艺佳</span><span class="en">Zhang Yijia</span></div>
+              <div class="cb__row"><span class="cn">张远卓</span><span class="en">Zhang Yuanzhuo</span></div>
+              <div class="cb__row"><span class="cn">张雨佳</span><span class="en">Zhang Yujia</span></div>
+              <div class="cb__row"><span class="cn">赵书雨</span><span class="en">Zhao Shuyu</span></div>
+              <div class="cb__row"><span class="cn">赵昀迪</span><span class="en">Zhao Yundi</span></div>
+              <div class="cb__row"><span class="cn">周晓宇</span><span class="en">Zhou Xiaoyu</span></div>
+              <div class="cb__row"><span class="cn">周迅</span><span class="en">Zhou Xun</span></div>
+              <div class="cb__row"><span class="cn">周燕涛</span><span class="en">Zhou Yantao</span></div>
+              <div class="cb__row"><span class="cn">周译键</span><span class="en">Zhou Yijian</span></div>
+              <div class="cb__row"><span class="cn">周重鑫</span><span class="en">Zhou Chongxin</span></div>
+              <div class="cb__row"><span class="cn">朱玲</span><span class="en">Zhu Ling</span></div>
+              <div class="cb__row"><span class="cn">邹继嘉</span><span class="en">Zou Jijia</span></div>
+            </div>
+          </div>
+
+          <div class="cb">
+            <div class="cb__h" data-i18n="cc.credits.h.thanks">特 别 鸣 谢 · Special Thanks</div>
+            <div class="cb__quote" data-i18n="cc.credits.thanks.quote">致每一位坐在过黑暗里的陌生人。</div>
+            <div class="cb__attr">To every stranger who has sat in the dark with us.</div>
+          </div>
+
+          <div class="cb">
+            <div class="cb__final">
+              Surprise Night
+              <em data-i18n="cc.credits.finalEm">惊喜之夜 · 2018 — Now</em>
+            </div>
+          </div>
+
+          <div class="cb">
+            <div class="cb__quote" data-i18n="cc.credits.final.quote">灯还亮着。</div>
+            <div class="cb__attr">The lights are still on.</div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== CTA ============== -->
+  <section class="cc-cta" data-screen-label="12 CTA">
+    <p class="cc-cta__eyebrow" data-i18n="cc.cta.eyebrow">JOIN THE CIRCLE · 加 入 同 行</p>
+    <h2 class="cc-cta__h" data-i18n="cc.cta.h" data-i18n-html="true">想和我们<em>一起工作</em>？</h2>
+    <p class="cc-cta__p" data-i18n="cc.cta.p">我们持续寻找戏曲、传统艺术、科技、音乐、视觉方向的长期伙伴。一封信就够了。</p>
+    <a class="btn btn--primary" href="contact.html" data-i18n="cc.cta.btn">写一封信给我们 →</a>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="site-footer__inner">
+    <div class="site-footer__brand" data-i18n="footer.brand" data-i18n-html="true">© 2026 惊喜之夜 · <em>Surprise Night</em></div>
+    <div class="site-footer__links">
+      <a href="index.html" data-i18n="footer.links.home">首页</a>
+      <a href="about.html" data-i18n="footer.links.about">关于</a>
+      <a href="contact.html" data-i18n="footer.links.contact">联系</a>
+    </div>
+  </div>
+</footer>
+
+<script src="v3-shared.js" defer></script>
+<script>
+  // Duplicate top reel for seamless horizontal loop
+  (function () {
+    const track = document.getElementById('reelTrack');
+    if (track) track.innerHTML = track.innerHTML + track.innerHTML;
+  })();
+
+  // End Credits — vertical reel (duplicate content for seamless loop)
+  (function () {
+    const reel = document.getElementById('reel');
+    if (!reel) return;
+    // Duplicate inner content so animation 0% → -50% loops without gap
+    reel.innerHTML = reel.innerHTML + reel.innerHTML;
+
+    reel.addEventListener('mouseenter', () => reel.classList.add('is-paused'));
+    reel.addEventListener('mouseleave', () => reel.classList.remove('is-paused'));
+
+    document.querySelectorAll('.credits__ctl[data-speed]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.credits__ctl[data-speed]').forEach(b => b.classList.remove('is-active'));
+        btn.classList.add('is-active');
+        reel.style.animationDuration = btn.dataset.speed + 's';
+      });
+    });
+
+    const toggle = document.getElementById('pauseToggle');
+    if (toggle) {
+      toggle.addEventListener('click', () => {
+        const paused = reel.classList.toggle('is-paused');
+        toggle.textContent = paused ? '继续' : '暂停';
+      });
+    }
+  })();
+</script>
+</body>
 </html>

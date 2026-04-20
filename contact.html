@@ -1,172 +1,749 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>联系 — 惊喜之夜</title>
-    <meta name="description" content="商务合作、媒体与日常联系。提交后我们将在 24 小时内回复。" />
-    <link rel="stylesheet" href="css/styles.css" />
-  </head>
-  <body data-i18n-page="contact">
-    <header class="site-header">
-      <div class="inner">
-        <a href="index.html" class="logo" style="display: flex; align-items: center; gap: 12px; font-size: 1.1rem;">
-          <img src="assets/images/logo.png" alt="" style="width: 32px; height: 32px; object-fit: contain;">
-          <span>惊喜之夜 <span style="opacity: 0.7; font-size: 0.75rem; font-weight: 400; margin-left: 4px;">/ Surprise Night</span></span>
-        </a>
-        <button type="button" class="nav-toggle" data-i18n="nav.menu" aria-expanded="false" aria-controls="primary-nav">
-          菜单
-        </button>
-        <nav>
-          <ul id="primary-nav" class="nav-links">
-            <li><a href="works.html" data-i18n="nav.works">作品</a></li>
-            <li><a href="collaborate.html" data-i18n="nav.collaborate">合作</a></li>
-            <li class="nav-item nav-item--has-sub">
-            <a href="about.html" data-i18n="nav.about">关于</a>
-            <ul class="nav-sub" role="list">
-              <li><a href="collaborators.html" data-i18n="nav.collaborators">合作艺术家</a></li>
-            </ul>
-          </li>
-            <li><a href="contact.html" aria-current="page" data-i18n="nav.contact">联系</a></li>
-            <li class="nav-lang" aria-label="Language">
-              <button type="button" class="lang-btn" data-set-lang="zh" aria-pressed="true">中</button>
-              <button type="button" class="lang-btn" data-set-lang="en" aria-pressed="false">EN</button>
-            </li>
-          </ul>
-        </nav>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title data-i18n="page.title.contact">联系 — 惊喜之夜 Surprise Night</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Noto+Sans+SC:wght@300;400;500;600;700&family=Noto+Serif+SC:wght@400;500;600;700&family=Syne:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="v3-shared.css" />
+<style>
+  .contact-hero {
+    min-height: 60vh;
+    padding: 160px var(--pad) 80px;
+    position: relative; overflow: hidden;
+    display: flex; align-items: center;
+  }
+  .contact-hero__bg {
+    position: absolute; inset: 0; z-index: -2;
+    background:
+      radial-gradient(ellipse 80% 60% at 50% 30%, rgba(196,53,74,0.14), transparent 60%),
+      linear-gradient(180deg, #05060a 0%, #0a0810 60%, #05060a 100%);
+  }
+  .contact-hero__grid {
+    position: absolute; inset: 0; z-index: -1;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+    background-size: 80px 80px;
+    mask-image: radial-gradient(ellipse 80% 60% at 50% 50%, black 30%, transparent 75%);
+    -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 50%, black 30%, transparent 75%);
+  }
+  .contact-hero__inner {
+    max-width: 1280px; width: 100%; margin: 0 auto;
+    display: grid; grid-template-columns: 1.2fr 1fr; gap: 60px; align-items: end;
+  }
+  @media (max-width: 860px){ .contact-hero__inner { grid-template-columns: 1fr; gap: 30px; } }
+  .contact-hero__eyebrow {
+    font-family: var(--display); font-size: 11px; font-weight: 500;
+    letter-spacing: .32em; text-transform: uppercase;
+    color: var(--text-3); margin-bottom: 24px;
+    display: inline-flex; gap: 10px; align-items: center;
+  }
+  .contact-hero__eyebrow::before { content: ''; width: 40px; height: 1px; background: var(--accent); }
+  .contact-hero__h {
+    font-family: var(--serif-cn); font-weight: 500;
+    font-size: clamp(52px, 8vw, 120px);
+    line-height: .95; letter-spacing: -0.03em; margin-bottom: 24px;
+  }
+  .contact-hero__h em { font-family: var(--serif-en); font-style: italic; color: var(--accent); font-weight: 500; }
+  .contact-hero__lead {
+    font-family: var(--serif-cn); font-size: clamp(16px, 1.5vw, 19px);
+    color: var(--text-2); line-height: 1.8;
+  }
+  .contact-hero__sub {
+    font-family: var(--serif-en); font-style: italic; font-size: 14px;
+    color: var(--text-3); margin-top: 14px;
+  }
+
+  /* ============================================================
+     票务申请单
+     ============================================================ */
+  .ticket-section {
+    padding: 80px var(--pad) 120px;
+  }
+  .ticket-section__inner {
+    max-width: 980px; margin: 0 auto;
+  }
+
+  .ticket-form {
+    position: relative;
+    background:
+      linear-gradient(#0d0e15, #0d0e15) padding-box,
+      linear-gradient(135deg, var(--accent), rgba(196,53,74,0.1)) border-box;
+    border: 2px solid transparent;
+    border-radius: 4px;
+    padding: 50px 50px 40px;
+  }
+  /* 票根顶部穿孔 */
+  .ticket-form::before, .ticket-form::after {
+    content: '';
+    position: absolute;
+    left: 0; right: 0; height: 12px;
+    background-image: radial-gradient(circle, var(--bg-0) 0 4px, transparent 5px);
+    background-size: 24px 12px;
+    background-repeat: repeat-x;
+    pointer-events: none;
+  }
+  .ticket-form::before { top: -2px; }
+  .ticket-form::after  { bottom: -2px; }
+
+  .ticket-form__head {
+    display: grid; grid-template-columns: 1fr auto; align-items: start;
+    gap: 20px; margin-bottom: 10px;
+    padding-bottom: 20px; border-bottom: 1px dashed var(--line);
+  }
+  .ticket-form__title {
+    font-family: var(--display); font-weight: 800;
+    font-size: 20px; letter-spacing: .22em; text-transform: uppercase;
+    color: var(--text);
+  }
+  .ticket-form__title em {
+    font-family: var(--serif-en); font-style: italic;
+    color: var(--accent); font-weight: 500;
+    font-size: 14px; letter-spacing: 0; display: block; margin-top: 6px;
+  }
+  .ticket-form__serial {
+    text-align: right;
+    font-family: var(--mono); font-size: 10px;
+    color: var(--text-3); letter-spacing: .12em; line-height: 1.7;
+  }
+  .ticket-form__serial strong {
+    color: var(--accent); font-weight: 500;
+  }
+
+  .tix-row {
+    display: grid; grid-template-columns: 160px 1fr;
+    gap: 14px; align-items: center;
+    padding: 14px 0;
+    border-bottom: 1px dashed var(--line);
+  }
+  .tix-row--stack {
+    grid-template-columns: 1fr;
+    gap: 10px; align-items: start;
+  }
+  @media (max-width: 680px){ .tix-row { grid-template-columns: 1fr; gap: 8px; } }
+
+  .tix-label {
+    font-family: var(--display); font-size: 10px;
+    letter-spacing: .24em; text-transform: uppercase;
+    color: var(--text-3);
+    display: flex; align-items: center; gap: 8px;
+  }
+  .tix-label span { color: var(--accent); }
+
+  .tix-input, .tix-select, .tix-textarea {
+    width: 100%;
+    font: inherit;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    color: var(--text);
+    padding: 10px 0 8px;
+    font-family: var(--serif-cn);
+    font-size: 16px;
+    transition: border-color .3s ease, padding .3s ease;
+    outline: none;
+  }
+  .tix-textarea {
+    min-height: 100px;
+    resize: vertical;
+    line-height: 1.6;
+    font-size: 15px;
+  }
+  .tix-input:focus, .tix-select:focus, .tix-textarea:focus {
+    border-bottom-color: var(--accent);
+  }
+  .tix-input::placeholder, .tix-textarea::placeholder {
+    color: var(--text-4);
+    font-family: var(--serif-en); font-style: italic;
+  }
+  .tix-select {
+    appearance: none;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'><path d='M1 1l5 5 5-5' stroke='%23C4354A' fill='none' stroke-width='1.5'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 4px center;
+    padding-right: 24px;
+    cursor: pointer;
+  }
+  .tix-select option { background: #0d0e15; color: var(--text); }
+
+  .ticket-form__foot {
+    margin-top: 28px;
+    display: flex; flex-wrap: wrap; align-items: center;
+    justify-content: space-between; gap: 24px;
+    padding-top: 20px;
+    border-top: 1px dashed var(--line);
+  }
+  .ticket-form__seat {
+    display: flex; align-items: center; gap: 16px;
+  }
+  .seat-box {
+    text-align: center;
+    border: 1px solid var(--line-strong);
+    padding: 8px 14px;
+  }
+  .seat-box-label {
+    font-family: var(--mono); font-size: 9px;
+    color: var(--text-3); letter-spacing: .14em;
+    margin-bottom: 2px;
+  }
+  .seat-box-val {
+    font-family: var(--display); font-weight: 700;
+    font-size: 18px; color: var(--accent);
+    letter-spacing: .06em;
+  }
+  .ticket-form__submit {
+    padding: 16px 40px;
+    background: var(--accent);
+    border: 1px solid var(--accent);
+    font-family: var(--display); font-weight: 700;
+    font-size: 12px; letter-spacing: .3em; text-transform: uppercase;
+    color: white;
+    cursor: pointer;
+    transition: all .3s ease;
+    border-radius: 999px;
+  }
+  .ticket-form__submit:hover {
+    background: #a62b3e; box-shadow: 0 0 30px var(--accent-glow);
+  }
+  .ticket-form__submit:disabled {
+    opacity: .4; cursor: not-allowed;
+  }
+
+  /* 胶片边条 */
+  .ticket-form__tear {
+    position: absolute;
+    top: 50%; transform: translateY(-50%);
+    width: 14px; height: calc(100% - 24px);
+    background-image: radial-gradient(circle, var(--bg-0) 0 4px, transparent 5px);
+    background-size: 14px 22px;
+    background-repeat: repeat-y;
+    pointer-events: none;
+  }
+  .ticket-form__tear--l { left: -2px; }
+  .ticket-form__tear--r { right: -2px; }
+
+  /* ============================================================
+     其他联系方式
+     ============================================================ */
+  .ways {
+    padding: 0 var(--pad) 140px;
+  }
+  .ways__inner {
+    max-width: 1280px; margin: 0 auto;
+  }
+  .ways__h {
+    font-family: var(--serif-cn); font-weight: 500;
+    font-size: clamp(28px, 3.5vw, 42px);
+    margin-bottom: 40px; text-align: center;
+    line-height: 1.2;
+  }
+  .ways__h em { font-family: var(--serif-en); font-style: italic; color: var(--accent); }
+
+  .ways__grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 0;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+  @media (max-width: 760px){ .ways__grid { grid-template-columns: 1fr; } }
+  .way {
+    padding: 36px 30px;
+    border-right: 1px solid var(--line);
+    transition: background .3s ease;
+  }
+  .ways__grid .way:last-child { border-right: 0; }
+  @media (max-width: 760px){
+    .way { border-right: 0; border-bottom: 1px solid var(--line); }
+    .way:last-child { border-bottom: 0; }
+  }
+  .way:hover { background: rgba(196,53,74,0.04); }
+  .way__label {
+    font-family: var(--display); font-size: 10px;
+    letter-spacing: .24em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 16px;
+  }
+  .way__h {
+    font-family: var(--serif-cn); font-weight: 600;
+    font-size: 22px; margin-bottom: 10px;
+  }
+  .way__body { font-size: 14px; line-height: 1.7; color: var(--text-2); }
+  .way__body a { color: var(--text); border-bottom: 1px solid var(--line-strong); transition: color .3s; }
+  .way__body a:hover { color: var(--accent); border-color: var(--accent); }
+
+  /* ============================================================
+     成功票根浮层
+     ============================================================ */
+  .stub-modal {
+    position: fixed; inset: 0; z-index: 600;
+    background: rgba(0,0,0,0.88);
+    backdrop-filter: blur(20px);
+    display: none;
+    place-items: center; padding: 30px;
+  }
+  .stub-modal.is-open { display: grid; }
+
+  .stub {
+    width: 100%; max-width: 540px;
+    background: linear-gradient(180deg, #faf5eb, #f3ead6);
+    color: #1a0a0f;
+    border-radius: 4px;
+    padding: 36px 40px 30px;
+    position: relative;
+    box-shadow: 0 30px 80px rgba(0,0,0,0.7), 0 0 60px rgba(196,53,74,0.25);
+    transform: scale(.7) translateY(40px);
+    opacity: 0;
+    transition: transform .8s cubic-bezier(.2,.9,.2,1.1), opacity .6s ease;
+  }
+  .stub-modal.is-open .stub { transform: scale(1); opacity: 1; }
+
+  /* 票根穿孔 */
+  .stub::before, .stub::after {
+    content: '';
+    position: absolute; left: 0; right: 0; height: 14px;
+    background-image: radial-gradient(circle, #0d0e15 0 4px, transparent 5px);
+    background-size: 24px 14px;
+    background-repeat: repeat-x;
+  }
+  .stub::before { top: -2px; }
+  .stub::after  { bottom: -2px; }
+
+  .stub__head {
+    display: flex; justify-content: space-between; align-items: start;
+    padding-bottom: 20px; border-bottom: 2px dashed #c9bfa7;
+    margin-bottom: 20px;
+  }
+  .stub__mark {
+    display: flex; align-items: center; gap: 10px;
+    font-family: var(--display); font-weight: 800;
+    font-size: 15px; letter-spacing: .2em;
+  }
+  .stub__mark .dot {
+    width: 24px; height: 24px; border-radius: 50%;
+    background: #C4354A; color: white;
+    display: grid; place-items: center;
+    font-family: var(--display); font-size: 11px;
+    letter-spacing: 0;
+  }
+  .stub__serial {
+    text-align: right;
+    font-family: var(--mono); font-size: 10px;
+    color: #6a5d45;
+  }
+  .stub__serial strong { color: #C4354A; }
+
+  .stub__h {
+    font-family: var(--serif-cn); font-weight: 600;
+    font-size: 28px; line-height: 1.2;
+    margin-bottom: 6px;
+  }
+  .stub__h em {
+    font-family: var(--serif-en); font-style: italic;
+    color: #C4354A; font-weight: 500;
+    display: block; font-size: 15px; margin-top: 4px;
+  }
+
+  .stub__grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 14px 20px; margin: 20px 0;
+  }
+  .stub__cell .k {
+    font-family: var(--display); font-size: 9px;
+    letter-spacing: .2em; text-transform: uppercase;
+    color: #8a7a5c;
+    margin-bottom: 3px;
+  }
+  .stub__cell .v {
+    font-family: var(--serif-cn); font-size: 15px;
+    color: #1a0a0f; font-weight: 500;
+  }
+
+  .stub__msg {
+    padding: 14px 0; font-family: var(--serif-cn);
+    font-size: 13px; line-height: 1.7; color: #3a2a2a;
+    border-top: 1px dashed #c9bfa7;
+    border-bottom: 1px dashed #c9bfa7;
+  }
+
+  .stub__foot {
+    display: flex; justify-content: space-between; align-items: center;
+    margin-top: 18px;
+    font-family: var(--display); font-size: 10px;
+    letter-spacing: .18em; text-transform: uppercase;
+    color: #8a7a5c;
+  }
+  .stub__foot em { font-family: var(--serif-en); color: #C4354A; font-style: italic; }
+
+  .stub-modal__close {
+    margin-top: 24px;
+    padding: 10px 24px;
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.3);
+    color: white;
+    font-family: var(--display); font-size: 11px;
+    letter-spacing: .22em; text-transform: uppercase;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: all .3s ease;
+  }
+  .stub-modal__close:hover { border-color: var(--accent); color: var(--accent); }
+
+  .stub-modal__hint {
+    margin-top: 16px;
+    font-family: var(--serif-en); font-style: italic;
+    color: var(--text-3); font-size: 13px;
+    text-align: center;
+  }
+
+  @keyframes stubPrint {
+    0% { transform: translateY(-120%) rotate(-2deg); }
+    60% { transform: translateY(6px) rotate(1deg); }
+    100% { transform: translateY(0) rotate(0deg); }
+  }
+
+  /* 手机端：合作申请票头部不再并排，避免编号换行错位 */
+  @media (max-width: 720px) {
+    .ticket-form__head {
+      grid-template-columns: 1fr;
+      gap: 8px;
+      padding-bottom: 14px;
+      margin-bottom: 14px;
+    }
+    .ticket-form__title { font-size: 16px; letter-spacing: .16em; }
+    .ticket-form__title em { font-size: 12px; margin-top: 4px; }
+    .ticket-form__serial {
+      text-align: left;
+      font-size: 10px;
+      letter-spacing: .08em;
+      white-space: nowrap;
+    }
+    .stub__head { gap: 12px; flex-wrap: wrap; }
+    .stub__serial {
+      text-align: left;
+      font-size: 9px;
+      letter-spacing: .06em;
+      white-space: nowrap;
+    }
+    .tix-row {
+      grid-template-columns: 1fr;
+      gap: 6px;
+    }
+    .tix-label { font-size: 11px; }
+  }
+</style>
+<script src="i18n.js"></script>
+</head>
+<body>
+<div class="grain"></div>
+<div class="cursor-glow"></div>
+
+<div class="curtain" aria-hidden="true">
+  <div class="curtain__panel curtain__panel--l"></div>
+  <div class="curtain__panel curtain__panel--r"></div>
+</div>
+<div class="curtain__logo">
+  CONTACT
+  <small data-i18n="contact.curtain.small">联系 · 惊喜之夜</small>
+</div>
+
+<nav class="nav">
+  <a href="index.html" class="nav__brand">
+    <span class="nav__mark">SN</span>
+    <span class="nav__brand-cn">惊喜之夜</span>
+    <span class="nav__brand-en">Surprise Night</span>
+  </a>
+  <div class="nav__links">
+    <a href="works.html" class="nav__link" data-i18n="nav.works">作品</a>
+    <a href="collaborate.html" class="nav__link" data-i18n="nav.collaborate">合作</a>
+    <a href="about.html" class="nav__link" data-i18n="nav.about">关于</a>
+    <a href="collaborators.html" class="nav__link" data-i18n="nav.artists">艺术家</a>
+    <a href="contact.html" class="nav__link is-active" data-i18n="nav.contact">联系</a>
+    <div class="nav__lang">
+      <button data-set-lang="zh">中</button>
+      <button data-set-lang="en">EN</button>
+    </div>
+  </div>
+  <button class="nav__burger" id="navBurger" aria-label="菜单" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<main>
+  <section class="contact-hero">
+    <div class="contact-hero__bg"></div>
+    <div class="contact-hero__grid"></div>
+    <div class="contact-hero__inner">
+      <div>
+        <p class="contact-hero__eyebrow" data-i18n="contact.hero.eyebrow">Contact · 联系</p>
+        <h1 class="contact-hero__h" data-i18n="contact.hero.h" data-i18n-html="true">买一张票，<br/><em>加入我们。</em></h1>
       </div>
-    </header>
-
-    <main>
-      <div class="page-hero">
-        <div class="container">
-          <h1 data-i18n="contactPage.h1">联系我们</h1>
-          <p class="lead" data-i18n="contactPage.lead">门开着。</p>
-        </div>
+      <div>
+        <p class="contact-hero__lead" data-i18n="contact.hero.lead">提交一张「合作申请票」。我们会在 24 小时内查验票根并回复。</p>
+        <p class="contact-hero__sub" data-i18n="contact.hero.sub">Fill the ticket. We\'ll stamp it back within a day.</p>
       </div>
+    </div>
+  </section>
 
-      <section class="section" style="padding-top: 0">
-        <div class="container">
-          <div
-            id="contact-form-status"
-            class="contact-form-status"
-            role="status"
-            aria-live="polite"
-            hidden
-          ></div>
-          <form class="form-wrap" id="contact-form" name="contact" method="post" action="#">
-            <div class="form-row">
-              <div class="field">
-                <label for="name" data-i18n="contactPage.lblName">姓名 *</label>
-                <input id="name" name="name" type="text" required autocomplete="name" data-i18n-placeholder="contactPage.phName" placeholder="您的姓名" />
-              </div>
-              <div class="field">
-                <label for="org" data-i18n="contactPage.lblOrg">公司 / 组织 *</label>
-                <input id="org" name="organization" type="text" required data-i18n-placeholder="contactPage.phOrg" placeholder="您的公司" />
-              </div>
-            </div>
-            <div class="form-row">
-              <div class="field">
-                <label for="email" data-i18n="contactPage.lblEmail">邮箱 *</label>
-                <input
-                  id="email"
-                  name="email"
-                  type="email"
-                  required
-                  autocomplete="email"
-                  placeholder="email@example.com"
-                />
-              </div>
-              <div class="field">
-                <label for="phone" data-i18n="contactPage.lblPhone">电话</label>
-                <input id="phone" name="phone" type="tel" autocomplete="tel" data-i18n-placeholder="contactPage.phPhone" placeholder="您的电话" />
-              </div>
-            </div>
-            <div class="field field-full">
-              <label for="type" data-i18n="contactPage.lblType">合作类型 *</label>
-              <select id="type" name="partnership_type" required>
-                <option value="" data-i18n="contactPage.selChoose">请选择</option>
-                <option value="p1" data-i18n="contactPage.optP1">现成项目引进</option>
-                <option value="p2" data-i18n="contactPage.optP2">驻场演艺合作</option>
-                <option value="p3" data-i18n="contactPage.optP3">文旅沉浸式定制</option>
-                <option value="p4" data-i18n="contactPage.optP4">戏曲创新开发</option>
-                <option value="p5" data-i18n="contactPage.optP5">国际巡演合作</option>
-                <option value="p6" data-i18n="contactPage.optP6">品牌联名合作</option>
-                <option value="p7" data-i18n="contactPage.optP7">IP 孵化与联合开发</option>
-                <option value="other" data-i18n="contactPage.optOther">其他</option>
-              </select>
-            </div>
-            <div class="form-row">
-              <div class="field">
-                <label for="budget" data-i18n="contactPage.lblBudget">预算范围</label>
-                <select id="budget" name="budget_range">
-                  <option value="" data-i18n="contactPage.selChoose">请选择</option>
-                  <option value="lt50" data-i18n="contactPage.budLt">50 万以下</option>
-                  <option value="50-150" data-i18n="contactPage.budMid">50–150 万</option>
-                  <option value="150-500" data-i18n="contactPage.budHi">150–500 万</option>
-                  <option value="gt500" data-i18n="contactPage.budMax">500 万以上</option>
-                  <option value="unknown" data-i18n="contactPage.budUnk">尚未评估</option>
-                </select>
-              </div>
-              <div class="field">
-                <label for="timeline" data-i18n="contactPage.lblTime">项目时间线</label>
-                <select id="timeline" name="project_timeline">
-                  <option value="" data-i18n="contactPage.selChoose">请选择</option>
-                  <option value="1m" data-i18n="contactPage.tm1">1 个月内</option>
-                  <option value="1-3m" data-i18n="contactPage.tm2">1–3 个月</option>
-                  <option value="3-6m" data-i18n="contactPage.tm3">3–6 个月</option>
-                  <option value="6m+" data-i18n="contactPage.tm4">6 个月以上</option>
-                </select>
-              </div>
-            </div>
-            <div class="field field-full">
-              <label for="source" data-i18n="contactPage.lblSource">如何得知我们</label>
-              <select id="source" name="referral_source">
-                <option value="" data-i18n="contactPage.selChoose">请选择</option>
-                <option value="search" data-i18n="contactPage.srcSearch">搜索引擎</option>
-                <option value="social" data-i18n="contactPage.srcSocial">社交媒体</option>
-                <option value="word" data-i18n="contactPage.srcWord">口碑 / 介绍</option>
-                <option value="media" data-i18n="contactPage.srcMedia">媒体报道</option>
-                <option value="other" data-i18n="contactPage.srcOth">其他</option>
-              </select>
-            </div>
-            <div class="field field-full">
-              <label for="message" data-i18n="contactPage.lblMsg">项目描述</label>
-              <textarea id="message" name="message" data-i18n-placeholder="contactPage.phMsg" placeholder="请简要描述您的需求…"></textarea>
-            </div>
-            <div style="text-align: center">
-              <button type="submit" class="btn btn-primary" data-i18n="contactPage.submit">提交咨询</button>
-              <p class="form-note" data-i18n="contactPage.formNote" data-i18n-html="true">
-                我们力争在 <strong style="color: var(--text)">24 小时内</strong>回复。
-              </p>
-            </div>
-          </form>
+  <section class="ticket-section">
+    <div class="ticket-section__inner">
+      <form class="ticket-form" id="ticketForm" novalidate>
+        <div class="ticket-form__tear ticket-form__tear--l"></div>
+        <div class="ticket-form__tear ticket-form__tear--r"></div>
 
-          <div class="contact-extra">
-            <p><strong style="color: var(--text)" data-i18n="contactPage.biz">商务合作</strong></p>
-            <p>
-              <a class="email" href="mailto:contact@surprise-night.com">contact@surprise-night.com</a>
-            </p>
-            <p style="margin-top: 32px"><strong style="color: var(--text)" data-i18n="contactPage.socialH">关注我们的社交媒体</strong></p>
-            <div class="social-links">
-              <a href="#" data-i18n="contactPage.wx">微信公众号</a>
-              <a href="#" data-i18n="contactPage.xhs">小红书</a>
-              <a href="#" data-i18n="contactPage.ig">Instagram</a>
-            </div>
+        <div class="ticket-form__head">
+          <div class="ticket-form__title" data-i18n="contact.form.title" data-i18n-html="true">Cooperation Application<em>合作申请票 · 一式两联</em></div>
+          <div class="ticket-form__serial">
+            NO. <strong id="ticketNo">SN-2026-xxxx</strong><br/>
+            <span id="ticketDate">—</span>
           </div>
         </div>
-      </section>
-    </main>
 
-    <footer class="site-footer">
-      <div class="inner">
-        <span data-i18n="contactPage.footCopy">© 2026 惊喜之夜</span>
-        <a href="index.html" data-i18n="contactPage.footBack">返回首页</a>
+        <div class="tix-row">
+          <div class="tix-label"><span>●</span><span data-i18n="contact.form.label.name">姓名 / Name</span></div>
+          <input class="tix-input" name="name" type="text" data-i18n-attr="placeholder:contact.form.ph.name" placeholder="怎么称呼您" required />
+        </div>
+        <div class="tix-row">
+          <div class="tix-label"><span>●</span><span data-i18n="contact.form.label.company">机构 / Company</span></div>
+          <input class="tix-input" name="company" type="text" data-i18n-attr="placeholder:contact.form.ph.company" placeholder="Your company or organization" />
+        </div>
+        <div class="tix-row">
+          <div class="tix-label"><span>●</span><span data-i18n="contact.form.label.email">邮箱 / Email</span></div>
+          <input class="tix-input" name="email" type="email" placeholder="name@company.com" required />
+        </div>
+        <div class="tix-row">
+          <div class="tix-label"><span>●</span><span data-i18n="contact.form.label.phone">电话 / Phone</span></div>
+          <input class="tix-input" name="phone" type="tel" data-i18n-attr="placeholder:contact.form.ph.phone" placeholder="可选" />
+        </div>
+
+        <div class="tix-row">
+          <div class="tix-label"><span>●</span><span data-i18n="contact.form.label.type">合作类型 / Type</span></div>
+          <select class="tix-select" name="type" required>
+            <option value="" selected disabled data-i18n="contact.form.opt.select">选择一种合作类型</option>
+            <option value="现成项目引进" data-i18n="contact.form.opt.p1">A-3 · 现成项目引进</option>
+            <option value="驻场演艺合作" data-i18n="contact.form.opt.p2">A-4 · 驻场演艺合作</option>
+            <option value="文旅沉浸式内容定制" data-i18n="contact.form.opt.p3">A-5 · 文旅沉浸式内容定制</option>
+            <option value="戏剧戏曲创新" data-i18n="contact.form.opt.p4">B-2 · 戏剧戏曲创新</option>
+            <option value="国际巡演合作" data-i18n="contact.form.opt.p5">B-6 · 国际巡演合作</option>
+            <option value="品牌联名与跨界" data-i18n="contact.form.opt.p6">C-3 · 品牌联名与跨界</option>
+            <option value="IP孵化与联合开发" data-i18n="contact.form.opt.p7">C-5 · IP 孵化与联合开发</option>
+            <option value="其他 · 采访 · 投递" data-i18n="contact.form.opt.other">其他 · 采访 · 简历投递</option>
+          </select>
+        </div>
+
+        <div class="tix-row tix-row--stack">
+          <div class="tix-label"><span>●</span><span data-i18n="contact.form.label.notes">需求说明 / Notes</span></div>
+          <textarea class="tix-textarea" name="notes" data-i18n-attr="placeholder:contact.form.ph.notes" placeholder="简述您的需求、时间窗口与预算范围。Whatever context helps us help you."></textarea>
+        </div>
+
+        <div class="ticket-form__foot">
+          <div class="ticket-form__seat">
+            <div class="seat-box">
+              <div class="seat-box-label">SECTION</div>
+              <div class="seat-box-val" id="seatSection">A</div>
+            </div>
+            <div class="seat-box">
+              <div class="seat-box-label">ROW</div>
+              <div class="seat-box-val" id="seatRow">—</div>
+            </div>
+            <div class="seat-box">
+              <div class="seat-box-label">SEAT</div>
+              <div class="seat-box-val" id="seatNum">—</div>
+            </div>
+          </div>
+          <button class="ticket-form__submit" type="submit" data-i18n="contact.form.submit">出票 Submit →</button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- 其他联系方式 -->
+  <section class="ways">
+    <div class="ways__inner">
+      <h2 class="ways__h" data-i18n="contact.ways.h" data-i18n-html="true">或者，<em>直接联系</em></h2>
+      <div class="ways__grid">
+        <div class="way">
+          <div class="way__label" data-i18n="contact.ways.w1.label">商务合作</div>
+          <div class="way__h" data-i18n="contact.ways.w1.h">业务邮箱</div>
+          <div class="way__body" data-i18n="contact.ways.w1.body" data-i18n-html="true"><a href="mailto:hello@surprise-night.com">hello@surprise-night.com</a><br/>24 小时内回复</div>
+        </div>
+        <div class="way">
+          <div class="way__label" data-i18n="contact.ways.w2.label">媒体与采访</div>
+          <div class="way__h" data-i18n="contact.ways.w2.h">媒介邮箱</div>
+          <div class="way__body" data-i18n="contact.ways.w2.body" data-i18n-html="true"><a href="mailto:press@surprise-night.com">press@surprise-night.com</a><br/>媒体资料包按需发送</div>
+        </div>
+        <div class="way">
+          <div class="way__label" data-i18n="contact.ways.w3.label">加入我们</div>
+          <div class="way__h" data-i18n="contact.ways.w3.h">人才投递</div>
+          <div class="way__body" data-i18n="contact.ways.w3.body" data-i18n-html="true"><a href="mailto:hr@surprise-night.com">hr@surprise-night.com</a><br/>编剧 · 执行 · 技术 · 制作</div>
+        </div>
       </div>
-    </footer>
+    </div>
+  </section>
+</main>
 
-    <script src="js/i18n.js" defer></script>
-    <script src="js/main.js" defer></script>
-    <script src="js/contact-form.js" defer></script>
-  </body>
+<footer class="site-footer">
+  <div class="site-footer__inner">
+    <div class="site-footer__brand" data-i18n="contact.footer.brand" data-i18n-html="true">© 2026 惊喜之夜 · <em>Surprise Night</em></div>
+    <div class="site-footer__links">
+      <a href="index.html" data-i18n="contact.footer.home">首页</a>
+      <a href="about.html" data-i18n="contact.footer.about">关于</a>
+      <a href="collaborate.html" data-i18n="contact.footer.collab">合作</a>
+    </div>
+  </div>
+</footer>
+
+<!-- 票根 modal -->
+<div class="stub-modal" id="stubModal" role="dialog" aria-modal="true">
+  <div>
+    <div class="stub" id="stub">
+      <div class="stub__head">
+        <div class="stub__mark">
+          <span class="dot">SN</span>
+          Surprise Night
+        </div>
+        <div class="stub__serial">
+          NO. <strong id="stubSerial">SN-2026-0000</strong><br/>
+          <span id="stubDate">2026 · 04 · 18</span>
+        </div>
+      </div>
+      <div class="stub__h" data-i18n="contact.stub.h" data-i18n-html="true">合作申请已接收<em>Your ticket has been stamped.</em></div>
+      <div class="stub__grid">
+        <div class="stub__cell"><div class="k">Guest</div><div class="v" id="stubName">—</div></div>
+        <div class="stub__cell"><div class="k">Organization</div><div class="v" id="stubCompany">—</div></div>
+        <div class="stub__cell"><div class="k">Type</div><div class="v" id="stubType">—</div></div>
+        <div class="stub__cell"><div class="k">Seat</div><div class="v" id="stubSeat">A · Row 01 · 23</div></div>
+      </div>
+      <div class="stub__msg" data-i18n="contact.stub.msg" data-i18n-html="true">我们已将您的申请存档。合作顾问将在 <strong>24 小时</strong>内查验并回复至您提供的邮箱。</div>
+      <div class="stub__foot">
+        <span data-i18n="contact.stub.footL">Admit One · 一人一票</span>
+        <em data-i18n="contact.stub.footR">Please keep your stub.</em>
+      </div>
+    </div>
+    <div style="text-align:center;">
+      <button class="stub-modal__close" id="stubClose" data-i18n="contact.stub.close">关闭 · Close</button>
+      <div class="stub-modal__hint" data-i18n="contact.stub.hint">我们收到啦，24 小时内回复 · We'll reply within 24 hours.</div>
+    </div>
+  </div>
+</div>
+
+<div class="video-modal" id="videoModal">
+  <div class="video-modal__content">
+    <button class="video-modal__close">×</button>
+    <iframe allow="autoplay; encrypted-media" allowfullscreen></iframe>
+  </div>
+</div>
+
+<script src="v3-shared.js" defer></script>
+<script>
+  // 初始化票号
+  const today = new Date();
+  const pad = n => String(n).padStart(2,'0');
+  const ymd = `${today.getFullYear()} · ${pad(today.getMonth()+1)} · ${pad(today.getDate())}`;
+  const serial = 'SN-' + today.getFullYear() + '-' + Math.random().toString(36).slice(2,6).toUpperCase();
+  document.getElementById('ticketNo').textContent = serial;
+  document.getElementById('ticketDate').textContent = ymd;
+
+  // 座位随字段动态更新
+  const seatRow = document.getElementById('seatRow');
+  const seatNum = document.getElementById('seatNum');
+  const seatSection = document.getElementById('seatSection');
+  const typeSelect = document.querySelector('select[name="type"]');
+  const sectionMap = {
+    '现成项目引进':'A', '驻场演艺合作':'A', '文旅沉浸式内容定制':'A',
+    '戏剧戏曲创新':'B', '国际巡演合作':'B',
+    '品牌联名与跨界':'C', 'IP孵化与联合开发':'C',
+    '其他 · 采访 · 投递':'X'
+  };
+  typeSelect.addEventListener('change', ()=>{
+    seatSection.textContent = sectionMap[typeSelect.value] || 'A';
+  });
+  const nameInput = document.querySelector('input[name="name"]');
+  nameInput.addEventListener('input', ()=>{
+    const len = nameInput.value.length;
+    if (len > 0) {
+      seatRow.textContent = pad(Math.min(99, len*3));
+      seatNum.textContent = pad(Math.min(99, ((nameInput.value.charCodeAt(0) || 0) % 40) + 1));
+    } else {
+      seatRow.textContent = '—'; seatNum.textContent = '—';
+    }
+  });
+
+  // 提交 → POST /api/contact (Cloudflare Function → Google Sheet) → 成功弹票根
+  document.getElementById('ticketForm').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const fd = new FormData(form);
+    const submitBtn = form.querySelector('.ticket-form__submit');
+
+    const payload = {
+      name: (fd.get('name') || '').trim(),
+      organization: (fd.get('company') || '').trim(),
+      email: (fd.get('email') || '').trim(),
+      phone: (fd.get('phone') || '').trim(),
+      partnership_type: (fd.get('type') || '').trim(),
+      budget_range: '',
+      project_timeline: '',
+      referral_source: '',
+      message: (fd.get('notes') || '').trim(),
+    };
+
+    // 前端基础校验
+    if (!payload.name || !payload.organization || !payload.email || !payload.partnership_type) {
+      alert('请填写姓名、机构、邮箱和合作类型。');
+      return;
+    }
+
+    const origText = submitBtn.textContent;
+    submitBtn.disabled = true;
+    submitBtn.textContent = '提交中 · Sending…';
+
+    try {
+      const resp = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+      const data = await resp.json().catch(() => ({ ok: false, error: 'bad_response' }));
+
+      if (resp.ok && data.ok) {
+        // 成功 → 弹票根
+        document.getElementById('stubName').textContent = payload.name || '访客';
+        document.getElementById('stubCompany').textContent = payload.organization || '—';
+        document.getElementById('stubType').textContent = payload.partnership_type || '未指定';
+        document.getElementById('stubSeat').textContent =
+          `${seatSection.textContent} · Row ${seatRow.textContent} · ${seatNum.textContent}`;
+        document.getElementById('stubSerial').textContent = serial;
+        document.getElementById('stubDate').textContent = ymd;
+
+        const modal = document.getElementById('stubModal');
+        modal.classList.add('is-open');
+        const stub = document.getElementById('stub');
+        stub.style.animation = 'none';
+        void stub.offsetWidth;
+        stub.style.animation = 'stubPrint 1s cubic-bezier(.2,.9,.2,1.1) both';
+
+        // 成功后可清空表单（可选）
+        form.reset();
+      } else {
+        const msg = (data && data.error) ? data.error : 'unknown';
+        alert('提交失败：' + msg + '\n请稍后重试，或直接邮件 contact@surprise-night.com。');
+      }
+    } catch (err) {
+      alert('网络似乎不太稳定，请稍后重试，或直接邮件 contact@surprise-night.com。');
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.textContent = origText;
+    }
+  });
+  document.getElementById('stubClose').addEventListener('click', ()=>{
+    document.getElementById('stubModal').classList.remove('is-open');
+  });
+  document.getElementById('stubModal').addEventListener('click', (e)=>{
+    if (e.target.id === 'stubModal') {
+      document.getElementById('stubModal').classList.remove('is-open');
+    }
+  });
+</script>
+</body>
 </html>

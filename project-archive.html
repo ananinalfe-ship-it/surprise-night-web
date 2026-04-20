@@ -1,87 +1,1272 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>项目档案 — 惊喜之夜</title>
-    <meta
-      name="description"
-      content="过往原创话剧、沉浸演出与实验作品精选，呈现惊喜之夜的创作轨迹。"
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600&family=Noto+Serif+SC:wght@500;600&family=Syne:wght@600;700&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="css/styles.css" />
-  </head>
-  <body class="page-archive" data-i18n-page="project-archive">
-    <header class="site-header">
-      <div class="inner">
-        <a href="index.html" class="logo" style="display: flex; align-items: center; gap: 12px; font-size: 1.1rem">
-          <img src="assets/images/logo.png" alt="" style="width: 32px; height: 32px; object-fit: contain" />
-          <span
-            >惊喜之夜
-            <span style="opacity: 0.7; font-size: 0.75rem; font-weight: 400; margin-left: 4px">/ Surprise Night</span></span
-          >
-        </a>
-        <button type="button" class="nav-toggle" data-i18n="nav.menu" aria-expanded="false" aria-controls="primary-nav">
-          菜单
-        </button>
-        <nav>
-          <ul id="primary-nav" class="nav-links">
-            <li><a href="works.html" data-i18n="nav.works">作品</a></li>
-            <li><a href="collaborate.html" data-i18n="nav.collaborate">合作</a></li>
-            <li class="nav-item nav-item--has-sub">
-            <a href="about.html" data-i18n="nav.about">关于</a>
-            <ul class="nav-sub" role="list">
-              <li><a href="collaborators.html" data-i18n="nav.collaborators">合作艺术家</a></li>
-            </ul>
-          </li>
-            <li><a href="contact.html" data-i18n="nav.contact">联系</a></li>
-            <li class="nav-lang" aria-label="Language">
-              <button type="button" class="lang-btn" data-set-lang="zh" aria-pressed="true">中</button>
-              <button type="button" class="lang-btn" data-set-lang="en" aria-pressed="false">EN</button>
-            </li>
-          </ul>
-        </nav>
-      </div>
-    </header>
+<html lang="zh-CN" data-lang="zh">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title data-i18n="page.title.archive">项目档案 · Archive — 惊喜之夜</title>
 
-    <main>
-      <section class="archive-hero">
-        <div class="container">
-          <a class="back-link" href="works.html" data-i18n="projectArchive.back">← 返回作品</a>
-          <div class="archive-hero__titles">
-            <h1 class="archive-hero__h1" data-i18n="projectArchive.h1">项目档案</h1>
-            <span class="archive-hero__en" data-i18n="projectArchive.h1Line2">Archive</span>
-          </div>
-          <p id="archive-intro" class="archive-intro"></p>
-          <p class="archive-hint" data-i18n="projectArchive.hint">点击卡片查看完整介绍</p>
+<script>
+// Tweaks 面板：仅本地开发可见，部署后自动隐藏
+(function(){
+  const h = location.hostname;
+  const isLocal = !h || h === 'localhost' || h === '127.0.0.1' || h === '::1' || h.endsWith('.local');
+  if (!isLocal) document.documentElement.classList.add('no-tweaks');
+})();
+</script>
+<style>html.no-tweaks .tweaks-panel{display:none!important;}
+/* ============================================================
+   Mobile · 汉堡菜单（与首页保持一致）
+   ============================================================ */
+.nav__burger {
+  display: none;
+  width: 44px; height: 44px;
+  background: transparent; border: 0;
+  flex-direction: column; justify-content: center; align-items: center;
+  gap: 6px; cursor: pointer; padding: 0;
+  position: relative; z-index: 52;
+}
+.nav__burger span {
+  display: block; width: 22px; height: 1.5px;
+  background: var(--text);
+  transition: transform .3s ease, opacity .3s ease;
+}
+.nav.nav--open .nav__burger span:nth-child(1) { transform: translateY(7.5px) rotate(45deg); }
+.nav.nav--open .nav__burger span:nth-child(2) { opacity: 0; }
+.nav.nav--open .nav__burger span:nth-child(3) { transform: translateY(-7.5px) rotate(-45deg); }
+@media (max-width: 900px) {
+  .nav__burger { display: flex; }
+  .nav__links {
+    display: flex !important;
+    position: fixed; top: 0; left: 0; right: 0;
+    min-height: 100vh; max-height: 100vh;
+    padding: 96px var(--pad) 40px;
+    background: rgba(5,6,10,0.97);
+    backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
+    flex-direction: column !important; align-items: stretch !important;
+    gap: 0 !important;
+    z-index: 51;
+    transform: translateY(-110%);
+    transition: transform .45s cubic-bezier(.2,.8,.2,1);
+    pointer-events: none;
+    overflow-y: auto;
+    counter-reset: navItem;
+  }
+  .nav.nav--open .nav__links {
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+  .nav__link {
+    display: flex !important; align-items: baseline; gap: 20px;
+    font-family: var(--serif-cn) !important;
+    font-size: 17px !important; font-weight: 500;
+    letter-spacing: .03em !important; text-transform: none !important;
+    padding: 16px 2px !important;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    color: var(--text);
+  }
+  .nav__link::before {
+    counter-increment: navItem;
+    content: counter(navItem, decimal-leading-zero);
+    font-family: var(--display);
+    font-size: 10px; font-weight: 500;
+    letter-spacing: .3em;
+    color: var(--text-3);
+    min-width: 28px;
+  }
+  .nav__link::after {
+    position: static !important; width: auto !important; height: auto !important; background: transparent !important;
+    font-family: var(--serif-en); font-style: italic;
+    font-size: 13px; font-weight: 400;
+    color: var(--text-3); margin-left: auto;
+    letter-spacing: .01em; transition: none;
+    bottom: auto !important; left: auto !important;
+  }
+  .nav__link[href*="works"]::after { content: "Works"; }
+  .nav__link[href*="collaborate"]::after { content: "Collaborate"; }
+  .nav__link[href*="about"]::after { content: "About"; }
+  .nav__link[href*="collaborators"]::after { content: "Artists"; }
+  .nav__link[href*="contact"]::after { content: "Contact"; }
+  .nav__link.is-active,
+  .nav__link.is-active::before { color: var(--accent); }
+  .nav__lang { margin-top: 28px; align-self: flex-start; }
+}
+</style>
+<meta name="description" content="惊喜之夜项目档案：从原创话剧、沉浸式演出到儿童剧与实验作品，这些过往项目构成了我们的创作轨迹。" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Noto+Sans+SC:wght@300;400;500;600;700&family=Noto+Serif+SC:wght@400;500;600;700&family=Syne:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+<style>
+/* ============================================================
+   Tokens · 与 project-works 一致
+   ============================================================ */
+:root {
+  --bg-0: #05060a;
+  --bg-1: #0b0c12;
+  --bg-2: #12131c;
+  --bg-3: #1a1c28;
+  --bg-paper: #0d0e15;
+  --line: rgba(255,255,255,0.08);
+  --line-strong: rgba(255,255,255,0.16);
+  --text: rgba(255,255,255,0.92);
+  --text-2: rgba(255,255,255,0.62);
+  --text-3: rgba(255,255,255,0.38);
+  --text-4: rgba(255,255,255,0.20);
+  --accent: #C4354A;
+  --accent-warm: #E8A87C;
+  --accent-glow: rgba(196,53,74,0.5);
+  --ink: #f7f3ea;
+  --sans: "Noto Sans SC", -apple-system, BlinkMacSystemFont, sans-serif;
+  --serif-cn: "Noto Serif SC", "Songti SC", serif;
+  --serif-en: "Cormorant Garamond", "Times New Roman", serif;
+  --display: "Syne", "Noto Serif SC", serif;
+  --mono: "JetBrains Mono", "SF Mono", monospace;
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --pad: clamp(20px, 4vw, 80px);
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+html, body { background: var(--bg-0); color: var(--text); font-family: var(--sans); font-weight: 300; -webkit-font-smoothing: antialiased; }
+body { overflow-x: hidden; min-height: 100vh; }
+a { color: inherit; text-decoration: none; }
+img { display: block; max-width: 100%; }
+button { background: none; border: none; color: inherit; font: inherit; cursor: pointer; }
+::selection { background: var(--accent); color: white; }
+
+/* grain */
+body::before {
+  content: ""; position: fixed; inset: 0; z-index: 9999; pointer-events: none;
+  opacity: 0.07; mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence baseFrequency='0.9' numOctaves='2'/><feColorMatrix values='0 0 0 0 1   0 0 0 0 1   0 0 0 0 1   0 0 0 0.5 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+}
+
+/* ============================================================
+   Nav · 与 works 一致
+   ============================================================ */
+/* ========== 与其他页面统一的导航栏 ========== */
+.nav {
+  position: fixed; top: 0; left: 0; right: 0;
+  z-index: 50;
+  padding: 12px var(--pad);
+  display: flex; justify-content: space-between; align-items: center;
+  background: rgba(5,6,10,0.72);
+  backdrop-filter: blur(18px);
+  border-bottom: 1px solid var(--line);
+}
+.nav__brand {
+  display: inline-flex; align-items: center; gap: 12px;
+  font-family: var(--display); font-weight: 700;
+  letter-spacing: .05em; font-size: 15px;
+  color: transparent;
+}
+.nav__brand { position: relative !important; width: 400px !important; height: 44px !important; }
+.nav__brand-dot {
+  position: absolute;
+  top: calc(50% + 2px); left: 0;
+  transform: translateY(-50%);
+  width: 252px; height: 63px;
+  background-image: url('../assets/logo.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: left center;
+  flex-shrink: 0;
+  pointer-events: none;
+}
+.nav__brand-cn, .nav__brand-en { display: none; }
+.nav__links {
+  display: flex; align-items: center; gap: 38px;
+}
+.nav__link {
+  position: relative;
+  font-family: var(--display); font-size: 13px; font-weight: 500;
+  letter-spacing: .18em; text-transform: uppercase;
+  color: var(--text-2);
+  transition: color .3s;
+}
+.nav__link::after {
+  content: ''; position: absolute;
+  bottom: -6px; left: 0; width: 0; height: 1px;
+  background: var(--accent);
+  transition: width .4s var(--ease);
+}
+.nav__link:hover { color: var(--text); }
+.nav__link:hover::after { width: 100%; }
+.nav__link.is-active { color: var(--text); }
+.nav__link.is-active::after { width: 100%; }
+.nav__lang {
+  display: flex; gap: 6px; align-items: center;
+  border: 1px solid var(--line-strong);
+  padding: 3px; border-radius: 999px;
+}
+.nav__lang button {
+  background: none; border: none; cursor: pointer;
+  font: 500 11px/1 var(--display);
+  letter-spacing: .14em; padding: 5px 11px;
+  border-radius: 999px; color: var(--text-2);
+}
+.nav__lang button.is-active { background: var(--text); color: #000; }
+/* 视图切换工具栏（档案页专属）*/
+.view-toggle-bar {
+  position: fixed; top: 96px; right: var(--pad);
+  z-index: 49;
+}
+.view-toggle {
+  display: inline-flex;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  padding: 4px;
+  background: rgba(5,6,10,0.75);
+  backdrop-filter: blur(12px);
+}
+
+/* ============================================================
+   Hero · 大标题 + 副标 + meta
+   ============================================================ */
+.ar-hero {
+  position: relative;
+  padding: 140px var(--pad) 80px;
+  border-bottom: 1px solid var(--line);
+  overflow: hidden;
+}
+.ar-hero__inner {
+  max-width: 1320px; margin: 0 auto;
+  position: relative; z-index: 2;
+}
+.ar-hero__bg {
+  position: absolute; inset: 0; z-index: 0;
+  background:
+    radial-gradient(ellipse 50% 70% at 85% 30%, rgba(196,53,74,0.10), transparent 60%),
+    radial-gradient(ellipse 60% 50% at 10% 80%, rgba(232,168,124,0.06), transparent 70%);
+}
+.ar-hero__bg::after {
+  content: ""; position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+  background-size: 96px 96px;
+  mask-image: radial-gradient(ellipse 70% 60% at 50% 50%, black 20%, transparent 75%);
+  -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 50%, black 20%, transparent 75%);
+}
+.ar-hero__kicker {
+  display: inline-flex; align-items: center; gap: 12px;
+  font-family: var(--display); font-size: 11px;
+  letter-spacing: 0.32em; text-transform: uppercase;
+  color: var(--text-3);
+  margin-bottom: 28px;
+}
+.ar-hero__kicker-dot {
+  width: 5px; height: 5px; border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 10px var(--accent-glow);
+}
+.ar-hero__title {
+  font-family: var(--serif-cn); font-weight: 500;
+  font-size: clamp(56px, 9vw, 140px);
+  line-height: 0.98;
+  letter-spacing: -0.02em;
+  margin-bottom: 10px;
+}
+.ar-hero__title em {
+  font-style: italic; font-family: var(--serif-en);
+  color: var(--accent); font-weight: 500;
+}
+.ar-hero__subtitle {
+  font-family: var(--serif-en); font-style: italic;
+  font-size: clamp(18px, 2.2vw, 30px);
+  color: var(--text-2);
+  letter-spacing: 0.04em;
+  margin-bottom: 34px;
+}
+.ar-hero__lead {
+  font-family: var(--serif-cn);
+  font-size: clamp(15px, 1.4vw, 19px);
+  line-height: 1.75;
+  color: var(--text-2);
+  max-width: 720px;
+  margin-bottom: 48px;
+}
+.ar-hero__meta {
+  display: flex; gap: clamp(32px, 5vw, 80px);
+  flex-wrap: wrap;
+  padding-top: 32px;
+  border-top: 1px solid var(--line);
+}
+.ar-hero__meta-item {
+  display: flex; flex-direction: column; gap: 6px;
+}
+.ar-hero__meta-item .k {
+  font-family: var(--display); font-size: 10px;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--text-3);
+}
+.ar-hero__meta-item .v {
+  font-family: var(--serif-cn); font-size: 22px;
+  color: var(--text);
+  display: flex; align-items: baseline; gap: 8px;
+}
+.ar-hero__meta-item .v em {
+  font-family: var(--serif-en); font-style: italic;
+  color: var(--accent); font-size: 15px;
+}
+
+/* ============================================================
+   View toggle · 顶栏切换 v1/v2
+   ============================================================ */
+.view-toggle {
+  display: inline-flex; align-items: center;
+  border: 1px solid var(--line-strong); border-radius: 999px;
+  padding: 4px;
+  background: rgba(255,255,255,0.02);
+}
+.view-toggle button {
+  padding: 8px 18px;
+  font-family: var(--display); font-size: 11px;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--text-3);
+  border-radius: 999px;
+  transition: all 0.3s ease;
+}
+.view-toggle button.is-active {
+  background: var(--text); color: #000;
+}
+
+/* ============================================================
+   通用：组节 · A/B/C
+   ============================================================ */
+.ar-group {
+  border-top: 1px solid var(--line);
+  padding: 100px var(--pad) 40px;
+}
+.ar-group__header {
+  max-width: 1320px; margin: 0 auto 60px;
+  display: grid;
+  grid-template-columns: 120px 1fr auto;
+  gap: 48px; align-items: baseline;
+}
+.ar-group__tag {
+  font-family: var(--display); font-size: 11px;
+  letter-spacing: 0.28em; text-transform: uppercase;
+  color: var(--accent);
+}
+.ar-group__tag .letter {
+  display: block;
+  font-family: var(--serif-en); font-style: italic;
+  font-size: 88px; line-height: 1;
+  color: var(--accent);
+  margin-bottom: 10px;
+  font-weight: 500;
+}
+.ar-group__title {
+  font-family: var(--serif-cn); font-weight: 500;
+  font-size: clamp(26px, 3.2vw, 40px);
+  line-height: 1.2;
+}
+.ar-group__title em {
+  font-family: var(--serif-en); font-style: italic;
+  color: var(--text-3); font-weight: 500;
+  font-size: 0.55em;
+  display: block; margin-top: 12px;
+}
+.ar-group__count {
+  font-family: var(--mono); font-size: 12px;
+  color: var(--text-3); letter-spacing: 0.1em;
+}
+
+/* ============================================================
+   V1 · 美术馆墙 · Gallery Wall
+   每条作品占满宽度，图 + 文左右交错
+   ============================================================ */
+.v1-wall { display: none; }
+body.view-v1 .v1-wall { display: block; }
+body.view-v1 .v2-ledger { display: none; }
+
+.wall-item {
+  max-width: 1320px; margin: 0 auto;
+  padding: 80px 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(40px, 6vw, 100px);
+  align-items: center;
+  position: relative;
+}
+.wall-item + .wall-item { border-top: 1px solid var(--line); }
+.wall-item:nth-child(even) { direction: rtl; }
+.wall-item:nth-child(even) > * { direction: ltr; }
+
+.wall-item__figure {
+  position: relative;
+  aspect-ratio: 4/3;
+  overflow: hidden;
+  background: var(--bg-2);
+}
+.wall-item__figure::before {
+  content: ""; position: absolute; inset: 0;
+  border: 1px solid var(--line);
+  z-index: 3; pointer-events: none;
+}
+.wall-item__figure img {
+  width: 100%; height: 100%; object-fit: cover;
+  filter: saturate(0.92) contrast(1.04);
+  transition: transform 1.2s var(--ease), filter 0.6s ease;
+}
+.wall-item:hover .wall-item__figure img {
+  transform: scale(1.04);
+  filter: saturate(1.05) contrast(1.08);
+}
+.wall-item__caption {
+  position: absolute; bottom: 14px; left: 14px; z-index: 2;
+  font-family: var(--mono); font-size: 10px;
+  color: var(--ink);
+  letter-spacing: 0.1em;
+  background: rgba(5,6,10,0.7);
+  backdrop-filter: blur(8px);
+  padding: 5px 10px;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+.wall-item__body {
+  position: relative;
+  padding: 20px 0;
+}
+.wall-item__no {
+  font-family: var(--mono); font-size: 11px;
+  color: var(--text-4);
+  letter-spacing: 0.16em;
+  margin-bottom: 18px;
+  display: flex; align-items: center; gap: 14px;
+}
+.wall-item__no::after {
+  content: "";
+  flex: 1; height: 1px;
+  background: linear-gradient(90deg, var(--line-strong), transparent);
+  max-width: 180px;
+}
+.wall-item__tag {
+  display: inline-block;
+  font-family: var(--display); font-size: 10px;
+  letter-spacing: 0.24em; text-transform: uppercase;
+  color: var(--accent);
+  padding: 5px 12px;
+  border: 1px solid rgba(196,53,74,0.35);
+  border-radius: 999px;
+  margin-bottom: 24px;
+}
+.wall-item__title {
+  font-family: var(--serif-cn); font-weight: 500;
+  font-size: clamp(32px, 4.5vw, 58px);
+  line-height: 1.1;
+  margin-bottom: 16px;
+  letter-spacing: -0.01em;
+}
+.wall-item__title em {
+  font-family: var(--serif-en); font-style: italic;
+  color: var(--accent); font-weight: 500;
+  display: block;
+  font-size: 0.5em;
+  margin-top: 10px;
+  letter-spacing: 0.04em;
+}
+.wall-item__lead {
+  font-family: var(--serif-cn);
+  font-size: clamp(15px, 1.3vw, 17px);
+  line-height: 1.85;
+  color: var(--text-2);
+  max-width: 520px;
+  margin-bottom: 32px;
+}
+.wall-item__status {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-family: var(--display); font-size: 10px;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--text-3);
+}
+.wall-item__status-dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--text-4);
+  border: 1px solid var(--text-3);
+}
+
+@media (max-width: 960px) {
+  .wall-item { grid-template-columns: 1fr; gap: 28px; }
+  .wall-item:nth-child(even) { direction: ltr; }
+}
+
+/* ============================================================
+   V2 · 索引档册 · Ledger Index
+   紧凑行式，小图 + 多栏信息
+   ============================================================ */
+.v2-ledger { display: none; }
+body.view-v2 .v2-ledger { display: block; }
+body.view-v2 .v1-wall { display: none; }
+
+.ledger-wrap {
+  max-width: 1320px; margin: 0 auto;
+}
+.ledger-head {
+  display: grid;
+  grid-template-columns: 60px 180px 1fr 200px 120px;
+  gap: 24px;
+  padding: 18px 0;
+  font-family: var(--display); font-size: 10px;
+  letter-spacing: 0.24em; text-transform: uppercase;
+  color: var(--text-3);
+  border-bottom: 1px solid var(--line-strong);
+  margin-bottom: 0;
+}
+
+.ledger-row {
+  display: grid;
+  grid-template-columns: 60px 180px 1fr 200px 120px;
+  gap: 24px;
+  padding: 22px 0;
+  border-bottom: 1px solid var(--line);
+  align-items: start;
+  position: relative;
+  transition: background 0.4s ease;
+}
+.ledger-row:hover {
+  background: linear-gradient(90deg, rgba(196,53,74,0.04), transparent 40%);
+}
+
+.ledger-row__no {
+  font-family: var(--mono); font-size: 13px;
+  color: var(--text-4);
+  letter-spacing: 0.1em;
+  padding-top: 10px;
+}
+.ledger-row__thumb {
+  aspect-ratio: 4/3;
+  overflow: hidden;
+  background: var(--bg-2);
+  position: relative;
+  border: 1px solid var(--line);
+}
+.ledger-row__thumb img {
+  width: 100%; height: 100%; object-fit: cover;
+  filter: saturate(0.9);
+  transition: transform 0.8s var(--ease), filter 0.4s ease;
+}
+.ledger-row:hover .ledger-row__thumb img {
+  transform: scale(1.08);
+  filter: saturate(1.05);
+}
+
+.ledger-row__main { padding-top: 4px; }
+.ledger-row__tag {
+  font-family: var(--display); font-size: 10px;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 10px;
+}
+.ledger-row__title {
+  font-family: var(--serif-cn); font-weight: 500;
+  font-size: clamp(22px, 2.6vw, 30px);
+  line-height: 1.2;
+  margin-bottom: 8px;
+}
+.ledger-row__title em {
+  font-family: var(--serif-en); font-style: italic;
+  color: var(--text-3); font-weight: 500;
+  font-size: 0.62em;
+  letter-spacing: 0.04em;
+  margin-left: 8px;
+}
+.ledger-row__lead {
+  font-family: var(--serif-cn);
+  font-size: 14px; line-height: 1.7;
+  color: var(--text-2);
+  max-width: 560px;
+}
+
+.ledger-row__type {
+  padding-top: 10px;
+  font-family: var(--serif-cn); font-size: 13px;
+  color: var(--text-2);
+  line-height: 1.5;
+}
+.ledger-row__type em {
+  display: block;
+  font-family: var(--serif-en); font-style: italic;
+  font-size: 12px;
+  color: var(--text-3);
+  margin-top: 4px;
+  letter-spacing: 0.04em;
+}
+
+.ledger-row__status {
+  padding-top: 10px;
+  display: flex; align-items: center; gap: 10px;
+  font-family: var(--display); font-size: 10px;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--text-3);
+}
+.ledger-row__status-dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--text-4);
+  border: 1px solid var(--text-3);
+}
+
+@media (max-width: 1080px) {
+  .ledger-head { display: none; }
+  .ledger-row {
+    grid-template-columns: 40px 140px 1fr;
+    gap: 18px;
+  }
+  .ledger-row__type, .ledger-row__status { display: none; }
+}
+@media (max-width: 640px) {
+  .ledger-row {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+  .ledger-row__no { padding-top: 0; }
+  .ledger-row__thumb { aspect-ratio: 16/9; }
+}
+
+/* ============================================================
+   Tail
+   ============================================================ */
+.ar-tail {
+  padding: 120px var(--pad) 80px;
+  border-top: 1px solid var(--line);
+  margin-top: 80px;
+  text-align: center;
+}
+.ar-tail h2 {
+  font-family: var(--serif-cn); font-weight: 500;
+  font-size: clamp(28px, 4vw, 52px);
+  line-height: 1.2;
+  margin-bottom: 18px;
+  max-width: 800px;
+  margin-left: auto; margin-right: auto;
+}
+.ar-tail h2 em {
+  font-family: var(--serif-en); font-style: italic;
+  color: var(--accent); font-weight: 500;
+}
+.ar-tail p {
+  font-family: var(--serif-cn);
+  font-size: 16px; line-height: 1.8;
+  color: var(--text-2);
+  max-width: 560px;
+  margin: 0 auto 32px;
+}
+.ar-tail__cta {
+  display: inline-flex; align-items: center; gap: 12px;
+  padding: 14px 30px;
+  font-family: var(--display); font-size: 12px;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  color: var(--text);
+  transition: all 0.4s var(--ease);
+}
+.ar-tail__cta:hover {
+  border-color: var(--accent);
+  background: rgba(196,53,74,0.08);
+  gap: 18px;
+}
+
+/* ============================================================
+   Footer
+   ============================================================ */
+.site-footer {
+  border-top: 1px solid var(--line);
+  padding: 60px var(--pad) 40px;
+  background: var(--bg-0);
+}
+.site-footer__inner {
+  max-width: 1320px; margin: 0 auto;
+  display: flex; justify-content: space-between; align-items: center;
+  flex-wrap: wrap; gap: 24px;
+}
+.site-footer__brand {
+  font-family: var(--display); font-size: 12px;
+  letter-spacing: 0.18em; color: var(--text-3);
+}
+.site-footer__brand em {
+  font-family: var(--serif-en); font-style: italic; color: var(--accent);
+}
+.site-footer__links { display: flex; gap: 28px; }
+.site-footer__links a {
+  font-family: var(--display); font-size: 11px;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--text-3);
+  transition: color 0.3s ease;
+}
+.site-footer__links a:hover { color: var(--accent); }
+
+/* ============================================================
+   Tweaks panel
+   ============================================================ */
+.tweaks-panel {
+  position: fixed; bottom: 20px; right: 20px; z-index: 900;
+  background: rgba(10,11,18,0.95);
+  backdrop-filter: blur(16px);
+  border: 1px solid var(--line-strong);
+  border-radius: 12px;
+  padding: 18px 20px;
+  min-width: 240px;
+  display: none;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+}
+.tweaks-panel.is-open { display: block; }
+.tweaks-panel h4 {
+  font-family: var(--display); font-size: 10px;
+  letter-spacing: 0.28em; text-transform: uppercase;
+  color: var(--text-3);
+  margin-bottom: 14px;
+}
+.tweaks-panel .row {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 12px; margin-bottom: 10px;
+}
+.tweaks-panel .row:last-child { margin-bottom: 0; }
+.tweaks-panel label {
+  font-family: var(--serif-cn); font-size: 13px;
+  color: var(--text-2);
+}
+
+/* ============================================================
+   Reveal
+   ============================================================ */
+.reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.9s var(--ease), transform 0.9s var(--ease); }
+.reveal.is-in { opacity: 1; transform: none; }
+
+</style>
+<script src="i18n.js"></script>
+</head>
+<body class="view-v1" data-screen-label="Archive">
+
+<!-- ========== Nav ========== -->
+<nav class="nav">
+  <a href="index.html" class="nav__brand">
+    <span class="nav__brand-dot"></span>
+    <span class="nav__brand-cn">惊喜之夜</span>
+    <span class="nav__brand-en">SURPRISE NIGHT</span>
+  </a>
+  <div class="nav__links">
+    <a href="works.html" class="nav__link is-active" data-i18n="nav.works">作品</a>
+    <a href="collaborate.html" class="nav__link" data-i18n="nav.collaborate">合作</a>
+    <a href="about.html" class="nav__link" data-i18n="nav.about">关于</a>
+    <a href="collaborators.html" class="nav__link" data-i18n="nav.artists">艺术家</a>
+    <a href="contact.html" class="nav__link" data-i18n="nav.contact">联系</a>
+    <div class="nav__lang">
+      <button data-set-lang="zh">中</button>
+      <button data-set-lang="en">EN</button>
+    </div>
+  </div>
+</nav>
+
+<!-- 视图切换（独立工具栏，不与主导航混排）-->
+<div class="view-toggle-bar">
+  <div class="view-toggle" role="tablist" aria-label="View mode">
+    <button class="is-active" data-view="v1" data-i18n="archive.view.v1">美术馆墙</button>
+    <button data-view="v2" data-i18n="archive.view.v2">索引档册</button>
+  </div>
+</div>
+
+<!-- ========== Hero ========== -->
+<header class="ar-hero" data-screen-label="Archive Hero">
+  <div class="ar-hero__bg"></div>
+  <div class="ar-hero__inner">
+    <div class="ar-hero__kicker" data-i18n="archive.hero.kicker"><span class="ar-hero__kicker-dot"></span>Archive · 项目档案</div>
+    <h1 class="ar-hero__title" data-i18n="archive.hero.title.html" data-i18n-html="true">项目档案<em>Archive</em></h1>
+    <p class="ar-hero__subtitle" data-i18n="archive.hero.subtitle">Past works — what came before.</p>
+    <p class="ar-hero__lead" data-i18n="archive.hero.lead">从原创话剧、沉浸式演出到儿童剧与实验作品，这些过往项目构成了我们的创作轨迹。每一部都是一次尝试、一次学习，也是走向下一部的铺垫。</p>
+    <div class="ar-hero__meta">
+      <div class="ar-hero__meta-item">
+        <span class="k" data-i18n="archive.hero.meta.works.k">作品总数 · Works</span>
+        <span class="v" data-i18n="archive.hero.meta.works.v" data-i18n-html="true">09 <em>past projects</em></span>
+      </div>
+      <div class="ar-hero__meta-item">
+        <span class="k" data-i18n="archive.hero.meta.range.k">题材跨度 · Range</span>
+        <span class="v" data-i18n="archive.hero.meta.range.v" data-i18n-html="true">03 <em>categories</em></span>
+      </div>
+      <div class="ar-hero__meta-item">
+        <span class="k" data-i18n="archive.hero.meta.status.k">状态 · Status</span>
+        <span class="v" data-i18n="archive.hero.meta.status.v" data-i18n-html="true">往期展演 <em>concluded</em></span>
+      </div>
+    </div>
+  </div>
+  <button class="nav__burger" id="navBurger" aria-label="菜单" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<!-- ========================================================
+     V1 · 美术馆墙 · Gallery Wall
+     ======================================================== -->
+<div class="v1-wall">
+
+  <!-- Group A · 都市情感 -->
+  <section class="ar-group" data-screen-label="Group A · 都市情感">
+    <div class="ar-group__header">
+      <div class="ar-group__tag" data-i18n="archive.groupA.letterTag" data-i18n-html="true"><span class="letter">A</span>都市情感 · Urban Affection</div>
+      <h2 class="ar-group__title" data-i18n="archive.groupA.title" data-i18n-html="true">都市里的爱情与代际<em>Four urbanites, three decades, one question: what do we call love now?</em></h2>
+      <div class="ar-group__count">01 — 03 / 09</div>
+    </div>
+
+    <article class="wall-item reveal">
+      <div class="wall-item__figure">
+        <img src="images/arch-7080.jpg" alt="7080" />
+        <div class="wall-item__caption" data-i18n="archive.i01.cap">Still · 7080 · ©惊喜之夜</div>
+      </div>
+      <div class="wall-item__body">
+        <div class="wall-item__no">No. 01 / 09 ————</div>
+        <span class="wall-item__tag" data-i18n="archive.i01.tag">都市情感喜剧</span>
+        <h3 class="wall-item__title" data-i18n="archive.i01.title" data-i18n-html="true">7080<em>Seventy–Eighty</em></h3>
+        <p class="wall-item__lead" data-i18n="archive.i01.lead">围绕四位在爱情中迷失的都市青年，呈现当代城市生活中的亲密关系困境与情感焦虑。</p>
+        <div class="wall-item__status">
+          <span class="wall-item__status-dot"></span>
+          <span data-i18n="archive.item.status">往期展演 · Concluded</span>
         </div>
-      </section>
+      </div>
+    </article>
 
-      <div id="archive-app" class="container archive-app"></div>
-
-      <div id="archiveModal" class="archive-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-label="作品介绍">
-        <div class="archive-modal__backdrop" aria-hidden="true"></div>
-        <div class="archive-modal__dialog" onclick="event.stopPropagation()">
-          <button type="button" class="archive-modal__close" data-archive-modal-close aria-label="Close">×</button>
-          <div id="archiveModalBody" class="archive-modal__inner"></div>
+    <article class="wall-item reveal">
+      <div class="wall-item__figure">
+        <img src="images/arch-8090.jpg" alt="8090" />
+        <div class="wall-item__caption" data-i18n="archive.i02.cap">Still · 8090 · ©惊喜之夜</div>
+      </div>
+      <div class="wall-item__body">
+        <div class="wall-item__no">No. 02 / 09 ————</div>
+        <span class="wall-item__tag" data-i18n="archive.i01.tag">都市情感喜剧</span>
+        <h3 class="wall-item__title" data-i18n="archive.i02.title" data-i18n-html="true">8090<em>Eighty–Ninety</em></h3>
+        <p class="wall-item__lead" data-i18n="archive.i02.lead">以 80 后与 90 后的爱情碰撞为核心，描绘快节奏都市中的代际情感观与亲密关系博弈。</p>
+        <div class="wall-item__status">
+          <span class="wall-item__status-dot"></span>
+          <span data-i18n="archive.item.status">往期展演 · Concluded</span>
         </div>
       </div>
-    </main>
+    </article>
 
-    <footer class="site-footer">
-      <div class="inner">
-        <span data-i18n="projectArchive.footCopy">© 2026 惊喜之夜</span>
-        <a href="works.html" data-i18n="projectArchive.footBack">返回作品列表</a>
+    <article class="wall-item reveal">
+      <div class="wall-item__figure">
+        <img src="images/arch-zhiyou.jpg" alt="只有，一个名字" />
+        <div class="wall-item__caption" data-i18n="archive.i03.cap">Still · 只有，一个名字 · ©惊喜之夜</div>
       </div>
-    </footer>
+      <div class="wall-item__body">
+        <div class="wall-item__no">No. 03 / 09 ————</div>
+        <span class="wall-item__tag" data-i18n="archive.i03.tag">温情喜剧</span>
+        <h3 class="wall-item__title" data-i18n="archive.i03.title" data-i18n-html="true">只有，一个名字<em>Just a Name</em></h3>
+        <p class="wall-item__lead" data-i18n="archive.i03.lead">从一场毕业旅行出发，在重庆串联父女、友情与爱情，追问"人生最后会记住谁"。</p>
+        <div class="wall-item__status">
+          <span class="wall-item__status-dot"></span>
+          <span data-i18n="archive.item.status">往期展演 · Concluded</span>
+        </div>
+      </div>
+    </article>
+  </section>
 
-    <script src="js/i18n.js" defer></script>
-    <script src="js/main.js" defer></script>
-    <script src="js/archive-page.js" defer></script>
-  </body>
+  <!-- Group B · 悬疑/实验/黑色 -->
+  <section class="ar-group" data-screen-label="Group B · 悬疑/实验/黑色">
+    <div class="ar-group__header">
+      <div class="ar-group__tag" data-i18n="archive.groupB.letterTag" data-i18n-html="true"><span class="letter">B</span>悬疑 · 实验 · 黑色表达</div>
+      <h2 class="ar-group__title" data-i18n="archive.groupB.title" data-i18n-html="true">在反转与解构中看见人性<em>Suspense, experiment, dark comedy — prying loose what sits under the surface.</em></h2>
+      <div class="ar-group__count">04 — 06 / 09</div>
+    </div>
+
+    <article class="wall-item reveal">
+      <div class="wall-item__figure">
+        <img src="images/arch-murder.jpg" alt="不完美谋杀" />
+        <div class="wall-item__caption" data-i18n="archive.i04.cap">Still · 不完美谋杀 · ©惊喜之夜</div>
+      </div>
+      <div class="wall-item__body">
+        <div class="wall-item__no">No. 04 / 09 ————</div>
+        <span class="wall-item__tag" data-i18n="archive.i04.tag">悬疑推理剧</span>
+        <h3 class="wall-item__title" data-i18n="archive.i04.title" data-i18n-html="true">不完美谋杀<em>Imperfect Murder</em></h3>
+        <p class="wall-item__lead" data-i18n="archive.i04.lead">婚外情调查牵出谋杀案，在反转中直面家暴议题与女性在暴力关系中的处境。</p>
+        <div class="wall-item__status">
+          <span class="wall-item__status-dot"></span>
+          <span data-i18n="archive.item.status">往期展演 · Concluded</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="wall-item reveal">
+      <div class="wall-item__figure">
+        <img src="images/arch-lianmu.jpg" alt="连木" />
+        <div class="wall-item__caption" data-i18n="archive.i05.cap">Still · 连木 · ©惊喜之夜</div>
+      </div>
+      <div class="wall-item__body">
+        <div class="wall-item__no">No. 05 / 09 ————</div>
+        <span class="wall-item__tag" data-i18n="archive.i05.tag">环境戏剧 · 实验表达</span>
+        <h3 class="wall-item__title" data-i18n="archive.i05.title" data-i18n-html="true">连木<em>Lianmu</em></h3>
+        <p class="wall-item__lead" data-i18n="archive.i05.lead">从巴渝"目连救母"传说出发，以悬疑与解构重探慈悲、误解、真相与重建。</p>
+        <div class="wall-item__status">
+          <span class="wall-item__status-dot"></span>
+          <span data-i18n="archive.item.status">往期展演 · Concluded</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="wall-item reveal">
+      <div class="wall-item__figure">
+        <img src="images/arch-nocamera.jpg" alt="禁止拍照" />
+        <div class="wall-item__caption" data-i18n="archive.i06.cap">Still · 禁止拍照 · ©惊喜之夜</div>
+      </div>
+      <div class="wall-item__body">
+        <div class="wall-item__no">No. 06 / 09 ————</div>
+        <span class="wall-item__tag" data-i18n="archive.i06.tag">黑色幽默</span>
+        <h3 class="wall-item__title" data-i18n="archive.i06.title" data-i18n-html="true">禁止拍照<em>No Photos</em></h3>
+        <p class="wall-item__lead" data-i18n="archive.i06.lead">酒吧里被打乱的牛皮纸袋，牵出欲望、秘密与身份伪装下的信任危机。</p>
+        <div class="wall-item__status">
+          <span class="wall-item__status-dot"></span>
+          <span data-i18n="archive.item.status">往期展演 · Concluded</span>
+        </div>
+      </div>
+    </article>
+  </section>
+
+  <!-- Group C · 传统/沉浸/政府合作 -->
+  <section class="ar-group" data-screen-label="Group C · 传统/沉浸/政府合作">
+    <div class="ar-group__header">
+      <div class="ar-group__tag" data-i18n="archive.groupC.letterTag" data-i18n-html="true"><span class="letter">C</span>传统戏曲 · 沉浸表达 · 政府合作</div>
+      <h2 class="ar-group__title" data-i18n="archive.groupC.title" data-i18n-html="true">从经典与地域出发的大型制作<em>Classical opera, immersive place-based theatre, and commissioned works at civic scale.</em></h2>
+      <div class="ar-group__count">07 — 09 / 09</div>
+    </div>
+
+    <article class="wall-item reveal">
+      <div class="wall-item__figure">
+        <img src="images/arch-nie.jpg" alt="聂小倩与宁采臣" />
+        <div class="wall-item__caption" data-i18n="archive.i07.cap">Still · 聂小倩与宁采臣 · ©惊喜之夜</div>
+      </div>
+      <div class="wall-item__body">
+        <div class="wall-item__no">No. 07 / 09 ————</div>
+        <span class="wall-item__tag" data-i18n="archive.i07.tag">当代川剧 · 经典改编</span>
+        <h3 class="wall-item__title" data-i18n="archive.i07.title" data-i18n-html="true">聂小倩与宁采臣<em>Nie &amp; Ning</em></h3>
+        <p class="wall-item__lead" data-i18n="archive.i07.lead">《聊斋》经典以川剧、舞美与舞蹈语言重构，委约于第十九届上海国际艺术节。</p>
+        <div class="wall-item__status">
+          <span class="wall-item__status-dot"></span>
+          <span data-i18n="archive.item.status">往期展演 · Concluded</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="wall-item reveal">
+      <div class="wall-item__figure">
+        <img src="images/arch-baixiang.jpg" alt="白象1938" />
+        <div class="wall-item__caption" data-i18n="archive.i08.cap">Still · 白象1938 · ©惊喜之夜</div>
+      </div>
+      <div class="wall-item__body">
+        <div class="wall-item__no">No. 08 / 09 ————</div>
+        <span class="wall-item__tag" data-i18n="archive.i08.tag">沉浸式 · 城市文化演出</span>
+        <h3 class="wall-item__title" data-i18n="archive.i08.title" data-i18n-html="true">白象 1938<em>Baixiang 1938</em></h3>
+        <p class="wall-item__lead" data-i18n="archive.i08.lead">以重庆白象街为场域，民国叙事与非遗线索交织的浸没式城市爱情故事。</p>
+        <div class="wall-item__status">
+          <span class="wall-item__status-dot"></span>
+          <span data-i18n="archive.item.status">往期展演 · Concluded</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="wall-item reveal">
+      <div class="wall-item__figure">
+        <img src="images/arch-gutang.jpg" alt="古塘湾1930" />
+        <div class="wall-item__caption" data-i18n="archive.i09.cap">Still · 古塘湾1930 · ©惊喜之夜</div>
+      </div>
+      <div class="wall-item__body">
+        <div class="wall-item__no">No. 09 / 09 ————</div>
+        <span class="wall-item__tag" data-i18n="archive.i09.tag">政府合作项目</span>
+        <h3 class="wall-item__title" data-i18n="archive.i09.title" data-i18n-html="true">古塘湾 1930<em>Gutangwan 1930</em></h3>
+        <p class="wall-item__lead" data-i18n="archive.i09.lead">以信仰为核，自"马日事变"起笔，讲述叶魁与古塘湾共产党员在长沙河西的白色恐怖岁月中奋起抗争的故事。</p>
+        <div class="wall-item__status">
+          <span class="wall-item__status-dot"></span>
+          <span data-i18n="archive.item.status">往期展演 · Concluded</span>
+        </div>
+      </div>
+    </article>
+  </section>
+
+</div><!-- /v1-wall -->
+
+<!-- ========================================================
+     V2 · 索引档册 · Ledger Index
+     ======================================================== -->
+<div class="v2-ledger">
+
+  <!-- Group A -->
+  <section class="ar-group" data-screen-label="Group A · 都市情感">
+    <div class="ar-group__header">
+      <div class="ar-group__tag" data-i18n="archive.groupA.letterTag" data-i18n-html="true"><span class="letter">A</span>都市情感 · Urban Affection</div>
+      <h2 class="ar-group__title" data-i18n="archive.groupA.title" data-i18n-html="true">都市里的爱情与代际<em>Four urbanites, three decades, one question: what do we call love now?</em></h2>
+      <div class="ar-group__count">01 — 03 / 09</div>
+    </div>
+
+    <div class="ledger-wrap">
+      <div class="ledger-head">
+        <div>No.</div>
+        <div data-i18n="archive.ledger.still">Still · 剧照</div>
+        <div>Title · Synopsis</div>
+        <div data-i18n="archive.ledger.type">Type · 题材</div>
+        <div>Status</div>
+      </div>
+
+      <div class="ledger-row reveal">
+        <div class="ledger-row__no">01</div>
+        <div class="ledger-row__thumb"><img src="images/arch-7080.jpg" alt="7080" /></div>
+        <div class="ledger-row__main">
+          <div class="ledger-row__tag" data-i18n="archive.ledger.i01.tag">都市情感喜剧</div>
+          <h3 class="ledger-row__title" data-i18n="archive.ledger.i01.title" data-i18n-html="true">7080 <em>Seventy–Eighty</em></h3>
+          <p class="ledger-row__lead" data-i18n="archive.i01.lead">围绕四位在爱情中迷失的都市青年，呈现当代城市生活中的亲密关系困境与情感焦虑。</p>
+        </div>
+        <div class="ledger-row__type" data-i18n="archive.ledger.i01.type" data-i18n-html="true">都市情感喜剧<em>Urban comedy</em></div>
+        <div class="ledger-row__status" data-i18n="archive.ledger.status" data-i18n-html="true"><span class="ledger-row__status-dot"></span>往期展演</div>
+      </div>
+
+      <div class="ledger-row reveal">
+        <div class="ledger-row__no">02</div>
+        <div class="ledger-row__thumb"><img src="images/arch-8090.jpg" alt="8090" /></div>
+        <div class="ledger-row__main">
+          <div class="ledger-row__tag" data-i18n="archive.ledger.i02.tag">都市情感喜剧</div>
+          <h3 class="ledger-row__title" data-i18n="archive.ledger.i02.title" data-i18n-html="true">8090 <em>Eighty–Ninety</em></h3>
+          <p class="ledger-row__lead" data-i18n="archive.i02.lead">以 80 后与 90 后的爱情碰撞为核心，描绘快节奏都市中的代际情感观与亲密关系博弈。</p>
+        </div>
+        <div class="ledger-row__type" data-i18n="archive.ledger.i02.type" data-i18n-html="true">都市情感喜剧<em>Urban comedy</em></div>
+        <div class="ledger-row__status" data-i18n="archive.ledger.status" data-i18n-html="true"><span class="ledger-row__status-dot"></span>往期展演</div>
+      </div>
+
+      <div class="ledger-row reveal">
+        <div class="ledger-row__no">03</div>
+        <div class="ledger-row__thumb"><img src="images/arch-zhiyou.jpg" alt="只有，一个名字" /></div>
+        <div class="ledger-row__main">
+          <div class="ledger-row__tag" data-i18n="archive.ledger.i03.tag">温情喜剧</div>
+          <h3 class="ledger-row__title" data-i18n="archive.ledger.i03.title" data-i18n-html="true">只有，一个名字 <em>Just a Name</em></h3>
+          <p class="ledger-row__lead" data-i18n="archive.i03.lead">从一场毕业旅行出发，在重庆串联父女、友情与爱情，追问"人生最后会记住谁"。</p>
+        </div>
+        <div class="ledger-row__type" data-i18n="archive.ledger.i03.type" data-i18n-html="true">温情喜剧<em>Warm-toned comedy</em></div>
+        <div class="ledger-row__status" data-i18n="archive.ledger.status" data-i18n-html="true"><span class="ledger-row__status-dot"></span>往期展演</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Group B -->
+  <section class="ar-group" data-screen-label="Group B · 悬疑/实验/黑色">
+    <div class="ar-group__header">
+      <div class="ar-group__tag" data-i18n="archive.groupB.letterTag" data-i18n-html="true"><span class="letter">B</span>悬疑 · 实验 · 黑色表达</div>
+      <h2 class="ar-group__title" data-i18n="archive.groupB.title" data-i18n-html="true">在反转与解构中看见人性<em>Suspense, experiment, dark comedy — prying loose what sits under the surface.</em></h2>
+      <div class="ar-group__count">04 — 06 / 09</div>
+    </div>
+
+    <div class="ledger-wrap">
+      <div class="ledger-head">
+        <div>No.</div>
+        <div data-i18n="archive.ledger.still">Still · 剧照</div>
+        <div>Title · Synopsis</div>
+        <div data-i18n="archive.ledger.type">Type · 题材</div>
+        <div>Status</div>
+      </div>
+
+      <div class="ledger-row reveal">
+        <div class="ledger-row__no">04</div>
+        <div class="ledger-row__thumb"><img src="images/arch-murder.jpg" alt="不完美谋杀" /></div>
+        <div class="ledger-row__main">
+          <div class="ledger-row__tag" data-i18n="archive.ledger.i04.tag">悬疑推理剧</div>
+          <h3 class="ledger-row__title" data-i18n="archive.ledger.i04.title" data-i18n-html="true">不完美谋杀 <em>Imperfect Murder</em></h3>
+          <p class="ledger-row__lead" data-i18n="archive.i04.lead">婚外情调查牵出谋杀案，在反转中直面家暴议题与女性在暴力关系中的处境。</p>
+        </div>
+        <div class="ledger-row__type" data-i18n="archive.ledger.i04.type" data-i18n-html="true">悬疑推理剧<em>Mystery thriller</em></div>
+        <div class="ledger-row__status" data-i18n="archive.ledger.status" data-i18n-html="true"><span class="ledger-row__status-dot"></span>往期展演</div>
+      </div>
+
+      <div class="ledger-row reveal">
+        <div class="ledger-row__no">05</div>
+        <div class="ledger-row__thumb"><img src="images/arch-lianmu.jpg" alt="连木" /></div>
+        <div class="ledger-row__main">
+          <div class="ledger-row__tag" data-i18n="archive.ledger.i05.tag">环境戏剧 · 实验表达</div>
+          <h3 class="ledger-row__title" data-i18n="archive.ledger.i05.title" data-i18n-html="true">连木 <em>Lianmu</em></h3>
+          <p class="ledger-row__lead" data-i18n="archive.i05.lead">从巴渝"目连救母"传说出发，以悬疑与解构重探慈悲、误解、真相与重建。</p>
+        </div>
+        <div class="ledger-row__type" data-i18n="archive.ledger.i05.type" data-i18n-html="true">环境戏剧<em>Experimental</em></div>
+        <div class="ledger-row__status" data-i18n="archive.ledger.status" data-i18n-html="true"><span class="ledger-row__status-dot"></span>往期展演</div>
+      </div>
+
+      <div class="ledger-row reveal">
+        <div class="ledger-row__no">06</div>
+        <div class="ledger-row__thumb"><img src="images/arch-nocamera.jpg" alt="禁止拍照" /></div>
+        <div class="ledger-row__main">
+          <div class="ledger-row__tag" data-i18n="archive.ledger.i06.tag">黑色幽默</div>
+          <h3 class="ledger-row__title" data-i18n="archive.ledger.i06.title" data-i18n-html="true">禁止拍照 <em>No Photos</em></h3>
+          <p class="ledger-row__lead" data-i18n="archive.i06.lead">酒吧里被打乱的牛皮纸袋，牵出欲望、秘密与身份伪装下的信任危机。</p>
+        </div>
+        <div class="ledger-row__type" data-i18n="archive.ledger.i06.type" data-i18n-html="true">黑色幽默<em>Dark comedy</em></div>
+        <div class="ledger-row__status" data-i18n="archive.ledger.status" data-i18n-html="true"><span class="ledger-row__status-dot"></span>往期展演</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Group C -->
+  <section class="ar-group" data-screen-label="Group C · 传统/沉浸/政府合作">
+    <div class="ar-group__header">
+      <div class="ar-group__tag" data-i18n="archive.groupC.letterTag" data-i18n-html="true"><span class="letter">C</span>传统戏曲 · 沉浸表达 · 政府合作</div>
+      <h2 class="ar-group__title" data-i18n="archive.groupC.title" data-i18n-html="true">从经典与地域出发的大型制作<em>Classical opera, immersive place-based theatre, and commissioned works at civic scale.</em></h2>
+      <div class="ar-group__count">07 — 09 / 09</div>
+    </div>
+
+    <div class="ledger-wrap">
+      <div class="ledger-head">
+        <div>No.</div>
+        <div data-i18n="archive.ledger.still">Still · 剧照</div>
+        <div>Title · Synopsis</div>
+        <div data-i18n="archive.ledger.type">Type · 题材</div>
+        <div>Status</div>
+      </div>
+
+      <div class="ledger-row reveal">
+        <div class="ledger-row__no">07</div>
+        <div class="ledger-row__thumb"><img src="images/arch-nie.jpg" alt="聂小倩与宁采臣" /></div>
+        <div class="ledger-row__main">
+          <div class="ledger-row__tag" data-i18n="archive.ledger.i07.tag">当代川剧 · 经典改编</div>
+          <h3 class="ledger-row__title" data-i18n="archive.ledger.i07.title" data-i18n-html="true">聂小倩与宁采臣 <em>Nie &amp; Ning</em></h3>
+          <p class="ledger-row__lead" data-i18n="archive.i07.lead">《聊斋》经典以川剧、舞美与舞蹈语言重构，委约于第十九届上海国际艺术节。</p>
+        </div>
+        <div class="ledger-row__type" data-i18n="archive.ledger.i07.type" data-i18n-html="true">当代川剧<em>Contemporary Sichuan opera</em></div>
+        <div class="ledger-row__status" data-i18n="archive.ledger.status" data-i18n-html="true"><span class="ledger-row__status-dot"></span>往期展演</div>
+      </div>
+
+      <div class="ledger-row reveal">
+        <div class="ledger-row__no">08</div>
+        <div class="ledger-row__thumb"><img src="images/arch-baixiang.jpg" alt="白象1938" /></div>
+        <div class="ledger-row__main">
+          <div class="ledger-row__tag" data-i18n="archive.ledger.i08.tag">沉浸式 · 城市文化演出</div>
+          <h3 class="ledger-row__title" data-i18n="archive.ledger.i08.title" data-i18n-html="true">白象 1938 <em>Baixiang 1938</em></h3>
+          <p class="ledger-row__lead" data-i18n="archive.i08.lead">以重庆白象街为场域，民国叙事与非遗线索交织的浸没式城市爱情故事。</p>
+        </div>
+        <div class="ledger-row__type" data-i18n="archive.ledger.i08.type" data-i18n-html="true">沉浸式<em>Site-specific / immersive</em></div>
+        <div class="ledger-row__status" data-i18n="archive.ledger.status" data-i18n-html="true"><span class="ledger-row__status-dot"></span>往期展演</div>
+      </div>
+
+      <div class="ledger-row reveal">
+        <div class="ledger-row__no">09</div>
+        <div class="ledger-row__thumb"><img src="images/arch-gutang.jpg" alt="古塘湾1930" /></div>
+        <div class="ledger-row__main">
+          <div class="ledger-row__tag" data-i18n="archive.ledger.i09.tag">政府合作项目</div>
+          <h3 class="ledger-row__title" data-i18n="archive.ledger.i09.title" data-i18n-html="true">古塘湾 1930 <em>Gutangwan 1930</em></h3>
+          <p class="ledger-row__lead" data-i18n="archive.i09.lead">以信仰为核，自"马日事变"起笔，讲述叶魁与古塘湾共产党员在长沙河西的白色恐怖岁月中奋起抗争的故事。</p>
+        </div>
+        <div class="ledger-row__type" data-i18n="archive.ledger.i09.type" data-i18n-html="true">政府合作<em>Commissioned</em></div>
+        <div class="ledger-row__status" data-i18n="archive.ledger.status" data-i18n-html="true"><span class="ledger-row__status-dot"></span>往期展演</div>
+      </div>
+    </div>
+  </section>
+
+</div><!-- /v2-ledger -->
+
+<!-- ========== Tail ========== -->
+<section class="ar-tail">
+  <h2 data-i18n="archive.tail.h" data-i18n-html="true">档案仍在写下去<em> · the archive keeps growing.</em></h2>
+  <p data-i18n="archive.tail.p">如果你看完这九部作品仍想聊——无论是合作、版权、场地，还是纯粹的好奇——欢迎直接联系我们。</p>
+  <a class="ar-tail__cta" href="index.html#cooperation" data-i18n="archive.tail.cta">开启合作 →</a>
+</section>
+
+<!-- ========== Footer ========== -->
+<footer class="site-footer">
+  <div class="site-footer__inner">
+    <div class="site-footer__brand" data-i18n="archive.footer.brand" data-i18n-html="true">© 2026 惊喜之夜 <em>Surprise Night</em></div>
+    <div class="site-footer__links">
+      <a href="works.html" data-i18n="footer.links.works">作品</a>
+      <a href="project-archive.html" data-i18n="footer.links.archive">档案</a>
+      <a href="index.html#cooperation" data-i18n="footer.links.collab">合作</a>
+      <a href="index.html#about" data-i18n="footer.links.about">关于</a>
+    </div>
+  </div>
+</footer>
+
+<!-- ========== Tweaks ========== -->
+<div class="tweaks-panel" id="tweaksPanel">
+  <h4 data-i18n="archive.tweaks.h">Tweaks · 档案排版</h4>
+  <div class="row">
+    <label data-i18n="archive.tweaks.layoutLabel">排版形式</label>
+    <div class="view-toggle">
+      <button class="is-active" data-view="v1" data-i18n="archive.view.v1">美术馆墙</button>
+      <button data-view="v2" data-i18n="archive.view.v2">索引档册</button>
+    </div>
+  </div>
+</div>
+
+<script>
+/* =====================================================
+   Tweaks protocol
+   ===================================================== */
+const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
+  "view": "v1"
+}/*EDITMODE-END*/;
+
+function applyView(v) {
+  document.body.classList.remove('view-v1','view-v2');
+  document.body.classList.add('view-' + v);
+  document.querySelectorAll('.view-toggle button').forEach(b => {
+    b.classList.toggle('is-active', b.dataset.view === v);
+  });
+}
+
+// init
+applyView(TWEAK_DEFAULTS.view || 'v1');
+
+// nav + tweaks toggle wiring
+document.querySelectorAll('.view-toggle button').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const v = btn.dataset.view;
+    applyView(v);
+    try {
+      window.parent.postMessage({type:'__edit_mode_set_keys', edits:{view: v}}, '*');
+    } catch(e) {}
+    // trigger reveals on freshly-visible rows
+    queueMicrotask(runReveals);
+  });
+});
+
+// tweaks host protocol
+window.addEventListener('message', (e) => {
+  const d = e.data || {};
+  if (d.type === '__activate_edit_mode') document.getElementById('tweaksPanel').classList.add('is-open');
+  else if (d.type === '__deactivate_edit_mode') document.getElementById('tweaksPanel').classList.remove('is-open');
+});
+window.parent.postMessage({type:'__edit_mode_available'}, '*');
+
+/* =====================================================
+   Reveal on scroll
+   ===================================================== */
+function runReveals() {
+  const els = document.querySelectorAll('.reveal:not(.is-in)');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(ent => {
+      if (ent.isIntersecting) {
+        ent.target.classList.add('is-in');
+        io.unobserve(ent.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  els.forEach(el => io.observe(el));
+}
+runReveals();
+</script>
+
+<script>
+/* 汉堡菜单（移动端） */
+(function hamburger(){
+  const navEl = document.getElementById('nav') || document.querySelector('.nav');
+  const burger = document.getElementById('navBurger');
+  if (!burger || !navEl) return;
+  const body = document.body;
+  const closeNav = () => {
+    navEl.classList.remove('nav--open');
+    burger.setAttribute('aria-expanded', 'false');
+    body.style.overflow = '';
+  };
+  burger.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const open = navEl.classList.toggle('nav--open');
+    burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    body.style.overflow = open ? 'hidden' : '';
+  });
+  navEl.querySelectorAll('.nav__link').forEach(a => a.addEventListener('click', closeNav));
+  document.addEventListener('click', (e) => {
+    if (navEl.classList.contains('nav--open') && !navEl.contains(e.target)) closeNav();
+  });
+})();
+</script>
+
+</body>
 </html>

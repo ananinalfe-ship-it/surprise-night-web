@@ -1,265 +1,1269 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>惊喜之夜 — 沉浸式喜剧与体验式演出</title>
-    <meta
-      name="description"
-      content="惊喜之夜 Surprise Night — 沉浸式喜剧与体验式演出、品牌激活、文旅叙事与 IP 开发。让故事从你的脚下开始。"
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Noto+Sans+SC:wght@300;400;500;600;700&family=Noto+Serif+SC:wght@400;500;600&family=Syne:wght@400;500;600;700;800&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="css/styles.css" />
-    <link rel="alternate" hreflang="zh-CN" href="index.html" />
-    <link rel="alternate" hreflang="en" href="index.html?lang=en" />
-  </head>
-  <body class="page-home" data-i18n-page="home">
-    <header class="site-header site-header--home">
-      <div class="inner">
-        <a href="index.html" class="logo" style="display: flex; align-items: center; gap: 12px; font-size: 1.1rem;">
-          <img src="assets/images/logo.png" alt="" style="width: 32px; height: 32px; object-fit: contain;">
-          <span>惊喜之夜 <span style="opacity: 0.7; font-size: 0.75rem; font-weight: 400; margin-left: 4px;">/ Surprise Night</span></span>
-        </a>
-        <button
-          type="button"
-          class="nav-toggle"
-          data-i18n="nav.menu"
-          aria-expanded="false"
-          aria-controls="primary-nav"
-        >
-          菜单
-        </button>
-        <nav>
-          <ul id="primary-nav" class="nav-links">
-            <li><a href="works.html" data-i18n="nav.works">作品</a></li>
-            <li><a href="collaborate.html" data-i18n="nav.collaborate">合作</a></li>
-            <li class="nav-item nav-item--has-sub">
-              <a href="about.html" data-i18n="nav.about">关于</a>
-              <ul class="nav-sub" role="list">
-                <li><a href="collaborators.html" data-i18n="nav.collaborators">合作艺术家</a></li>
-              </ul>
-            </li>
-            <li><a href="contact.html" data-i18n="nav.contact">联系</a></li>
-            <li class="nav-lang" aria-label="Language">
-              <button type="button" class="lang-btn" data-set-lang="zh" aria-pressed="true">中</button>
-              <button type="button" class="lang-btn" data-set-lang="en" aria-pressed="false">EN</button>
-            </li>
-          </ul>
-        </nav>
-      </div>
-    </header>
+<html lang="zh-CN" data-lang="zh">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title data-i18n="page.title.index">惊喜之夜 v3 — 沉浸式戏剧网站</title>
 
-    <main>
-      <!-- 1. Hero区域：视频背景 -->
-      <section class="hero hero--video hero--pd hero--featured hero--immersive">
-        <div class="hero-video-container">
-          <video
-            class="hero-video"
-            autoplay
-            muted
-            loop
-            playsinline
-            poster="assets/images/hero-home.jpg"
-          >
-            <source src="assets/videos/hero-bg.mp4" type="video/mp4" />
-            <!-- 备用格式 -->
-            <source src="assets/videos/hero-bg.webm" type="video/webm" />
-          </video>
-          <div class="hero-video-overlay"></div>
-        </div>
-        <a href="works.html" class="hero-main-link"></a>
-        <div class="hero-content hero-content--secret">
-          <h1 class="home-hero-title" data-i18n="index.heroH1" data-i18n-html="true">让故事从<br />你的脚下开始</h1>
-          <p class="home-hero-lead" data-i18n="index.heroLead">惊喜之夜创造沉浸式喜剧与体验式演出</p>
-          <p class="home-hero-tagline" data-i18n="index.heroTagline" data-i18n-html="true">我们不设观众席，<span class="home-hero-accent">只造世界</span>。</p>
-          <!-- AI 问答框（替代原"正在上演"按钮） -->
-          <div id="sn-ask" class="sn-ask">
-            <div class="sn-ask-box">
-              <span class="sn-ask-top-glow" aria-hidden="true"></span>
-              <span class="sn-ask-left-glow" aria-hidden="true"></span>
-              <span class="sn-ask-right-glow" aria-hidden="true"></span>
-              <textarea id="sn-ask-input" placeholder="你好，我是惊喜，AI机器人，有什么需要了解的，可以问我 / Hi, I am Surprise AI. What would you like to know?" rows="1"></textarea>
-              <button id="sn-ask-send" class="sn-ask-send" title="发送">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
-              </button>
-            </div>
-            <div class="sn-ask-guides" aria-label="推荐提问">
-              <button type="button" class="sn-ask-guide" data-ask-prompt="请介绍一下你们的项目">
-                <span class="sn-ask-guide-zh-prompt" data-ask-zh="请介绍一下你们的项目" data-ask-en="Please introduce your projects"></span>
-                <span class="sn-ask-guide-zh">请介绍一下你们的项目</span>
-                <span class="sn-ask-guide-en">Please introduce your projects</span>
-              </button>
-              <button type="button" class="sn-ask-guide" data-ask-prompt="山海经·巨灵之梦团队多少人？">
-                <span class="sn-ask-guide-zh-prompt" data-ask-zh="山海经·巨灵之梦团队多少人？" data-ask-en="How many members are in the team of Shan Hai Jing: Giant Spirit Dream?"></span>
-                <span class="sn-ask-guide-zh">山海经·巨灵之梦团队多少人？</span>
-                <span class="sn-ask-guide-en">How many members are in the team of Shan Hai Jing: Giant Spirit Dream?</span>
-              </button>
-              <button type="button" class="sn-ask-guide" data-ask-prompt="今年什么演出比较火爆？">
-                <span class="sn-ask-guide-zh-prompt" data-ask-zh="今年什么演出比较火爆？" data-ask-en="What shows are trending this year?"></span>
-                <span class="sn-ask-guide-zh">今年什么演出比较火爆？</span>
-                <span class="sn-ask-guide-en">What shows are trending this year?</span>
-              </button>
-            </div>
-            <div id="sn-ask-reply" class="sn-ask-reply"></div>
-          </div>
-        </div>
-        <div class="hero-scroll" aria-hidden="true">↓</div>
-      </section>
+<script>
+// Tweaks 面板：仅本地开发可见，部署后自动隐藏
+(function(){
+  const h = location.hostname;
+  const isLocal = !h || h === 'localhost' || h === '127.0.0.1' || h === '::1' || h.endsWith('.local');
+  if (!isLocal) document.documentElement.classList.add('no-tweaks');
+})();
+</script>
+<style>html.no-tweaks .tweaks,html.no-tweaks .tweaks__fab{display:none!important;}</style>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Noto+Sans+SC:wght@300;400;500;600;700&family=Noto+Serif+SC:wght@400;500;600;700&family=Syne:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
 
-      <!-- 视频弹窗 -->
-      <div id="videoModal" class="video-modal" onclick="closeVideoModal()">
-        <div class="video-modal-content" onclick="event.stopPropagation()">
-          <button class="video-close" onclick="closeVideoModal()">×</button>
-          <iframe id="videoFrame" src="" frameborder="0" allowfullscreen></iframe>
-        </div>
-      </div>
+<script src="i18n.js"></script>
 
-      <!-- 2. 品牌宣言 -->
-      <section class="home-manifesto" aria-labelledby="home-manifesto-label">
-        <div class="home-manifesto__noise" aria-hidden="true"></div>
-        <div class="container home-manifesto__grid">
-          <div class="home-manifesto__rail" aria-hidden="true">
-            <span class="home-manifesto__index">01</span>
-            <span class="home-manifesto__rule"></span>
-          </div>
-          <div class="home-manifesto__main">
-            <div class="home-manifesto__header">
-              <p class="home-manifesto__label" id="home-manifesto-label" data-i18n="index.brandLabel">品牌宣言</p>
-              <p class="home-manifesto__scope" data-i18n="index.heroKeywords">
-                Immersive Theatre · Brand Activations · Cultural Tourism · IP Development
-              </p>
-            </div>
-            <blockquote class="home-manifesto__quote" data-i18n="index.quoteBody">
-              我们不制造幻觉。我们建造真实——一个更沉浸的真实世界。
-            </blockquote>
-            <cite class="home-manifesto__cite" data-i18n="index.quoteCite">惊喜之夜，2018 年创立于中国</cite>
-          </div>
-        </div>
-      </section>
+<script>
+const TWEAKS = /*EDITMODE-BEGIN*/{
+  "accentColor": "#C87A3C",
+  "animationIntensity": 1,
+  "cursorGlow": true,
+  "grainTexture": true,
+  "curtainIntro": true,
+  "scrollParallax": true,
+  "cardTilt": true,
+  "keyIntro": true,
+  "identityRole": "accomplice",
+  "spotlightMode": false,
+  "easterEggs": true,
+  "actIndicator": true,
+  "idleNudge": true,
+  "ambientSound": false
+}/*EDITMODE-END*/;
+window.TWEAKS = TWEAKS;
+</script>
 
-      <!-- 3. 媒体评价 -->
-      <section class="home-press" aria-labelledby="home-press-kicker">
-        <div class="container">
-          <div class="home-press__top">
-            <p class="home-press__kicker" id="home-press-kicker" data-i18n="index.pressH">声音</p>
-            <span class="home-press__line" aria-hidden="true"></span>
-          </div>
-        </div>
-        <div class="home-press__strip" role="group" aria-label="观众与合作方反馈摘录">
-          <div class="container home-press__strip-inner">
-            <div class="home-press__grid">
-              <figure class="home-press__cell">
-                <blockquote class="home-press__blurb" data-i18n="index.pressQ1">
-                  惊喜之夜把剧场拆成一条可走的路径，而你是路径本身。
-                </blockquote>
-                <figcaption class="home-press__mark" data-i18n="index.pressMark1">路径</figcaption>
-              </figure>
-              <figure class="home-press__cell">
-                <blockquote class="home-press__blurb" data-i18n="index.pressQ2">
-                  在惊喜之夜，故事不是被观看的，而是被进入的。
-                </blockquote>
-                <figcaption class="home-press__mark" data-i18n="index.pressMark2">进入</figcaption>
-              </figure>
-              <figure class="home-press__cell">
-                <blockquote class="home-press__blurb" data-i18n="index.pressQ3">
-                  它不急着解释一切，而是先让你相信这个世界真的存在。
-                </blockquote>
-                <figcaption class="home-press__mark" data-i18n="index.pressMark3">世界</figcaption>
-              </figure>
-              <figure class="home-press__cell">
-                <blockquote class="home-press__blurb" data-i18n="index.pressQ4">
-                  这不是一次演出安排，而是一种被精心建造的在场经验。
-                </blockquote>
-                <figcaption class="home-press__mark" data-i18n="index.pressMark4">在场</figcaption>
-              </figure>
-            </div>
-            <p class="home-press__note" data-i18n="index.press1Src">合作方与观众反馈（摘录）</p>
-          </div>
-        </div>
-      </section>
+<style>
+  /* ============================================================
+     惊喜之夜 v2 · 设计令牌
+     ============================================================ */
+  :root {
+    --bg-0: #05060a;
+    --bg-1: #0b0c12;
+    --bg-2: #12131c;
+    --bg-3: #1a1c28;
+    --line: rgba(255,255,255,0.08);
+    --line-strong: rgba(255,255,255,0.16);
+    --text: rgba(255,255,255,0.92);
+    --text-2: rgba(255,255,255,0.62);
+    --text-3: rgba(255,255,255,0.38);
+    --text-4: rgba(255,255,255,0.20);
+    --accent: #C4354A;
+    --accent-glow: rgba(196,53,74,0.5);
+    --ink: #f7f3ea;
+    --sans: "Noto Sans SC", -apple-system, BlinkMacSystemFont, sans-serif;
+    --serif-cn: "Noto Serif SC", "Songti SC", serif;
+    --serif-en: "Cormorant Garamond", serif;
+    --display: "Syne", "Noto Serif SC", serif;
+    --mono: "JetBrains Mono", ui-monospace, monospace;
+    --pad: clamp(20px, 4vw, 64px);
+    --dur: .7s;
+    --ease: cubic-bezier(.2,.7,.2,1);
+  }
 
-      <!-- 4. 精选项目（旗舰 + 两部谱系，完整列表见作品页） -->
-      <section class="home-works">
-        <div class="container">
-          <header class="home-works__head">
-            <p class="home-works__eyebrow" data-i18n="index.worksH">精选呈现</p>
-            <h2 class="home-works__title" data-i18n="index.worksTitle">主推与谱系</h2>
-            <p class="home-works__lead" data-i18n="index.worksSubtitle">
-              首页仅展示三部：年度旗舰与两条不同创作线。更多剧目与分类请前往作品页浏览。
-            </p>
-          </header>
-          <div
-            class="grid-works home-works__grid"
-            data-works-grid="home"
-            data-home-layout="flagship"
-            data-limit="3"
-          ></div>
-          <p class="home-works__more">
-            <a class="home-works__link" href="works.html" data-i18n="index.viewAllWorks">查看全部作品 →</a>
-          </p>
-        </div>
-      </section>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body {
+    background: var(--bg-0);
+    color: var(--text);
+    font-family: var(--sans);
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+  }
+  body {
+    min-height: 100vh;
+    position: relative;
+  }
+  a { color: inherit; text-decoration: none; }
+  button { font: inherit; color: inherit; background: none; border: none; cursor: pointer; }
+  img { max-width: 100%; display: block; }
+  ::selection { background: var(--accent); color: white; }
 
-      <!-- 5. 合作与落地足迹 -->
-      <section class="home-partners" aria-labelledby="home-partners-label">
-        <div class="container">
-          <header class="home-partners__head">
-            <h2 class="home-partners__title" id="home-partners-label" data-i18n="index.partnersLabel">合作与落地足迹</h2>
-            <span class="home-partners__deco" aria-hidden="true"></span>
-          </header>
-          <div
-            class="home-partners__wall"
-            data-i18n="index.logoWall"
-            data-i18n-html="true"
-          >
-            <span class="home-partners__chip">北京朝阳剧场</span
-            ><span class="home-partners__chip">湖南大剧院</span
-            ><span class="home-partners__chip">梅溪湖大剧院</span
-            ><span class="home-partners__chip">重庆大剧院</span
-            ><span class="home-partners__chip">深圳滨海艺术中心</span
-            ><span class="home-partners__chip">上海虹桥艺术中心</span
-            ><span class="home-partners__chip">辽宁大剧院</span
-            ><span class="home-partners__chip">广州大剧院</span
-            ><span class="home-partners__chip">佛山大剧院</span
-            ><span class="home-partners__chip">合肥大剧院</span
-            ><span class="home-partners__chip">江苏大剧院</span
-            ><span class="home-partners__chip">南通大剧院</span
-            ><span class="home-partners__chip">扬州运河大剧院</span
-            ><span class="home-partners__chip">义乌文化广场剧院</span
-            ><span class="home-partners__chip">余姚大剧院</span
-            ><span class="home-partners__chip">会昌戏剧小镇</span>
-          </div>
-          <p class="home-partners__cta">
-            <a class="btn btn-ghost home-partners__btn" href="collaborate.html" data-i18n="index.collabBtn">合作咨询</a>
-          </p>
-        </div>
-      </section>
+  /* ============================================================
+     全局噪点 + 光晕
+     ============================================================ */
+  .grain {
+    position: fixed; inset: 0; pointer-events: none; z-index: 200;
+    opacity: .08; mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .6 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  }
+  body.no-grain .grain { display: none; }
 
-      <!-- 6. 联系 -->
-      <section class="home-contact" aria-labelledby="home-contact-label">
-        <div class="container home-contact__inner">
-          <p class="home-contact__label" id="home-contact-label" data-i18n="index.contactLabel">联系</p>
-          <a class="home-contact__email" href="mailto:contact@surprise-night.com">contact@surprise-night.com</a>
-          <p class="home-contact__copy">© 2026 惊喜之夜 Surprise Night</p>
-        </div>
-      </section>
-    </main>
+  .cursor-glow {
+    position: fixed; pointer-events: none; z-index: 100;
+    width: 520px; height: 520px; border-radius: 50%;
+    background: radial-gradient(circle, var(--accent-glow), transparent 60%);
+    mix-blend-mode: screen;
+    transform: translate(-50%, -50%) translate3d(0,0,0);
+    opacity: 0; transition: opacity .6s ease;
+    filter: blur(20px);
+  }
+  body.has-cursor .cursor-glow { opacity: .45; }
+  body.no-cursor-glow .cursor-glow { display: none; }
 
-    <footer class="site-footer">
-      <div class="inner">
-        <span data-i18n="index.footerCopy">© 2026 惊喜之夜 Surprise Night</span>
-        <a href="contact.html" data-i18n="index.footerContact">联系我们</a>
-      </div>
-    </footer>
+  /* ============================================================
+     开场幕布
+     ============================================================ */
+  .curtain {
+    position: fixed; inset: 0; z-index: 500;
+    pointer-events: none;
+    display: grid; grid-template-columns: 1fr 1fr;
+  }
+  .curtain__panel {
+    background: linear-gradient(180deg, #0a0a10 0%, #1a0a10 100%);
+    transition: transform 1.4s cubic-bezier(.76,0,.24,1);
+  }
+  .curtain__panel--l { transform-origin: left; }
+  .curtain__panel--r { transform-origin: right; }
+  .curtain__logo {
+    position: fixed; left: 50%; top: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 501;
+    font-family: var(--display);
+    font-weight: 700; font-size: clamp(28px, 5vw, 52px);
+    letter-spacing: .16em;
+    color: var(--text);
+    transition: opacity .6s ease, letter-spacing 1.2s ease;
+    pointer-events: none;
+  }
+  .curtain__logo::after {
+    content: ""; display: block;
+    margin: 18px auto 0; width: 0; height: 1px;
+    background: var(--accent);
+    transition: width 1s .4s ease;
+  }
+  body.intro-done .curtain__logo { opacity: 0; letter-spacing: .32em; }
+  body.intro-done .curtain__panel--l { transform: translateX(-100%); }
+  body.intro-done .curtain__panel--r { transform: translateX(100%); }
+  body.intro-ready .curtain__logo::after { width: 120px; }
+  body.no-intro .curtain { display: none; }
+  body.no-intro .curtain__logo { display: none; }
 
-    <script src="js/i18n.js" defer></script>
-    <script src="js/main.js" defer></script>
-    <script src="js/works-render.js" defer></script>
+  /* 钥匙拖动 / 身份层 / 幕布未结束前：禁用文本拖选，避免 mousedown+move 与位移动画被当成「框选文字」 */
+  body:not(.intro-done) {
+    user-select: none;
+    -webkit-user-select: none;
+  }
+  body:not(.intro-done) input,
+  body:not(.intro-done) textarea {
+    user-select: text;
+    -webkit-user-select: text;
+  }
+
+  /* ============================================================
+     导航
+     ============================================================ */
+  .nav {
+    position: fixed; top: 0; left: 0; right: 0;
+    z-index: 50;
+    padding: 12px var(--pad);
+    display: flex; justify-content: space-between; align-items: center;
+    transition: background .5s ease, padding .4s ease, border-color .4s ease;
+    border-bottom: 1px solid transparent;
+  }
+  .nav.is-scrolled {
+    background: rgba(5,6,10,0.72);
+    backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
+    padding: 14px var(--pad);
+    border-bottom-color: var(--line);
+  }
+  .nav__brand {
+    display: flex; align-items: center; gap: 12px;
+    font-family: var(--display); font-weight: 700;
+    letter-spacing: .05em; font-size: 15px;
+  }
+  .nav__brand { position: relative; width: 400px; height: 44px; }
+  .nav__mark {
+    position: absolute;
+    top: calc(50% + 2px); left: 0;
+    transform: translateY(-50%);
+    width: 252px; height: 63px;
+    background-image: url('assets/logo.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: left center;
+    flex-shrink: 0;
+    font-size: 0;
+    color: transparent;
+    pointer-events: none;
+  }
+  .nav__brand-cn, .nav__brand-en { display: none; }
+
+  .nav__links { display: flex; align-items: center; gap: 38px; }
+  .nav__link {
+    font-size: 13px; letter-spacing: .18em; text-transform: uppercase;
+    font-family: var(--display); font-weight: 500;
+    position: relative; padding: 8px 0;
+    color: var(--text-2);
+    transition: color .3s ease;
+  }
+  .nav__link::after {
+    content: ""; position: absolute; bottom: 2px; left: 0;
+    width: 0; height: 1px; background: var(--accent);
+    transition: width .4s var(--ease);
+  }
+  .nav__link:hover { color: var(--text); }
+  .nav__link:hover::after { width: 100%; }
+  .nav__link.is-active { color: var(--text); }
+  .nav__link.is-active::after { width: 100%; }
+
+  .nav__lang {
+    display: flex; align-items: center; gap: 4px;
+    border: 1px solid var(--line); border-radius: 999px;
+    padding: 4px;
+  }
+  .nav__lang button {
+    width: 28px; height: 24px; border-radius: 999px;
+    font-size: 11px; font-family: var(--display); font-weight: 600;
+    color: var(--text-3); letter-spacing: .1em;
+    transition: all .3s ease;
+  }
+  .nav__lang button.is-active { background: var(--text); color: #000; }
+
+  /* ============================================================
+     Hero
+     ============================================================ */
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex; align-items: center; justify-content: center;
+    padding: 120px var(--pad) 80px;
+    overflow: hidden;
+    isolation: isolate;
+  }
+  .hero__video {
+    position: absolute; inset: 0; z-index: -1;
+    width: 100%; height: 100%; object-fit: cover;
+    opacity: .38; filter: saturate(1.1) contrast(1.05);
+    pointer-events: none;
+  }
+  .hero__bg {
+    position: absolute; inset: 0; z-index: -2;
+    background:
+      radial-gradient(ellipse 80% 60% at 50% 20%, rgba(196,53,74,0.12), transparent 60%),
+      radial-gradient(ellipse 60% 40% at 20% 80%, rgba(100,40,200,0.08), transparent 70%),
+      radial-gradient(ellipse 60% 40% at 80% 70%, rgba(255,120,50,0.06), transparent 70%),
+      linear-gradient(180deg, #05060a 0%, #0a0810 60%, #05060a 100%);
+  }
+  .hero__bg::before {
+    content: ""; position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+    background-size: 80px 80px;
+    mask-image: radial-gradient(ellipse 80% 60% at 50% 50%, black 30%, transparent 75%);
+    -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 50%, black 30%, transparent 75%);
+  }
+
+  /* 飞舞粒子 */
+  .hero__stars {
+    position: absolute; inset: 0; z-index: -1; pointer-events: none;
+    /* 顶部渐隐遮罩：粒子进入 nav 区域前就淡出 */
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.4) 8%, black 20%, black 100%);
+            mask-image: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.4) 8%, black 20%, black 100%);
+  }
+  .hero__star {
+    position: absolute; width: 2px; height: 2px; border-radius: 50%;
+    background: white; opacity: .4;
+    animation: starFloat linear infinite;
+  }
+  @keyframes starFloat {
+    0% { transform: translate3d(0, 100vh, 0); opacity: 0; }
+    10% { opacity: .6; }
+    70% { opacity: .3; }
+    85% { transform: translate3d(calc(var(--sx, 0) * 50px), 10vh, 0); opacity: 0; }
+    100% { transform: translate3d(calc(var(--sx, 0) * 60px), -10vh, 0); opacity: 0; }
+  }
+
+  .hero__inner {
+    position: relative; z-index: 2;
+    max-width: 1280px; width: 100%;
+    display: flex; flex-direction: column; align-items: center;
+    text-align: center;
+  }
+
+  .hero__eyebrow {
+    display: inline-flex; align-items: center; gap: 10px;
+    font-family: var(--display); font-size: 11px; font-weight: 500;
+    letter-spacing: .32em; text-transform: uppercase;
+    color: var(--text-3); margin-bottom: 32px;
+    padding: 8px 16px;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    background: rgba(255,255,255,0.02);
+    backdrop-filter: blur(12px);
+  }
+  .hero__eyebrow-dot {
+    width: 6px; height: 6px; border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 0 12px var(--accent);
+    animation: pulse 2s ease-in-out infinite;
+  }
+  @keyframes pulse { 0%,100% { opacity: 1; transform: scale(1); } 50% { opacity: .5; transform: scale(.7); } }
+
+  .hero__title {
+    font-family: var(--serif-cn); font-weight: 500;
+    font-size: clamp(48px, 9vw, 128px);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    margin-bottom: 28px;
+    text-wrap: pretty;
+  }
+  .hero__title .word {
+    display: inline-block;
+    overflow: hidden;
+  }
+  .hero__title .word > span {
+    display: inline-block;
+    transform: translateY(110%);
+    transition: transform 1s var(--ease);
+    transition-delay: calc(var(--i, 0) * 70ms + 200ms);
+  }
+  body.intro-done .hero__title .word > span { transform: translateY(0); }
+
+  .hero__title em {
+    font-style: italic; font-family: var(--serif-en);
+    color: var(--accent);
+    font-weight: 500;
+  }
+
+  .hero__lead {
+    font-family: var(--serif-cn);
+    font-size: clamp(15px, 1.5vw, 19px);
+    color: var(--text-2);
+    max-width: 640px;
+    line-height: 1.7;
+    margin-bottom: 8px;
+    opacity: 0; transform: translateY(20px);
+    transition: opacity 1s 1.2s ease, transform 1s 1.2s ease;
+  }
+  body.intro-done .hero__lead { opacity: 1; transform: translateY(0); }
+
+  .hero__tagline {
+    font-family: var(--serif-en); font-style: italic;
+    font-size: clamp(14px, 1.3vw, 17px);
+    color: var(--text-3);
+    letter-spacing: .02em;
+    margin-bottom: 56px;
+    opacity: 0;
+    transition: opacity 1s 1.4s ease;
+  }
+  body.intro-done .hero__tagline { opacity: 1; }
+  .hero__tagline em { color: var(--accent); font-style: normal; font-family: var(--serif-cn); }
+
+  /* ============================================================
+     AI 问答（强化版）
+     ============================================================ */
+  .ask {
+    position: relative; width: min(780px, 100%);
+    opacity: 0; transform: translateY(30px);
+    transition: opacity 1s 1.6s ease, transform 1s 1.6s ease;
+  }
+  body.intro-done .ask { opacity: 1; transform: translateY(0); }
+
+  .ask__box {
+    position: relative; isolation: isolate;
+    background: rgba(8,8,14,0.58);
+    border: 1px solid rgba(255,255,255,0.10);
+    border-radius: 22px;
+    padding: 14px 20px 14px;
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    transition: border-color .4s ease, background .4s ease;
+  }
+  /* 四边彩色灯带 —— 顶/底/左/右 四条发光带 */
+  .ask__box::before,
+  .ask__box::after,
+  .ask__box > .ask__glow-l,
+  .ask__box > .ask__glow-r {
+    content: ""; position: absolute; pointer-events: none;
+    background: linear-gradient(
+      90deg,
+      rgba(82,219,255,0.9),
+      rgba(113,153,255,0.95),
+      rgba(167,120,255,0.92),
+      rgba(255,129,202,0.88),
+      rgba(255,191,108,0.86),
+      rgba(120,245,197,0.9),
+      rgba(82,219,255,0.9)
+    );
+    background-size: 240% 100%;
+    filter: blur(10px);
+    opacity: .75;
+    animation: snSpectrumFlow 6.5s linear infinite;
+    z-index: -1;
+  }
+  .ask__box::before { /* 顶 */
+    left: 6px; right: 6px; top: -8px; height: 12px;
+    border-radius: 16px 16px 999px 999px;
+  }
+  .ask__box::after { /* 底 */
+    left: 6px; right: 6px; bottom: -8px; height: 12px;
+    border-radius: 999px 999px 16px 16px;
+  }
+  .ask__box > .ask__glow-l,
+  .ask__box > .ask__glow-r {
+    top: -8px; bottom: -8px; width: 12px;
+    border-radius: 999px;
+    background: linear-gradient(
+      180deg,
+      rgba(82,219,255,0.9),
+      rgba(113,153,255,0.95),
+      rgba(167,120,255,0.92),
+      rgba(255,129,202,0.88),
+      rgba(255,191,108,0.86),
+      rgba(120,245,197,0.9),
+      rgba(82,219,255,0.9)
+    );
+    background-size: 100% 240%;
+    animation: snSpectrumFlowY 6.5s linear infinite;
+  }
+  .ask__box > .ask__glow-l { left: -8px; }
+  .ask__box > .ask__glow-r { right: -8px; }
+  .ask__box:focus-within::before,
+  .ask__box:focus-within::after,
+  .ask__box:focus-within > .ask__glow-l,
+  .ask__box:focus-within > .ask__glow-r { opacity: .95; animation-duration: 3.5s; }
+  .ask__box:focus-within { border-color: rgba(255,255,255,0.2); background: rgba(10,10,18,0.78); }
+  @keyframes snSpectrumFlow { 0% { background-position: 0% 50%; } 100% { background-position: 240% 50%; } }
+  @keyframes snSpectrumFlowY { 0% { background-position: 50% 0%; } 100% { background-position: 50% 240%; } }
+
+  .ask__input {
+    width: 100%; background: none; border: none; outline: none;
+    color: var(--text); font-size: 16px; font-family: var(--sans);
+    padding-right: 42px;
+    line-height: 1.6; resize: none; min-height: 26px; max-height: 140px;
+  }
+  .ask__input::placeholder { color: var(--text-3); }
+
+  .ask__send {
+    position: absolute; right: 10px; top: 50%; transform: translateY(-50%);
+    width: 34px; height: 34px; border-radius: 50%;
+    background: var(--text); color: #000;
+    display: flex; align-items: center; justify-content: center;
+    transition: transform .3s ease, background .3s ease;
+  }
+  .ask__send:hover { transform: translateY(-50%) scale(1.1); background: var(--accent); color: white; }
+  .ask__send svg { width: 16px; height: 16px; }
+
+  /* 提示行：挪到框外 */
+  .ask__hints {
+    display: flex; flex-direction: column; gap: 12px;
+    align-items: center;
+    margin-top: 14px;
+  }
+
+  .ask__chips {
+    margin-top: 0;
+    display: flex; flex-wrap: wrap; gap: 8px; justify-content: center;
+  }
+  .ask__chip {
+    font-size: 12px; padding: 8px 14px;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    color: var(--text-2);
+    transition: all .3s ease;
+    backdrop-filter: blur(8px);
+    background: rgba(255,255,255,0.02);
+  }
+  .ask__chip:hover {
+    border-color: var(--accent); color: var(--text);
+    background: rgba(196,53,74,0.1);
+    transform: translateY(-2px);
+  }
+  .ask__chip::before {
+    content: "›";
+    margin-right: 8px; color: var(--accent);
+  }
+
+  .ask__reply {
+    margin-top: 0; font-size: 14px; color: var(--text-2);
+    max-height: 0; overflow: hidden;
+    transition: max-height .6s ease;
+  }
+  .ask__reply.is-open { max-height: 400px; overflow-y: auto; padding-top: 12px; margin-top: 10px; border-top: 1px solid rgba(255,255,255,0.08); }
+  .ask__reply-q { font-size: 12px; color: var(--text-3); margin-bottom: 8px; font-family: var(--mono); }
+  .ask__reply-a {
+    padding: 16px 20px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    line-height: 1.7;
+  }
+
+  .hero__scroll {
+    position: absolute; bottom: 32px; left: 50%;
+    transform: translateX(-50%);
+    font-family: var(--display); font-size: 10px; letter-spacing: .32em;
+    color: var(--text-3); text-transform: uppercase;
+    display: flex; flex-direction: column; align-items: center; gap: 12px;
+    opacity: 0; transition: opacity 1s 2s ease;
+  }
+  body.intro-done .hero__scroll { opacity: 1; }
+  .hero__scroll::after {
+    content: ""; width: 1px; height: 36px;
+    background: linear-gradient(to bottom, var(--text-3), transparent);
+    animation: scrollLine 2s ease-in-out infinite;
+  }
+  @keyframes scrollLine {
+    0%,100% { transform: scaleY(1); transform-origin: top; opacity: 1; }
+    50% { transform: scaleY(.3); transform-origin: bottom; opacity: .4; }
+  }
+
+  /* ============================================================
+     反揭示区 · Manifesto
+     ============================================================ */
+  .manifesto {
+    padding: 180px var(--pad) 200px;
+    position: relative; overflow: hidden;
+  }
+  .manifesto__number {
+    position: absolute;
+    top: 80px; left: var(--pad);
+    font-family: var(--display); font-size: 10px;
+    letter-spacing: .32em; color: var(--text-4);
+    font-weight: 500;
+  }
+  .manifesto__number::after {
+    content: ""; display: inline-block; margin-left: 14px;
+    width: 40px; height: 1px;
+    background: var(--text-4); vertical-align: middle;
+  }
+
+  .manifesto__inner {
+    max-width: 1080px; margin: 0 auto;
+  }
+  .manifesto__label {
+    font-family: var(--display); font-size: 11px;
+    letter-spacing: .32em; color: var(--text-3);
+    text-transform: uppercase; margin-bottom: 48px;
+  }
+  .manifesto__quote {
+    font-family: var(--serif-cn); font-weight: 400;
+    font-size: clamp(30px, 4.8vw, 68px);
+    line-height: 1.35;
+    letter-spacing: -0.01em;
+    color: var(--text-2);
+    text-wrap: balance;
+  }
+  .manifesto__quote .rv {
+    display: inline-block; overflow: hidden;
+  }
+  .manifesto__quote .rv > span {
+    display: inline-block;
+    transform: translateY(105%);
+    transition: transform .9s var(--ease);
+    transition-delay: calc(var(--i, 0) * 80ms);
+  }
+  .manifesto__quote.is-in .rv > span { transform: translateY(0); }
+
+  .manifesto__quote em {
+    font-style: italic; font-family: var(--serif-en);
+    color: var(--ink);
+  }
+  .manifesto__quote strong {
+    font-weight: 500; color: var(--text);
+    background: linear-gradient(120deg, var(--accent) 0%, #ff6b85 100%);
+    -webkit-background-clip: text; background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .manifesto__cite {
+    margin-top: 48px;
+    font-family: var(--display); font-size: 11px;
+    letter-spacing: .32em; color: var(--text-3);
+    text-transform: uppercase;
+  }
+
+  /* ============================================================
+     Works · 作品网格
+     ============================================================ */
+  .works {
+    padding: 120px var(--pad) 160px;
+    position: relative;
+    background:
+      radial-gradient(ellipse 80% 40% at 50% 0%, rgba(196,53,74,0.05), transparent 60%),
+      var(--bg-0);
+  }
+  .works__head {
+    max-width: 1400px; margin: 0 auto 80px;
+    display: flex; justify-content: space-between; align-items: end;
+    flex-wrap: wrap; gap: 24px;
+  }
+  .works__head-l { max-width: 560px; }
+  .works__eyebrow {
+    font-family: var(--display); font-size: 11px;
+    letter-spacing: .32em; color: var(--accent);
+    text-transform: uppercase; margin-bottom: 20px;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .works__eyebrow::before {
+    content: ""; width: 24px; height: 1px; background: var(--accent);
+  }
+  .works__title {
+    font-family: var(--serif-cn); font-weight: 500;
+    font-size: clamp(36px, 5vw, 64px);
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    margin-bottom: 20px;
+  }
+  .works__title em {
+    font-style: italic; font-family: var(--serif-en);
+    color: var(--accent);
+  }
+  .works__lead {
+    font-family: var(--serif-cn); font-size: 16px;
+    color: var(--text-2); line-height: 1.7;
+  }
+  .works__all {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-family: var(--display); font-size: 13px;
+    letter-spacing: .2em; text-transform: uppercase;
+    color: var(--text); padding-bottom: 6px;
+    border-bottom: 1px solid var(--line-strong);
+    transition: all .3s ease;
+  }
+  .works__all:hover { border-color: var(--accent); color: var(--accent); gap: 14px; }
+
+  .works__grid {
+    max-width: 1400px; margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 24px;
+  }
+
+  .card {
+    position: relative;
+    overflow: hidden;
+    background: var(--bg-1);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    aspect-ratio: 4/5;
+    cursor: pointer;
+    transition: transform .6s var(--ease), border-color .4s ease;
+    transform-style: preserve-3d;
+  }
+  .card--flagship { grid-column: span 7; aspect-ratio: 16/10; }
+  .card--banner { grid-column: span 12; min-height: 420px; }
+  .card--half { grid-column: span 6; aspect-ratio: 8/5; }
+  .card--third { grid-column: span 4; aspect-ratio: 1/1; }
+
+  .card__bg {
+    position: absolute; inset: 0;
+    background-size: cover; background-position: center;
+    transition: transform 1s var(--ease), filter .6s ease;
+    filter: brightness(.55) saturate(1.1);
+  }
+  .card:hover .card__bg { transform: scale(1.06); filter: brightness(.75) saturate(1.25); }
+
+  .card__scrim {
+    position: absolute; inset: 0;
+    background: linear-gradient(180deg, transparent 30%, rgba(0,0,0,0.85) 100%);
+  }
+  .card__spot {
+    position: absolute; inset: 0; opacity: 0;
+    background: radial-gradient(circle 240px at var(--mx, 50%) var(--my, 50%), rgba(255,200,200,0.2), transparent 60%);
+    transition: opacity .4s ease;
+    mix-blend-mode: screen;
+  }
+  .card:hover .card__spot { opacity: 1; }
+
+  .card__body {
+    position: absolute; left: 0; right: 0; bottom: 0;
+    padding: clamp(20px, 3vw, 36px);
+    display: flex; flex-direction: column; gap: 12px;
+    z-index: 2;
+  }
+  .card__tags {
+    display: flex; gap: 8px; flex-wrap: wrap;
+  }
+  .card__tag {
+    font-size: 10px; letter-spacing: .2em;
+    padding: 4px 10px; border-radius: 3px;
+    text-transform: uppercase;
+    font-family: var(--display); font-weight: 500;
+  }
+  .card__tag--live { background: var(--accent); color: white; }
+  .card__tag--kind { background: rgba(255,255,255,0.1); color: var(--text-2); border: 1px solid var(--line); }
+
+  .card__title {
+    font-family: var(--serif-cn); font-weight: 500;
+    font-size: clamp(24px, 2.4vw, 40px);
+    letter-spacing: -0.01em;
+    line-height: 1.15;
+  }
+  .card__subtitle {
+    font-family: var(--serif-en); font-style: italic;
+    color: var(--text-3); font-size: 14px;
+    letter-spacing: .02em;
+  }
+  .card__meta {
+    display: flex; justify-content: space-between; align-items: end;
+    margin-top: 8px;
+    transform: translateY(8px); opacity: 0;
+    transition: all .5s var(--ease);
+  }
+  .card:hover .card__meta { transform: translateY(0); opacity: 1; }
+  .card__meta-text {
+    font-size: 12px; color: var(--text-2); line-height: 1.6;
+    max-width: 60%;
+    font-family: var(--serif-cn);
+  }
+  .card__arrow {
+    width: 40px; height: 40px; border-radius: 50%;
+    border: 1px solid var(--line-strong);
+    display: flex; align-items: center; justify-content: center;
+    transition: all .4s ease;
+  }
+  .card:hover .card__arrow { background: var(--accent); border-color: var(--accent); transform: rotate(-45deg); }
+
+  /* Real imagery from GitHub */
+  .card__bg { background-color: #0a0a14; }
+  .card--shanhai .card__bg { background-image: url('https://raw.githubusercontent.com/ananinalfe-ship-it/surprise-night-web/main/assets/images/work-shanhai.png'); }
+  .card--math .card__bg { background-image: url('https://raw.githubusercontent.com/ananinalfe-ship-it/surprise-night-web/main/assets/images/work-math.jpg'); }
+  .card--nie .card__bg { background-image: url('https://raw.githubusercontent.com/ananinalfe-ship-it/surprise-night-web/main/assets/images/work-nie.jpg'); background-position: 25% center; }
+  .card--ultimate .card__bg { background-image: url('https://raw.githubusercontent.com/ananinalfe-ship-it/surprise-night-web/main/assets/images/work-ultimate-con.png'); background-position: center 78%; }
+  .card--yaonan .card__bg { background-image: url('https://raw.githubusercontent.com/ananinalfe-ship-it/surprise-night-web/main/assets/images/work-yaonan.jpg'); }
+
+  /* ============================================================
+     Press · 声音
+     ============================================================ */
+  .press {
+    padding: 140px var(--pad);
+    background: var(--bg-1);
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    overflow: hidden;
+  }
+  .press__label {
+    max-width: 1400px; margin: 0 auto 56px;
+    font-family: var(--display); font-size: 11px;
+    letter-spacing: .32em; color: var(--accent);
+    text-transform: uppercase;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .press__label::after {
+    content: ""; flex: 1; height: 1px; background: var(--line);
+    max-width: 300px;
+  }
+  .press__marquee {
+    display: flex; gap: 64px;
+    animation: marquee 40s linear infinite;
+    width: max-content;
+  }
+  .press:hover .press__marquee { animation-play-state: paused; }
+  @keyframes marquee {
+    to { transform: translateX(-50%); }
+  }
+  .press__item {
+    display: flex; align-items: center; gap: 20px;
+    flex-shrink: 0;
+  }
+  .press__quote {
+    font-family: var(--serif-cn); font-size: clamp(20px, 2vw, 32px);
+    font-weight: 400; color: var(--text);
+    max-width: 620px; line-height: 1.45;
+  }
+  .press__mark {
+    font-family: var(--display); font-weight: 700;
+    font-size: clamp(48px, 5vw, 84px);
+    color: transparent;
+    -webkit-text-stroke: 1px var(--accent);
+    letter-spacing: -0.02em;
+  }
+
+  /* ============================================================
+     Capabilities · 我们能做什么
+     ============================================================ */
+  .caps {
+    padding: 160px var(--pad);
+    position: relative;
+  }
+  .caps__head {
+    max-width: 1400px; margin: 0 auto 80px;
+  }
+  .caps__eyebrow {
+    font-family: var(--display); font-size: 11px;
+    letter-spacing: .32em; color: var(--accent);
+    text-transform: uppercase; margin-bottom: 20px;
+  }
+  .caps__title {
+    font-family: var(--serif-cn); font-weight: 500;
+    font-size: clamp(36px, 5vw, 64px);
+    letter-spacing: -0.02em;
+    max-width: 800px;
+    line-height: 1.1;
+  }
+  .caps__title em {
+    font-style: italic; font-family: var(--serif-en);
+    color: var(--accent);
+  }
+
+  .caps__grid {
+    max-width: 1400px; margin: 0 auto;
+    display: grid; grid-template-columns: repeat(6, 1fr);
+    border-top: 1px solid var(--line);
+  }
+  .cap {
+    grid-column: span 2;
+    padding: 36px 32px 40px;
+    border-right: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    position: relative;
+    transition: background .4s ease;
+    cursor: pointer;
+  }
+  .cap:hover { background: rgba(196,53,74,0.06); }
+  .cap:nth-child(3n) { border-right: none; }
+  .cap__num {
+    font-family: var(--display); font-size: 11px;
+    letter-spacing: .2em; color: var(--text-4);
+    margin-bottom: 32px;
+  }
+  .cap__name {
+    font-family: var(--serif-cn); font-weight: 500;
+    font-size: clamp(22px, 2vw, 32px);
+    margin-bottom: 16px;
+    letter-spacing: -0.01em;
+  }
+  .cap__name em {
+    font-style: italic; font-family: var(--serif-en);
+    color: var(--text-3); font-weight: 400;
+    font-size: .7em; display: block;
+    margin-top: 4px; letter-spacing: .02em;
+  }
+  .cap__desc {
+    font-family: var(--serif-cn); font-size: 14px;
+    color: var(--text-2); line-height: 1.7;
+    margin-bottom: 32px;
+  }
+  .cap__line {
+    width: 0; height: 1px;
+    background: var(--accent);
+    transition: width .6s var(--ease);
+  }
+  .cap:hover .cap__line { width: 100%; }
+
+  /* ============================================================
+     Partners · 合作足迹
+     ============================================================ */
+  .partners {
+    padding: 120px var(--pad);
+    background: var(--bg-1);
+    border-top: 1px solid var(--line);
+  }
+  .partners__inner { max-width: 1400px; margin: 0 auto; }
+  .partners__head {
+    display: flex; justify-content: space-between; align-items: end;
+    margin-bottom: 48px; flex-wrap: wrap; gap: 20px;
+  }
+  .partners__title {
+    font-family: var(--serif-cn); font-weight: 500;
+    font-size: clamp(28px, 3vw, 42px);
+    max-width: 500px;
+  }
+  .partners__count {
+    font-family: var(--display); font-weight: 700;
+    font-size: clamp(48px, 6vw, 96px);
+    color: var(--accent);
+    line-height: 1;
+    letter-spacing: -0.03em;
+  }
+  .partners__count small {
+    font-size: .3em; color: var(--text-3);
+    font-weight: 400; letter-spacing: .2em;
+    display: block; margin-top: 8px;
+  }
+
+  .partners__wall {
+    display: flex; flex-wrap: wrap; gap: 10px;
+  }
+  .partners__chip {
+    font-family: var(--serif-cn); font-weight: 400;
+    font-size: 14px; color: var(--text-2);
+    padding: 12px 20px;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    transition: all .3s ease;
+  }
+  .partners__chip:hover {
+    border-color: var(--accent); color: var(--text);
+    background: rgba(196,53,74,0.08);
+  }
+  /* "+N 更多" 终止符 chip */
+  .partners__chip--more {
+    color: var(--accent);
+    border: 1px dashed var(--accent);
+    background: rgba(196,53,74,0.05);
+    font-family: var(--display);
+    font-size: 12px;
+    letter-spacing: .22em;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+  .partners__chip--more:hover {
+    background: rgba(196,53,74,0.14);
+    color: var(--text);
+    transform: translateY(-1px);
+  }
+  /* 墙底渐隐——暗示下方还有更多未列 */
+  .partners__wall {
+    -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 62%, rgba(0,0,0,0.55) 85%, rgba(0,0,0,0.25) 100%);
+            mask-image: linear-gradient(to bottom, #000 0%, #000 62%, rgba(0,0,0,0.55) 85%, rgba(0,0,0,0.25) 100%);
+    padding-bottom: 12px;
+  }
+  .partners__note {
+    margin-top: 28px;
+    font-family: var(--serif-cn); font-size: 13px;
+    color: var(--text-3); letter-spacing: .04em;
+    line-height: 1.6;
+  }
+  .partners__note em {
+    font-family: var(--serif-en); font-style: italic;
+    color: var(--text-2);
+  }
+  .partners__note a {
+    color: var(--accent); text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color .3s ease;
+  }
+  .partners__note a:hover { border-bottom-color: var(--accent); }
+
+  /* ============================================================
+     CTA · 联系
+     ============================================================ */
+  .cta {
+    padding: 200px var(--pad) 140px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .cta::before {
+    content: ""; position: absolute;
+    left: 50%; top: 50%; transform: translate(-50%,-50%);
+    width: 900px; height: 900px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(196,53,74,0.15), transparent 55%);
+    filter: blur(40px);
+  }
+  .cta__label {
+    position: relative;
+    font-family: var(--display); font-size: 11px;
+    letter-spacing: .32em; color: var(--accent);
+    text-transform: uppercase;
+    margin-bottom: 32px;
+  }
+  .cta__title {
+    position: relative;
+    font-family: var(--serif-cn); font-weight: 400;
+    font-size: clamp(40px, 7vw, 104px);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin-bottom: 48px;
+  }
+  .cta__title em {
+    font-style: italic; font-family: var(--serif-en); color: var(--accent);
+  }
+  .cta__email {
+    position: relative;
+    display: inline-block;
+    font-family: var(--display); font-weight: 500;
+    font-size: clamp(18px, 2vw, 26px);
+    padding: 20px 40px;
+    border: 1px solid var(--line-strong);
+    border-radius: 999px;
+    transition: all .4s ease;
+    backdrop-filter: blur(12px);
+  }
+  .cta__email:hover {
+    border-color: var(--accent);
+    background: rgba(196,53,74,0.1);
+    padding: 20px 56px;
+  }
+
+  /* ============================================================
+     Footer
+     ============================================================ */
+  .footer {
+    padding: 48px var(--pad);
+    border-top: 1px solid var(--line);
+    font-family: var(--display); font-size: 11px;
+    letter-spacing: .2em; text-transform: uppercase;
+    color: var(--text-3);
+    display: flex; justify-content: space-between;
+  }
+
+  /* ============================================================
+     Tweaks 面板
+     ============================================================ */
+  .tweaks {
+    position: fixed; right: 20px; bottom: 20px;
+    z-index: 400;
+    width: 300px;
+    background: rgba(10,10,16,0.92);
+    backdrop-filter: blur(24px);
+    border: 1px solid var(--line-strong);
+    border-radius: 14px;
+    padding: 18px;
+    font-family: var(--sans); font-size: 13px;
+    box-shadow: 0 24px 80px rgba(0,0,0,0.6);
+    transform: translateY(20px); opacity: 0; pointer-events: none;
+    transition: all .4s var(--ease);
+  }
+  .tweaks.is-open { transform: translateY(0); opacity: 1; pointer-events: auto; }
+  .tweaks__head {
+    display: flex; justify-content: space-between; align-items: center;
+    margin-bottom: 14px; padding-bottom: 12px;
+    border-bottom: 1px solid var(--line);
+  }
+  .tweaks__title {
+    font-family: var(--display); font-size: 11px;
+    letter-spacing: .24em; text-transform: uppercase;
+    color: var(--text);
+  }
+  .tweaks__close {
+    color: var(--text-3);
+    width: 24px; height: 24px; border-radius: 50%;
+  }
+  .tweaks__row {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px dashed var(--line);
+  }
+  .tweaks__row:last-child { border-bottom: none; }
+  .tweaks__label {
+    color: var(--text-2); font-size: 12px;
+  }
+  .tweaks__colors { display: flex; gap: 6px; }
+  .tweaks__color {
+    width: 20px; height: 20px; border-radius: 50%;
+    border: 1px solid var(--line);
+    cursor: pointer; transition: transform .2s ease;
+  }
+  .tweaks__color:hover { transform: scale(1.15); }
+  .tweaks__color.is-active { border-color: white; box-shadow: 0 0 0 2px var(--bg-0), 0 0 0 3px currentColor; }
+
+  .tweaks__toggle {
+    width: 34px; height: 18px; border-radius: 999px;
+    background: var(--line);
+    position: relative; cursor: pointer;
+    transition: background .3s ease;
+  }
+  .tweaks__toggle::after {
+    content: ""; position: absolute; top: 2px; left: 2px;
+    width: 14px; height: 14px; border-radius: 50%;
+    background: white;
+    transition: transform .3s ease;
+  }
+  .tweaks__toggle.is-on { background: var(--accent); }
+  .tweaks__toggle.is-on::after { transform: translateX(16px); }
+
+  .tweaks__slider {
+    -webkit-appearance: none; appearance: none;
+    width: 80px; height: 2px;
+    background: var(--line-strong); outline: none;
+  }
+  .tweaks__slider::-webkit-slider-thumb {
+    -webkit-appearance: none; appearance: none;
+    width: 12px; height: 12px; border-radius: 50%;
+    background: var(--accent); cursor: pointer;
+  }
+
+  .tweaks__fab {
+    position: fixed; right: 20px; bottom: 20px;
+    z-index: 399;
+    width: 48px; height: 48px; border-radius: 50%;
+    background: var(--accent); color: white;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 12px 40px var(--accent-glow);
+    transition: transform .3s ease;
+  }
+  .tweaks__fab:hover { transform: scale(1.08) rotate(45deg); }
+  .tweaks__fab.is-hidden { opacity: 0; pointer-events: none; transform: scale(.5); }
+
+  /* ============================================================
+     Responsive
+     ============================================================ */
+  /* ============================================================
+     Mobile · 汉堡菜单
+     ============================================================ */
+  .nav__burger {
+    display: none;
+    width: 44px; height: 44px;
+    background: transparent; border: 0;
+    flex-direction: column; justify-content: center; align-items: center;
+    gap: 6px;
+    cursor: pointer;
+    padding: 0;
+    position: relative;
+    z-index: 52;
+  }
+  .nav__burger span {
+    display: block; width: 22px; height: 1.5px;
+    background: var(--text);
+    transition: transform .3s ease, opacity .3s ease;
+  }
+  .nav.nav--open .nav__burger span:nth-child(1) { transform: translateY(7.5px) rotate(45deg); }
+  .nav.nav--open .nav__burger span:nth-child(2) { opacity: 0; }
+  .nav.nav--open .nav__burger span:nth-child(3) { transform: translateY(-7.5px) rotate(-45deg); }
+
+  @media(max-width: 900px) {
+    .nav__burger { display: flex; }
+    .nav__links {
+      display: flex !important;
+      position: fixed; top: 0; left: 0; right: 0;
+      min-height: 100vh; max-height: 100vh;
+      padding: 96px var(--pad) 40px;
+      background: rgba(5,6,10,0.97);
+      backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
+      flex-direction: column; align-items: stretch;
+      gap: 0;
+      z-index: 51;
+      transform: translateY(-110%);
+      transition: transform .45s cubic-bezier(.2,.8,.2,1);
+      pointer-events: none;
+      overflow-y: auto;
+      counter-reset: navItem;
+    }
+    .nav.nav--open .nav__links {
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+    .nav__link {
+      display: flex; align-items: baseline; gap: 20px;
+      font-family: var(--serif-cn);
+      font-size: 17px;
+      font-weight: 500;
+      letter-spacing: .03em;
+      text-transform: none;
+      padding: 16px 2px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      color: var(--text);
+    }
+    .nav__link::before {
+      counter-increment: navItem;
+      content: counter(navItem, decimal-leading-zero);
+      font-family: var(--display);
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: .3em;
+      color: var(--text-3);
+      min-width: 28px;
+    }
+    .nav__link::after {
+      position: static;
+      width: auto; height: auto;
+      background: transparent;
+      font-family: var(--serif-en);
+      font-style: italic;
+      font-size: 13px;
+      font-weight: 400;
+      color: var(--text-3);
+      margin-left: auto;
+      letter-spacing: .01em;
+      transition: none;
+    }
+    .nav__link[href*="works"]::after    { content: "Works"; }
+    .nav__link[href*="collaborate"]::after { content: "Collaborate"; }
+    .nav__link[href*="about"]::after    { content: "About"; }
+    .nav__link[href*="collaborators"]::after { content: "Artists"; }
+    .nav__link[href*="contact"]::after  { content: "Contact"; }
+    .nav__link.is-active,
+    .nav__link.is-active::before { color: var(--accent); }
+    .nav__link:hover::after { width: auto; }
+    .nav__lang { margin-top: 28px; align-self: flex-start; }
+    .hero__eyebrow { display: none; }
+    .role-greeting--accomplice { display: none !important; }
+    /* 压缩 manifesto ↔ secret-stage 间距 */
+    .manifesto { padding: 100px var(--pad) 60px; }
+    .secret-stage { padding: 40px var(--pad) 60px; }
+    .secret-stage::before, .secret-stage::after { height: 30px; }
+    /* 压缩名单之外·隐藏剧目卡（竖向收一半）——!important 覆盖外部 v3-immersive.css */
+    .secret-stage__grid { gap: 12px !important; }
+    .secret-card { padding: 12px 22px !important; min-height: 0 !important; }
+    .secret-card__mark { margin-bottom: 6px !important; font-size: 9px; letter-spacing: .3em; }
+    .secret-card__title { font-size: 18px !important; margin-bottom: 4px !important; }
+    .secret-card__title em { margin-top: 2px; }
+    .secret-card__text { font-size: 12px !important; line-height: 1.6; }
+    .secret-card::before { top: 10px !important; right: 14px !important; font-size: 9px; letter-spacing: .3em; }
+    .secret-card__veil { padding: 14px 22px !important; gap: 6px !important; }
+    .secret-card__veil-mark { padding: 6px 14px !important; font-size: 10px !important; }
+    .secret-card__veil-hint { font-size: 12px !important; line-height: 1.6; }
+    .secret-card__veil-progress { font-size: 18px !important; margin-top: 0 !important; }
+    .works__grid { grid-template-columns: repeat(6, 1fr) !important; }
+    .card--flagship, .card--half, .card--third, .card--banner {
+      grid-column: span 6 !important;
+      aspect-ratio: 4/5 !important;
+    }
+    .card--banner { min-height: 0 !important; }
+    /* 巨灵之梦 banner 卡 · 手机端字号/间距压缩 */
+    .card__banner-body {
+      padding: 24px 22px !important;
+      gap: 10px !important;
+      max-width: 100% !important;
+    }
+    .card__banner-title {
+      font-size: 28px !important;
+      line-height: 1.2 !important;
+    }
+    .card__banner-desc {
+      font-size: 13px !important;
+      line-height: 1.65 !important;
+    }
+    .card__banner-meta {
+      gap: 6px !important;
+      flex-wrap: wrap !important;
+      white-space: normal !important;
+      margin-top: 6px !important;
+    }
+    .card__banner-chip {
+      font-size: 8px !important;
+      padding: 3px 8px !important;
+      letter-spacing: .2em !important;
+    }
+    .card__banner-arrow { font-size: 10px !important; }
+    /* 三张卡的"查看详情"按钮缩小，避免挡住正文 */
+    .card__goto {
+      right: 10px !important;
+      bottom: 10px !important;
+      padding: 5px 10px !important;
+      gap: 4px !important;
+      font-size: 10px !important;
+      letter-spacing: .08em !important;
+    }
+    .card__goto-arrow { font-size: 11px !important; }
+    /* 作品板块重排：查看全部作品放到三张卡片下方 */
+    .works { display: flex; flex-direction: column; }
+    .works__head { display: contents; }
+    .works__head-l { order: 1; margin: 0 auto 40px; max-width: 560px; width: 100%; }
+    .works__grid { order: 2; }
+    .works__all {
+      order: 3;
+      margin: 36px auto 0;
+      align-self: center;
+    }
+    .caps__grid { grid-template-columns: repeat(2, 1fr); }
+    .cap { grid-column: span 1 !important; border-right: 1px solid var(--line); }
+    .cap:nth-child(2n) { border-right: none; }
+  }
+
+  /* 动画强度的控制 */
+  body.anim-low *, body.anim-low *::before, body.anim-low *::after {
+    animation-duration: calc(var(--_dur, 1s) * 2) !important;
+    transition-duration: calc(var(--_dur, .4s) * 1.5) !important;
+  }
+  body.anim-off *, body.anim-off *::before, body.anim-off *::after {
+    animation: none !important;
+  }
+
+</style>
+<link rel="stylesheet" href="v3-immersive.css?v=3cards5">
 
     <!-- AI 问答助手 样式 -->
     <style>
@@ -544,6 +1548,924 @@
         .sn-ask-guide { font-size: 12px; }
       }
     </style>
+</head>
+
+<body data-screen-label="Surprise Night v3">
+
+<!-- ① 钥匙入场 -->
+<div class="key-gate" id="keyGate">
+  <div class="key-gate__title" data-i18n="keygate.title">Surprise Night · Est. 2018</div>
+  <div class="key-gate__sub" data-i18n="keygate.sub" data-i18n-html="true">今晚的演出即将开始。<br><em style="font-family:var(--serif-en);color:var(--accent);font-style:italic;">Open the door.</em></div>
+  <div class="key-gate__track">
+    <div class="key-gate__fill"></div>
+    <div class="key-gate__handle">⚷</div>
+  </div>
+  <div class="key-gate__hint" data-i18n="keygate.hint">DRAG · 拖动钥匙入场</div>
+</div>
+
+<!-- ② 身份选择 -->
+<div class="identity" id="identity">
+  <div class="identity__label" data-i18n="identity.label">Choose your seat</div>
+  <h2 class="identity__title" data-i18n="identity.title" data-i18n-html="true">今晚，你是——<br><em>Who are you tonight?</em></h2>
+  <div class="identity__roles">
+    <div class="role" data-role-pick="guest">
+      <div class="role__mark" data-i18n="identity.guest.mark">I · Audience</div>
+      <div class="role__name" data-i18n="identity.guest.name" data-i18n-html="true">观众<em>Quietly watching.</em></div>
+      <div class="role__desc" data-i18n="identity.guest.desc">坐下、看戏、让故事在你眼前展开。经典入戏方式。</div>
+    </div>
+    <div class="role" data-role-pick="accomplice">
+      <div class="role__mark" data-i18n="identity.accomplice.mark">II · Accomplice</div>
+      <div class="role__name" data-i18n="identity.accomplice.name" data-i18n-html="true">共谋者<em>You know something others don't.</em></div>
+      <div class="role__desc" data-i18n="identity.accomplice.desc">配色转为深紫，页面隐藏内容显现。你知道的比演员还多。</div>
+    </div>
+  </div>
+  <button class="identity__skip" data-role-skip data-i18n="identity.skip">Skip · 直接进入</button>
+</div>
+
+<!-- ③ 追光层 -->
+<div class="spotlight-veil"></div>
+
+<!-- ⑤ 道具弹窗 + 计数器 -->
+<div class="prop-modal" id="propModal">
+  <div class="prop-modal__card">
+    <div class="prop-modal__mark" data-i18n="prop.modal.label">Clue · 线索</div>
+    <div class="prop-modal__title"></div>
+    <div class="prop-modal__text"></div>
+    <button class="prop-modal__close" data-i18n="prop.modal.close">合上 · Close</button>
+  </div>
+</div>
+<div class="props-counter">
+  <span data-i18n="prop.counter.label">线索</span>
+  <div class="props-counter__dots">
+    <span class="props-counter__dot"></span>
+    <span class="props-counter__dot"></span>
+    <span class="props-counter__dot"></span>
+  </div>
+  <span class="props-counter__count">0/3</span>
+</div>
+<div class="unlock-banner" id="unlockBanner"></div>
+
+<!-- ⑦ Act 指示 -->
+<nav class="act-rail" id="actRail"></nav>
+<div class="act-flash"></div>
+<div class="act-flash__label"></div>
+
+<!-- ⑧ 间歇提示 -->
+<div class="idle">
+  <div class="idle__label" data-i18n="idle.label">Intermission · 间歇</div>
+  <div class="idle__text" data-i18n="idle.text" data-i18n-html="true">观众请继续。<br>演出尚未结束。</div>
+  <div class="idle__hint" data-i18n="idle.hint">Move · 移动以继续</div>
+</div>
+
+<!-- ⑨ 音效按钮 -->
+
+<!-- 身份切换视觉反馈 -->
+<div class="role-flash" id="roleFlash"></div>
+<div class="role-toast" id="roleToast"></div>
+
+<!-- 共谋者专属：暗门内容面板 -->
+<aside class="secret-panel" id="secretPanel">
+  <div class="secret-panel__mark" data-i18n="secretPanel.mark">Internal · 剧团内部</div>
+  <h3 class="secret-panel__title" data-i18n="secretPanel.title">下周日程节选</h3>
+  <div class="secret-panel__item">
+    <span class="secret-panel__date">MON</span>
+    <p class="secret-panel__text" data-i18n="secretPanel.mon" data-i18n-html="true"><em>《终极骗局 3.0》</em>第二幕分支路径彩排。A 组在 B 空间，导演要求"让第三个结局更冷一点"。</p>
+  </div>
+  <div class="secret-panel__item">
+    <span class="secret-panel__date">WED</span>
+    <p class="secret-panel__text" data-i18n="secretPanel.wed" data-i18n-html="true"><em>《第十三场》</em>读本会。只邀请了 6 个人。咖啡在 19:00 开始。</p>
+  </div>
+  <div class="secret-panel__item">
+    <span class="secret-panel__date">THU</span>
+    <p class="secret-panel__text" data-i18n="secretPanel.thu" data-i18n-html="true"><em>《山海经 · 巨灵之梦》</em>新版开场置景测试。烟雾机需要重调。</p>
+  </div>
+  <div class="secret-panel__item">
+    <span class="secret-panel__date">FRI</span>
+    <p class="secret-panel__text" data-i18n="secretPanel.fri" data-i18n-html="true">未公开剧目<em>《残像》</em>第一次内部片段呈现。仅邀制。密语将在演出前 1 小时发送。</p>
+  </div>
+  <div class="secret-panel__item">
+    <span class="secret-panel__date">SAT</span>
+    <p class="secret-panel__text" data-i18n="secretPanel.sat" data-i18n-html="true"><em>——</em>（此处内容已被导演删除）</p>
+  </div>
+  <p class="secret-panel__foot" data-i18n="secretPanel.foot" data-i18n-html="true">Last updated by <em>D.</em> · 03:14 a.m.</p>
+</aside>
+
+<!-- 开场幕布 -->
+<div class="curtain" id="curtain">
+  <div class="curtain__panel curtain__panel--l"></div>
+  <div class="curtain__panel curtain__panel--r"></div>
+</div>
+<div class="curtain__logo" id="curtainLogo" data-i18n="index.curtainLogo">惊喜之夜</div>
+
+<!-- 噪点 -->
+<div class="grain" aria-hidden="true"></div>
+
+<!-- 光标光晕 -->
+<div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
+
+<!-- 导航 -->
+<header class="nav" id="nav">
+  <a href="index.html" class="nav__brand">
+    <span class="nav__mark"></span>
+    <span class="nav__brand-cn">惊喜之夜</span>
+    <span class="nav__brand-en">SURPRISE NIGHT</span>
+  </a>
+  <nav class="nav__links">
+    <a href="works.html" class="nav__link" data-i18n="nav.works">作品</a>
+    <a href="collaborate.html" class="nav__link" data-i18n="nav.collaborate">合作</a>
+    <a href="about.html" class="nav__link" data-i18n="nav.about">关于</a>
+    <a href="collaborators.html" class="nav__link" data-i18n="nav.artists">艺术家</a>
+    <a href="contact.html" class="nav__link" data-i18n="nav.contact">联系</a>
+    <div class="nav__lang" aria-label="Language">
+      <button data-set-lang="zh">中</button>
+      <button data-set-lang="en">EN</button>
+    </div>
+    <button class="role-badge" id="roleBadge" title="切换身份" style="display:none">
+      <span class="role-badge__dot"></span>
+      <span class="role-badge__label">Audience</span>
+    </button>
+    <button class="secret-door" id="secretDoor" title="暗门">🗝</button>
+  </nav>
+  <button class="nav__burger" id="navBurger" aria-label="菜单" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<main>
+
+  <!-- ========== HERO ========== -->
+  <section class="hero" data-screen-label="01 Hero">
+    <div class="hero__bg"></div>
+    <video class="hero__video" autoplay muted loop playsinline
+      poster="https://raw.githubusercontent.com/ananinalfe-ship-it/surprise-night-web/main/assets/images/hero-home.jpg">
+      <source src="https://raw.githubusercontent.com/ananinalfe-ship-it/surprise-night-web/main/assets/videos/hero-bg.mp4" type="video/mp4">
+    </video>
+    <div class="hero__stars" id="heroStars"></div>
+
+    <div class="hero__inner">
+      <div class="hero__eyebrow">
+        <span class="hero__eyebrow-dot"></span>
+        <span data-i18n="index.hero.eyebrow">沉浸式戏剧 · 舞台剧演出制作运营 · EST. 2018</span>
+      </div>
+
+      <h1 class="hero__title" id="heroTitle" data-i18n="index.hero.titleFull" data-i18n-html="true">
+        <span class="word"><span style="--i:0">让</span></span><span class="word"><span style="--i:1">故</span></span><span class="word"><span style="--i:2">事</span></span><span class="word"><span style="--i:3">从</span></span><br>
+        <span class="word"><span style="--i:4">你</span></span><span class="word"><span style="--i:5">身</span></span><span class="word"><span style="--i:6">边</span></span><span class="word"><span style="--i:7"><em>开始</em></span></span>
+      </h1>
+
+      <p class="hero__lead" data-i18n="index.hero.lead">观众，就是我们演出的一部分。</p>
+      <p class="hero__tagline" data-i18n="index.hero.tagline" data-i18n-html="true">We don't create illusions — <em>we build realities</em>.</p>
+
+      <!-- AI 问答助手 -->
+
+          <div id="sn-ask" class="sn-ask">
+            <div class="sn-ask-box">
+              <span class="sn-ask-top-glow" aria-hidden="true"></span>
+              <span class="sn-ask-left-glow" aria-hidden="true"></span>
+              <span class="sn-ask-right-glow" aria-hidden="true"></span>
+              <textarea id="sn-ask-input" placeholder="你好，我是惊喜，AI机器人，有什么需要了解的，可以问我 / Hi, I am Surprise AI. What would you like to know?" rows="1"></textarea>
+              <button id="sn-ask-send" class="sn-ask-send" title="发送">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+              </button>
+            </div>
+            <div class="sn-ask-guides" aria-label="推荐提问">
+              <button type="button" class="sn-ask-guide" data-ask-prompt="请介绍一下你们的项目">
+                <span class="sn-ask-guide-zh-prompt" data-ask-zh="请介绍一下你们的项目" data-ask-en="Please introduce your projects"></span>
+                <span class="sn-ask-guide-zh">请介绍一下你们的项目</span>
+                <span class="sn-ask-guide-en">Please introduce your projects</span>
+              </button>
+              <button type="button" class="sn-ask-guide" data-ask-prompt="山海经·巨灵之梦团队多少人？">
+                <span class="sn-ask-guide-zh-prompt" data-ask-zh="山海经·巨灵之梦团队多少人？" data-ask-en="How many members are in the team of Shan Hai Jing: Giant Spirit Dream?"></span>
+                <span class="sn-ask-guide-zh">山海经·巨灵之梦团队多少人？</span>
+                <span class="sn-ask-guide-en">How many members are in the team of Shan Hai Jing: Giant Spirit Dream?</span>
+              </button>
+              <button type="button" class="sn-ask-guide" data-ask-prompt="今年什么演出比较火爆？">
+                <span class="sn-ask-guide-zh-prompt" data-ask-zh="今年什么演出比较火爆？" data-ask-en="What shows are trending this year?"></span>
+                <span class="sn-ask-guide-zh">今年什么演出比较火爆？</span>
+                <span class="sn-ask-guide-en">What shows are trending this year?</span>
+              </button>
+            </div>
+            <div id="sn-ask-reply" class="sn-ask-reply"></div>
+          </div>
+
+
+      <!-- 身份专属问候 -->
+      <p class="role-greeting role-greeting--guest" data-i18n="index.hero.greeting.guest">—— 坐下、看戏，今晚的故事为你而开。</p>
+      <p class="role-greeting role-greeting--accomplice" data-i18n="index.hero.greeting.accomplice">—— 欢迎回来，自己人。页面已按你的权限解锁隐藏内容。</p>
+
+      <!-- AI 问答 -->
+      <div class="ask">
+        <div class="ask__box">
+          <span class="ask__glow-l" aria-hidden="true"></span>
+          <span class="ask__glow-r" aria-hidden="true"></span>
+          <textarea class="ask__input" id="askInput" rows="1" data-i18n-attr="placeholder:index.ask.placeholder" placeholder="你好，我是惊喜 AI。想了解什么？比如"今年有什么演出？""如何合作？""Hi, ask anything.""></textarea>
+          <button class="ask__send" id="askSend" aria-label="发送">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+          </button>
+          <div class="ask__reply" id="askReply"></div>
+        </div>
+        <!-- 提示词 + 角色切换（移到框外） -->
+        <div class="ask__hints">
+          <div class="ask__chips">
+            <button class="ask__chip" data-q="今年有哪些重点演出？" data-i18n="index.ask.chip1">今年有哪些重点演出？</button>
+            <button class="ask__chip" data-q="如何与你们合作？" data-i18n="index.ask.chip2">如何与你们合作？</button>
+            <button class="ask__chip" data-q="《终极骗局 3.0》讲什么？" data-i18n="index.ask.chip3">《终极骗局 3.0》讲什么？</button>
+          </div>
+          <div class="role-switch" role="tablist">
+            <button data-role-switch="director" class="is-active" data-i18n="index.ask.role.director">问导演</button>
+            <button data-role-switch="character" data-i18n="index.ask.role.character">问角色</button>
+            <button data-role-switch="agent" data-i18n="index.ask.role.agent">问票务</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero__scroll">
+      Scroll
+    </div>
+  </section>
+
+  <!-- ========== MANIFESTO ========== -->
+  <section class="manifesto" id="manifesto" data-screen-label="02 Manifesto">
+    <span class="manifesto__number" data-i18n="index.manifesto.number">01 / Manifesto</span>
+    <div class="manifesto__inner">
+      <p class="manifesto__label" data-i18n="index.manifesto.label">品牌宣言 / Manifesto</p>
+      <blockquote class="manifesto__quote" data-reveal data-i18n="index.manifesto.quote" data-i18n-html="true">
+        我们不制造<em>幻觉</em>。<br>
+        我们建造<strong>真实</strong><br>
+        一个比日常更真实的世界。
+      </blockquote>
+      <p class="manifesto__cite" data-i18n="index.manifesto.cite">惊喜之夜 · EST. 2018 China</p>
+    </div>
+  </section>
+
+  <!-- ========== SECRET STAGE · 共谋者专属隐藏剧目 ========== -->
+  <section class="secret-stage" data-screen-label="02.5 Secret Stage">
+    <div class="secret-stage__inner">
+      <div class="secret-stage__head">
+        <p class="secret-stage__eyebrow" data-i18n="index.secretStage.eyebrow">Between Acts · 幕间</p>
+        <h2 class="secret-stage__title" data-i18n="index.secretStage.title" data-i18n-html="true">名单之外<em>Off the Roster</em></h2>
+      </div>
+      <div class="secret-stage__grid">
+
+        <!-- 共谋者专属：隐藏剧目 -->
+        <div class="secret-card is-locked" data-secret-card data-card-index="0">
+          <div class="secret-card__veil">
+            <div class="secret-card__veil-mark" data-i18n="secretCard.card1.veilMark">⌕ CLASSIFIED · 三把钥匙</div>
+            <div class="secret-card__veil-hint" data-i18n="secretCard.card1.veilHint" data-i18n-html="true">
+              页面里藏着 <em>三件线索</em>——<br>
+              滚动页面，留意琥珀色的 <em>✉ 信笺</em> · <em>✦ 票根</em> · <em>◉ 硬币</em>，<br>
+              点击收集。每一把钥匙让文字显形一批。
+            </div>
+            <div class="secret-card__veil-progress"><span data-lock-progress>0 / 3</span></div>
+          </div>
+          <div class="secret-card__mark" data-i18n="secretCard.card1.mark">CLASSIFIED · 筹备中项目</div>
+          <h3 class="secret-card__title" data-shard-text data-i18n="secretCard.card1.title" data-i18n-html="true">诊疗椅上的谎言<em>Lying on the Couch</em></h3>
+          <p class="secret-card__text" data-shard-text data-i18n="secretCard.card1.text" data-i18n-html="true">"一场诊疗，越过了该有的边界。一个心理医生，与他的女性来访者在错误的关系里不断下沉。起初像失控，后来像共谋，再后来，他们都发现，自己握住的并不是爱，而是<strong style="color:#b87df8">一把慢慢转向彼此的刀</strong>。"类型：心理悬疑 · 小剧场作品。</p>
+        </div>
+
+        <!-- 共谋者专属：第二张未公开剧目预告 -->
+        <div class="secret-card is-locked" data-secret-card data-card-index="1">
+          <div class="secret-card__veil">
+            <div class="secret-card__veil-mark" data-i18n="secretCard.card2.veilMark">⌕ IN DEVELOPMENT · 三把钥匙</div>
+            <div class="secret-card__veil-hint" data-i18n="secretCard.card2.veilHint" data-i18n-html="true">
+              这部剧目还未公开——<br>
+              收集三件线索，文字会<em>分三批</em>显形，<br>
+              直到预告完整浮现。
+            </div>
+            <div class="secret-card__veil-progress"><span data-lock-progress>0 / 3</span></div>
+          </div>
+          <div class="secret-card__mark" data-i18n="secretCard.card2.mark">In Showcase · 北京展演</div>
+          <h3 class="secret-card__title" data-shard-text data-i18n="secretCard.card2.title" data-i18n-html="true">山海经 · 巨灵之梦<em>Dream of the Colossus</em></h3>
+          <p class="secret-card__text" data-shard-text data-i18n="secretCard.card2.text" data-i18n-html="true">"2026 年 7 月 10 日 — 12 日，《山海经 · 巨灵之梦》将在北京展演。一部作品正在离开排练厅，进入新的城市现场。接下来的<strong style="color:#b87df8">相遇、移动与发生</strong>，都会从这里开始。"时间：<strong style="color:#b87df8">2026.07.10 – 07.12</strong> · 北京展演。</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WORKS ========== -->
+  <section class="works" id="works" data-screen-label="03 Works">
+    <div class="works__head">
+      <div class="works__head-l">
+        <p class="works__eyebrow" data-i18n="index.works.eyebrow">02 / Selected Works</p>
+        <h2 class="works__title" data-i18n="index.works.title" data-i18n-html="true">正在<em>上演</em></h2>
+        <p class="works__lead" data-i18n="index.works.lead">
+          九部常驻剧目，横跨沉浸式戏剧、文旅叙事与 IP 开发。每一部都是一个可以走进去的世界。
+        </p>
+      </div>
+      <a href="works.html" class="works__all" data-i18n="index.works.viewAll">查看全部作品 →</a>
+    </div>
+
+    <div class="works__grid">
+
+      <!-- ① 巨灵之梦 · 横向 banner（原聂小倩样式）· 交互：顶部滑入下一场信息 -->
+      <article class="card card--banner card--shanhai card--interactive card--ticket" data-card="shanhai">
+        <div class="card__bg"></div>
+        <div class="card__banner-darken"></div>
+        <div class="card__banner-spot"></div>
+        <div class="card__banner-body">
+          <div class="card__tags">
+            <span class="card__tag card__tag--live" data-i18n="common.nowPlaying">正在上演</span>
+            <span class="card__tag card__tag--kind" data-i18n="common.stage">舞台剧</span>
+          </div>
+          <h3 class="card__banner-title" data-i18n="index.works.shanhai.title">山海经 · 巨灵之梦</h3>
+          <p class="card__subtitle" data-i18n="index.works.shanhai.subtitle">The Dream of Colossus</p>
+          <p class="card__banner-desc" data-i18n="index.works.shanhai.desc">东方神话的沉浸式重构。观众不再是旁观者，而是神话的见证人。</p>
+          <div class="card__banner-meta">
+            <span class="card__banner-chip" data-i18n="index.works.shanhai.chip1">沉浸式</span>
+            <span class="card__banner-chip" data-i18n="index.works.shanhai.chip2">可站可走</span>
+            <span class="card__banner-chip" data-i18n="index.works.shanhai.chip3">90 分钟</span>
+            <span class="card__banner-arrow" data-i18n="common.viewSchedule">查看日程 →</span>
+          </div>
+        </div>
+        <a class="card__goto" href="project-shanhai.html" aria-label="查看《山海经·巨灵之梦》详情">
+          <span class="card__goto-text" data-i18n="common.viewDetails">查看详情</span>
+          <span class="card__goto-arrow">→</span>
+        </a>
+      </article>
+
+      <!-- ② 副旗舰：终极骗局 3.0 · 交互：hover 卡片翻转，背面显示角色分支 -->
+      <article class="card card--half card--ultimate card--interactive card--flip" data-tilt data-card="ultimate">
+        <div class="card__flip-inner">
+          <div class="card__flip-face card__flip-face--front">
+            <div class="card__bg"></div>
+            <div class="card__scrim"></div>
+            <div class="card__spot"></div>
+            <div class="card__body">
+              <div class="card__tags">
+                <span class="card__tag card__tag--live" data-i18n="common.nowPlaying">正在上演</span>
+                <span class="card__tag card__tag--kind" data-i18n="common.immersive">沉浸式戏剧</span>
+              </div>
+              <h3 class="card__title" data-i18n="index.works.ultimate.title">终极骗局 3.0</h3>
+              <p class="card__subtitle" data-i18n="index.works.ultimate.subtitle">Liar Game</p>
+              <div class="card__meta">
+                <p class="card__meta-text" data-i18n="index.works.ultimate.desc">关于信任与欺骗的沉浸式博弈。你不仅是观众，更是玩家。</p>
+                <span class="card__arrow" data-i18n="common.flipBack">翻到背面 ↻</span>
+              </div>
+            </div>
+          </div>
+          <div class="card__flip-face card__flip-face--back card__flip-face--slideshow">
+            <div class="card__slide" style="background-image: url('site/images/uc-02.jpg')"></div>
+            <div class="card__slide" style="background-image: url('site/images/uc-05.jpg')"></div>
+            <div class="card__slide" style="background-image: url('site/images/uc-08.jpg')"></div>
+            <div class="card__slide" style="background-image: url('site/images/uc-11.jpg')"></div>
+            <div class="card__slide-scrim"></div>
+            <span class="card__slide-mark" data-i18n="index.works.ultimate.slideMark">STAGE · 现场实录</span>
+            <p class="card__slide-foot" data-i18n="index.works.ultimate.slideFoot" data-i18n-html="true">47 个分支 · <em>没有正确答案</em></p>
+          </div>
+        </div>
+        <a class="card__goto" href="project-ultimate-con.html" aria-label="查看《终极骗局 3.0》详情">
+          <span class="card__goto-text" data-i18n="common.viewDetails">查看详情</span>
+          <span class="card__goto-arrow">→</span>
+        </a>
+      </article>
+
+      <!-- ③ 聂小倩（half · 翻转）· 正面：追光剧照；背面：四种情绪状态 -->
+      <article class="card card--half card--nie card--interactive card--flip card--flip-nie" data-tilt data-card="nie">
+        <div class="card__flip-inner">
+          <div class="card__flip-face card__flip-face--front">
+            <div class="card__bg"></div>
+            <div class="card__scrim"></div>
+            <div class="card__spot"></div>
+            <div class="card__body">
+              <div class="card__tags">
+                <span class="card__tag card__tag--kind" data-i18n="common.ip">IP 开发</span>
+              </div>
+              <h3 class="card__title" data-i18n="index.works.nie.title">聂小倩</h3>
+              <p class="card__subtitle" data-i18n="index.works.nie.subtitle">Nie Xiaoqian</p>
+              <div class="card__meta">
+                <p class="card__meta-text" data-i18n="index.works.nie.desc">古典志怪的现代剧场叙事改写。一个被封存百年的女鬼故事——这一次，由她自己讲。</p>
+                <span class="card__arrow" data-i18n="common.flipBack">翻到背面 ↻</span>
+              </div>
+            </div>
+          </div>
+          <div class="card__flip-face card__flip-face--back card__flip-face--nie card__flip-face--slideshow">
+            <div class="card__slide" style="background-image: url('assets/works/nie/stage-01.jpg')"></div>
+            <div class="card__slide" style="background-image: url('assets/works/nie/stage-02.jpg')"></div>
+            <div class="card__slide" style="background-image: url('assets/works/nie/stage-04.jpg')"></div>
+            <div class="card__slide" style="background-image: url('assets/works/nie/stage-05.jpg')"></div>
+            <div class="card__slide-scrim"></div>
+            <span class="card__slide-mark card__slide-mark--nie" data-i18n="index.works.nie.slideMark">STAGE · 兰若追光</span>
+            <p class="card__slide-foot" data-i18n="index.works.nie.slideFoot" data-i18n-html="true">沉浸新中式<em>湘剧</em></p>
+          </div>
+        </div>
+        <a class="card__goto" href="project-nie.html" aria-label="查看《聂小倩》详情">
+          <span class="card__goto-text" data-i18n="common.viewDetails">查看详情</span>
+          <span class="card__goto-arrow">→</span>
+        </a>
+      </article>
+
+      <!-- 共谋者专属：隐藏剧目已移至 manifesto 与 works 之间（section.secret-stage） -->
+
+    </div>
+  </section>
+  <section class="press" data-screen-label="04 Press">
+    <p class="press__label" data-i18n="index.press.label">Voices · 声音</p>
+    <div class="press__marquee" id="pressMarquee">
+      <!-- 两份循环 -->
+      <div class="press__item"><span class="press__mark">01</span><p class="press__quote" data-i18n="index.press.q1">惊喜之夜把剧场拆成一条可走的路径，而你是路径本身。</p></div>
+      <div class="press__item"><span class="press__mark">02</span><p class="press__quote" data-i18n="index.press.q2">在这里，故事不是被观看的，而是被进入的。</p></div>
+      <div class="press__item"><span class="press__mark">03</span><p class="press__quote" data-i18n="index.press.q3">它不急着解释一切，而是先让你相信这个世界真的存在。</p></div>
+      <div class="press__item"><span class="press__mark">04</span><p class="press__quote" data-i18n="index.press.q4">这不是演出安排，而是一种被精心建造的在场经验。</p></div>
+      <div class="press__item"><span class="press__mark">01</span><p class="press__quote" data-i18n="index.press.q1">惊喜之夜把剧场拆成一条可走的路径，而你是路径本身。</p></div>
+      <div class="press__item"><span class="press__mark">02</span><p class="press__quote" data-i18n="index.press.q2">在这里，故事不是被观看的，而是被进入的。</p></div>
+      <div class="press__item"><span class="press__mark">03</span><p class="press__quote" data-i18n="index.press.q3">它不急着解释一切，而是先让你相信这个世界真的存在。</p></div>
+      <div class="press__item"><span class="press__mark">04</span><p class="press__quote" data-i18n="index.press.q4">这不是演出安排，而是一种被精心建造的在场经验。</p></div>
+    </div>
+  </section>
+
+  <!-- ========== CAPABILITIES ========== -->
+  <section class="caps" id="caps" data-screen-label="05 Capabilities">
+    <div class="caps__head">
+      <p class="caps__eyebrow" data-i18n="index.caps.eyebrow">03 / Capabilities</p>
+      <h2 class="caps__title" data-i18n="index.caps.title" data-i18n-html="true">我们能为你<em>做什么</em></h2>
+    </div>
+    <div class="caps__grid">
+      <div class="cap">
+        <p class="cap__num">01</p>
+        <h3 class="cap__name" data-i18n="index.caps.01.name" data-i18n-html="true">驻演项目引进<em>Resident Shows</em></h3>
+        <p class="cap__desc" data-i18n="index.caps.01.desc">成熟演出的巡演与驻场合作，覆盖 20+ 城市。</p>
+        <div class="cap__line"></div>
+      </div>
+      <div class="cap">
+        <p class="cap__num">02</p>
+        <h3 class="cap__name" data-i18n="index.caps.02.name" data-i18n-html="true">创演节合作<em>Festival Programming</em></h3>
+        <p class="cap__desc" data-i18n="index.caps.02.desc">为城市节庆与艺术节策划独家沉浸式内容。</p>
+        <div class="cap__line"></div>
+      </div>
+      <div class="cap">
+        <p class="cap__num">03</p>
+        <h3 class="cap__name" data-i18n="index.caps.03.name" data-i18n-html="true">文旅内容定制<em>Cultural Tourism</em></h3>
+        <p class="cap__desc" data-i18n="index.caps.03.desc">景区、文创园区、文化综合体的原创剧本与空间叙事。</p>
+        <div class="cap__line"></div>
+      </div>
+      <div class="cap">
+        <p class="cap__num">04</p>
+        <h3 class="cap__name" data-i18n="index.caps.04.name" data-i18n-html="true">沉浸式演出开发<em>Immersive Productions</em></h3>
+        <p class="cap__desc" data-i18n="index.caps.04.desc">从 IP 衍生到全新原创，可授权可加盟。</p>
+        <div class="cap__line"></div>
+      </div>
+      <div class="cap">
+        <p class="cap__num">05</p>
+        <h3 class="cap__name" data-i18n="index.caps.05.name" data-i18n-html="true">品牌激活<em>Brand Activations</em></h3>
+        <p class="cap__desc" data-i18n="index.caps.05.desc">为品牌发布与沉浸式活动提供整体叙事解决方案。</p>
+        <div class="cap__line"></div>
+      </div>
+      <div class="cap">
+        <p class="cap__num">06</p>
+        <h3 class="cap__name" data-i18n="index.caps.06.name" data-i18n-html="true">总策划与联合<em>Co-creation</em></h3>
+        <p class="cap__desc" data-i18n="index.caps.06.desc">与合作方共同打造从 0 到 1 的完整作品。</p>
+        <div class="cap__line"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PARTNERS ========== -->
+  <section class="partners" data-screen-label="06 Partners">
+    <div class="partners__inner">
+      <div class="partners__head">
+        <h2 class="partners__title" data-i18n="index.partners.title">合作与落地足迹</h2>
+        <div class="partners__count" data-count="30">00<small data-i18n="index.partners.countSuffix">CITIES / VENUES</small></div>
+      </div>
+      <div class="partners__wall">
+        <span class="partners__chip">北京朝阳剧场</span>
+        <span class="partners__chip">湖南大剧院</span>
+        <span class="partners__chip">梅溪湖大剧院</span>
+        <span class="partners__chip">重庆大剧院</span>
+        <span class="partners__chip">深圳滨海艺术中心</span>
+        <span class="partners__chip">上海虹桥艺术中心</span>
+        <span class="partners__chip">辽宁大剧院</span>
+        <span class="partners__chip">广州大剧院</span>
+        <span class="partners__chip">佛山大剧院</span>
+        <span class="partners__chip">合肥大剧院</span>
+        <span class="partners__chip">江苏大剧院</span>
+        <span class="partners__chip">南通大剧院</span>
+        <span class="partners__chip">扬州运河大剧院</span>
+        <span class="partners__chip">义乌文化广场剧院</span>
+        <span class="partners__chip">余姚大剧院</span>
+        <span class="partners__chip">会昌戏剧小镇</span>
+        <span class="partners__chip partners__chip--more" data-i18n="index.partners.more">+ 14 更多 · and counting</span>
+      </div>
+      <p class="partners__note" data-i18n="index.partners.note" data-i18n-html="true">
+        以上为部分代表性合作 · <em>partial list</em> · 完整名单请联系
+        <a href="mailto:contact@surprise-night.com">contact@surprise-night.com</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- ========== CTA ========== -->
+  <section class="cta" id="cta" data-screen-label="07 Contact">
+    <p class="cta__label" data-i18n="index.cta.label">门开着 · The Door Is Open</p>
+    <h2 class="cta__title" data-i18n="index.cta.title" data-i18n-html="true">一起<em>造一个</em><br>更真实的世界</h2>
+    <a class="cta__email" href="mailto:contact@surprise-night.com">contact@surprise-night.com</a>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <span data-i18n="footer.copyright">© 2026 惊喜之夜 Surprise Night</span>
+  <span data-i18n="footer.tagline">Immersive Theatre · China</span>
+</footer>
+
+<!-- Tweaks 按钮 -->
+<button class="tweaks__fab" id="tweaksFab" aria-label="Open tweaks">✦</button>
+
+<!-- Tweaks 面板 -->
+<aside class="tweaks" id="tweaks">
+  <div class="tweaks__head">
+    <span class="tweaks__title">Tweaks</span>
+    <button class="tweaks__close" id="tweaksClose" aria-label="Close">×</button>
+  </div>
+
+  <div class="tweaks__row">
+    <span class="tweaks__label">主色</span>
+    <div class="tweaks__colors" id="colorRow">
+      <button class="tweaks__color is-active" data-color="#C4354A" style="background:#C4354A; color:#C4354A"></button>
+      <button class="tweaks__color" data-color="#C87A3C" style="background:#C87A3C; color:#C87A3C"></button>
+      <button class="tweaks__color" data-color="#7A6AD8" style="background:#7A6AD8; color:#7A6AD8"></button>
+      <button class="tweaks__color" data-color="#3DAA7F" style="background:#3DAA7F; color:#3DAA7F"></button>
+      <button class="tweaks__color" data-color="#D4A34F" style="background:#D4A34F; color:#D4A34F"></button>
+    </div>
+  </div>
+
+  <div class="tweaks__row">
+    <span class="tweaks__label">钉钉钥匙开场</span>
+    <div class="tweaks__toggle is-on" data-tweak="keyIntro"></div>
+  </div>
+  <div class="tweaks__row">
+    <span class="tweaks__label">Act 指示条</span>
+    <div class="tweaks__toggle is-on" data-tweak="actIndicator"></div>
+  </div>
+  <div class="tweaks__row">
+    <span class="tweaks__label">道具彩蛋</span>
+    <div class="tweaks__toggle is-on" data-tweak="easterEggs"></div>
+  </div>
+  <div class="tweaks__row">
+    <span class="tweaks__label">间歇提示</span>
+    <div class="tweaks__toggle is-on" data-tweak="idleNudge"></div>
+  </div>
+  <div class="tweaks__row">
+    <span class="tweaks__label">追光黑箱模式</span>
+    <div class="tweaks__toggle" data-tweak="spotlightMode"></div>
+  </div>
+  <div class="tweaks__row">
+    <span class="tweaks__label">开场幕布</span>
+    <div class="tweaks__toggle is-on" data-tweak="curtainIntro"></div>
+  </div>
+  <div class="tweaks__row">
+    <span class="tweaks__label">光标光晕</span>
+    <div class="tweaks__toggle is-on" data-tweak="cursorGlow"></div>
+  </div>
+  <div class="tweaks__row">
+    <span class="tweaks__label">噪点纹理</span>
+    <div class="tweaks__toggle is-on" data-tweak="grainTexture"></div>
+  </div>
+  <div class="tweaks__row">
+    <span class="tweaks__label">卡片 3D 倾斜</span>
+    <div class="tweaks__toggle is-on" data-tweak="cardTilt"></div>
+  </div>
+  <div class="tweaks__row">
+    <span class="tweaks__label">动画强度</span>
+    <input type="range" class="tweaks__slider" min="0" max="2" step="1" value="1" id="animIntensity">
+  </div>
+  <div class="tweaks__row">
+    <span class="tweaks__label" style="font-size: 11px; color: var(--text-3)">再次点击可隐藏</span>
+    <button class="tweaks__toggle" id="replayIntro" style="width: auto; background: none; color: var(--accent); font-size: 11px; padding: 0 4px;">重播开场</button>
+  </div>
+</aside>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js" defer></script><script>
+(function(){
+  const body = document.body;
+
+  /* ========== 开场幕布 (由 v3 钥匙+身份完成后触发) ========== */
+  function runIntro() {
+    if (!TWEAKS.curtainIntro) {
+      body.classList.add('no-intro', 'intro-done');
+      return;
+    }
+    body.classList.remove('no-intro', 'intro-done');
+    document.getElementById('curtain').style.display = 'grid';
+    document.getElementById('curtainLogo').style.display = '';
+    requestAnimationFrame(() => {
+      setTimeout(() => body.classList.add('intro-ready'), 250);
+      setTimeout(() => body.classList.add('intro-done'), 1600);
+    });
+  }
+  window.__startV2Intro = runIntro;
+
+  /* ========== 光标光晕 ========== */
+  const glow = document.getElementById('cursorGlow');
+  let mx = window.innerWidth/2, my = window.innerHeight/2;
+  let gx = mx, gy = my;
+  if (TWEAKS.cursorGlow) body.classList.add('has-cursor');
+  window.addEventListener('mousemove', (e) => {
+    mx = e.clientX; my = e.clientY;
+    if (!body.classList.contains('has-cursor') && TWEAKS.cursorGlow) body.classList.add('has-cursor');
+  });
+  function animGlow(){
+    gx += (mx - gx) * 0.1;
+    gy += (my - gy) * 0.1;
+    glow.style.left = gx + 'px';
+    glow.style.top = gy + 'px';
+    requestAnimationFrame(animGlow);
+  }
+  animGlow();
+
+  /* ========== Hero 粒子 ========== */
+  const stars = document.getElementById('heroStars');
+  for (let i = 0; i < 40; i++) {
+    const s = document.createElement('span');
+    s.className = 'hero__star';
+    s.style.left = Math.random()*100 + '%';
+    s.style.setProperty('--sx', (Math.random()-0.5)*2);
+    s.style.animationDelay = (Math.random()*20) + 's';
+    s.style.animationDuration = (12 + Math.random()*18) + 's';
+    s.style.opacity = (0.2 + Math.random()*0.5);
+    stars.appendChild(s);
+  }
+
+  /* ========== 导航滚动状态 ========== */
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 40) nav.classList.add('is-scrolled');
+    else nav.classList.remove('is-scrolled');
+  }, { passive: true });
+
+  /* ========== 滚动淡入 ========== */
+  const revealEls = document.querySelectorAll('.manifesto__quote');
+  let _rvIdx = 0;
+  function wrapTextNodes(node) {
+    const kids = Array.from(node.childNodes);
+    kids.forEach(child => {
+      if (child.nodeType === 3) {
+        // 文字节点：按字符/词拆分
+        const text = child.nodeValue;
+        if (!text.trim()) return;
+        const frag = document.createDocumentFragment();
+        const parts = text.match(/([\u4e00-\u9fff]|[A-Za-z]+|[——。，、！？·\.])/g) || [];
+        // 保留非匹配的空白
+        let cursor = 0;
+        parts.forEach(p => {
+          const at = text.indexOf(p, cursor);
+          if (at > cursor) frag.appendChild(document.createTextNode(text.slice(cursor, at)));
+          const outer = document.createElement('span');
+          outer.className = 'rv';
+          const inner = document.createElement('span');
+          inner.style.setProperty('--i', _rvIdx++);
+          inner.textContent = p;
+          outer.appendChild(inner);
+          frag.appendChild(outer);
+          cursor = at + p.length;
+        });
+        if (cursor < text.length) frag.appendChild(document.createTextNode(text.slice(cursor)));
+        child.replaceWith(frag);
+      } else if (child.nodeType === 1 && child.tagName !== 'BR') {
+        // 元素节点（em/strong 等）：递归进去
+        wrapTextNodes(child);
+      }
+    });
+  }
+  revealEls.forEach(el => {
+    if (el.hasAttribute('data-reveal')) {
+      _rvIdx = 0;
+      wrapTextNodes(el);
+    }
+  });
+
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) e.target.classList.add('is-in');
+    });
+  }, { threshold: 0.2 });
+  revealEls.forEach(el => io.observe(el));
+
+  /* ========== 合作足迹 计数动画 ========== */
+  const countEl = document.querySelector('[data-count]');
+  if (countEl) {
+    const target = parseInt(countEl.dataset.count, 10);
+    const small = countEl.querySelector('small').outerHTML;
+    const cio = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (!e.isIntersecting) return;
+        let n = 0;
+        const dur = 1400, start = performance.now();
+        function tick(now){
+          const t = Math.min((now - start) / dur, 1);
+          const eased = 1 - Math.pow(1 - t, 3);
+          n = Math.round(eased * target);
+          countEl.innerHTML = (n < 10 ? '0' + n : n) + '+' + small;
+          if (t < 1) requestAnimationFrame(tick);
+        }
+        requestAnimationFrame(tick);
+        cio.disconnect();
+      });
+    }, { threshold: 0.5 });
+    cio.observe(countEl);
+  }
+
+  /* ========== 卡片 3D 倾斜 + 聚光灯 ========== */
+  document.querySelectorAll('[data-tilt]').forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+      const r = card.getBoundingClientRect();
+      const px = (e.clientX - r.left) / r.width;
+      const py = (e.clientY - r.top) / r.height;
+      card.style.setProperty('--mx', (px*100) + '%');
+      card.style.setProperty('--my', (py*100) + '%');
+      if (TWEAKS.cardTilt) {
+        const rx = (0.5 - py) * 6;
+        const ry = (px - 0.5) * 6;
+        card.style.transform = `perspective(1000px) rotateX(${rx}deg) rotateY(${ry}deg) translateZ(0)`;
+      }
+    });
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = '';
+    });
+  });
+
+  /* ========== AI 问答（模拟） ========== */
+  const askInput = document.getElementById('askInput');
+  const askSend = document.getElementById('askSend');
+  const askReply = document.getElementById('askReply');
+  const chips = document.querySelectorAll('.ask__chip');
+
+  const SAMPLE_REPLIES = {
+    "今年有哪些重点演出？": "2026 年的主推是《山海经 · 巨灵之梦》的全新巡演版本，以及《终极骗局 3.0》在长沙、青岛、南昌、重庆四城的驻场。此外，我们和几家文旅合作方一起在筹备两个新项目，预计夏末首演。",
+    "如何与你们合作？": "我们接受三类合作：① 驻场引进与巡演；② 文旅/品牌的定制叙事；③ 创演节与艺术节策划。你可以用右下角的邮箱和我们直接联系，附上你感兴趣的方向和落地城市，我们两个工作日内回复。",
+    "《终极骗局 3.0》讲什么？": "《终极骗局 3.0》是一场关于信任与欺骗的沉浸式博弈。入场后，观众会获得一个身份、一笔启动资金和一个任务——在充满谎言与真相的游戏中找到自己的盟友、识别对手，最终赢得游戏。150 分钟，80 人规模，没有固定座位、没有舞台边界。"
+  };
+
+  askInput.addEventListener('input', function(){
+    this.style.height = 'auto';
+    this.style.height = Math.min(this.scrollHeight, 140) + 'px';
+  });
+
+  function sendAsk(q){
+    if (!q) q = askInput.value.trim();
+    if (!q) return;
+    askInput.value = '';
+    askInput.style.height = 'auto';
+
+    askReply.classList.add('is-open');
+    const qDiv = document.createElement('div');
+    qDiv.className = 'ask__reply-q';
+    qDiv.textContent = '› ' + q;
+    askReply.appendChild(qDiv);
+
+    const aDiv = document.createElement('div');
+    aDiv.className = 'ask__reply-a';
+    askReply.appendChild(aDiv);
+
+    const reply = (window.__getRoleReply && window.__getRoleReply(q)) || SAMPLE_REPLIES[q] || "这是一个演示版回答。真实网站会接入 AI 流式回答，并基于你们的作品资料库与合作流程生成专属答案。你可以在上方尝试几个预设问题看看效果。";
+    let i = 0;
+    (function typer(){
+      aDiv.textContent = reply.slice(0, i++);
+      if (i <= reply.length) setTimeout(typer, 24);
+    })();
+
+    askReply.scrollTop = askReply.scrollHeight;
+  }
+
+  askSend.addEventListener('click', () => sendAsk());
+  askInput.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendAsk(); }
+  });
+  chips.forEach(c => c.addEventListener('click', () => {
+    askInput.value = c.dataset.q;
+    sendAsk(c.dataset.q);
+  }));
+
+  /* ========== Tweaks 面板 ========== */
+  const fab = document.getElementById('tweaksFab');
+  const panel = document.getElementById('tweaks');
+  const closeBtn = document.getElementById('tweaksClose');
+
+  function openPanel(){ panel.classList.add('is-open'); fab.classList.add('is-hidden'); }
+  function closePanel(){ panel.classList.remove('is-open'); fab.classList.remove('is-hidden'); }
+  fab.addEventListener('click', openPanel);
+  closeBtn.addEventListener('click', closePanel);
+
+  // Edit mode protocol
+  window.addEventListener('message', (e) => {
+    if (!e.data || !e.data.type) return;
+    if (e.data.type === '__activate_edit_mode') openPanel();
+    if (e.data.type === '__deactivate_edit_mode') closePanel();
+  });
+  try { window.parent.postMessage({type:'__edit_mode_available'}, '*'); } catch(e){}
+
+  function persist(keys){
+    try { window.parent.postMessage({type:'__edit_mode_set_keys', edits: keys}, '*'); } catch(e){}
+  }
+
+  // 主色切换
+  const colorRow = document.getElementById('colorRow');
+  colorRow.addEventListener('click', (e) => {
+    const b = e.target.closest('[data-color]');
+    if (!b) return;
+    colorRow.querySelectorAll('.tweaks__color').forEach(x => x.classList.remove('is-active'));
+    b.classList.add('is-active');
+    const c = b.dataset.color;
+    document.documentElement.style.setProperty('--accent', c);
+    document.documentElement.style.setProperty('--accent-glow', hexToRgba(c, 0.5));
+    TWEAKS.accentColor = c;
+    persist({ accentColor: c });
+  });
+
+  function hexToRgba(h, a){
+    const m = h.replace('#','');
+    const r = parseInt(m.slice(0,2),16), g = parseInt(m.slice(2,4),16), b = parseInt(m.slice(4,6),16);
+    return `rgba(${r},${g},${b},${a})`;
+  }
+
+  // Toggles
+  document.querySelectorAll('[data-tweak]').forEach(t => {
+    const key = t.dataset.tweak;
+    if (TWEAKS[key]) t.classList.add('is-on'); else t.classList.remove('is-on');
+    t.addEventListener('click', () => {
+      t.classList.toggle('is-on');
+      const on = t.classList.contains('is-on');
+      TWEAKS[key] = on;
+      applyTweak(key, on);
+      const patch = {}; patch[key] = on;
+      persist(patch);
+    });
+  });
+
+  function applyTweak(key, on){
+    if (key === 'cursorGlow') body.classList.toggle('no-cursor-glow', !on);
+    if (key === 'grainTexture') body.classList.toggle('no-grain', !on);
+    if (key === 'curtainIntro') { /* only on replay */ }
+    if (key === 'cardTilt') { /* runtime read */ }
+    // v3 tweaks
+    if (key === 'spotlightMode') window.__v3?.setSpotlight(on);
+    if (key === 'easterEggs') window.__v3?.setEasterEggs(on);
+    if (key === 'actIndicator') window.__v3?.setActIndicator(on);
+    if (key === 'idleNudge') window.__v3?.setIdleNudge(on);
+  }
+
+  // 初始应用
+  applyTweak('cursorGlow', TWEAKS.cursorGlow);
+  applyTweak('grainTexture', TWEAKS.grainTexture);
+  if (TWEAKS.accentColor !== '#C4354A') {
+    document.documentElement.style.setProperty('--accent', TWEAKS.accentColor);
+    document.documentElement.style.setProperty('--accent-glow', hexToRgba(TWEAKS.accentColor, 0.5));
+    document.querySelectorAll('.tweaks__color').forEach(x => {
+      x.classList.toggle('is-active', x.dataset.color === TWEAKS.accentColor);
+    });
+  }
+
+  // 动画强度
+  const animSlider = document.getElementById('animIntensity');
+  animSlider.value = TWEAKS.animationIntensity;
+  function applyAnim(v){
+    body.classList.remove('anim-low','anim-off');
+    if (v == 0) body.classList.add('anim-off');
+    else if (v == 2) body.classList.add('anim-low'); // 慢 = 强度低；这里用不同名字，但沿用样式
+  }
+  applyAnim(TWEAKS.animationIntensity);
+  animSlider.addEventListener('input', () => {
+    const v = parseInt(animSlider.value, 10);
+    TWEAKS.animationIntensity = v;
+    applyAnim(v);
+    persist({ animationIntensity: v });
+  });
+
+  // 重播开场
+  document.getElementById('replayIntro').addEventListener('click', () => {
+    closePanel();
+    body.classList.remove('intro-done','intro-ready','no-intro');
+    requestAnimationFrame(() => {
+      setTimeout(() => body.classList.add('intro-ready'), 250);
+      setTimeout(() => body.classList.add('intro-done'), 1600);
+    });
+  });
+
+  // ========== 汉堡菜单（移动端） ==========
+  const navEl = document.getElementById('nav');
+  const burger = document.getElementById('navBurger');
+  if (burger && navEl) {
+    const closeNav = () => {
+      navEl.classList.remove('nav--open');
+      burger.setAttribute('aria-expanded', 'false');
+      body.style.overflow = '';
+    };
+    burger.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const open = navEl.classList.toggle('nav--open');
+      burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+      body.style.overflow = open ? 'hidden' : '';
+    });
+    navEl.querySelectorAll('.nav__link').forEach(a => a.addEventListener('click', closeNav));
+    // 点击空白关闭
+    document.addEventListener('click', (e) => {
+      if (navEl.classList.contains('nav--open') && !navEl.contains(e.target)) closeNav();
+    });
+  }
+
+})();
+</script>
+<script src="v3-immersive.js?v=entryflow3"></script>
 
     <!-- AI 问答助手 逻辑 -->
     <script>
@@ -692,5 +2614,5 @@
       }
     })();
     </script>
-  </body>
+</body>
 </html>

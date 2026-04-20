@@ -1,205 +1,243 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>现场图集 — 山海经·巨灵之梦</title>
-    <meta name="description" content="剧场剧照全览、宣传片与高清画面。" />
-    <link rel="stylesheet" href="css/styles.css" />
-  </head>
-  <body data-i18n-page="project-shanhai-gallery">
-    <header class="site-header">
-      <div class="inner">
-        <a href="index.html" class="logo" style="display: flex; align-items: center; gap: 12px; font-size: 1.1rem;"> <img src="assets/images/logo.png" alt="" style="width: 32px; height: 32px; object-fit: contain;"> <span>惊喜之夜 <span style="opacity: 0.7; font-size: 0.75rem; font-weight: 400; margin-left: 4px;">/ Surprise Night</span></span> </a>
-        <button type="button" class="nav-toggle" data-i18n="nav.menu" aria-expanded="false" aria-controls="primary-nav">菜单</button>
-        <nav>
-          <ul id="primary-nav" class="nav-links">
-            <li><a href="works.html" data-i18n="nav.works">作品</a></li>
-            <li><a href="collaborate.html" data-i18n="nav.collaborate">合作</a></li>
-            <li class="nav-item nav-item--has-sub">
-            <a href="about.html" data-i18n="nav.about">关于</a>
-            <ul class="nav-sub" role="list">
-              <li><a href="collaborators.html" data-i18n="nav.collaborators">合作艺术家</a></li>
-            </ul>
-          </li>
-            <li><a href="contact.html" data-i18n="nav.contact">联系</a></li>
-            <li class="nav-lang" aria-label="Language">
-              <button type="button" class="lang-btn" data-set-lang="zh" aria-pressed="true">中</button>
-              <button type="button" class="lang-btn" data-set-lang="en" aria-pressed="false">EN</button>
-            </li>
-          </ul>
-        </nav>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title data-i18n="page.title.shanhai.gallery">现场图集 — 山海经 · 巨灵之梦</title>
+<meta name="description" content="剧场剧照全览、宣传片与高清画面。" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Noto+Sans+SC:wght@300;400;500;600;700&family=Noto+Serif+SC:wght@400;500;600;700&family=Syne:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="project-shanhai-sub.css" />
+<script src="i18n.js"></script>
+</head>
+<body>
+<div class="grain"></div>
+
+<nav class="nav">
+  <a href="index.html" class="nav__brand">
+    <span class="nav__mark">SN</span>
+    <span class="nav__brand-cn">惊喜之夜</span>
+    <span class="nav__brand-en">Surprise Night</span>
+  </a>
+  <div class="nav__links">
+    <a href="works.html" class="nav__link" data-i18n="nav.works">作品</a>
+    <a href="collaborate.html" class="nav__link" data-i18n="nav.collaborate">合作</a>
+    <a href="about.html" class="nav__link" data-i18n="nav.about">关于</a>
+    <a href="collaborators.html" class="nav__link" data-i18n="nav.artists">艺术家</a>
+    <a href="contact.html" class="nav__link" data-i18n="nav.contact">联系</a>
+    <div class="nav__lang">
+      <button data-set-lang="zh">中</button>
+      <button data-set-lang="en">EN</button>
+    </div>
+  </div>
+  <button class="nav__burger" id="navBurger" aria-label="菜单" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<main>
+  <nav class="subnav" aria-label="章节">
+    <div class="subnav__inner">
+      <a href="project-shanhai.html" data-i18n="shanhai.subnav.overview">概览 · Overview</a>
+      <a href="project-shanhai-story.html" data-i18n="shanhai.subnav.story">故事 · Story</a>
+      <a href="project-shanhai-stagecraft.html" data-i18n="shanhai.subnav.stage">舞台 · Stage</a>
+      <a href="project-shanhai-gallery.html" class="is-active" data-i18n="shanhai.subnav.gallery">图集 · Gallery</a>
+      <a href="project-shanhai-visit.html" data-i18n="shanhai.subnav.visit">观演 · Visit</a>
+    </div>
+  </nav>
+
+  <section class="sub-hero">
+    <div class="sub-hero__bg"></div>
+    <div class="sub-hero__inner">
+      <a class="back-link" href="project-shanhai.html" data-i18n="shanhai.backLink">← 返回《山海经 · 巨灵之梦》概览</a>
+      <p class="sub-hero__eyebrow" data-i18n="shanhai.gallery.eyebrow">Chapter 03 · Gallery</p>
+      <h1 data-i18n="shanhai.gallery.h" data-i18n-html="true">现场<em>图集</em></h1>
+      <p class="sub-hero__dek" data-i18n="shanhai.gallery.dek">横向滑动浏览；点击任一画面可全屏放大。</p>
+    </div>
+  </section>
+
+  <!-- Mosaic · 三图拼图 -->
+  <div class="gallery-mosaic">
+    <img src="https://raw.githubusercontent.com/ananinalfe-ship-it/surprise-night-web/main/assets/images/gallery/shanhai/ZDC_6044-ffbb5c5c-446b-44cc-97c4-d55cfed5d5eb.png" alt="剧照 · 光与体量" loading="lazy" />
+    <img src="https://raw.githubusercontent.com/ananinalfe-ship-it/surprise-night-web/main/assets/images/gallery/shanhai/R0000144-1c7315b0-2508-450b-b6c6-9e7ed2854271.png" alt="剧照 · 开场" loading="lazy" />
+    <img src="https://raw.githubusercontent.com/ananinalfe-ship-it/surprise-night-web/main/assets/images/gallery/shanhai/ZDC_7083-f641b14d-4fe9-41ae-a5a7-56c4f03d474e.png" alt="剧照 · 终幕" loading="lazy" />
+  </div>
+
+  <!-- Filmstrip · 横向胶片 -->
+  <section class="filmstrip-wrap">
+    <h2 class="sr-only" style="position:absolute;width:1px;height:1px;overflow:hidden" data-i18n="shanhai.gallery.more">更多现场画面</h2>
+    <div class="filmstrip">
+      <div class="filmstrip__item"><img src="https://raw.githubusercontent.com/ananinalfe-ship-it/surprise-night-web/main/assets/images/gallery/shanhai/ZDC_6636-0b1fb4d6-a2ca-4426-8a95-85ed9fee393d.png" alt="剧照 01" loading="lazy" /></div>
+      <div class="filmstrip__item"><img src="https://raw.githubusercontent.com/ananinalfe-ship-it/surprise-night-web/main/assets/images/gallery/shanhai/ZDC_6631-4543b7b0-bb87-44b9-81cd-7967ff03ff3f.png" alt="剧照 02" loading="lazy" /></div>
+      <div class="filmstrip__item"><img src="https://raw.githubusercontent.com/ananinalfe-ship-it/surprise-night-web/main/assets/images/gallery/shanhai/R0000061-17f2f94e-e984-4fb2-8cd3-b1fc625f3cce.png" alt="剧照 03" loading="lazy" /></div>
+      <div class="filmstrip__item"><img src="https://raw.githubusercontent.com/ananinalfe-ship-it/surprise-night-web/main/assets/images/gallery/shanhai/R0000080-65a68088-65c7-4ae0-a3be-d61ebeba6aad.png" alt="剧照 04" loading="lazy" /></div>
+      <div class="filmstrip__item"><img src="https://raw.githubusercontent.com/ananinalfe-ship-it/surprise-night-web/main/assets/images/gallery/shanhai/ZDC_7094-40e66339-5426-4a04-97cc-155268a2bc4f.png" alt="剧照 05" loading="lazy" /></div>
+      <div class="filmstrip__item"><img src="https://raw.githubusercontent.com/ananinalfe-ship-it/surprise-night-web/main/assets/images/gallery/shanhai/ZDC_7015-33fcb243-95fe-49d2-bc43-0a89b2445e18.png" alt="剧照 06" loading="lazy" /></div>
+      <div class="filmstrip__item"><img src="https://raw.githubusercontent.com/ananinalfe-ship-it/surprise-night-web/main/assets/images/gallery/shanhai/ZDC_6194-660d365b-f46b-4bac-91bd-969b69f9337c.png" alt="剧照 07" loading="lazy" /></div>
+      <div class="filmstrip__item"><img src="https://raw.githubusercontent.com/ananinalfe-ship-it/surprise-night-web/main/assets/images/gallery/shanhai/ZDC_6388-a138b667-55cb-4017-889a-446283ff245e.png" alt="剧照 08" loading="lazy" /></div>
+      <div class="filmstrip__item"><img src="https://raw.githubusercontent.com/ananinalfe-ship-it/surprise-night-web/main/assets/images/gallery/shanhai/ZDC_6035-62ed58d2-3607-429e-819e-639b6ee09de8.png" alt="剧照 09" loading="lazy" /></div>
+      <div class="filmstrip__item"><img src="https://raw.githubusercontent.com/ananinalfe-ship-it/surprise-night-web/main/assets/images/gallery/shanhai/ZDC_5988-c97bb8b9-54e6-4e2f-ac25-50bec67a06c7.png" alt="剧照 10" loading="lazy" /></div>
+      <div class="filmstrip__item"><img src="https://raw.githubusercontent.com/ananinalfe-ship-it/surprise-night-web/main/assets/images/gallery/shanhai/ZDC_6516-8c6fcb23-de06-4a36-8ff0-79b247d61988.png" alt="剧照 11" loading="lazy" /></div>
+      <div class="filmstrip__item"><img src="https://raw.githubusercontent.com/ananinalfe-ship-it/surprise-night-web/main/assets/images/gallery/shanhai/ZDC_5921-d893b9b5-a341-4eda-8939-bdfe8215def3.png" alt="剧照 12" loading="lazy" /></div>
+      <div class="filmstrip__item"><img src="https://raw.githubusercontent.com/ananinalfe-ship-it/surprise-night-web/main/assets/images/gallery/shanhai/ZDC_6037-c6908b2d-b243-4843-82d8-1d63757bf2c0.png" alt="剧照 13" loading="lazy" /></div>
+      <div class="filmstrip__item"><img src="https://raw.githubusercontent.com/ananinalfe-ship-it/surprise-night-web/main/assets/images/gallery/shanhai/ZDC_6284-4f7028d3-062f-4214-bb9d-48c364c604a4.png" alt="剧照 14" loading="lazy" /></div>
+      <div class="filmstrip__item"><img src="https://raw.githubusercontent.com/ananinalfe-ship-it/surprise-night-web/main/assets/images/gallery/shanhai/ZDC_6010-ac7a7b89-9984-4c3c-9b30-7fe0e781a4a3.png" alt="剧照 15" loading="lazy" /></div>
+      <div class="filmstrip__item"><img src="https://raw.githubusercontent.com/ananinalfe-ship-it/surprise-night-web/main/assets/images/gallery/shanhai/ZDC_5919-c9a317db-e23e-4f5c-a528-88d445df6cb1.png" alt="剧照 16" loading="lazy" /></div>
+      <div class="filmstrip__item"><img src="https://raw.githubusercontent.com/ananinalfe-ship-it/surprise-night-web/main/assets/images/gallery/shanhai/ZDC_5904-776d4110-33bb-4918-b4be-8289a36a80f3.png" alt="剧照 17" loading="lazy" /></div>
+    </div>
+  </section>
+
+  <!-- Grid · 全集 -->
+  <div class="gallery-grid">
+    <div><img src="https://raw.githubusercontent.com/ananinalfe-ship-it/surprise-night-web/main/assets/images/gallery/shanhai/ZDC_6457-6d2c03de-c16a-4f3f-be8c-613ff634b51a.png" alt="" loading="lazy" /></div>
+    <div><img src="https://raw.githubusercontent.com/ananinalfe-ship-it/surprise-night-web/main/assets/images/gallery/shanhai/R0000144_2-bc6cea24-d50a-4adf-aa84-ef844218b739.png" alt="" loading="lazy" /></div>
+    <div><img src="https://raw.githubusercontent.com/ananinalfe-ship-it/surprise-night-web/main/assets/images/gallery/shanhai/ZDC_6810-1df01eaa-e6da-48a9-a6e0-8eb436d48a96.png" alt="" loading="lazy" /></div>
+    <div><img src="https://raw.githubusercontent.com/ananinalfe-ship-it/surprise-night-web/main/assets/images/gallery/shanhai/ZDC_6992-898ff248-844e-4cc3-8edf-48eeb2386861.png" alt="" loading="lazy" /></div>
+    <div><img src="https://raw.githubusercontent.com/ananinalfe-ship-it/surprise-night-web/main/assets/images/gallery/shanhai/R0000138-538040d4-616f-457c-a58c-2902d789b0da.png" alt="" loading="lazy" /></div>
+    <div><img src="https://raw.githubusercontent.com/ananinalfe-ship-it/surprise-night-web/main/assets/images/gallery/shanhai/ZDC_6194-660d365b-f46b-4bac-91bd-969b69f9337c.png" alt="" loading="lazy" /></div>
+    <div><img src="https://raw.githubusercontent.com/ananinalfe-ship-it/surprise-night-web/main/assets/images/gallery/shanhai/ZDC_6388-a138b667-55cb-4017-889a-446283ff245e.png" alt="" loading="lazy" /></div>
+    <div><img src="https://raw.githubusercontent.com/ananinalfe-ship-it/surprise-night-web/main/assets/images/gallery/shanhai/ZDC_6035-62ed58d2-3607-429e-819e-639b6ee09de8.png" alt="" loading="lazy" /></div>
+    <div><img src="https://raw.githubusercontent.com/ananinalfe-ship-it/surprise-night-web/main/assets/images/gallery/shanhai/ZDC_5988-c97bb8b9-54e6-4e2f-ac25-50bec67a06c7.png" alt="" loading="lazy" /></div>
+    <div><img src="https://raw.githubusercontent.com/ananinalfe-ship-it/surprise-night-web/main/assets/images/gallery/shanhai/ZDC_6516-8c6fcb23-de06-4a36-8ff0-79b247d61988.png" alt="" loading="lazy" /></div>
+    <div><img src="https://raw.githubusercontent.com/ananinalfe-ship-it/surprise-night-web/main/assets/images/gallery/shanhai/ZDC_5921-d893b9b5-a341-4eda-8939-bdfe8215def3.png" alt="" loading="lazy" /></div>
+    <div><img src="https://raw.githubusercontent.com/ananinalfe-ship-it/surprise-night-web/main/assets/images/gallery/shanhai/ZDC_7083-f641b14d-4fe9-41ae-a5a7-56c4f03d474e.png" alt="" loading="lazy" /></div>
+    <div><img src="https://raw.githubusercontent.com/ananinalfe-ship-it/surprise-night-web/main/assets/images/gallery/shanhai/ZDC_6037-c6908b2d-b243-4843-82d8-1d63757bf2c0.png" alt="" loading="lazy" /></div>
+    <div><img src="https://raw.githubusercontent.com/ananinalfe-ship-it/surprise-night-web/main/assets/images/gallery/shanhai/ZDC_6284-4f7028d3-062f-4214-bb9d-48c364c604a4.png" alt="" loading="lazy" /></div>
+    <div><img src="https://raw.githubusercontent.com/ananinalfe-ship-it/surprise-night-web/main/assets/images/gallery/shanhai/ZDC_6010-ac7a7b89-9984-4c3c-9b30-7fe0e781a4a3.png" alt="" loading="lazy" /></div>
+    <div><img src="https://raw.githubusercontent.com/ananinalfe-ship-it/surprise-night-web/main/assets/images/gallery/shanhai/ZDC_5919-c9a317db-e23e-4f5c-a528-88d445df6cb1.png" alt="" loading="lazy" /></div>
+    <div><img src="https://raw.githubusercontent.com/ananinalfe-ship-it/surprise-night-web/main/assets/images/gallery/shanhai/ZDC_5904-776d4110-33bb-4918-b4be-8289a36a80f3.png" alt="" loading="lazy" /></div>
+    <div><img src="https://raw.githubusercontent.com/ananinalfe-ship-it/surprise-night-web/main/assets/images/gallery/shanhai/ZDC_6044-ffbb5c5c-446b-44cc-97c4-d55cfed5d5eb.png" alt="" loading="lazy" /></div>
+  </div>
+
+  <!-- 宣传片 · 双源 -->
+  <section class="video-wrap" id="trailer">
+    <div class="video-card">
+      <div class="video-card__play">▶</div>
+      <div class="video-card__label" data-i18n="shanhai.trailer.label" data-i18n-html="true"><em>Trailer</em> · 宣传片</div>
+      <div class="video-src">
+        <button type="button" class="video-src-btn" data-video="youtube"><span class="dot"></span>YouTube</button>
+        <button type="button" class="video-src-btn" data-video="bilibili" data-i18n="shanhai.trailer.bilibili" data-i18n-html="true"><span class="dot"></span>B 站</button>
       </div>
-    </header>
+    </div>
+  </section>
+</main>
 
-    <main class="project-shanhai-page shanhai-gallery-page">
-      <nav class="shanhai-subnav" aria-label="Section">
-        <div class="shanhai-subnav__inner">
-          <a href="project-shanhai.html" data-i18n="projectShanhai.subNavOverview">概览</a>
-          <a href="project-shanhai-story.html" data-i18n="projectShanhai.subNavStory">故事</a>
-          <a href="project-shanhai-stagecraft.html" data-i18n="projectShanhai.subNavStage">舞台</a>
-          <a href="project-shanhai-gallery.html" class="is-active" data-i18n="projectShanhai.subNavGallery">图集</a>
-          <a href="project-shanhai-visit.html" data-i18n="projectShanhai.subNavVisit">观演</a>
-        </div>
-      </nav>
+<footer class="site-footer">
+  <div class="site-footer__inner">
+    <div class="site-footer__brand" data-i18n="shanhai.footer.brand" data-i18n-html="true">© 2026 惊喜之夜 · <em>Surprise Night</em></div>
+    <div class="site-footer__links">
+      <a href="index.html" data-i18n="shanhai.footer.home">首页</a>
+      <a href="works.html" data-i18n="shanhai.footer.works">作品</a>
+      <a href="contact.html" data-i18n="shanhai.footer.contact">联系</a>
+    </div>
+  </div>
+</footer>
 
-      <section class="project-sub-hero">
-        <div class="inner">
-          <a class="back-link" href="project-shanhai.html" data-i18n="projectShanhai.backToShanhaiHub">← 返回《山海经·巨灵之梦》概览</a>
-          <h1 data-i18n="projectShanhai.galleryPageH1">现场图集</h1>
-          <p class="sub-hero-dek" data-i18n="projectShanhai.galleryPageDek">横向滑动浏览；点击画面可全屏查看。</p>
-        </div>
-      </section>
+<!-- Photo Lightbox -->
+<div class="photo-lb" id="photoLb" aria-hidden="true">
+  <div class="photo-lb__stage">
+    <img class="photo-lb__img" id="photoLbImg" alt="" />
+  </div>
+  <button class="photo-lb__close" id="photoLbClose" aria-label="关闭">×</button>
+  <button class="photo-lb__nav photo-lb__nav--prev" id="photoLbPrev" aria-label="上一张">‹</button>
+  <button class="photo-lb__nav photo-lb__nav--next" id="photoLbNext" aria-label="下一张">›</button>
+  <div class="photo-lb__cap" id="photoLbCap"></div>
+</div>
 
-      <div class="gallery-mosaic">
-        <div class="gallery-mosaic-item">
-          <img src="assets/images/gallery/shanhai/ZDC_6044-ffbb5c5c-446b-44cc-97c4-d55cfed5d5eb.png" alt="" loading="lazy" />
-        </div>
-        <div class="gallery-mosaic-item">
-          <img src="assets/images/gallery/shanhai/R0000144-1c7315b0-2508-450b-b6c6-9e7ed2854271.png" alt="" loading="lazy" />
-        </div>
-        <div class="gallery-mosaic-item">
-          <img src="assets/images/gallery/shanhai/ZDC_7083-f641b14d-4fe9-41ae-a5a7-56c4f03d474e.png" alt="" loading="lazy" />
-        </div>
-      </div>
+<!-- Video Modal -->
+<div class="video-modal" id="videoModal">
+  <div class="video-modal__content">
+    <button class="video-modal__close">×</button>
+    <iframe allow="autoplay; encrypted-media" allowfullscreen></iframe>
+  </div>
+</div>
 
-      <section class="container shanhai-filmstrip-wrap" style="padding-top: 8px">
-        <h2 class="sr-only" data-i18n="projectShanhai.filmstripHeading">更多现场画面</h2>
-        <div class="shanhai-filmstrip">
-          <div class="shanhai-filmstrip__item">
-            <img src="assets/images/gallery/shanhai/ZDC_6636-0b1fb4d6-a2ca-4426-8a95-85ed9fee393d.png" alt="" class="shanhai-zoomable" loading="lazy" />
-          </div>
-          <div class="shanhai-filmstrip__item">
-            <img src="assets/images/gallery/shanhai/ZDC_6631-4543b7b0-bb87-44b9-81cd-7967ff03ff3f.png" alt="" class="shanhai-zoomable" loading="lazy" />
-          </div>
-          <div class="shanhai-filmstrip__item">
-            <img src="assets/images/gallery/shanhai/R0000061-17f2f94e-e984-4fb2-8cd3-b1fc625f3cce.png" alt="" class="shanhai-zoomable" loading="lazy" />
-          </div>
-          <div class="shanhai-filmstrip__item">
-            <img src="assets/images/gallery/shanhai/R0000080-65a68088-65c7-4ae0-a3be-d61ebeba6aad.png" alt="" class="shanhai-zoomable" loading="lazy" />
-          </div>
-          <div class="shanhai-filmstrip__item">
-            <img src="assets/images/gallery/shanhai/ZDC_7094-40e66339-5426-4a04-97cc-155268a2bc4f.png" alt="" class="shanhai-zoomable" loading="lazy" />
-          </div>
-          <div class="shanhai-filmstrip__item">
-            <img src="assets/images/gallery/shanhai/ZDC_7015-33fcb243-95fe-49d2-bc43-0a89b2445e18.png" alt="" class="shanhai-zoomable" loading="lazy" />
-          </div>
-          <div class="shanhai-filmstrip__item">
-            <img src="assets/images/gallery/shanhai/ZDC_6194-660d365b-f46b-4bac-91bd-969b69f9337c.png" alt="" class="shanhai-zoomable" loading="lazy" />
-          </div>
-          <div class="shanhai-filmstrip__item">
-            <img src="assets/images/gallery/shanhai/ZDC_6388-a138b667-55cb-4017-889a-446283ff245e.png" alt="" class="shanhai-zoomable" loading="lazy" />
-          </div>
-          <div class="shanhai-filmstrip__item">
-            <img src="assets/images/gallery/shanhai/ZDC_6035-62ed58d2-3607-429e-819e-639b6ee09de8.png" alt="" class="shanhai-zoomable" loading="lazy" />
-          </div>
-          <div class="shanhai-filmstrip__item">
-            <img src="assets/images/gallery/shanhai/ZDC_5988-c97bb8b9-54e6-4e2f-ac25-50bec67a06c7.png" alt="" class="shanhai-zoomable" loading="lazy" />
-          </div>
-          <div class="shanhai-filmstrip__item">
-            <img src="assets/images/gallery/shanhai/ZDC_6516-8c6fcb23-de06-4a36-8ff0-79b247d61988.png" alt="" class="shanhai-zoomable" loading="lazy" />
-          </div>
-          <div class="shanhai-filmstrip__item">
-            <img src="assets/images/gallery/shanhai/ZDC_5921-d893b9b5-a341-4eda-8939-bdfe8215def3.png" alt="" class="shanhai-zoomable" loading="lazy" />
-          </div>
-          <div class="shanhai-filmstrip__item">
-            <img src="assets/images/gallery/shanhai/ZDC_7083-f641b14d-4fe9-41ae-a5a7-56c4f03d474e.png" alt="" class="shanhai-zoomable" loading="lazy" />
-          </div>
-          <div class="shanhai-filmstrip__item">
-            <img src="assets/images/gallery/shanhai/ZDC_6037-c6908b2d-b243-4843-82d8-1d63757bf2c0.png" alt="" class="shanhai-zoomable" loading="lazy" />
-          </div>
-          <div class="shanhai-filmstrip__item">
-            <img src="assets/images/gallery/shanhai/ZDC_6284-4f7028d3-062f-4214-bb9d-48c364c604a4.png" alt="" class="shanhai-zoomable" loading="lazy" />
-          </div>
-          <div class="shanhai-filmstrip__item">
-            <img src="assets/images/gallery/shanhai/ZDC_6010-ac7a7b89-9984-4c3c-9b30-7fe0e781a4a3.png" alt="" class="shanhai-zoomable" loading="lazy" />
-          </div>
-          <div class="shanhai-filmstrip__item">
-            <img src="assets/images/gallery/shanhai/ZDC_5919-c9a317db-e23e-4f5c-a528-88d445df6cb1.png" alt="" class="shanhai-zoomable" loading="lazy" />
-          </div>
-          <div class="shanhai-filmstrip__item">
-            <img src="assets/images/gallery/shanhai/ZDC_5904-776d4110-33bb-4918-b4be-8289a36a80f3.png" alt="" class="shanhai-zoomable" loading="lazy" />
-          </div>
-          <div class="shanhai-filmstrip__item">
-            <img src="assets/images/gallery/shanhai/ZDC_6044-ffbb5c5c-446b-44cc-97c4-d55cfed5d5eb.png" alt="" class="shanhai-zoomable" loading="lazy" />
-          </div>
-        </div>
-      </section>
+<script>
+  // Photo lightbox（所有剧照可点击放大 + 左右切换）
+  (function(){
+    const imgs = Array.from(document.querySelectorAll('.gallery-mosaic img, .filmstrip__item img, .gallery-grid img'));
+    if (!imgs.length) return;
+    const lb = document.getElementById('photoLb');
+    const lbImg = document.getElementById('photoLbImg');
+    const lbCap = document.getElementById('photoLbCap');
+    let idx = 0;
+    function show(i){
+      idx = (i + imgs.length) % imgs.length;
+      const src = imgs[idx].currentSrc || imgs[idx].src;
+      lbImg.style.opacity = '0';
+      const pre = new Image();
+      pre.onload = ()=>{ lbImg.src = src; lbImg.style.opacity = '1'; };
+      pre.src = src;
+      lbCap.innerHTML = `FRAME ${String(idx+1).padStart(2,'0')} <span style="margin-left:14px;opacity:.55">${idx+1} / ${imgs.length}</span>`;
+    }
+    function open(i){ show(i); lb.classList.add('is-open'); document.body.style.overflow = 'hidden'; }
+    function close(){ lb.classList.remove('is-open'); document.body.style.overflow = ''; }
+    imgs.forEach((img, i)=> img.addEventListener('click', ()=> open(i)));
+    document.getElementById('photoLbClose').addEventListener('click', close);
+    document.getElementById('photoLbPrev').addEventListener('click', ()=> show(idx-1));
+    document.getElementById('photoLbNext').addEventListener('click', ()=> show(idx+1));
+    lb.addEventListener('click', (e)=>{ if (e.target === lb) close(); });
+    document.addEventListener('keydown', (e)=>{
+      if (!lb.classList.contains('is-open')) return;
+      if (e.key === 'Escape') close();
+      if (e.key === 'ArrowLeft')  show(idx-1);
+      if (e.key === 'ArrowRight') show(idx+1);
+    });
+  })();
 
-      <div class="container">
-        <div class="gallery-grid" style="grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); margin-top: 32px">
-          <div class="gallery-item"><img src="assets/images/gallery/shanhai/ZDC_6457-6d2c03de-c16a-4f3f-be8c-613ff634b51a.png" alt="" loading="lazy" /></div>
-          <div class="gallery-item"><img src="assets/images/gallery/shanhai/R0000144_2-bc6cea24-d50a-4adf-aa84-ef844218b739.png" alt="" loading="lazy" /></div>
-          <div class="gallery-item"><img src="assets/images/gallery/shanhai/ZDC_6810-1df01eaa-e6da-48a9-a6e0-8eb436d48a96.png" alt="" loading="lazy" /></div>
-          <div class="gallery-item"><img src="assets/images/gallery/shanhai/ZDC_6992-898ff248-844e-4cc3-8edf-48eeb2386861.png" alt="" loading="lazy" /></div>
-          <div class="gallery-item"><img src="assets/images/gallery/shanhai/R0000138-538040d4-616f-457c-a58c-2902d789b0da.png" alt="" loading="lazy" /></div>
-          <div class="gallery-item"><img src="assets/images/gallery/shanhai/ZDC_6194-660d365b-f46b-4bac-91bd-969b69f9337c.png" alt="" loading="lazy" /></div>
-          <div class="gallery-item"><img src="assets/images/gallery/shanhai/ZDC_6388-a138b667-55cb-4017-889a-446283ff245e.png" alt="" loading="lazy" /></div>
-          <div class="gallery-item"><img src="assets/images/gallery/shanhai/ZDC_6035-62ed58d2-3607-429e-819e-639b6ee09de8.png" alt="" loading="lazy" /></div>
-          <div class="gallery-item"><img src="assets/images/gallery/shanhai/ZDC_5988-c97bb8b9-54e6-4e2f-ac25-50bec67a06c7.png" alt="" loading="lazy" /></div>
-          <div class="gallery-item"><img src="assets/images/gallery/shanhai/ZDC_6516-8c6fcb23-de06-4a36-8ff0-79b247d61988.png" alt="" loading="lazy" /></div>
-          <div class="gallery-item"><img src="assets/images/gallery/shanhai/ZDC_5921-d893b9b5-a341-4eda-8939-bdfe8215def3.png" alt="" loading="lazy" /></div>
-          <div class="gallery-item"><img src="assets/images/gallery/shanhai/ZDC_7083-f641b14d-4fe9-41ae-a5a7-56c4f03d474e.png" alt="" loading="lazy" /></div>
-          <div class="gallery-item"><img src="assets/images/gallery/shanhai/ZDC_6037-c6908b2d-b243-4843-82d8-1d63757bf2c0.png" alt="" loading="lazy" /></div>
-          <div class="gallery-item"><img src="assets/images/gallery/shanhai/ZDC_6284-4f7028d3-062f-4214-bb9d-48c364c604a4.png" alt="" loading="lazy" /></div>
-          <div class="gallery-item"><img src="assets/images/gallery/shanhai/ZDC_6010-ac7a7b89-9984-4c3c-9b30-7fe0e781a4a3.png" alt="" loading="lazy" /></div>
-          <div class="gallery-item"><img src="assets/images/gallery/shanhai/ZDC_5919-c9a317db-e23e-4f5c-a528-88d445df6cb1.png" alt="" loading="lazy" /></div>
-          <div class="gallery-item"><img src="assets/images/gallery/shanhai/ZDC_5904-776d4110-33bb-4918-b4be-8289a36a80f3.png" alt="" loading="lazy" /></div>
-          <div class="gallery-item"><img src="assets/images/gallery/shanhai/ZDC_6044-ffbb5c5c-446b-44cc-97c4-d55cfed5d5eb.png" alt="" loading="lazy" /></div>
-        </div>
-      </div>
+  // 视频双源切换
+  (function(){
+    const modal = document.getElementById('videoModal');
+    const iframe = modal?.querySelector('iframe');
+    const closeBtn = modal?.querySelector('.video-modal__close');
+    const SRC = {
+      youtube:  'https://www.youtube.com/embed/GGDgrTKY2Qs?autoplay=1&rel=0',
+      bilibili: '//player.bilibili.com/player.html?bvid=BV12zAuztE78&page=1&high_quality=1&danmaku=0&autoplay=1'
+    };
+    function open(key){
+      iframe.src = SRC[key] || SRC.youtube;
+      modal.classList.add('is-open');
+      document.body.style.overflow = 'hidden';
+    }
+    function close(){
+      iframe.src = '';
+      modal.classList.remove('is-open');
+      document.body.style.overflow = '';
+    }
+    document.querySelectorAll('[data-video]').forEach(btn=>{
+      btn.addEventListener('click', (e)=>{ e.stopPropagation(); open(btn.dataset.video); });
+    });
+    closeBtn?.addEventListener('click', close);
+    modal?.addEventListener('click', (e)=>{ if (e.target === modal) close(); });
+    document.addEventListener('keydown', (e)=>{ if (e.key === 'Escape') close(); });
+  })();
+</script>
 
-      <section class="container shanhai-video-section" id="trailer" style="padding-top: 48px">
-        <div class="video-card project-video project-video--dual">
-          <div class="video-thumb" style="background-image: url('assets/images/gallery/shanhai/R0000144-1c7315b0-2508-450b-b6c6-9e7ed2854271.png')">
-            <div class="play-btn" aria-hidden="true">▶</div>
-          </div>
-          <div class="project-video__actions">
-            <div class="video-source-row">
-              <button
-                type="button"
-                class="btn btn-primary video-source-btn"
-                onclick="openVideoModal('https://www.youtube.com/embed/GGDgrTKY2Qs?autoplay=1&amp;rel=0')"
-                data-i18n="projectShanhai.videoYoutubeBtn"
-              >
-                YouTube 播放
-              </button>
-              <button
-                type="button"
-                class="btn btn-ghost video-source-btn"
-                onclick="openVideoModal('//player.bilibili.com/player.html?bvid=BV12zAuztE78&amp;page=1&amp;high_quality=1&amp;danmaku=0&amp;autoplay=1')"
-                data-i18n="projectShanhai.videoBilibiliBtn"
-              >
-                哔哩哔哩播放
-              </button>
-            </div>
-          </div>
-        </div>
-      </section>
+<script>
+/* 汉堡菜单（移动端） */
+(function hamburger(){
+  const navEl = document.getElementById('nav') || document.querySelector('.nav');
+  const burger = document.getElementById('navBurger');
+  if (!burger || !navEl) return;
+  const body = document.body;
+  const closeNav = () => {
+    navEl.classList.remove('nav--open');
+    burger.setAttribute('aria-expanded', 'false');
+    body.style.overflow = '';
+  };
+  burger.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const open = navEl.classList.toggle('nav--open');
+    burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    body.style.overflow = open ? 'hidden' : '';
+  });
+  navEl.querySelectorAll('.nav__link').forEach(a => a.addEventListener('click', closeNav));
+  document.addEventListener('click', (e) => {
+    if (navEl.classList.contains('nav--open') && !navEl.contains(e.target)) closeNav();
+  });
+})();
+</script>
 
-      <div id="videoModal" class="video-modal" onclick="closeVideoModal()">
-        <div class="video-modal-content" onclick="event.stopPropagation()">
-          <button class="video-close" onclick="closeVideoModal()">×</button>
-          <iframe
-            id="videoFrame"
-            src=""
-            title="Trailer"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen
-          ></iframe>
-        </div>
-      </div>
-    </main>
-
-    <footer class="site-footer">
-      <div class="inner">
-        <span data-i18n="projectShanhai.footCopy">© 2026 惊喜之夜</span>
-        <a href="works.html" data-i18n="projectShanhai.footBack">返回作品列表</a>
-      </div>
-    </footer>
-
-    <script src="js/i18n.js" defer></script>
-    <script src="js/main.js" defer></script>
-  </body>
+</body>
 </html>

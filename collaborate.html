@@ -1,206 +1,789 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>合作 — 惊喜之夜 Surprise Night</title>
-    <meta
-      name="description"
-      content="合作产品矩阵：现成项目引进、驻场演艺、文旅定制、戏曲创新、国际巡演、品牌联名、IP 孵化。"
-    />
-    <link rel="stylesheet" href="css/styles.css" />
-  </head>
-  <body data-i18n-page="collaborate">
-    <header class="site-header">
-      <div class="inner">
-        <a href="index.html" class="logo" style="display: flex; align-items: center; gap: 12px; font-size: 1.1rem;">
-          <img src="assets/images/logo.png" alt="" style="width: 32px; height: 32px; object-fit: contain;">
-          <span>惊喜之夜 <span style="opacity: 0.7; font-size: 0.75rem; font-weight: 400; margin-left: 4px;">/ Surprise Night</span></span>
-        </a>
-        <button type="button" class="nav-toggle" data-i18n="nav.menu" aria-expanded="false" aria-controls="primary-nav">
-          菜单
-        </button>
-        <nav>
-          <ul id="primary-nav" class="nav-links">
-            <li><a href="works.html" data-i18n="nav.works">作品</a></li>
-            <li><a href="collaborate.html" aria-current="page" data-i18n="nav.collaborate">合作</a></li>
-            <li class="nav-item nav-item--has-sub">
-            <a href="about.html" data-i18n="nav.about">关于</a>
-            <ul class="nav-sub" role="list">
-              <li><a href="collaborators.html" data-i18n="nav.collaborators">合作艺术家</a></li>
-            </ul>
-          </li>
-            <li><a href="contact.html" data-i18n="nav.contact">联系</a></li>
-            <li class="nav-lang" aria-label="Language">
-              <button type="button" class="lang-btn" data-set-lang="zh" aria-pressed="true">中</button>
-              <button type="button" class="lang-btn" data-set-lang="en" aria-pressed="false">EN</button>
-            </li>
-          </ul>
-        </nav>
-      </div>
-    </header>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title data-i18n="page.title.collaborate">合作 — 惊喜之夜 Surprise Night</title>
+<meta name="description" content="合作产品矩阵：现成项目引进、驻场演艺、文旅定制、戏曲创新、国际巡演、品牌联名、IP 孵化。" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Noto+Sans+SC:wght@300;400;500;600;700&family=Noto+Serif+SC:wght@400;500;600;700&family=Syne:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="v3-shared.css" />
+<style>
+  /* ============================================================
+     合作 · 专属
+     ============================================================ */
+  .collab-hero {
+    min-height: 60vh;
+    padding: 130px var(--pad) 70px;
+    position: relative;
+    overflow: hidden;
+    display: flex; align-items: center;
+  }
+  .collab-hero__bg {
+    position: absolute; inset: 0; z-index: -2;
+    background:
+      radial-gradient(ellipse 80% 60% at 50% 30%, rgba(196,53,74,0.14), transparent 60%),
+      radial-gradient(ellipse 60% 40% at 90% 80%, rgba(100,40,200,0.08), transparent 70%),
+      linear-gradient(180deg, #05060a 0%, #0a0810 60%, #05060a 100%);
+  }
+  .collab-hero__stage {
+    position: absolute; inset: 0; z-index: -1;
+    pointer-events: none;
+    background: radial-gradient(ellipse 70% 40% at 50% 100%, rgba(196,53,74,0.22), transparent 60%);
+  }
+  .collab-hero__grid {
+    position: absolute; inset: 0; z-index: -1;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+    background-size: 80px 80px;
+    mask-image: radial-gradient(ellipse 80% 60% at 50% 50%, black 30%, transparent 75%);
+    -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 50%, black 30%, transparent 75%);
+  }
+  .collab-hero__inner {
+    max-width: 1280px; width: 100%; margin: 0 auto;
+    position: relative;
+  }
+  .collab-hero__eyebrow {
+    font-family: var(--display); font-size: 11px; font-weight: 500;
+    letter-spacing: .32em; text-transform: uppercase;
+    color: var(--text-3); margin-bottom: 24px;
+    display: inline-flex; gap: 10px; align-items: center;
+  }
+  .collab-hero__eyebrow::before {
+    content: ''; width: 40px; height: 1px; background: var(--accent);
+  }
+  .collab-hero__h1 {
+    font-family: var(--serif-cn); font-weight: 500;
+    font-size: clamp(56px, 9vw, 140px);
+    line-height: .95; letter-spacing: -0.03em;
+    margin-bottom: 30px;
+  }
+  .collab-hero__h1 em {
+    font-family: var(--serif-en); font-style: italic;
+    color: var(--accent); font-weight: 500;
+  }
+  .collab-hero__lead {
+    font-family: var(--serif-cn);
+    font-size: clamp(16px, 1.6vw, 20px);
+    color: var(--text-2);
+    max-width: 680px; line-height: 1.8;
+    margin-bottom: 12px;
+  }
+  .collab-hero__sub {
+    font-family: var(--serif-en); font-style: italic;
+    font-size: 14px; color: var(--text-3);
+  }
 
-    <main>
-      <div class="collab-hero">
-        <div class="container">
-          <h1 data-i18n="collabPage.h1">合作</h1>
-          <p class="lead" data-i18n="collabPage.lead">
-            以客户需求为核心的产品矩阵与流程说明。品牌展示见「作品」，商务转化从这里开始。
-          </p>
+  /* ============================================================
+     剧本卷轴 · 合作流程
+     ============================================================ */
+  .process {
+    padding: 80px var(--pad);
+    position: relative;
+  }
+  .process__inner { max-width: 1280px; margin: 0 auto; }
+  .process__head {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 60px;
+    margin-bottom: 44px; align-items: end;
+  }
+  @media (max-width: 860px){ .process__head { grid-template-columns: 1fr; gap: 24px; } }
+  .process__label {
+    font-family: var(--display); font-size: 11px;
+    letter-spacing: .32em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 14px;
+  }
+  .process__h {
+    font-family: var(--serif-cn); font-weight: 500;
+    font-size: clamp(36px, 5vw, 64px);
+    line-height: 1.08;
+  }
+  .process__h em { font-style: italic; font-family: var(--serif-en); color: var(--accent); }
+  .process__sub {
+    font-family: var(--serif-cn); font-size: 16px;
+    line-height: 1.9; color: var(--text-2);
+  }
+
+  .process__steps {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 0;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    position: relative;
+  }
+  @media (max-width: 860px){ .process__steps { grid-template-columns: 1fr; } }
+  .process__step {
+    padding: 40px 32px 50px;
+    border-right: 1px solid var(--line);
+    position: relative;
+    transition: background .3s ease;
+  }
+  @media (max-width: 860px){
+    .process__step { border-right: 0; border-bottom: 1px solid var(--line); }
+  }
+  .process__step:last-child { border-right: 0; }
+  .process__step:hover { background: rgba(196,53,74,0.04); }
+
+  .process__num {
+    font-family: var(--display); font-weight: 800;
+    font-size: 14px; letter-spacing: .3em;
+    color: var(--accent); margin-bottom: 20px;
+  }
+  .process__step h3 {
+    font-family: var(--serif-cn); font-weight: 600;
+    font-size: 24px; margin-bottom: 14px;
+  }
+  .process__step p {
+    font-size: 14px; line-height: 1.8; color: var(--text-2);
+  }
+  .process__conn {
+    position: absolute; top: 50%; right: -6px;
+    width: 12px; height: 12px; border: 1px solid var(--accent);
+    background: var(--bg-0);
+    transform: translateY(-50%) rotate(45deg);
+    z-index: 2;
+  }
+  @media (max-width: 860px){ .process__conn { display: none; } }
+  .process__step:last-child .process__conn { display: none; }
+
+  /* ============================================================
+     座位图 · 产品矩阵
+     ============================================================ */
+  .seats {
+    padding: 90px var(--pad) 110px;
+    background: linear-gradient(180deg, var(--bg-0), #0a070e 40%, var(--bg-0));
+    position: relative;
+    overflow: hidden;
+  }
+  .seats__inner {
+    max-width: 1400px; margin: 0 auto;
+  }
+  .seats__head {
+    text-align: center; margin-bottom: 22px;
+  }
+  .seats__label {
+    font-family: var(--display); font-size: 11px;
+    letter-spacing: .32em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 16px;
+  }
+  .seats__h {
+    font-family: var(--serif-cn); font-weight: 500;
+    font-size: clamp(36px, 5vw, 64px);
+    line-height: 1.08;
+    margin-bottom: 16px;
+  }
+  .seats__h em { font-style: italic; font-family: var(--serif-en); color: var(--accent); }
+  .seats__sub {
+    font-family: var(--serif-en); font-style: italic;
+    font-size: 15px; color: var(--text-3);
+  }
+  .seats__instruction {
+    margin-top: 40px;
+    text-align: center;
+    font-family: var(--display); font-size: 11px;
+    letter-spacing: .24em; text-transform: uppercase;
+    color: var(--text-3);
+    display: inline-flex; align-items: center; gap: 12px;
+    justify-content: center; width: 100%;
+  }
+  .seats__instruction .dot {
+    width: 10px; height: 10px; border-radius: 50%;
+    background: var(--accent); box-shadow: 0 0 12px var(--accent);
+    animation: pulse 2s ease-in-out infinite;
+  }
+
+  /* STAGE */
+  .stage-diagram {
+    max-width: 980px; margin: 40px auto 0;
+    perspective: 1400px;
+  }
+  .stage-floor {
+    position: relative;
+    padding: 30px 40px 60px;
+    transform: rotateX(10deg);
+    transform-style: preserve-3d;
+  }
+  .stage-label {
+    text-align: center;
+    font-family: var(--display); font-size: 11px;
+    letter-spacing: .32em; text-transform: uppercase;
+    color: var(--text-3);
+    padding: 14px;
+    background: linear-gradient(180deg, rgba(196,53,74,0.12), transparent);
+    border-top: 1px solid var(--accent);
+    margin-bottom: 30px;
+    position: relative;
+  }
+  .stage-label::before, .stage-label::after {
+    content: ''; position: absolute; top: -1px;
+    width: 40px; height: 10px;
+    border-top: 2px solid var(--accent);
+  }
+  .stage-label::before { left: 20%; border-left: 2px solid var(--accent); }
+  .stage-label::after  { right: 20%; border-right: 2px solid var(--accent); }
+
+  .seat-rows {
+    display: grid; gap: 16px;
+  }
+  .seat-row {
+    display: grid;
+    grid-template-columns: 40px 1fr 40px;
+    gap: 16px; align-items: center;
+  }
+  .seat-row__label {
+    font-family: var(--mono); font-size: 10px;
+    color: var(--text-3); letter-spacing: .1em;
+    text-align: center;
+  }
+  .seat-row__seats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+    gap: 10px;
+  }
+
+  .seat {
+    aspect-ratio: 1.4/1;
+    border: 1px solid var(--line);
+    background: rgba(255,255,255,0.02);
+    border-radius: 8px 8px 4px 4px;
+    display: grid; place-items: center;
+    position: relative;
+    cursor: pointer;
+    transition: all .3s var(--ease);
+    font-family: var(--display); font-size: 10px;
+    letter-spacing: .12em; color: var(--text-3);
+    text-align: center;
+    padding: 6px;
+  }
+  .seat::before {
+    content: '';
+    position: absolute; top: 6px; left: 6px; right: 6px; height: 2px;
+    background: var(--text-4);
+    border-radius: 1px;
+  }
+  .seat:hover:not(.seat--empty) {
+    border-color: var(--accent);
+    color: var(--accent);
+    background: rgba(196,53,74,0.12);
+    box-shadow: 0 8px 22px rgba(196,53,74,0.28);
+  }
+  .seat:hover:not(.seat--empty)::before { background: var(--accent); }
+
+  .seat.is-selected {
+    border-color: var(--accent);
+    background: var(--accent);
+    color: white;
+    box-shadow: 0 12px 32px rgba(196,53,74,0.55);
+  }
+  .seat.is-selected::before { background: white; }
+
+  .seat--empty {
+    border: 1px dashed rgba(255,255,255,0.05);
+    cursor: default;
+    opacity: .3;
+  }
+  .seat--empty::before { display: none; }
+
+  .seat__cn {
+    display: block;
+    font-family: var(--serif-cn); font-weight: 500;
+    font-size: 12px;
+    color: var(--text);
+    margin-top: 2px;
+  }
+  .seat.is-selected .seat__cn { color: white; }
+
+  /* 详情面板 */
+  .seat-detail {
+    margin-top: 40px;
+    border: 1px solid var(--accent);
+    border-radius: 4px;
+    padding: 50px 60px;
+    background:
+      linear-gradient(135deg, rgba(196,53,74,0.06), rgba(196,53,74,0.01));
+    position: relative;
+    min-height: 280px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity .6s var(--ease), transform .6s var(--ease);
+  }
+  .seat-detail.is-visible {
+    opacity: 1; transform: translateY(0);
+  }
+  .seat-detail__num {
+    position: absolute; top: 24px; right: 30px;
+    font-family: var(--display); font-weight: 800;
+    font-size: 100px; color: rgba(196,53,74,0.08);
+    line-height: .9; pointer-events: none;
+  }
+  .seat-detail__tag {
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 6px 14px; border-radius: 999px;
+    border: 1px solid var(--line-strong);
+    font-family: var(--display); font-size: 10px;
+    letter-spacing: .2em; text-transform: uppercase;
+    color: var(--text-2);
+    margin-bottom: 20px;
+  }
+  .seat-detail__tag .dot {
+    width: 6px; height: 6px; border-radius: 50%;
+    background: var(--accent);
+  }
+  .seat-detail__h {
+    font-family: var(--serif-cn); font-weight: 500;
+    font-size: clamp(28px, 4vw, 48px);
+    line-height: 1.1;
+    margin-bottom: 14px;
+  }
+  .seat-detail__h em { font-family: var(--serif-en); font-style: italic; color: var(--accent); }
+  .seat-detail__meta {
+    font-family: var(--display); font-size: 11px;
+    letter-spacing: .16em; text-transform: uppercase;
+    color: var(--text-3);
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--line);
+  }
+  .seat-detail__body p {
+    font-size: 15px; line-height: 1.9; color: var(--text-2);
+    margin-bottom: 14px; max-width: 800px;
+  }
+  .seat-detail__actions {
+    margin-top: 30px; display: flex; gap: 16px; flex-wrap: wrap;
+  }
+
+  /* 未选状态 */
+  .seat-detail__placeholder {
+    display: grid; place-items: center;
+    text-align: center; min-height: 160px;
+    color: var(--text-3);
+    font-family: var(--serif-cn);
+    font-size: 15px; letter-spacing: .06em;
+  }
+  .seat-detail__placeholder em {
+    font-family: var(--serif-en); font-style: italic; color: var(--accent);
+    display: block; font-size: 13px; margin-top: 8px;
+  }
+
+  /* ============================================================
+     Why us —— 四格
+     ============================================================ */
+  .why {
+    padding: 90px var(--pad);
+    position: relative;
+  }
+  .why__inner { max-width: 1280px; margin: 0 auto; }
+  .why__head { text-align: center; margin-bottom: 44px; }
+  .why__grid {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 0;
+    border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
+  }
+  @media (max-width: 900px){ .why__grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 560px){ .why__grid { grid-template-columns: 1fr; } }
+  .why__cell {
+    padding: 40px 30px 50px;
+    border-right: 1px solid var(--line);
+    position: relative;
+    transition: background .3s ease;
+  }
+  .why__grid .why__cell:last-child { border-right: 0; }
+  @media (max-width: 900px){ .why__cell:nth-child(2) { border-right: 0; } }
+  @media (max-width: 560px){ .why__cell { border-right: 0; border-bottom: 1px solid var(--line); } }
+  .why__cell:hover { background: rgba(196,53,74,0.04); }
+  .why__cell:hover .why__num { color: var(--accent); }
+  .why__num {
+    font-family: var(--display); font-weight: 800;
+    font-size: 48px; color: var(--text-3);
+    line-height: 1; margin-bottom: 30px;
+    transition: color .3s ease;
+  }
+  .why__cell h3 {
+    font-family: var(--serif-cn); font-weight: 600;
+    font-size: 22px; margin-bottom: 14px;
+  }
+  .why__cell p {
+    font-size: 14px; line-height: 1.8; color: var(--text-2);
+  }
+
+  /* CTA */
+  .collab-cta {
+    padding: 100px var(--pad);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .collab-cta::before {
+    content: ''; position: absolute; inset: 0;
+    background: radial-gradient(ellipse 60% 70% at 50% 50%, rgba(196,53,74,0.14), transparent 60%);
+    pointer-events: none;
+  }
+  .collab-cta__h {
+    font-family: var(--serif-cn); font-weight: 500;
+    font-size: clamp(40px, 6vw, 84px); line-height: 1.05;
+    margin-bottom: 20px; position: relative;
+  }
+  .collab-cta__h em { font-style: italic; font-family: var(--serif-en); color: var(--accent); }
+  .collab-cta__p {
+    font-size: 16px; line-height: 1.8; color: var(--text-2);
+    max-width: 540px; margin: 0 auto 50px;
+    position: relative;
+  }
+
+  /* 手机端：压缩 Seat Map（挑一个入口）板块 */
+  @media (max-width: 720px) {
+    .seats { padding: 28px var(--pad) 32px; }
+    .seats__head { margin-bottom: 10px; }
+    .seats__label { margin-bottom: 6px; font-size: 9px; letter-spacing: .24em; }
+    .seats__h { font-size: 24px; line-height: 1.05; margin-bottom: 4px; }
+    .seats__sub { font-size: 11px; line-height: 1.3; }
+    .seats__instruction { margin-top: 10px; font-size: 9px; }
+    .seats__instruction .dot { width: 6px; height: 6px; }
+    .seat-rows { gap: 6px; }
+    .seat-row { grid-template-columns: 18px 1fr 18px; gap: 6px; }
+    .seat-row__label { font-size: 8px; }
+    .seat-row__seats { grid-template-columns: repeat(auto-fit, minmax(54px, 1fr)); gap: 4px; }
+    .seat {
+      aspect-ratio: 1.5/1;
+      padding: 3px; font-size: 8px; letter-spacing: .06em;
+      border-radius: 4px 4px 2px 2px;
+    }
+    .seat::before { top: 3px; left: 3px; right: 3px; height: 1.5px; }
+    .seat__cn { font-size: 10px; margin-top: 1px; }
+    .seat-detail { margin-top: 14px; padding: 14px 14px; min-height: 0; }
+  }
+</style>
+<script src="i18n.js"></script>
+</head>
+<body>
+<div class="grain"></div>
+<div class="cursor-glow"></div>
+
+<div class="curtain" aria-hidden="true">
+  <div class="curtain__panel curtain__panel--l"></div>
+  <div class="curtain__panel curtain__panel--r"></div>
+</div>
+<div class="curtain__logo">
+  COLLABORATE
+  <small data-i18n="collab.curtain.small">合作 · 惊喜之夜</small>
+</div>
+
+<nav class="nav">
+  <a href="index.html" class="nav__brand">
+    <span class="nav__mark">SN</span>
+    <span class="nav__brand-cn">惊喜之夜</span>
+    <span class="nav__brand-en">Surprise Night</span>
+  </a>
+  <div class="nav__links">
+    <a href="works.html" class="nav__link" data-i18n="nav.works">作品</a>
+    <a href="collaborate.html" class="nav__link is-active" data-i18n="nav.collaborate">合作</a>
+    <a href="about.html" class="nav__link" data-i18n="nav.about">关于</a>
+    <a href="collaborators.html" class="nav__link" data-i18n="nav.artists">艺术家</a>
+    <a href="contact.html" class="nav__link" data-i18n="nav.contact">联系</a>
+    <div class="nav__lang">
+      <button data-set-lang="zh">中</button>
+      <button data-set-lang="en">EN</button>
+    </div>
+  </div>
+  <button class="nav__burger" id="navBurger" aria-label="菜单" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<main>
+  <!-- Hero -->
+  <section class="collab-hero">
+    <div class="collab-hero__bg"></div>
+    <div class="collab-hero__grid"></div>
+    <div class="collab-hero__stage"></div>
+    <div class="collab-hero__inner">
+      <p class="collab-hero__eyebrow" data-i18n="collab.hero.eyebrow">Collaborate · 合作</p>
+      <h1 class="collab-hero__h1" data-i18n="collab.hero.h1" data-i18n-html="true">合作<br/><em>Take a Seat.</em></h1>
+      <p class="collab-hero__lead" data-i18n="collab.hero.lead" data-i18n-html="true">以客户需求为核心的产品矩阵与流程说明。<br/>品牌展示见「作品」，商务转化从这里开始。</p>
+      <p class="collab-hero__sub" data-i18n="collab.hero.sub">Seven ways we can create something together.</p>
+    </div>
+  </section>
+
+  <!-- 合作流程 -->
+  <section class="process">
+    <div class="process__inner">
+      <div class="process__head reveal">
+        <div>
+          <p class="process__label" data-i18n="collab.process.label">◉ Process</p>
+          <h2 class="process__h" data-i18n="collab.process.h" data-i18n-html="true">合作<em>流程</em></h2>
+        </div>
+        <p class="process__sub" data-i18n="collab.process.sub">从第一次邮件到落地交付，四个节拍。时间线因项目规模而定——小到 1 周沟通，大到 18 月深度共创。</p>
+      </div>
+
+      <div class="process__steps reveal">
+        <div class="process__step">
+          <div class="process__num" data-i18n="collab.process.step1.num">STEP 1</div>
+          <h3 data-i18n="collab.process.step1.h">初步沟通</h3>
+          <p data-i18n="collab.process.step1.desc">了解需求，双向判断是否匹配。邮件 / 表单 / 电话，1–3 个工作日内响应。</p>
+          <div class="process__conn"></div>
+        </div>
+        <div class="process__step">
+          <div class="process__num" data-i18n="collab.process.step2.num">STEP 2</div>
+          <h3 data-i18n="collab.process.step2.h">方案设计</h3>
+          <p data-i18n="collab.process.step2.desc">基于需求提供初步方案与报价，线下或线上会议对齐，约 1–4 周。</p>
+          <div class="process__conn"></div>
+        </div>
+        <div class="process__step">
+          <div class="process__num" data-i18n="collab.process.step3.num">STEP 3</div>
+          <h3 data-i18n="collab.process.step3.h">签约执行</h3>
+          <p data-i18n="collab.process.step3.desc">确认方案与合同，首付款后启动制作，周期依项目规模而定。</p>
+          <div class="process__conn"></div>
+        </div>
+        <div class="process__step">
+          <div class="process__num" data-i18n="collab.process.step4.num">STEP 4</div>
+          <h3 data-i18n="collab.process.step4.h">落地交付</h3>
+          <p data-i18n="collab.process.step4.desc">现场执行、效果跟踪与复盘，持续优化运营与内容迭代。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================
+       座位图 · 产品矩阵
+       ======================================== -->
+  <section class="seats">
+    <div class="seats__inner">
+      <div class="seats__head reveal">
+        <p class="seats__label" data-i18n="collab.seats.label">◉ Seat Map</p>
+        <h2 class="seats__h" data-i18n="collab.seats.h" data-i18n-html="true">挑一个<em>入口</em></h2>
+        <p class="seats__sub" data-i18n="collab.seats.sub">Seven routes into the same universe. Tap a seat to open it.</p>
+        <p class="seats__instruction" data-i18n="collab.seats.instruction" data-i18n-html="true"><span class="dot"></span> 点击任一座位 · 查看合作类型 <span class="dot"></span></p>
+      </div>
+
+      <div class="stage-diagram reveal">
+        <div class="stage-floor">
+          <div class="stage-label" data-i18n="collab.stage.label">— STAGE · 舞台 —</div>
+
+          <div class="seat-rows">
+            <!-- Row A: center stage —— 旗舰产品 -->
+            <div class="seat-row">
+              <div class="seat-row__label">A</div>
+              <div class="seat-row__seats">
+                <div class="seat seat--empty"></div>
+                <div class="seat seat--empty"></div>
+                <div class="seat" data-seat="p1">
+                  A-3
+                  <span class="seat__cn" data-i18n="collab.seat.p1.label">引进</span>
+                </div>
+                <div class="seat" data-seat="p2">
+                  A-4
+                  <span class="seat__cn" data-i18n="collab.seat.p2.label">驻场</span>
+                </div>
+                <div class="seat" data-seat="p3">
+                  A-5
+                  <span class="seat__cn" data-i18n="collab.seat.p3.label">文旅</span>
+                </div>
+                <div class="seat seat--empty"></div>
+                <div class="seat seat--empty"></div>
+              </div>
+              <div class="seat-row__label">A</div>
+            </div>
+
+            <!-- Row B -->
+            <div class="seat-row">
+              <div class="seat-row__label">B</div>
+              <div class="seat-row__seats">
+                <div class="seat seat--empty"></div>
+                <div class="seat" data-seat="p4">
+                  B-2
+                  <span class="seat__cn" data-i18n="collab.seat.p4.label">戏曲</span>
+                </div>
+                <div class="seat seat--empty"></div>
+                <div class="seat seat--empty"></div>
+                <div class="seat seat--empty"></div>
+                <div class="seat" data-seat="p5">
+                  B-6
+                  <span class="seat__cn" data-i18n="collab.seat.p5.label">巡演</span>
+                </div>
+                <div class="seat seat--empty"></div>
+              </div>
+              <div class="seat-row__label">B</div>
+            </div>
+
+            <!-- Row C -->
+            <div class="seat-row">
+              <div class="seat-row__label">C</div>
+              <div class="seat-row__seats">
+                <div class="seat seat--empty"></div>
+                <div class="seat seat--empty"></div>
+                <div class="seat" data-seat="p6">
+                  C-3
+                  <span class="seat__cn" data-i18n="collab.seat.p6.label">品牌</span>
+                </div>
+                <div class="seat seat--empty"></div>
+                <div class="seat" data-seat="p7">
+                  C-5
+                  <span class="seat__cn" data-i18n="collab.seat.p7.label">IP</span>
+                </div>
+                <div class="seat seat--empty"></div>
+                <div class="seat seat--empty"></div>
+              </div>
+              <div class="seat-row__label">C</div>
+            </div>
+          </div>
         </div>
       </div>
 
-      <section class="section" style="padding-top: 0">
-        <div class="container">
-          <h2 class="section-title" style="margin-bottom: 28px" data-i18n="collabPage.procH">合作流程</h2>
-          <div class="process-steps">
-            <div class="process-step">
-              <div class="num">STEP 1</div>
-              <h3 data-i18n="collabPage.s1t">初步沟通</h3>
-              <p data-i18n="collabPage.s1d">了解需求，双向判断是否匹配。邮件 / 表单 / 电话，1–3 个工作日内响应。</p>
-            </div>
-            <div class="process-step">
-              <div class="num">STEP 2</div>
-              <h3 data-i18n="collabPage.s2t">方案设计</h3>
-              <p data-i18n="collabPage.s2d">基于需求提供初步方案与报价，线下或线上会议对齐，约 1–4 周。</p>
-            </div>
-            <div class="process-step">
-              <div class="num">STEP 3</div>
-              <h3 data-i18n="collabPage.s3t">签约执行</h3>
-              <p data-i18n="collabPage.s3d">确认方案与合同，首付款后启动制作，周期依项目规模而定。</p>
-            </div>
-            <div class="process-step">
-              <div class="num">STEP 4</div>
-              <h3 data-i18n="collabPage.s4t">落地交付</h3>
-              <p data-i18n="collabPage.s4d">现场执行、效果跟踪与复盘，持续优化运营与内容迭代。</p>
-            </div>
-          </div>
-        </div>
-      </section>
+      <!-- 详情 -->
+      <div class="seat-detail" id="seatDetail">
+        <div class="seat-detail__placeholder" data-i18n="collab.seat.placeholder" data-i18n-html="true">挑选一个座位，为我们开启一段合作<em>Pick a seat to begin.</em></div>
+      </div>
+    </div>
+  </section>
 
-      <div class="container">
-        <article id="p1" class="product-block">
-          <h2 data-i18n="collabPage.p1h">产品 1 · 现成项目引进</h2>
-          <p class="meta" data-i18n="collabPage.p1meta">适合：剧院、艺术中心、商业综合体、城市更新 · 周期：3–6 个月筹备</p>
-          <div class="prose-local">
-            <p data-i18n="collabPage.p1a">将惊喜之夜已有成熟项目引入合作方场地落地。交付完整演出制作、巡演执行团队、运营 SOP 与票务支持。</p>
-            <p data-i18n="collabPage.p1b">代表案例：终极骗局多城巡演、山海经·巨灵之梦 @1862。</p>
-          </div>
-          <p style="margin-top: 20px">
-            <a class="link-accent" href="works.html" data-i18n="collabPage.p1link">查看项目案例 →</a>
-            <a class="btn btn-primary" href="contact.html" style="margin-left: 16px" data-i18n="collabPage.p1btn">获取引进资料包</a>
-          </p>
-        </article>
-
-        <article id="p2" class="product-block">
-          <h2 data-i18n="collabPage.p2h">产品 2 · 驻场演艺合作</h2>
-          <p class="meta" data-i18n="collabPage.p2meta">适合：文旅景区、主题乐园、酒店、商业综合体 · 筹备 2–3 个月</p>
-          <div class="prose-local">
-            <p data-i18n="collabPage.p2a">为空间打造专属驻场演出：策划制作、演员本地化培训、运营体系与票务对接，让内容长期生长在场所之中。</p>
-          </div>
-          <p style="margin-top: 20px">
-            <a class="btn btn-primary" href="contact.html" data-i18n="collabPage.p2btn">预约驻场项目咨询</a>
-          </p>
-        </article>
-
-        <article id="p3" class="product-block">
-          <h2 data-i18n="collabPage.p3h">产品 3 · 文旅沉浸式内容定制</h2>
-          <p class="meta" data-i18n="collabPage.p3meta">适合：文旅开发商、政府文旅、景区运营 · 轻度 1–3 月 / 全案 12 月+</p>
-          <div class="prose-local">
-            <p data-i18n="collabPage.p3a">从内容策略、沉浸叙事到空间叙事规划与核心体验制作，帮助目的地建立差异化壁垒与可运营的内容资产。</p>
-          </div>
-          <p style="margin-top: 20px">
-            <a class="btn btn-primary" href="contact.html" data-i18n="collabPage.p3btn">获取文旅内容方案</a>
-          </p>
-        </article>
-
-        <article id="p4" class="product-block">
-          <h2 data-i18n="collabPage.p4h">产品 4 · 戏剧 / 戏曲创新</h2>
-          <p class="meta" data-i18n="collabPage.p4meta">适合：戏曲院团、国有剧院、非遗机构 · 周期 6–18 个月</p>
-          <div class="prose-local">
-            <p data-i18n="collabPage.p4a">在传统与当代之间建立叙事接口：沉浸式改编、制作与执行。案例：聂小倩（沉浸式湘剧方向）。</p>
-          </div>
-          <p style="margin-top: 20px">
-            <a class="btn btn-primary" href="contact.html" data-i18n="collabPage.p4btn">探讨戏曲创新合作</a>
-          </p>
-        </article>
-
-        <article id="p5" class="product-block">
-          <h2 data-i18n="collabPage.p5h">产品 5 · 国际巡演合作</h2>
-          <p class="meta" data-i18n="collabPage.p5meta">适合：国际艺术节、机构与文化交流项目 · 周期 12 个月+</p>
-          <div class="prose-local">
-            <p data-i18n="collabPage.p5a">项目整体输出、国际巡演运营、文化交流报批与双语制作协作。</p>
-          </div>
-          <p style="margin-top: 20px">
-            <a class="btn btn-primary" href="contact.html" data-i18n="collabPage.p5btn">了解国际合作</a>
-          </p>
-        </article>
-
-        <article id="p6" class="product-block">
-          <h2 data-i18n="collabPage.p6h">产品 6 · 品牌联名与跨界</h2>
-          <p class="meta" data-i18n="collabPage.p6meta">适合：快消、美妆、汽车与科技品牌高端线 · 轻量 1–3 月 / 深度 6–12 月</p>
-          <div class="prose-local">
-            <p data-i18n="collabPage.p6a">品牌专属沉浸体验、线下执行、UGC 友好传播设计与数据复盘——让参与感替代硬广。</p>
-          </div>
-          <p style="margin-top: 20px">
-            <a class="btn btn-primary" href="contact.html" data-i18n="collabPage.p6btn">获取品牌合作方案</a>
-          </p>
-        </article>
-
-        <article id="p7" class="product-block">
-          <h2 data-i18n="collabPage.p7h">产品 7 · IP 孵化与联合开发</h2>
-          <p class="meta" data-i18n="collabPage.p7meta">适合：影视、游戏、出版、博物馆 · 周期 3–5 个月</p>
-          <div class="prose-local">
-            <p data-i18n="collabPage.p7a">将文学、影视、动漫与游戏 IP 转译为可运营的沉浸式体验与线下叙事。</p>
-          </div>
-          <p style="margin-top: 20px">
-            <a class="btn btn-primary" href="contact.html" data-i18n="collabPage.p7btn">探讨 IP 合作</a>
-          </p>
-        </article>
+  <!-- Why us -->
+  <section class="why">
+    <div class="why__inner">
+      <div class="why__head reveal">
+        <p class="process__label" style="text-align:center;" data-i18n="collab.why.label">◉ Why Us</p>
+        <h2 class="process__h" style="text-align:center;" data-i18n="collab.why.h" data-i18n-html="true">为什么<em>选择我们</em></h2>
+        <p style="text-align:center; max-width:640px; margin:18px auto 0; color:var(--text-2); line-height:1.8;" data-i18n="collab.why.lead">中式诗意 + 国际当代语言；克制留白与气韵写意；集体共感与可复制的空间叙事方法论。</p>
       </div>
 
-      <section class="section">
-        <div class="container">
-          <h2 class="section-title" style="text-align: center; margin-bottom: 12px" data-i18n="collabPage.whyH">为什么选择惊喜之夜</h2>
-          <p style="text-align: center; color: var(--muted); max-width: 640px; margin: 0 auto 32px" data-i18n="collabPage.whySub">
-            中式诗意 + 国际当代语言；克制留白与气韵写意；集体共感与可复制的空间叙事方法论。
-          </p>
-          <div class="method-grid">
-            <div class="method-box">
-              <h3 data-i18n="collabPage.why1h">文化底色</h3>
-              <p data-i18n="collabPage.why1d">以东方叙事与当代表达并重，区别于纯西式沉浸路径。</p>
-            </div>
-            <div class="method-box">
-              <h3 data-i18n="collabPage.why2h">灵活共创</h3>
-              <p data-i18n="collabPage.why2d">从单次巡演到多年驻场，模块化解耦，降低合作门槛。</p>
-            </div>
-            <div class="method-box">
-              <h3 data-i18n="collabPage.why3h">全链路</h3>
-              <p data-i18n="collabPage.why3d">叙事、空间、声音、技术、制作与运营统筹一体。</p>
-            </div>
-            <div class="method-box">
-              <h3 data-i18n="collabPage.why4h">可验证</h3>
-              <p data-i18n="collabPage.why4d">旗舰项目可落地考察、数据与案例可追溯（持续更新）。</p>
-            </div>
-          </div>
+      <div class="why__grid reveal">
+        <div class="why__cell">
+          <div class="why__num">01</div>
+          <h3 data-i18n="collab.why.01.h">文化底色</h3>
+          <p data-i18n="collab.why.01.desc">以东方叙事与当代表达并重，区别于纯西式沉浸路径。</p>
         </div>
-      </section>
-
-      <section class="final-cta">
-        <h2 data-i18n="collabPage.finalH">发起合作</h2>
-        <p class="sub" data-i18n="collabPage.finalSub">填写表单并说明合作类型，我们将在 24 小时内回复。</p>
-        <a class="btn btn-primary" href="contact.html" data-i18n="collabPage.finalBtn">前往联系表单</a>
-      </section>
-    </main>
-
-    <footer class="site-footer">
-      <div class="inner">
-        <span data-i18n="collabPage.footCopy">© 2026 惊喜之夜</span>
-        <a href="contact.html" data-i18n="collabPage.footContact">联系我们</a>
+        <div class="why__cell">
+          <div class="why__num">02</div>
+          <h3 data-i18n="collab.why.02.h">灵活共创</h3>
+          <p data-i18n="collab.why.02.desc">从单次巡演到多年驻场，模块化解耦，降低合作门槛。</p>
+        </div>
+        <div class="why__cell">
+          <div class="why__num">03</div>
+          <h3 data-i18n="collab.why.03.h">全链路</h3>
+          <p data-i18n="collab.why.03.desc">叙事、空间、声音、技术、制作与运营统筹一体。</p>
+        </div>
+        <div class="why__cell">
+          <div class="why__num">04</div>
+          <h3 data-i18n="collab.why.04.h">可验证</h3>
+          <p data-i18n="collab.why.04.desc">旗舰项目可落地考察、数据与案例可追溯（持续更新）。</p>
+        </div>
       </div>
-    </footer>
+    </div>
+  </section>
 
-    <script src="js/i18n.js" defer></script>
-    <script src="js/main.js" defer></script>
-  </body>
+  <!-- CTA -->
+  <section class="collab-cta">
+    <h2 class="collab-cta__h" data-i18n="collab.cta.h" data-i18n-html="true">发起<em>合作</em></h2>
+    <p class="collab-cta__p" data-i18n="collab.cta.p">填写表单并说明合作类型，我们将在 24 小时内回复。</p>
+    <a class="btn btn--primary" href="contact.html" data-i18n="collab.cta.btn">前往联系表单 →</a>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="site-footer__inner">
+    <div class="site-footer__brand" data-i18n="footer.brand" data-i18n-html="true">© 2026 惊喜之夜 · <em>Surprise Night</em></div>
+    <div class="site-footer__links">
+      <a href="index.html" data-i18n="footer.links.home">首页</a>
+      <a href="about.html" data-i18n="footer.links.about">关于</a>
+      <a href="contact.html" data-i18n="footer.links.contact">联系</a>
+    </div>
+  </div>
+</footer>
+
+<div class="video-modal" id="videoModal">
+  <div class="video-modal__content">
+    <button class="video-modal__close">×</button>
+    <iframe allow="autoplay; encrypted-media" allowfullscreen></iframe>
+  </div>
+</div>
+
+<script src="v3-shared.js" defer></script>
+<script>
+  const _t = (k, fb) => (window.__i18n && window.__i18n.dict && window.__i18n.dict[k]) || fb;
+  const PRODUCTS = {
+    p1: {
+      get tag(){ return _t('collab.seat.p1.tag', '产品 1 · 最成熟'); },
+      get h(){ return _t('collab.seat.p1.h', '现成项目引进'); },
+      get meta(){ return _t('collab.seat.p1.meta', '剧院 · 艺术中心 · 商业综合体 · 城市更新 | 3–6 个月筹备'); },
+      get body(){ return [
+        _t('collab.seat.p1.body1', '将惊喜之夜已有成熟项目引入合作方场地落地。交付完整演出制作、巡演执行团队、运营 SOP 与票务支持。'),
+        _t('collab.seat.p1.body2', '代表案例：终极骗局多城巡演、山海经·巨灵之梦。')
+      ]; },
+      get actions(){ return [
+        {text:_t('collab.seat.p1.act1','查看项目案例 →'), href:'../project-works.html', ghost: true},
+        {text:_t('collab.seat.p1.act2','获取引进资料包'), href:'contact.html', primary:true}
+      ]; }
+    },
+    p2: {
+      get tag(){ return _t('collab.seat.p2.tag', '产品 2 · 长期驻场'); },
+      get h(){ return _t('collab.seat.p2.h', '驻场演艺合作'); },
+      get meta(){ return _t('collab.seat.p2.meta', '文旅景区 · 主题乐园 · 酒店 · 商业综合体 | 2–3 个月筹备'); },
+      get body(){ return [_t('collab.seat.p2.body1', '为空间打造专属驻场演出：策划制作、演员本地化培训、运营体系与票务对接，让内容长期生长在场所之中。')]; },
+      get actions(){ return [{text:_t('collab.seat.p2.act1','预约驻场项目咨询'), href:'contact.html', primary:true}]; }
+    },
+    p3: {
+      get tag(){ return _t('collab.seat.p3.tag', '产品 3 · 文旅定制'); },
+      get h(){ return _t('collab.seat.p3.h', '文旅沉浸式内容定制'); },
+      get meta(){ return _t('collab.seat.p3.meta', '文旅开发商 · 政府文旅 · 景区运营 | 轻度 1–3 月 / 全案 12 月+'); },
+      get body(){ return [_t('collab.seat.p3.body1', '从内容策略、沉浸叙事到空间叙事规划与核心体验制作，帮助目的地建立差异化壁垒与可运营的内容资产。')]; },
+      get actions(){ return [{text:_t('collab.seat.p3.act1','获取文旅内容方案'), href:'contact.html', primary:true}]; }
+    },
+    p4: {
+      get tag(){ return _t('collab.seat.p4.tag', '产品 4 · 传统焕新'); },
+      get h(){ return _t('collab.seat.p4.h', '戏剧 / 戏曲创新'); },
+      get meta(){ return _t('collab.seat.p4.meta', '戏曲院团 · 国有剧院 · 非遗机构 | 6–18 个月'); },
+      get body(){ return [_t('collab.seat.p4.body1', '在传统与当代之间建立叙事接口：沉浸式改编、制作与执行。案例：聂小倩（沉浸式湘剧方向）。')]; },
+      get actions(){ return [{text:_t('collab.seat.p4.act1','探讨戏曲创新合作'), href:'contact.html', primary:true}]; }
+    },
+    p5: {
+      get tag(){ return _t('collab.seat.p5.tag', '产品 5 · 跨洋输出'); },
+      get h(){ return _t('collab.seat.p5.h', '国际巡演合作'); },
+      get meta(){ return _t('collab.seat.p5.meta', '国际艺术节 · 机构与文化交流 | 12 个月+'); },
+      get body(){ return [_t('collab.seat.p5.body1', '项目整体输出、国际巡演运营、文化交流报批与双语制作协作。')]; },
+      get actions(){ return [{text:_t('collab.seat.p5.act1','了解国际合作'), href:'contact.html', primary:true}]; }
+    },
+    p6: {
+      get tag(){ return _t('collab.seat.p6.tag', '产品 6 · 跨界'); },
+      get h(){ return _t('collab.seat.p6.h', '品牌联名与跨界'); },
+      get meta(){ return _t('collab.seat.p6.meta', '快消 · 美妆 · 汽车 · 科技品牌高端线 | 轻量 1–3 月 / 深度 6–12 月'); },
+      get body(){ return [_t('collab.seat.p6.body1', '品牌专属沉浸体验、线下执行、UGC 友好传播设计与数据复盘——让参与感替代硬广。')]; },
+      get actions(){ return [{text:_t('collab.seat.p6.act1','获取品牌合作方案'), href:'contact.html', primary:true}]; }
+    },
+    p7: {
+      get tag(){ return _t('collab.seat.p7.tag', '产品 7 · 孵化'); },
+      get h(){ return _t('collab.seat.p7.h', 'IP 孵化与联合开发'); },
+      get meta(){ return _t('collab.seat.p7.meta', '影视 · 游戏 · 出版 · 博物馆 | 3–5 个月'); },
+      get body(){ return [_t('collab.seat.p7.body1', '将文学、影视、动漫与游戏 IP 转译为可运营的沉浸式体验与线下叙事。')]; },
+      get actions(){ return [{text:_t('collab.seat.p7.act1','探讨 IP 合作'), href:'contact.html', primary:true}]; }
+    }
+  };
+
+  const detail = document.getElementById('seatDetail');
+  document.querySelectorAll('.seat:not(.seat--empty)').forEach(seat=>{
+    seat.addEventListener('click', ()=>{
+      const key = seat.dataset.seat;
+      const data = PRODUCTS[key];
+      if (!data) return;
+
+      document.querySelectorAll('.seat').forEach(s => s.classList.remove('is-selected'));
+      seat.classList.add('is-selected');
+
+      const actions = data.actions.map(a =>
+        `<a class="${a.primary ? 'btn btn--primary' : 'btn'}" href="${a.href}">${a.text}</a>`
+      ).join('');
+
+      detail.innerHTML = `
+        <div class="seat-detail__num">${key.replace('p','0')}</div>
+        <span class="seat-detail__tag"><span class="dot"></span>${data.tag}</span>
+        <h3 class="seat-detail__h">${data.h}</h3>
+        <div class="seat-detail__meta">${data.meta}</div>
+        <div class="seat-detail__body">
+          ${data.body.map(p => `<p>${p}</p>`).join('')}
+        </div>
+        <div class="seat-detail__actions">${actions}</div>
+      `;
+      detail.classList.add('is-visible');
+      detail.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    });
+  });
+</script>
+</body>
 </html>

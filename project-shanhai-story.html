@@ -1,93 +1,155 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>故事与世界观 — 山海经·巨灵之梦</title>
-    <meta name="description" content="《山海经》母题、2080 AI 线与少年冒险叙事。" />
-    <link rel="stylesheet" href="css/styles.css" />
-  </head>
-  <body data-i18n-page="project-shanhai-story">
-    <header class="site-header">
-      <div class="inner">
-        <a href="index.html" class="logo" style="display: flex; align-items: center; gap: 12px; font-size: 1.1rem;"> <img src="assets/images/logo.png" alt="" style="width: 32px; height: 32px; object-fit: contain;"> <span>惊喜之夜 <span style="opacity: 0.7; font-size: 0.75rem; font-weight: 400; margin-left: 4px;">/ Surprise Night</span></span> </a>
-        <button type="button" class="nav-toggle" data-i18n="nav.menu" aria-expanded="false" aria-controls="primary-nav">菜单</button>
-        <nav>
-          <ul id="primary-nav" class="nav-links">
-            <li><a href="works.html" data-i18n="nav.works">作品</a></li>
-            <li><a href="collaborate.html" data-i18n="nav.collaborate">合作</a></li>
-            <li class="nav-item nav-item--has-sub">
-            <a href="about.html" data-i18n="nav.about">关于</a>
-            <ul class="nav-sub" role="list">
-              <li><a href="collaborators.html" data-i18n="nav.collaborators">合作艺术家</a></li>
-            </ul>
-          </li>
-            <li><a href="contact.html" data-i18n="nav.contact">联系</a></li>
-            <li class="nav-lang" aria-label="Language">
-              <button type="button" class="lang-btn" data-set-lang="zh" aria-pressed="true">中</button>
-              <button type="button" class="lang-btn" data-set-lang="en" aria-pressed="false">EN</button>
-            </li>
-          </ul>
-        </nav>
-      </div>
-    </header>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title data-i18n="page.title.shanhai.story">故事与世界观 — 山海经 · 巨灵之梦</title>
+<meta name="description" content="《山海经》母题、神话现场与少年成长冒险叙事。" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Noto+Sans+SC:wght@300;400;500;600;700&family=Noto+Serif+SC:wght@400;500;600;700&family=Syne:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="project-shanhai-sub.css" />
+<script src="i18n.js"></script>
+</head>
+<body>
+<div class="grain"></div>
 
-    <main class="project-shanhai-page">
-      <nav class="shanhai-subnav" aria-label="Section">
-        <div class="shanhai-subnav__inner">
-          <a href="project-shanhai.html" data-i18n="projectShanhai.subNavOverview">概览</a>
-          <a href="project-shanhai-story.html" class="is-active" data-i18n="projectShanhai.subNavStory">故事</a>
-          <a href="project-shanhai-stagecraft.html" data-i18n="projectShanhai.subNavStage">舞台</a>
-          <a href="project-shanhai-gallery.html" data-i18n="projectShanhai.subNavGallery">图集</a>
-          <a href="project-shanhai-visit.html" data-i18n="projectShanhai.subNavVisit">观演</a>
-        </div>
-      </nav>
+<nav class="nav">
+  <a href="index.html" class="nav__brand">
+    <span class="nav__mark">SN</span>
+    <span class="nav__brand-cn">惊喜之夜</span>
+    <span class="nav__brand-en">Surprise Night</span>
+  </a>
+  <div class="nav__links">
+    <a href="works.html" class="nav__link" data-i18n="nav.works">作品</a>
+    <a href="collaborate.html" class="nav__link" data-i18n="nav.collaborate">合作</a>
+    <a href="about.html" class="nav__link" data-i18n="nav.about">关于</a>
+    <a href="collaborators.html" class="nav__link" data-i18n="nav.artists">艺术家</a>
+    <a href="contact.html" class="nav__link" data-i18n="nav.contact">联系</a>
+    <div class="nav__lang">
+      <button data-set-lang="zh">中</button>
+      <button data-set-lang="en">EN</button>
+    </div>
+  </div>
+  <button class="nav__burger" id="navBurger" aria-label="菜单" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
 
-      <section class="project-sub-hero">
-        <div class="inner">
-          <a class="back-link" href="project-shanhai.html" data-i18n="projectShanhai.backToShanhaiHub">← 返回《山海经·巨灵之梦》概览</a>
-          <h1 data-i18n="projectShanhai.storyPageH1">故事与世界观</h1>
-          <p class="sub-hero-dek" data-i18n="projectShanhai.storyPageDek">从典籍到剧场：神话现场与当代表达。</p>
-        </div>
-      </section>
+<main>
+  <nav class="subnav" aria-label="章节">
+    <div class="subnav__inner">
+      <a href="project-shanhai.html" data-i18n="shanhai.subnav.overview">概览 · Overview</a>
+      <a href="project-shanhai-story.html" class="is-active" data-i18n="shanhai.subnav.story">故事 · Story</a>
+      <a href="project-shanhai-stagecraft.html" data-i18n="shanhai.subnav.stage">舞台 · Stage</a>
+      <a href="project-shanhai-gallery.html" data-i18n="shanhai.subnav.gallery">图集 · Gallery</a>
+      <a href="project-shanhai-visit.html" data-i18n="shanhai.subnav.visit">观演 · Visit</a>
+    </div>
+  </nav>
 
-      <figure class="shanhai-cinematic-strip">
-        <img src="assets/images/gallery/shanhai/ZDC_6810-1df01eaa-e6da-48a9-a6e0-8eb436d48a96.png" alt="" loading="lazy" />
-      </figure>
+  <section class="sub-hero">
+    <div class="sub-hero__bg"></div>
+    <div class="sub-hero__inner">
+      <a class="back-link" href="project-shanhai.html" data-i18n="shanhai.backLink">← 返回《山海经 · 巨灵之梦》概览</a>
+      <p class="sub-hero__eyebrow" data-i18n="shanhai.story.eyebrow">Chapter 01 · Story &amp; Worldview</p>
+      <h1 data-i18n="shanhai.story.h" data-i18n-html="true">故事与<em>世界观</em></h1>
+      <p class="sub-hero__dek" data-i18n="shanhai.story.dek">从典籍到剧场：神话现场与当代表达。</p>
+    </div>
+  </section>
 
-      <article class="shanhai-sub-content">
-        <h2 data-i18n="projectShanhai.introH">项目简介</h2>
-        <p data-i18n="projectShanhai.introP">
-          《山海经·巨灵之梦》以《山海经》为文本基础，结合巨型木偶、机械装置、多媒体影像、灯光与当代剧场语言，打造一部兼具东方美学与现代情感表达的木偶奇幻秀。
-        </p>
-        <p data-i18n="projectShanhai.introP2">
-          观众不再只是看一个传统意义上的儿童木偶剧，而是进入一场适合大剧场呈现的"视觉奇观级"山海冒险。
-        </p>
+  <figure class="cinematic">
+    <img src="https://raw.githubusercontent.com/ananinalfe-ship-it/surprise-night-web/main/assets/images/gallery/shanhai/ZDC_6810-1df01eaa-e6da-48a9-a6e0-8eb436d48a96.png" alt="山海经 · 巨灵之梦 剧照" loading="lazy" />
+  </figure>
 
-        <h2 data-i18n="projectShanhai.storyH">故事背景</h2>
-        <p data-i18n="projectShanhai.storyP1">《山海经》是中国古代重要的神话典籍……</p>
-        <p data-i18n="projectShanhai.storyP2">本剧在此基础上并非简单复述精卫等古老故事……</p>
-        <p data-i18n="projectShanhai.storyP3">本剧将中国上古神话与当代成长叙事结合……</p>
+  <article class="content">
+    <h2><span class="label" data-i18n="shanhai.story.section1.label">◉ Overview · 项目简介</span><span data-i18n="shanhai.story.section1.h" data-i18n-html="true">神话落地，<em>当代开讲</em></span></h2>
+    <p data-i18n="shanhai.story.section1.p1">《山海经 · 巨灵之梦》以《山海经》为文本基础，结合巨型木偶、机械装置、多媒体影像、灯光与当代剧场语言，打造一部兼具东方美学与现代情感表达的木偶奇幻秀。</p>
+    <p data-i18n="shanhai.story.section1.p2">观众不再只是看一个传统意义上的儿童木偶剧，而是进入一场适合大剧场呈现的"视觉奇观级"山海冒险——既有远古神兽的体量，也有今日少年的心事。</p>
 
-        <h2 data-i18n="projectShanhai.conceptH">创作理念</h2>
-        <p data-i18n="projectShanhai.conceptP1">本项目源于惊喜之夜对中国神话当代表达的持续思考……</p>
-        <p data-i18n="projectShanhai.conceptP2">我们选择巨型木偶与多媒体融合作为核心表现手段……</p>
-        <p data-i18n="projectShanhai.conceptP3">在整体舞台语言上，本剧强调东方神话视觉……</p>
+    <h2><span class="label" data-i18n="shanhai.story.section2.label">◉ Background · 故事背景</span><span data-i18n="shanhai.story.section2.h" data-i18n-html="true">从典籍，<em>到舞台</em></span></h2>
+    <p data-i18n="shanhai.story.section2.p1">《山海经》是中国古代重要的神话典籍，记载了远古山川、神兽与部族的奇幻世界，是华夏文明最古老的想象力源头之一。书中那些巨人、异兽、奇山怪水，至今仍是中国式幻想的基石。</p>
+    <p data-i18n="shanhai.story.section2.p2">本剧在此基础上并非简单复述精卫、夸父等古老故事，而是构建一个属于今日观众的新山海——一个既古老又当代的梦境。主角少年穿行于经文记载的山川之间，遇见神兽、解开心结，最终明白：神话从未远离，它只是换了一种方式和我们同行。</p>
+    <p data-i18n="shanhai.story.section2.p3">本剧将中国上古神话与当代成长叙事结合，让少年主角在遇见神兽的过程中完成勇气与自我的觉醒——这既是一次山海之旅，也是一场关于"如何成为自己"的内在历险。</p>
 
-        <p style="margin-top: 32px">
-          <a class="link-accent" href="project-shanhai-stagecraft.html" data-i18n="projectShanhai.highlightsTeaserLink">查看舞台、巨偶与技术细节 →</a>
-        </p>
-      </article>
-    </main>
+    <blockquote data-i18n="shanhai.story.quote">"神兽不在远古的山林里——它们在你不敢面对自己的那一刻醒来。"</blockquote>
 
-    <footer class="site-footer">
-      <div class="inner">
-        <span data-i18n="projectShanhai.footCopy">© 2026 惊喜之夜</span>
-        <a href="works.html" data-i18n="projectShanhai.footBack">返回作品列表</a>
-      </div>
-    </footer>
+    <h2><span class="label" data-i18n="shanhai.story.section3.label">◉ Concept · 创作理念</span><span data-i18n="shanhai.story.section3.h" data-i18n-html="true">让远古的<em>想象</em>在今天的剧场里鲜活</span></h2>
+    <p data-i18n="shanhai.story.section3.p1">本项目源于惊喜之夜对中国神话当代表达的持续思考——如何让《山海经》中的巨偶与神兽不只是书页上的符号，而是可以被今天的观众看见、听见、心跳感应到的舞台生命。</p>
+    <p data-i18n="shanhai.story.section3.p2">我们选择巨型木偶与多媒体融合作为核心表现手段：在镜框舞台里用体量与光影双重语言，同时保留东方写意的留白，让观众的想象力参与到叙事之中。</p>
+    <p data-i18n="shanhai.story.section3.p3">在整体舞台语言上，本剧强调东方神话视觉与国际当代剧场语言的对话，兼顾视觉奇观与情感共振。非遗木偶的工艺感、当代机械装置的精度、多媒体影像的诗意——共同构成这一晚你所看到的"山海"。</p>
 
-    <script src="js/i18n.js" defer></script>
-    <script src="js/main.js" defer></script>
-  </body>
+    <p style="margin-top: 44px">
+      <a class="link-accent" href="project-shanhai-stagecraft.html" data-i18n="shanhai.story.next">查看舞台、巨偶与技术细节 →</a>
+    </p>
+  </article>
+</main>
+
+<footer class="site-footer">
+  <div class="site-footer__inner">
+    <div class="site-footer__brand" data-i18n="shanhai.footer.brand" data-i18n-html="true">© 2026 惊喜之夜 · <em>Surprise Night</em></div>
+    <div class="site-footer__links">
+      <a href="index.html" data-i18n="shanhai.footer.home">首页</a>
+      <a href="works.html" data-i18n="shanhai.footer.works">作品</a>
+      <a href="contact.html" data-i18n="shanhai.footer.contact">联系</a>
+    </div>
+  </div>
+</footer>
+
+<div class="photo-lb" id="photoLb" aria-hidden="true">
+  <div class="photo-lb__stage">
+    <img class="photo-lb__img" id="photoLbImg" alt="" />
+  </div>
+  <button class="photo-lb__close" id="photoLbClose" aria-label="关闭">×</button>
+  <div class="photo-lb__cap" id="photoLbCap"></div>
+</div>
+
+<script>
+  (function(){
+    const lb = document.getElementById('photoLb');
+    const lbImg = document.getElementById('photoLbImg');
+    const lbCap = document.getElementById('photoLbCap');
+    const imgs = Array.from(document.querySelectorAll('.cinematic img'));
+    function open(src, cap){
+      lbImg.src = src;
+      lbCap.textContent = cap || '';
+      lb.classList.add('is-open');
+      document.body.style.overflow = 'hidden';
+    }
+    function close(){
+      lb.classList.remove('is-open');
+      document.body.style.overflow = '';
+    }
+    imgs.forEach(img => img.addEventListener('click', ()=> open(img.src, img.alt)));
+    document.getElementById('photoLbClose').addEventListener('click', close);
+    lb.addEventListener('click', (e)=>{ if (e.target === lb) close(); });
+    document.addEventListener('keydown', (e)=>{ if (e.key === 'Escape') close(); });
+  })();
+</script>
+
+<script>
+/* 汉堡菜单（移动端） */
+(function hamburger(){
+  const navEl = document.getElementById('nav') || document.querySelector('.nav');
+  const burger = document.getElementById('navBurger');
+  if (!burger || !navEl) return;
+  const body = document.body;
+  const closeNav = () => {
+    navEl.classList.remove('nav--open');
+    burger.setAttribute('aria-expanded', 'false');
+    body.style.overflow = '';
+  };
+  burger.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const open = navEl.classList.toggle('nav--open');
+    burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    body.style.overflow = open ? 'hidden' : '';
+  });
+  navEl.querySelectorAll('.nav__link').forEach(a => a.addEventListener('click', closeNav));
+  document.addEventListener('click', (e) => {
+    if (navEl.classList.contains('nav--open') && !navEl.contains(e.target)) closeNav();
+  });
+})();
+</script>
+
+</body>
 </html>

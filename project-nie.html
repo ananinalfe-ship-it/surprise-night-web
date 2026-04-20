@@ -1,144 +1,853 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>聂小倩 — 惊喜之夜</title>
-    <meta name="description" content="沉浸新中式湘剧《聂小倩》。聊斋故事与兰若寺空间。" />
-    <link rel="stylesheet" href="css/styles.css" />
-  </head>
-  <body data-i18n-page="project-nie">
-    <header class="site-header">
-      <div class="inner">
-        <a href="index.html" class="logo" style="display: flex; align-items: center; gap: 12px; font-size: 1.1rem;"> <img src="assets/images/logo.png" alt="" style="width: 32px; height: 32px; object-fit: contain;"> <span>惊喜之夜 <span style="opacity: 0.7; font-size: 0.75rem; font-weight: 400; margin-left: 4px;">/ Surprise Night</span></span> </a>
-        <button type="button" class="nav-toggle" data-i18n="nav.menu" aria-expanded="false" aria-controls="primary-nav">
-          菜单
-        </button>
-        <nav>
-          <ul id="primary-nav" class="nav-links">
-            <li><a href="works.html" data-i18n="nav.works">作品</a></li>
-            <li><a href="collaborate.html" data-i18n="nav.collaborate">合作</a></li>
-            <li class="nav-item nav-item--has-sub">
-            <a href="about.html" data-i18n="nav.about">关于</a>
-            <ul class="nav-sub" role="list">
-              <li><a href="collaborators.html" data-i18n="nav.collaborators">合作艺术家</a></li>
-            </ul>
-          </li>
-            <li><a href="contact.html" data-i18n="nav.contact">联系</a></li>
-            <li class="nav-lang" aria-label="Language">
-              <button type="button" class="lang-btn" data-set-lang="zh" aria-pressed="true">中</button>
-              <button type="button" class="lang-btn" data-set-lang="en" aria-pressed="false">EN</button>
-            </li>
-          </ul>
-        </nav>
-      </div>
-    </header>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title data-i18n="page.title.nie">聂小倩 — Nie Xiaoqian</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Noto+Sans+SC:wght@300;400;500;600;700&family=Noto+Serif+SC:wght@400;500;600;700&family=Syne:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="v3-shared.css" />
+<style>
+  /* ============================================================
+     兰若寺 · 灯笼迷雾效果
+     ============================================================ */
+  .nie-hero {
+    min-height: 94vh;
+    padding: 160px var(--pad) 60px;
+    position: relative; overflow: hidden;
+    display: flex; align-items: center;
+    cursor: none;
+    isolation: isolate;
+  }
+  /* 暗藏照片 · 鼠标探照揭示 */
+  .nie-hero__photo {
+    position: absolute; inset: 0; z-index: -4;
+    background: url('../assets/works/nie/hero.jpg') center / cover no-repeat;
+    filter: saturate(.9);
+  }
+  .nie-hero__bg {
+    position: absolute; inset: 0; z-index: -3;
+    background:
+      radial-gradient(ellipse 60% 80% at 30% 50%, #1a0008 0%, #0a0003 45%, #05060a 100%);
+    -webkit-mask-image: radial-gradient(circle 240px at var(--px, -999px) var(--py, -999px),
+      rgba(0,0,0,0.15) 12%, rgba(0,0,0,0.55) 48%, #000 82%);
+            mask-image: radial-gradient(circle 240px at var(--px, -999px) var(--py, -999px),
+      rgba(0,0,0,0.15) 12%, rgba(0,0,0,0.55) 48%, #000 82%);
+    transition: opacity .25s ease;
+  }
+  /* 雾气层 */
+  .nie-fog {
+    position: absolute; inset: 0; z-index: -2;
+    background:
+      radial-gradient(ellipse 80% 60% at 20% 30%, rgba(168, 140, 100, 0.08), transparent 60%),
+      radial-gradient(ellipse 60% 40% at 80% 70%, rgba(80, 20, 30, 0.12), transparent 60%);
+    animation: fogDrift 18s ease-in-out infinite alternate;
+  }
+  @keyframes fogDrift {
+    0%   { transform: translate3d(0, 0, 0) scale(1.0); }
+    100% { transform: translate3d(-30px, 10px, 0) scale(1.08); }
+  }
+  /* 竖线笔触（竹影） */
+  .nie-bamboo {
+    position: absolute; inset: 0; z-index: -1; pointer-events: none;
+    background-image: repeating-linear-gradient(
+      90deg,
+      transparent 0 74px,
+      rgba(196,53,74,0.025) 74px 75px,
+      transparent 75px 160px
+    );
+    opacity: .6;
+  }
 
-    <main>
-      <section class="project-hero">
-        <div class="bg" style="background-image: url('assets/images/work-nie.jpg')"></div>
-        <div class="inner">
-          <a class="back-link" href="works.html" data-i18n="projectNie.back">← 返回作品</a>
-          <div class="tags-row">
-            <span class="tag-pill red" data-i18n="projectNie.tag1">即将上映</span>
-            <span class="tag-pill outline" data-i18n="projectNie.tag2">新中式戏曲</span>
-          </div>
-          <h1 data-i18n="projectNie.h1">沉浸新中式湘剧《聂小倩》</h1>
-          <p class="tagline" data-i18n="projectNie.tagline">
-            不是把戏曲搬进小剧场，而是让观众走进戏曲的世界。
-          </p>
+  /* 灯笼 */
+  .lantern {
+    position: absolute;
+    width: 44px; height: 60px;
+    z-index: 3;
+    pointer-events: none;
+    animation: sway 5s ease-in-out infinite alternate;
+  }
+  @keyframes sway {
+    0%   { transform: translateX(-6px) rotate(-3deg); }
+    100% { transform: translateX(6px)  rotate(3deg); }
+  }
+  .lantern::before {
+    content:''; position: absolute;
+    top: -40px; left: 50%;
+    width: 1px; height: 40px;
+    background: rgba(255,255,255,0.1);
+    transform: translateX(-50%);
+  }
+  .lantern__body {
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at center, #e84a3a, #8a1014 60%, #3a0307 100%);
+    border-radius: 50%;
+    box-shadow: 0 0 40px rgba(232,74,58,0.4), inset 0 -8px 14px rgba(0,0,0,0.4);
+  }
+  .lantern__body::before,
+  .lantern__body::after {
+    content:''; position: absolute; left: 50%;
+    width: 14px; height: 3px;
+    background: #2a0004;
+    transform: translateX(-50%);
+  }
+  .lantern__body::before { top: -2px; }
+  .lantern__body::after  { bottom: -2px; }
+  .lantern--1 { top: 18%; left: 8%; animation-duration: 5s; }
+  .lantern--2 { top: 55%; left: 4%; animation-duration: 6.4s; animation-delay: -1s; }
+  .lantern--3 { top: 28%; right: 6%; animation-duration: 7.2s; animation-delay: -2s; }
+  .lantern--4 { top: 70%; right: 10%; animation-duration: 5.8s; animation-delay: -0.5s; }
+  .lantern--5 { top: 10%; left: 45%; animation-duration: 6.8s; animation-delay: -3s; }
+
+  /* 鼠标光晕 —— 拨开雾气 */
+  .nie-cursor {
+    position: absolute;
+    width: 360px; height: 360px;
+    border-radius: 50%;
+    pointer-events: none;
+    background: radial-gradient(circle, rgba(255, 220, 180, 0.25) 0%, rgba(255, 180, 120, 0.08) 30%, transparent 60%);
+    mix-blend-mode: screen;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    filter: blur(6px);
+  }
+  .nie-cursor::after {
+    content: '';
+    position: absolute; top: 50%; left: 50%;
+    width: 8px; height: 8px; border-radius: 50%;
+    background: rgba(255,220,180,0.6);
+    transform: translate(-50%,-50%);
+    box-shadow: 0 0 16px rgba(255,200,140,0.8);
+  }
+
+  .nie-hero__inner {
+    max-width: 1280px; width: 100%; margin: 0 auto;
+    position: relative; z-index: 4;
+  }
+  .nie-hero__kicker {
+    font-family: var(--display); font-size: 11px;
+    letter-spacing: .32em; text-transform: uppercase;
+    color: var(--text-3); margin-bottom: 24px;
+    display: inline-flex; gap: 10px; align-items: center;
+  }
+  .nie-hero__kicker::before {
+    content:''; width: 40px; height: 1px; background: var(--accent);
+  }
+  .nie-hero__h {
+    font-family: var(--serif-cn); font-weight: 500;
+    font-size: clamp(72px, 12vw, 180px);
+    line-height: .9;
+    letter-spacing: 0.02em;
+    text-shadow: 0 0 40px rgba(232,74,58,0.3);
+    margin-bottom: 28px;
+  }
+  .nie-hero__h em {
+    font-family: var(--serif-en); font-style: italic;
+    color: rgba(255,200,160,0.9); font-weight: 400;
+    display: block;
+    font-size: .24em;
+    letter-spacing: .16em;
+    margin-top: 14px;
+    text-shadow: none;
+  }
+  .nie-hero__lead {
+    font-family: var(--serif-cn);
+    font-size: clamp(16px, 1.6vw, 22px);
+    color: rgba(255,220,200,0.75);
+    max-width: 540px; line-height: 1.9;
+    margin-bottom: 22px;
+  }
+  .nie-hero__sub {
+    font-family: var(--serif-en); font-style: italic;
+    font-size: 14px; color: rgba(196,53,74,0.75);
+    letter-spacing: .06em;
+  }
+  .nie-hero__hint {
+    position: absolute; bottom: 50px; left: 50%;
+    transform: translateX(-50%);
+    font-family: var(--display); font-size: 10px;
+    letter-spacing: .3em; text-transform: uppercase;
+    color: var(--text-3);
+    display: inline-flex; gap: 10px; align-items: center;
+    z-index: 5;
+  }
+  .nie-hero__hint .pulse {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: rgba(232,74,58,0.8);
+    animation: pulse 2s ease-in-out infinite;
+  }
+
+  /* Lore grid */
+  .lore {
+    padding: 140px var(--pad);
+    position: relative;
+  }
+  .lore__inner {
+    max-width: 1280px; margin: 0 auto;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 80px;
+    align-items: start;
+  }
+  @media (max-width: 860px){ .lore__inner { grid-template-columns: 1fr; gap: 40px; } }
+  .lore__label {
+    font-family: var(--display); font-size: 11px;
+    letter-spacing: .3em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 16px;
+  }
+  .lore__h {
+    font-family: var(--serif-cn); font-weight: 500;
+    font-size: clamp(32px, 4vw, 52px); line-height: 1.1;
+    margin-bottom: 20px;
+  }
+  .lore__h em { font-family: var(--serif-en); font-style: italic; color: var(--accent); }
+  .lore__body p {
+    font-size: 15px; line-height: 1.9; color: var(--text-2);
+    margin-bottom: 16px;
+  }
+  .lore__quote {
+    border-left: 3px solid var(--accent);
+    padding: 6px 0 6px 22px;
+    font-family: var(--serif-cn); font-style: italic;
+    font-size: 20px; line-height: 1.7;
+    color: var(--text);
+    margin: 24px 0;
+  }
+
+  /* Poster stack (真实剧照) */
+  .poster-stack {
+    position: relative;
+    height: 560px;
+    perspective: 1400px;
+  }
+  .poster {
+    position: absolute;
+    inset: 0;
+    background-size: cover; background-position: center;
+    border: 1px solid var(--line);
+    background-color: #1a0407;
+    cursor: zoom-in;
+    transform-style: preserve-3d;
+    transition: transform .6s var(--ease), box-shadow .4s;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+  }
+  .poster::after {
+    content: '';
+    position: absolute; inset: 0;
+    background: linear-gradient(180deg, transparent 55%, rgba(10,0,3,0.55));
+    pointer-events: none;
+  }
+  .poster__cap {
+    position: absolute; left: 16px; bottom: 14px; z-index: 2;
+    font-family: var(--serif-en); font-style: italic;
+    font-size: 13px; color: rgba(255,220,200,0.85);
+    letter-spacing: .06em;
+  }
+  .poster__n {
+    position: absolute; top: 14px; left: 16px; z-index: 2;
+    font-family: var(--mono); font-size: 10px;
+    color: rgba(255,220,200,0.78); letter-spacing: .16em;
+  }
+  .poster--1 { transform: translate(-20px, -10px) rotate(-4deg); z-index: 1; }
+  .poster--2 { transform: translate(0, 0) rotate(2deg); z-index: 2; }
+  .poster--3 { transform: translate(20px, 14px) rotate(-1deg); z-index: 3; }
+  .poster--4 { transform: translate(-30px, 26px) rotate(-6deg); z-index: 0; }
+  .poster--5 { transform: translate(36px, -16px) rotate(4deg); z-index: 0; }
+  .poster-stack:hover .poster--1 { transform: translate(-60px, -20px) rotate(-8deg); }
+  .poster-stack:hover .poster--3 { transform: translate(50px, 26px) rotate(4deg); }
+  .poster-stack:hover .poster--4 { transform: translate(-80px, 40px) rotate(-10deg); }
+  .poster-stack:hover .poster--5 { transform: translate(82px, -30px) rotate(8deg); }
+  /* 手机端整体适度缩小（相对桌面 560px 缩约 20%） */
+  @media (max-width: 720px) {
+    .poster-stack { height: 440px; width: 100%; margin: 0 auto; }
+    .poster--1 { transform: translate(-14px, -8px) rotate(-4deg); }
+    .poster--2 { transform: translate(0, 0) rotate(2deg); }
+    .poster--3 { transform: translate(14px, 10px) rotate(-1deg); }
+    .poster--4 { transform: translate(-22px, 20px) rotate(-6deg); }
+    .poster--5 { transform: translate(26px, -12px) rotate(4deg); }
+    .poster-stack:hover .poster--1 { transform: translate(-40px, -14px) rotate(-8deg); }
+    .poster-stack:hover .poster--3 { transform: translate(34px, 18px) rotate(4deg); }
+    .poster-stack:hover .poster--4 { transform: translate(-54px, 28px) rotate(-10deg); }
+    .poster-stack:hover .poster--5 { transform: translate(56px, -22px) rotate(8deg); }
+    .poster__cap { font-size: 11px; left: 12px; bottom: 10px; }
+    .poster__n { font-size: 9px; top: 10px; left: 12px; letter-spacing: .12em; }
+  }
+
+  /* Scenes */
+  .scenes {
+    padding: 140px var(--pad);
+    border-top: 1px solid var(--line);
+    background:
+      radial-gradient(ellipse 60% 40% at 50% 0%, rgba(232,74,58,0.04), transparent 60%);
+  }
+  .scenes__inner { max-width: 1280px; margin: 0 auto; }
+  .scenes__head { text-align: center; margin-bottom: 60px; }
+  .scenes__grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px;
+    background: var(--line);
+    border: 1px solid var(--line);
+  }
+  @media (max-width: 860px){ .scenes__grid { grid-template-columns: 1fr; } }
+  .scene {
+    background: var(--bg-1);
+    padding: 36px 30px 40px;
+    position: relative;
+    transition: background .3s ease;
+  }
+  .scene:hover { background: rgba(232,74,58,0.05); }
+  .scene__num {
+    font-family: var(--display); font-weight: 800;
+    font-size: 14px; letter-spacing: .3em;
+    color: var(--accent); margin-bottom: 14px;
+  }
+  .scene__h {
+    font-family: var(--serif-cn); font-weight: 600;
+    font-size: 24px; margin-bottom: 14px;
+    line-height: 1.3;
+  }
+  .scene__p {
+    font-size: 14px; line-height: 1.8;
+    color: var(--text-2);
+  }
+
+  /* Meta info */
+  .meta {
+    padding: 120px var(--pad);
+  }
+  .meta__head { text-align: center; margin-bottom: 50px; }
+  .meta__head .lore__h { margin-bottom: 0; }
+  .meta__inner {
+    max-width: 1280px; margin: 0 auto;
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+  }
+  @media (max-width: 860px){ .meta__inner { grid-template-columns: repeat(2,1fr); } }
+  @media (max-width: 520px){ .meta__inner { grid-template-columns: 1fr; } }
+  .meta__cell {
+    padding: 28px 24px;
+    background: var(--bg-0);
+    transition: background .3s;
+  }
+  .meta__cell:hover { background: rgba(232,74,58,0.04); }
+  .meta__k {
+    font-family: var(--display); font-size: 10px;
+    letter-spacing: .26em; text-transform: uppercase;
+    color: var(--text-3); margin-bottom: 10px;
+  }
+  .meta__v {
+    font-family: var(--serif-cn); font-size: 18px;
+    color: var(--text); line-height: 1.4;
+  }
+
+  /* Strip · 剧照 */
+  .nie-strip {
+    padding: 120px var(--pad);
+    overflow: hidden;
+  }
+  .nie-strip__head {
+    max-width: 1280px; margin: 0 auto 40px;
+    text-align: center;
+  }
+  .nie-strip__rail {
+    display: flex; gap: 14px; overflow-x: auto;
+    padding: 0 var(--pad);
+    scrollbar-width: none;
+    scroll-snap-type: x mandatory;
+  }
+  .nie-strip__rail::-webkit-scrollbar { display: none; }
+  .nie-strip__frame {
+    flex: 0 0 clamp(280px, 36vw, 460px);
+    aspect-ratio: 4/5;
+    background-size: cover; background-position: center;
+    border: 1px solid var(--line);
+    position: relative;
+    scroll-snap-align: center;
+    cursor: zoom-in;
+    transition: border-color .3s, transform .4s;
+    overflow: hidden;
+  }
+  .nie-strip__frame::after {
+    content: '';
+    position: absolute; inset: 0;
+    background: linear-gradient(180deg, transparent 45%, rgba(10,0,3,0.78));
+    pointer-events: none;
+  }
+  .nie-strip__frame:hover { border-color: var(--accent); transform: translateY(-6px); }
+  .nie-strip__frame::before {
+    content: attr(data-num);
+    position: absolute; top: 14px; left: 16px;
+    font-family: var(--mono); font-size: 10px;
+    color: rgba(255,220,200,0.8); letter-spacing: .16em;
+    z-index: 1;
+  }
+  .nie-strip__frame span {
+    position: absolute; left: 16px; bottom: 14px;
+    z-index: 1;
+    font-family: var(--serif-en); font-style: italic;
+    font-size: 13px; color: rgba(255,220,200,0.9);
+    letter-spacing: .06em;
+  }
+
+  /* Photo lightbox */
+  .photo-lb {
+    position: fixed; inset: 0; z-index: 1000;
+    background: rgba(5,0,3,0.96);
+    display: none;
+    padding: 40px;
+  }
+  .photo-lb.is-open { display: block; }
+  .photo-lb__stage {
+    position: absolute; inset: 40px;
+    display: grid; place-items: center;
+  }
+  .photo-lb__img {
+    max-width: 100%; max-height: 100%;
+    object-fit: contain;
+    box-shadow: 0 30px 80px rgba(0,0,0,0.7);
+    transition: opacity .2s;
+  }
+  .photo-lb__close,
+  .photo-lb__nav {
+    position: absolute;
+    background: rgba(255,220,200,0.08);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,220,200,0.3);
+    color: rgba(255,220,200,0.9);
+    cursor: pointer;
+    transition: all .25s ease;
+    display: grid; place-items: center;
+  }
+  .photo-lb__close {
+    top: 22px; right: 22px;
+    width: 40px; height: 40px; border-radius: 50%;
+    font-size: 22px; line-height: 1;
+  }
+  .photo-lb__nav {
+    top: 50%; transform: translateY(-50%);
+    width: 52px; height: 52px; border-radius: 50%;
+    font-size: 20px; line-height: 1;
+  }
+  .photo-lb__nav--prev { left: 24px; }
+  .photo-lb__nav--next { right: 24px; }
+  .photo-lb__close:hover,
+  .photo-lb__nav:hover {
+    background: var(--accent); border-color: var(--accent);
+    color: white;
+  }
+  .photo-lb__cap {
+    position: absolute; left: 50%; bottom: 28px; transform: translateX(-50%);
+    font-family: var(--display); font-size: 11px;
+    letter-spacing: .28em; text-transform: uppercase;
+    color: rgba(255,220,200,0.72);
+  }
+  .photo-lb__cap em { color: var(--accent); font-style: normal; }
+
+  /* CTA */
+  .nie-cta {
+    padding: 160px var(--pad);
+    text-align: center; position: relative;
+    overflow: hidden;
+  }
+  .nie-cta::before {
+    content:''; position: absolute; inset: 0;
+    background: radial-gradient(ellipse 60% 70% at 50% 50%, rgba(232,74,58,0.16), transparent 60%);
+    pointer-events: none;
+  }
+  .nie-cta__h {
+    font-family: var(--serif-cn); font-weight: 500;
+    font-size: clamp(36px, 5vw, 72px); line-height: 1.1;
+    margin-bottom: 20px; position: relative;
+  }
+  .nie-cta__h em { font-family: var(--serif-en); font-style: italic; color: var(--accent); }
+  .nie-cta__p {
+    font-size: 15px; color: var(--text-2); max-width: 540px;
+    margin: 0 auto 40px; line-height: 1.8; position: relative;
+  }
+</style>
+<script src="i18n.js"></script>
+</head>
+<body>
+<div class="grain"></div>
+
+<div class="curtain" aria-hidden="true">
+  <div class="curtain__panel curtain__panel--l"></div>
+  <div class="curtain__panel curtain__panel--r"></div>
+</div>
+<div class="curtain__logo">
+  NIE XIAOQIAN
+  <small data-i18n="show.nie.curtain.small">聂小倩 · 兰若寺夜</small>
+</div>
+
+<nav class="nav">
+  <a href="index.html" class="nav__brand">
+    <span class="nav__mark">SN</span>
+    <span class="nav__brand-cn">惊喜之夜</span>
+    <span class="nav__brand-en">Surprise Night</span>
+  </a>
+  <div class="nav__links">
+    <a href="works.html" class="nav__link is-active" data-i18n="nav.works">作品</a>
+    <a href="collaborate.html" class="nav__link" data-i18n="nav.collaborate">合作</a>
+    <a href="about.html" class="nav__link" data-i18n="nav.about">关于</a>
+    <a href="collaborators.html" class="nav__link" data-i18n="nav.artists">艺术家</a>
+    <a href="contact.html" class="nav__link" data-i18n="nav.contact">联系</a>
+    <div class="nav__lang">
+      <button data-set-lang="zh">中</button>
+      <button data-set-lang="en">EN</button>
+    </div>
+  </div>
+  <button class="nav__burger" id="navBurger" aria-label="菜单" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<main>
+  <section class="nie-hero" id="nieHero">
+    <div class="nie-hero__photo"></div>
+    <div class="nie-hero__bg"></div>
+    <div class="nie-fog"></div>
+    <div class="nie-bamboo"></div>
+
+    <!-- 灯笼 -->
+    <div class="lantern lantern--1"><div class="lantern__body"></div></div>
+    <div class="lantern lantern--2"><div class="lantern__body"></div></div>
+    <div class="lantern lantern--3"><div class="lantern__body"></div></div>
+    <div class="lantern lantern--4"><div class="lantern__body"></div></div>
+    <div class="lantern lantern--5"><div class="lantern__body"></div></div>
+
+    <!-- 鼠标光晕 -->
+    <div class="nie-cursor" id="nieCursor"></div>
+
+    <div class="nie-hero__inner">
+      <a href="works.html" class="back-link" style="color: rgba(255,220,200,0.7);" data-i18n="show.nie.back">← 返回作品</a>
+      <p class="nie-hero__kicker" data-i18n="show.nie.hero.kicker">Work · 新中式戏曲 · 经典回顾</p>
+      <h1 class="nie-hero__h" data-i18n="show.nie.hero.title" data-i18n-html="true">聂小倩<em>Nie Xiaoqian · After the Tale</em></h1>
+      <p class="nie-hero__lead" data-i18n="show.nie.hero.lead" data-i18n-html="true">
+        兰若古寺，夜风吹灯。<br/>
+        她在影壁后回头，你在第三排起身。
+      </p>
+      <p class="nie-hero__sub" data-i18n="show.nie.hero.sub">A reimagining of the classic ghost tale in immersive Xiang opera.</p>
+    </div>
+
+    <div class="nie-hero__hint" data-i18n="show.nie.hero.hint" data-i18n-html="true"><span class="pulse"></span>移动鼠标 · 拨开雾气</div>
+  </section>
+
+  <!-- Lore -->
+  <section class="lore">
+    <div class="lore__inner">
+      <div class="reveal">
+        <p class="lore__label" data-i18n="show.nie.lore.label">◉ 故事本源</p>
+        <h2 class="lore__h" data-i18n="show.nie.lore.h1" data-i18n-html="true">从聊斋，<br/>到<em>今夜</em></h2>
+        <div class="lore__body">
+          <p data-i18n="show.nie.lore.p1">蒲松龄笔下的《聂小倩》，讲一位被妖魅挟制的女鬼在兰若寺遇见书生的夜晚。我们不是重讲这个故事——我们把它交还给夜晚本身。</p>
+          <p data-i18n="show.nie.lore.p2">取材自《聊斋志异》，保留湘剧唱腔与表演精髓，引入沉浸式空间叙事与观众互动。观众将进入「兰若寺」的构建空间，在故事现场自由穿行，成为这段人鬼情缘的见证者或参与者。</p>
+          <p data-i18n="show.nie.lore.p3">与湖南省湘剧院合作，采用沉浸式舞台与新中式演绎，观众进入一座被迷雾笼罩的古寺，在角落里遇见那些本不该遇见的人。</p>
         </div>
-      </section>
+        <div class="lore__quote" data-i18n="show.nie.lore.q1">"不是把戏曲搬进小剧场——而是让观众走进戏曲的世界。"</div>
+        <div class="lore__quote" data-i18n="show.nie.lore.q2">"她回过头——那一刻，你才意识到，自己已经不是观众。"</div>
+      </div>
 
-      <div class="container detail-layout">
-        <div class="detail-main">
-          <h2 data-i18n="projectNie.introH">项目简介</h2>
-          <p data-i18n="projectNie.introP">
-            取材自《聊斋志异》，保留湘剧唱腔与表演精髓，引入沉浸式空间叙事与观众互动。观众将进入「兰若寺」的构建空间，在故事现场自由穿行，成为这段人鬼情缘的见证者或参与者。
-          </p>
-          <blockquote class="project-quote" data-i18n="projectNie.quote">不是把戏曲搬进小剧场，而是让观众走进戏曲的世界。</blockquote>
-
-          <h2 data-i18n="projectNie.hiH">艺术特色</h2>
-          <ul class="highlight-list">
-            <li data-i18n="projectNie.hi1">湘剧唱腔：保留传统湘剧高腔特色</li>
-            <li data-i18n="projectNie.hi2">沉浸空间：剧场改造为兰若寺虚实场景</li>
-            <li data-i18n="projectNie.hi3">近距离观演：观众与演员最近不足一米</li>
-            <li data-i18n="projectNie.hi4">互动叙事：观众选择影响部分情节展开</li>
-            <li data-i18n="projectNie.hi5">东方美学：写意留白与当代空间设计融合</li>
-          </ul>
-
-          <h2 data-i18n="projectNie.infoH">演出信息</h2>
-          <div class="info-grid">
-            <div class="info-cell">
-              <div class="label" data-i18n="projectNie.infDur">演出时长</div>
-              <div class="value" data-i18n="projectNie.infDurV">80 分钟</div>
-            </div>
-            <div class="info-cell">
-              <div class="label" data-i18n="projectNie.infCap">单场容量</div>
-              <div class="value" data-i18n="projectNie.infCapV">300 人</div>
-            </div>
-            <div class="info-cell">
-              <div class="label" data-i18n="projectNie.infYear">首演年份</div>
-              <div class="value" data-i18n="projectNie.infYearV">2024</div>
-            </div>
-            <div class="info-cell">
-              <div class="label" data-i18n="projectNie.infType">戏曲类型</div>
-              <div class="value" data-i18n="projectNie.infTypeV">湘剧</div>
-            </div>
-          </div>
-
-          <h2 data-i18n="projectNie.galH">视觉资料</h2>
-          
-          <!-- 剧照画廊 -->
-          <div class="gallery-grid">
-            <div class="gallery-item">
-              <img src="assets/images/gallery/nie-1.jpg" alt="聂小倩 剧照1" loading="lazy">
-            </div>
-            <div class="gallery-item">
-              <img src="assets/images/gallery/nie-2.jpg" alt="聂小倩 剧照2" loading="lazy">
-            </div>
-            <div class="gallery-item">
-              <img src="assets/images/gallery/nie-3.jpg" alt="聂小倩 剧照3" loading="lazy">
-            </div>
-          </div>
-          
-          <!-- 宣传片 -->
-          <div class="video-card project-video" onclick="openVideoModal('//player.bilibili.com/player.html?bvid=BV17LpoezE54&page=1&high_quality=1&danmaku=0&autoplay=1')">
-            <div class="video-thumb" style="background-image: url('assets/images/work-nie.jpg')">
-              <div class="play-btn">▶</div>
-            </div>
-            <p class="video-label">▶ 点击观看宣传片</p>
-          </div>
-          
-          <!-- 视频弹窗 -->
-          <div id="videoModal" class="video-modal" onclick="closeVideoModal()">
-            <div class="video-modal-content" onclick="event.stopPropagation()">
-              <button class="video-close" onclick="closeVideoModal()">×</button>
-              <iframe id="videoFrame" src="" frameborder="0" allowfullscreen></iframe>
-            </div>
-          </div>
+      <div class="poster-stack reveal">
+        <div class="poster poster--4" data-photo="../assets/works/nie/stage-04.jpg" style="background-image:url('../assets/works/nie/stage-04.jpg')">
+          <div class="poster__n">FRAME 04</div>
+          <div class="poster__cap" data-i18n="show.nie.poster.cap4">后院 · 池边</div>
         </div>
-
-        <aside>
-          <div class="side-box">
-            <h3 data-i18n="projectNie.sideH">合作咨询</h3>
-            <p data-i18n="projectNie.sideP">
-              适合院团联合制作、文旅演艺与文化交流；欢迎说明合作类型与档期。
-            </p>
-            <a class="link-accent" href="collaborate.html#p4" data-i18n="projectNie.sideLink">戏曲与创新合作 →</a>
-          </div>
-        </aside>
+        <div class="poster poster--5" data-photo="../assets/works/nie/stage-05.jpg" style="background-image:url('../assets/works/nie/stage-05.jpg')">
+          <div class="poster__n">FRAME 05</div>
+          <div class="poster__cap" data-i18n="show.nie.poster.cap5">破晓 · 离寺</div>
+        </div>
+        <div class="poster poster--1" data-photo="../assets/works/nie/stage-01.jpg" style="background-image:url('../assets/works/nie/stage-01.jpg')">
+          <div class="poster__n">FRAME 01</div>
+          <div class="poster__cap" data-i18n="show.nie.poster.cap1">入山 · 灯下</div>
+        </div>
+        <div class="poster poster--2" data-photo="../assets/works/nie/stage-02.jpg" style="background-image:url('../assets/works/nie/stage-02.jpg')">
+          <div class="poster__n">FRAME 02</div>
+          <div class="poster__cap" data-i18n="show.nie.poster.cap2">影壁 · 回眸</div>
+        </div>
+        <div class="poster poster--3" data-photo="../assets/works/nie/stage-03.jpg" style="background-image:url('../assets/works/nie/stage-03.jpg')">
+          <div class="poster__n">FRAME 03</div>
+          <div class="poster__cap" data-i18n="show.nie.poster.cap3">禅房 · 夜读</div>
+        </div>
       </div>
-    </main>
+    </div>
+  </section>
 
-    <footer class="site-footer">
-      <div class="inner">
-        <span data-i18n="projectNie.footCopy">© 2026 惊喜之夜</span>
-        <a href="works.html" data-i18n="projectNie.footBack">返回作品列表</a>
+  <!-- 艺术特色 -->
+  <section class="scenes" style="border-top:1px solid var(--line)">
+    <div class="scenes__inner">
+      <div class="scenes__head reveal">
+        <p class="lore__label" style="text-align:center;" data-i18n="show.nie.scenes.label">◉ Signature · 艺术特色</p>
+        <h2 class="lore__h" data-i18n="show.nie.lore.h2" data-i18n-html="true">五重<em>东方语法</em></h2>
       </div>
-    </footer>
+      <div class="scenes__grid reveal">
+        <div class="scene">
+          <div class="scene__num">FEATURE 01</div>
+          <div class="scene__h" data-i18n="show.nie.f1.h">湘剧唱腔</div>
+          <div class="scene__p" data-i18n="show.nie.f1.p">保留传统湘剧高腔特色，在沉浸空间里回荡本来的声音。</div>
+        </div>
+        <div class="scene">
+          <div class="scene__num">FEATURE 02</div>
+          <div class="scene__h" data-i18n="show.nie.f2.h">沉浸空间</div>
+          <div class="scene__p" data-i18n="show.nie.f2.p">剧场改造为兰若寺虚实场景——影壁、禅房、后院、钟楼，皆可穿行。</div>
+        </div>
+        <div class="scene">
+          <div class="scene__num">FEATURE 03</div>
+          <div class="scene__h" data-i18n="show.nie.f3.h">近距离观演</div>
+          <div class="scene__p" data-i18n="show.nie.f3.p">观众与演员最近不足一米，呼吸与衣袖都在余光里。</div>
+        </div>
+        <div class="scene">
+          <div class="scene__num">FEATURE 04</div>
+          <div class="scene__h" data-i18n="show.nie.f4.h">互动叙事</div>
+          <div class="scene__p" data-i18n="show.nie.f4.p">观众的选择影响部分情节展开——留下或离开，都是答案。</div>
+        </div>
+        <div class="scene">
+          <div class="scene__num">FEATURE 05</div>
+          <div class="scene__h" data-i18n="show.nie.f5.h">东方美学</div>
+          <div class="scene__p" data-i18n="show.nie.f5.p">写意留白与当代空间设计融合，戏曲语言在今日被重新说出。</div>
+        </div>
+        <div class="scene">
+          <div class="scene__num">FEATURE 06</div>
+          <div class="scene__h" data-i18n="show.nie.f6.h">雾灯造境</div>
+          <div class="scene__p" data-i18n="show.nie.f6.p">红灯与薄雾在廊下漫开，光线不是照明，而是戏的一部分。</div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <script src="js/i18n.js" defer></script>
-    <script src="js/main.js" defer></script>
-  </body>
+  <!-- Scenes -->
+  <section class="scenes">
+    <div class="scenes__inner">
+      <div class="scenes__head reveal">
+        <p class="lore__label" style="text-align:center;" data-i18n="show.nie.sixframes.label">◉ 场景六帧</p>
+        <h2 class="lore__h" data-i18n="show.nie.lore.h3" data-i18n-html="true">今<em>夜</em>的兰若寺</h2>
+      </div>
+      <div class="scenes__grid reveal">
+        <div class="scene">
+          <div class="scene__num">SCENE 01</div>
+          <div class="scene__h" data-i18n="show.nie.s1.h">入山 · 灯下</div>
+          <div class="scene__p" data-i18n="show.nie.s1.p">山路湿滑，一盏红灯在雾里近了。你跟着脚步声，不敢问这是谁的。</div>
+        </div>
+        <div class="scene">
+          <div class="scene__num">SCENE 02</div>
+          <div class="scene__h" data-i18n="show.nie.s2.h">影壁 · 回眸</div>
+          <div class="scene__p" data-i18n="show.nie.s2.p">她立在影壁之后，只露半张侧脸。你屏住呼吸。她开口——</div>
+        </div>
+        <div class="scene">
+          <div class="scene__num">SCENE 03</div>
+          <div class="scene__h" data-i18n="show.nie.s3.h">禅房 · 夜读</div>
+          <div class="scene__p" data-i18n="show.nie.s3.p">书生的纸灯亮到很晚。他听见有人推门，却不敢回头。</div>
+        </div>
+        <div class="scene">
+          <div class="scene__num">SCENE 04</div>
+          <div class="scene__h" data-i18n="show.nie.s4.h">后院 · 池边</div>
+          <div class="scene__p" data-i18n="show.nie.s4.p">枯井无声，月落水中。水面浮起一缕白衣。</div>
+        </div>
+        <div class="scene">
+          <div class="scene__num">SCENE 05</div>
+          <div class="scene__h" data-i18n="show.nie.s5.h">钟楼 · 夜半</div>
+          <div class="scene__p" data-i18n="show.nie.s5.p">寺钟响了一声，又一声。你数到第三声，影子开始往反方向走。</div>
+        </div>
+        <div class="scene">
+          <div class="scene__num">SCENE 06</div>
+          <div class="scene__h" data-i18n="show.nie.s6.h">破晓 · 离寺</div>
+          <div class="scene__p" data-i18n="show.nie.s6.p">她没有跟你一起走出寺门。风过时，红灯熄灭。</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 档案 · Show File -->
+  <section class="meta">
+    <div class="meta__head reveal">
+      <p class="lore__label" style="text-align:center" data-i18n="show.nie.showfile.label">◉ Show File · 演出档案</p>
+      <h2 class="lore__h" data-i18n="show.nie.lore.h4" data-i18n-html="true">档案<em>Show File</em></h2>
+    </div>
+    <div class="meta__inner reveal">
+      <div class="meta__cell"><div class="meta__k" data-i18n="show.nie.meta.k1">艺术形式</div><div class="meta__v" data-i18n="show.nie.meta.v1">沉浸式新中式戏曲</div></div>
+      <div class="meta__cell"><div class="meta__k" data-i18n="show.nie.meta.k2">演出时长</div><div class="meta__v" data-i18n="show.nie.meta.v2">80 分钟</div></div>
+      <div class="meta__cell"><div class="meta__k" data-i18n="show.nie.meta.k3">单场容量</div><div class="meta__v" data-i18n="show.nie.meta.v3">300 人</div></div>
+      <div class="meta__cell"><div class="meta__k" data-i18n="show.nie.meta.k4">首演年份</div><div class="meta__v" data-i18n="show.nie.meta.v4">2024</div></div>
+      <div class="meta__cell"><div class="meta__k" data-i18n="show.nie.meta.k5">戏曲类型</div><div class="meta__v" data-i18n="show.nie.meta.v5">湘剧</div></div>
+      <div class="meta__cell"><div class="meta__k" data-i18n="show.nie.meta.k6">观演距离</div><div class="meta__v" data-i18n="show.nie.meta.v6">近距离 · 不足一米</div></div>
+      <div class="meta__cell"><div class="meta__k" data-i18n="show.nie.meta.k7">场地类型</div><div class="meta__v" data-i18n="show.nie.meta.v7">古建筑 / 实景剧场</div></div>
+      <div class="meta__cell"><div class="meta__k" data-i18n="show.nie.meta.k8">合作院团</div><div class="meta__v" data-i18n="show.nie.meta.v8">湖南省湘剧院</div></div>
+    </div>
+  </section>
+
+  <!-- 宣传片 -->
+  <section class="meta" style="padding-top:0">
+    <div class="meta__inner" style="display:block; padding:0; border:1px solid var(--line)">
+      <div class="nie-video" style="
+        position:relative; aspect-ratio:16/7;
+        overflow:hidden;
+        display:grid; place-items:center;
+        background:
+          linear-gradient(180deg, rgba(5,3,7,0.35), rgba(5,3,7,0.72)),
+          radial-gradient(ellipse 60% 50% at 30% 60%, rgba(232,74,58,0.28), transparent 60%),
+          linear-gradient(135deg, #2a0811, #0a0307);
+        transition: transform .5s ease;
+      ">
+        <div style="width:84px; height:84px; border-radius:50%;
+          background:rgba(255,255,255,0.08); backdrop-filter:blur(10px);
+          border:1.5px solid rgba(255,220,180,0.45);
+          display:grid; place-items:center;
+          color:white; font-size:22px;">▶</div>
+        <div style="position:absolute; bottom:22px; left:26px;
+          font-family:var(--display); font-size:11px;
+          letter-spacing:.3em; text-transform:uppercase;
+          color:rgba(255,220,200,0.88);"><span data-i18n="show.nie.trailer.label" data-i18n-html="true"><em style="color:#e84a3a; font-style:normal">Trailer</em> · 宣传片</span></div>
+        <div style="position:absolute; bottom:18px; right:22px;
+          display:flex; gap:10px; z-index:2;">
+          <button type="button" data-video="youtube" style="
+            display:inline-flex; align-items:center; gap:8px;
+            padding:9px 16px;
+            border:1px solid rgba(255,220,180,0.45);
+            background:rgba(5,3,7,0.65);
+            backdrop-filter:blur(6px);
+            color:rgba(255,220,200,0.92);
+            font-family:var(--display); font-size:10.5px;
+            letter-spacing:.22em; text-transform:uppercase;
+            cursor:pointer; border-radius:999px;
+            transition:all .25s ease;
+          "><span style="width:6px;height:6px;border-radius:50%;background:currentColor"></span>YouTube</button>
+          <button type="button" data-video="bilibili" style="
+            display:inline-flex; align-items:center; gap:8px;
+            padding:9px 16px;
+            border:1px solid rgba(255,220,180,0.45);
+            background:rgba(5,3,7,0.65);
+            backdrop-filter:blur(6px);
+            color:rgba(255,220,200,0.92);
+            font-family:var(--display); font-size:10.5px;
+            letter-spacing:.22em; text-transform:uppercase;
+            cursor:pointer; border-radius:999px;
+            transition:all .25s ease;
+          "><span style="width:6px;height:6px;border-radius:50%;background:currentColor"></span><span data-i18n="show.nie.trailer.bilibili">B 站</span></button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="nie-cta">
+    <h2 class="nie-cta__h" data-i18n="show.nie.cta.h" data-i18n-html="true">今夜你来，<em>她便在。</em></h2>
+    <p class="nie-cta__p" data-i18n="show.nie.cta.p">巡演排期不定，建议关注动态或直接预约私密场。</p>
+    <a class="btn btn--primary" href="contact.html" data-i18n="show.nie.cta.btn">预约私场 / 巡演引进 →</a>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="site-footer__inner">
+    <div class="site-footer__brand" data-i18n="footer.brand" data-i18n-html="true">© 2026 惊喜之夜 · <em>Surprise Night</em></div>
+    <div class="site-footer__links">
+      <a href="index.html" data-i18n="show.nie.footer.home">首页</a>
+      <a href="works.html" data-i18n="show.nie.footer.works">作品</a>
+      <a href="contact.html" data-i18n="show.nie.footer.contact">联系</a>
+    </div>
+  </div>
+</footer>
+
+<div class="photo-lb" id="photoLb" aria-hidden="true">
+  <div class="photo-lb__stage">
+    <img class="photo-lb__img" id="photoLbImg" alt="" />
+  </div>
+  <button class="photo-lb__close" id="photoLbClose" aria-label="关闭">×</button>
+  <button class="photo-lb__nav photo-lb__nav--prev" id="photoLbPrev" aria-label="上一张">‹</button>
+  <button class="photo-lb__nav photo-lb__nav--next" id="photoLbNext" aria-label="下一张">›</button>
+  <div class="photo-lb__cap" id="photoLbCap"></div>
+</div>
+
+<div class="video-modal" id="videoModal">
+  <div class="video-modal__content">
+    <button class="video-modal__close">×</button>
+    <iframe allow="autoplay; encrypted-media" allowfullscreen></iframe>
+  </div>
+</div>
+
+<script src="v3-shared.js" defer></script>
+<script>
+  const hero = document.getElementById('nieHero');
+  const cursor = document.getElementById('nieCursor');
+  const heroBg = hero.querySelector('.nie-hero__bg');
+  hero.addEventListener('mousemove', e=>{
+    const r = hero.getBoundingClientRect();
+    const x = e.clientX - r.left;
+    const y = e.clientY - r.top;
+    cursor.style.left = x + 'px';
+    cursor.style.top = y + 'px';
+    cursor.style.opacity = '1';
+    heroBg.style.setProperty('--px', x + 'px');
+    heroBg.style.setProperty('--py', y + 'px');
+  });
+  hero.addEventListener('mouseleave', ()=>{
+    cursor.style.opacity = '0';
+    heroBg.style.setProperty('--px', '-999px');
+    heroBg.style.setProperty('--py', '-999px');
+  });
+
+  // 剧照 lightbox
+  (function(){
+    const frames = Array.from(document.querySelectorAll('.poster[data-photo]'));
+    if (!frames.length) return;
+    const lb = document.getElementById('photoLb');
+    const lbImg = document.getElementById('photoLbImg');
+    const lbCap = document.getElementById('photoLbCap');
+    let idx = 0;
+    function show(i){
+      idx = (i + frames.length) % frames.length;
+      const f = frames[idx];
+      const src = f.dataset.photo;
+      const num = f.querySelector('.poster__n')?.textContent || '';
+      const cap = f.querySelector('.poster__cap')?.textContent || '';
+      lbImg.style.opacity = '0';
+      const pre = new Image();
+      pre.onload = ()=>{ lbImg.src = src; lbImg.style.opacity = '1'; };
+      pre.src = src;
+      lbCap.innerHTML = `<em>${num}</em>${cap ? ' · ' + cap : ''}<span style="margin-left:14px;opacity:.55">${idx+1} / ${frames.length}</span>`;
+    }
+    function open(i){ show(i); lb.classList.add('is-open'); document.body.style.overflow = 'hidden'; }
+    function close(){ lb.classList.remove('is-open'); document.body.style.overflow = ''; }
+    frames.forEach((f, i)=> f.addEventListener('click', ()=> open(i)));
+    document.getElementById('photoLbClose').addEventListener('click', close);
+    document.getElementById('photoLbPrev').addEventListener('click', ()=> show(idx-1));
+    document.getElementById('photoLbNext').addEventListener('click', ()=> show(idx+1));
+    lb.addEventListener('click', (e)=>{ if (e.target === lb) close(); });
+    document.addEventListener('keydown', (e)=>{
+      if (!lb.classList.contains('is-open')) return;
+      if (e.key === 'Escape') close();
+      if (e.key === 'ArrowLeft')  show(idx-1);
+      if (e.key === 'ArrowRight') show(idx+1);
+    });
+  })();
+
+  // 宣传片弹窗 · 双源（YouTube / Bilibili）
+  (function(){
+    const modal = document.getElementById('videoModal');
+    const iframe = modal?.querySelector('iframe');
+    const close = modal?.querySelector('.video-modal__close');
+    if (!modal || !iframe) return;
+    const SRC = {
+      youtube:  'https://www.youtube.com/embed/1mZIhvOMLZk?autoplay=1&rel=0',
+      bilibili: '//player.bilibili.com/player.html?bvid=BV17LpoezE54&page=1&high_quality=1&danmaku=0&autoplay=1'
+    };
+    function open(key){
+      iframe.src = SRC[key] || SRC.youtube;
+      modal.classList.add('is-open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeModal(){
+      iframe.src = '';
+      modal.classList.remove('is-open');
+      document.body.style.overflow = '';
+    }
+    document.querySelectorAll('[data-video]').forEach(btn=>{
+      btn.addEventListener('click', (e)=>{
+        e.stopPropagation();
+        open(btn.dataset.video);
+      });
+    });
+    close?.addEventListener('click', closeModal);
+    modal.addEventListener('click', (e)=>{ if (e.target === modal) closeModal(); });
+    document.addEventListener('keydown', (e)=>{ if (e.key === 'Escape') closeModal(); });
+  })();
+</script>
+</body>
 </html>

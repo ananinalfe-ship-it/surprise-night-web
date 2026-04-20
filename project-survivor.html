@@ -1,149 +1,1271 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>生存游戏 THE SURVIVOR — 惊喜之夜</title>
-    <meta name="description" content="沉浸式互动游戏戏剧。智能 AI 对决复杂人性，多版本结局由你决定。" />
-    <link rel="stylesheet" href="css/styles.css" />
-  </head>
-  <body data-i18n-page="project-survivor">
-    <header class="site-header">
-      <div class="inner">
-        <a href="index.html" class="logo" style="display: flex; align-items: center; gap: 12px; font-size: 1.1rem;"> <img src="assets/images/logo.png" alt="" style="width: 32px; height: 32px; object-fit: contain;"> <span>惊喜之夜 <span style="opacity: 0.7; font-size: 0.75rem; font-weight: 400; margin-left: 4px;">/ Surprise Night</span></span> </a>
-        <button type="button" class="nav-toggle" data-i18n="nav.menu" aria-expanded="false" aria-controls="primary-nav">
-          菜单
-        </button>
-        <nav>
-          <ul id="primary-nav" class="nav-links">
-            <li><a href="works.html" data-i18n="nav.works">作品</a></li>
-            <li><a href="collaborate.html" data-i18n="nav.collaborate">合作</a></li>
-            <li class="nav-item nav-item--has-sub">
-            <a href="about.html" data-i18n="nav.about">关于</a>
-            <ul class="nav-sub" role="list">
-              <li><a href="collaborators.html" data-i18n="nav.collaborators">合作艺术家</a></li>
-            </ul>
-          </li>
-            <li><a href="contact.html" data-i18n="nav.contact">联系</a></li>
-            <li class="nav-lang" aria-label="Language">
-              <button type="button" class="lang-btn" data-set-lang="zh" aria-pressed="true">中</button>
-              <button type="button" class="lang-btn" data-set-lang="en" aria-pressed="false">EN</button>
-            </li>
-          </ul>
-        </nav>
-      </div>
-    </header>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title data-i18n="page.title.survivor">生存游戏 — THE SURVIVOR</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Noto+Sans+SC:wght@300;400;500;600;700&family=Noto+Serif+SC:wght@400;500;600;700&family=Syne:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="v3-shared.css" />
+<style>
+  :root { --term-green: #6ae28c; --term-dim: #3fa060; --term-warn: #e0b040; --term-err: #e06060; --term-cyan: #60c0e0; --term-mag: #c080e0; }
 
-    <main>
-      <section class="project-hero">
-        <div
-          class="bg"
-          style="background-image: url('assets/images/work-survivor.png')"
-        ></div>
-        <div class="inner">
-          <a class="back-link" href="works.html" data-i18n="projectSurvivor.back">← 返回作品</a>
-          <div class="tags-row">
-            <span class="tag-pill red" data-i18n="projectSurvivor.tag1">往期回顾</span>
-            <span class="tag-pill outline" data-i18n="projectSurvivor.tag2">沉浸式互动游戏戏剧</span>
-          </div>
-          <h1 data-i18n="projectSurvivor.h1">生存游戏 <span style="font-size: 0.5em; color: var(--muted)">THE SURVIVOR</span></h1>
-          <p class="tagline" data-i18n="projectSurvivor.tagline">
-            Mission：想尽一切办法活下去……超感体验未来世界；智能 AI 对决复杂人性；多版本结局由你决定。
-          </p>
+  /* HERO */
+  .sv-hero { min-height: 100vh; padding: 110px var(--pad) 60px; position: relative; overflow: hidden; display: flex; flex-direction: column; justify-content: center; background: #04070a; }
+  .sv-hero__bg { position: absolute; inset: 0; z-index: 0; background: url('images/sv-poster-01.jpg') center right / cover no-repeat; opacity: .35; filter: contrast(1.1); }
+  .sv-hero__bg::after { content:''; position: absolute; inset: 0; background: linear-gradient(90deg, #04070a 0%, rgba(4,7,10,.7) 50%, rgba(4,7,10,.3) 100%), linear-gradient(180deg, rgba(4,7,10,.5) 0%, transparent 30%, rgba(4,7,10,.9) 100%); }
+  .sv-hero::before { content:''; position: absolute; inset: 0; z-index: 1; background: repeating-linear-gradient(0deg, rgba(106,226,140,0.04) 0 1px, transparent 1px 3px); pointer-events: none; }
+  .sv-hero__inner { max-width: 1280px; margin: 0 auto; width: 100%; position: relative; z-index: 2; display: grid; grid-template-columns: 1.05fr 1fr; gap: 60px; align-items: center; }
+  @media (max-width: 960px){ .sv-hero__inner { grid-template-columns: 1fr; gap: 40px; } }
+  .sv-eyebrow { font-family: var(--mono); font-size: 11px; letter-spacing: .18em; color: var(--term-green); margin-bottom: 18px; display: inline-flex; gap: 10px; align-items: center; }
+  .sv-eyebrow .dot { width: 8px; height: 8px; background: var(--term-green); box-shadow: 0 0 10px var(--term-green); animation: pulse 1.4s ease-in-out infinite; }
+  .sv-h { font-family: var(--serif-cn); font-weight: 500; font-size: clamp(54px, 8.5vw, 130px); line-height: .92; letter-spacing: -0.02em; margin-bottom: 18px; text-shadow: 0 4px 30px rgba(0,0,0,.8); }
+  .sv-h em { font-family: var(--mono); font-style: normal; color: var(--term-green); font-weight: 600; font-size: .22em; letter-spacing: .18em; display: block; margin-top: 14px; text-shadow: 0 0 20px rgba(106,226,140,.4); }
+  .sv-lead { font-family: var(--serif-cn); font-size: clamp(15px, 1.4vw, 18px); color: var(--text-2); line-height: 1.9; max-width: 520px; margin-bottom: 24px; }
+  .sv-meta { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 28px; }
+  .sv-meta span { font-family: var(--mono); font-size: 11px; padding: 6px 12px; border: 1px solid rgba(106,226,140,0.3); color: var(--term-green); letter-spacing: .12em; background: rgba(10,14,18,.6); backdrop-filter: blur(4px); }
+  .sv-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; max-width: 500px; }
+  .sv-stat { border-left: 2px solid var(--term-green); padding-left: 12px; }
+  .sv-stat b { font-family: var(--mono); color: var(--term-green); font-size: 22px; font-weight: 500; display: block; }
+  .sv-stat span { font-size: 10px; color: var(--text-3); letter-spacing: .15em; font-family: var(--mono); }
+
+  /* Terminal */
+  .term { background: rgba(10,14,18,.92); backdrop-filter: blur(8px); border: 1px solid rgba(106,226,140,0.3); border-radius: 4px; font-family: var(--mono); font-size: 13px; line-height: 1.65; color: var(--term-green); overflow: hidden; box-shadow: 0 30px 80px rgba(0,0,0,0.6), 0 0 40px rgba(106,226,140,0.15); position: relative; }
+  .term__bar { display: flex; align-items: center; gap: 10px; padding: 10px 14px; background: #101418; border-bottom: 1px solid rgba(106,226,140,0.2); font-size: 10px; color: var(--term-dim); letter-spacing: .14em; }
+  .term__dots { display: flex; gap: 6px; }
+  .term__dots span { width: 10px; height: 10px; border-radius: 50%; background: var(--term-dim); opacity: .5; }
+  .term__dots span:first-child { background: #e06060; opacity: .8; }
+  .term__dots span:nth-child(2) { background: #c0a840; opacity: .8; }
+  .term__dots span:nth-child(3) { background: var(--term-green); opacity: .8; }
+  .term__title { flex: 1; }
+  .term__meta { color: var(--term-dim); }
+  .term__screen { padding: 22px 24px 28px; min-height: 440px; max-height: 500px; overflow-y: auto; background: repeating-linear-gradient(0deg, rgba(106,226,140,0.02) 0 2px, transparent 2px 4px); }
+  .term__screen::-webkit-scrollbar { width: 6px; }
+  .term__screen::-webkit-scrollbar-thumb { background: rgba(106,226,140,0.2); }
+  .term__line { margin-bottom: 4px; white-space: pre-wrap; word-break: break-word; }
+  .term__line--sys { color: var(--term-dim); }
+  .term__line--warn { color: var(--term-warn); }
+  .term__line--err  { color: var(--term-err); }
+  .term__line--ok   { color: var(--term-green); }
+  .term__line--input { color: #fff; }
+  .term__line--mag { color: var(--term-mag); }
+  .term__line .prompt { color: var(--term-green); margin-right: 8px; }
+  .cursor-blink::after { content: '▋'; color: var(--term-green); animation: blink 1s steps(1) infinite; margin-left: 4px; }
+  @keyframes blink { 50% { opacity: 0; } }
+
+  /* Sections */
+  .sv-section { padding: 120px var(--pad); position: relative; background: #05070a; }
+  .sv-section--darker { background: #03060a; }
+  .sv-section__inner { max-width: 1280px; margin: 0 auto; position: relative; }
+  .sv-label { font-family: var(--mono); font-size: 11px; letter-spacing: .24em; color: var(--term-green); margin-bottom: 18px; }
+  .sv-section h2 { font-family: var(--serif-cn); font-weight: 500; font-size: clamp(36px, 5vw, 60px); line-height: 1.08; margin-bottom: 36px; text-wrap: pretty; }
+  .sv-section h2 em { font-family: var(--mono); font-style: normal; color: var(--term-green); font-size: .38em; display: block; margin-top: 12px; letter-spacing: .16em; }
+  .sv-section__head { max-width: 760px; margin-bottom: 50px; }
+  .sv-section__head p { font-size: 16px; line-height: 1.9; color: var(--text-2); }
+
+  /* ====================== WORLDBUILDING (2115) ====================== */
+  .sv-world__grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 60px; align-items: start; }
+  @media (max-width: 960px){ .sv-world__grid { grid-template-columns: 1fr; } }
+  .sv-world__lore p { color: var(--text-2); font-size: 15.5px; line-height: 1.95; margin-bottom: 16px; }
+  .sv-world__lore b { color: var(--term-green); font-weight: 500; }
+  .sv-world__quote { border-left: 3px solid var(--term-green); padding: 4px 0 4px 22px; font-family: var(--serif-cn); font-style: italic; font-size: 18px; color: var(--text); line-height: 1.7; margin: 26px 0; }
+  .sv-races { background: #0a0e12; border: 1px solid rgba(106,226,140,.2); padding: 4px; }
+  .sv-race { display: grid; grid-template-columns: 60px 1fr 90px; gap: 16px; align-items: center; padding: 18px 18px; border-bottom: 1px solid rgba(106,226,140,.08); }
+  .sv-race:last-child { border-bottom: none; }
+  .sv-race__icon { width: 46px; height: 46px; display: flex; align-items: center; justify-content: center; font-family: var(--mono); font-size: 16px; color: var(--term-green); border: 1px solid rgba(106,226,140,.3); letter-spacing: .05em; background: #04070a; }
+  .sv-race[data-race="dranla"] .sv-race__icon { color: var(--term-mag); border-color: rgba(192,128,224,.4); }
+  .sv-race[data-race="beast"]  .sv-race__icon { color: var(--term-err);  border-color: rgba(224,96,96,.4); }
+  .sv-race[data-race="ai"]     .sv-race__icon { color: var(--term-cyan); border-color: rgba(96,192,224,.4); }
+  .sv-race[data-race="human"]  .sv-race__icon { color: var(--term-warn); border-color: rgba(224,176,64,.4); }
+  .sv-race__name { font-family: var(--serif-cn); font-size: 18px; color: var(--text); font-weight: 500; }
+  .sv-race__name small { display: block; font-family: var(--mono); font-size: 10px; color: var(--text-3); letter-spacing: .14em; margin-top: 2px; }
+  .sv-race__desc { font-size: 12.5px; color: var(--text-2); line-height: 1.6; margin-top: 4px; font-family: var(--sans); }
+  .sv-race__blood { font-family: var(--mono); font-size: 11px; text-align: right; color: var(--term-dim); letter-spacing: .08em; }
+  .sv-race__blood b { display: block; font-size: 22px; color: var(--term-green); font-weight: 500; letter-spacing: 0; margin-bottom: 4px; }
+  .sv-race[data-race="dranla"] .sv-race__blood b { color: var(--term-mag); }
+  .sv-race[data-race="beast"]  .sv-race__blood b { color: var(--term-err); }
+  .sv-race[data-race="ai"]     .sv-race__blood b { color: var(--term-cyan); }
+  .sv-race[data-race="human"]  .sv-race__blood b { color: var(--term-warn); }
+
+  /* ====================== CHARACTERS ====================== */
+  .sv-chars { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; background: rgba(106,226,140,.2); border: 1px solid rgba(106,226,140,.3); }
+  @media (max-width: 960px){ .sv-chars { grid-template-columns: repeat(2,1fr); } }
+  @media (max-width: 560px){ .sv-chars { grid-template-columns: 1fr; } }
+  .sv-char { background: #0a0e12; padding: 28px 26px 26px; position: relative; }
+  .sv-char[data-race="human"]  { border-top: 2px solid var(--term-warn); }
+  .sv-char[data-race="ai"]     { border-top: 2px solid var(--term-cyan); }
+  .sv-char[data-race="beast"]  { border-top: 2px solid var(--term-err); }
+  .sv-char[data-race="dranla"] { border-top: 2px solid var(--term-mag); }
+  .sv-char__role { font-family: var(--mono); font-size: 10px; color: var(--term-dim); letter-spacing: .2em; margin-bottom: 10px; }
+  .sv-char__cn { font-family: var(--serif-cn); font-size: 26px; color: #fff; font-weight: 500; line-height: 1.15; margin-bottom: 6px; }
+  .sv-char__en { font-family: var(--mono); font-size: 11px; color: var(--term-dim); letter-spacing: .1em; margin-bottom: 20px; }
+  .sv-char__stats { display: grid; grid-template-columns: 1fr 1fr; gap: 10px 14px; font-family: var(--mono); font-size: 11px; margin-bottom: 18px; padding-bottom: 16px; border-bottom: 1px dashed rgba(106,226,140,.15); }
+  .sv-char__stats div { color: var(--text-3); letter-spacing: .08em; }
+  .sv-char__stats div b { color: var(--text); font-weight: 500; letter-spacing: 0; margin-left: 6px; }
+  .sv-char__bio { font-size: 13.5px; line-height: 1.8; color: var(--text-2); margin-bottom: 16px; }
+  .sv-char__goal { font-family: var(--mono); font-size: 11px; line-height: 1.75; color: var(--term-green); letter-spacing: .04em; padding: 10px 12px; background: rgba(106,226,140,.06); border-left: 2px solid var(--term-green); }
+  .sv-char[data-race="ai"]     .sv-char__goal { color: var(--term-cyan); background: rgba(96,192,224,.06); border-left-color: var(--term-cyan); }
+  .sv-char[data-race="beast"]  .sv-char__goal { color: var(--term-err);  background: rgba(224,96,96,.06); border-left-color: var(--term-err); }
+  .sv-char[data-race="dranla"] .sv-char__goal { color: var(--term-mag);  background: rgba(192,128,224,.06); border-left-color: var(--term-mag); }
+
+  /* ====================== FOUR ACTS ====================== */
+  .sv-acts { position: relative; padding-left: 24px; }
+  .sv-acts::before { content:''; position: absolute; left: 6px; top: 6px; bottom: 6px; width: 1px; background: linear-gradient(180deg, var(--term-green), transparent); }
+  .sv-act { position: relative; padding: 0 0 44px 30px; }
+  .sv-act::before { content:''; position: absolute; left: -24px; top: 4px; width: 13px; height: 13px; border: 2px solid var(--term-green); background: #05070a; border-radius: 50%; }
+  .sv-act__n { font-family: var(--mono); font-size: 11px; color: var(--term-dim); letter-spacing: .22em; margin-bottom: 6px; }
+  .sv-act__title { font-family: var(--serif-cn); font-size: 28px; color: #fff; font-weight: 500; margin-bottom: 4px; line-height: 1.2; }
+  .sv-act__title small { font-family: var(--mono); font-size: 12px; color: var(--term-green); letter-spacing: .15em; margin-left: 10px; font-weight: normal; }
+  .sv-act__body { color: var(--text-2); font-size: 14.5px; line-height: 1.9; max-width: 780px; margin-top: 14px; }
+  .sv-act__body p { margin-bottom: 12px; }
+
+  /* ====================== GALLERY ====================== */
+  .sv-gallery { padding: 100px 0 120px; background: #03060a; overflow: hidden; position: relative; }
+  .sv-gallery__head { max-width: 1280px; margin: 0 auto; padding: 0 var(--pad) 40px; }
+  .sv-gallery__scroll { display: flex; gap: 20px; padding: 10px var(--pad) 40px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: thin; scrollbar-color: rgba(106,226,140,.3) transparent; }
+  .sv-gallery__scroll::-webkit-scrollbar { height: 6px; }
+  .sv-gallery__scroll::-webkit-scrollbar-thumb { background: rgba(106,226,140,.3); }
+  .sv-shot { flex: 0 0 auto; width: clamp(280px, 42vw, 620px); aspect-ratio: 3/2; position: relative; scroll-snap-align: start; background: #0a0e12; overflow: hidden; border: 1px solid rgba(106,226,140,.15); }
+  .sv-shot img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s ease, filter .4s ease; filter: saturate(1.05) contrast(1.05); }
+  .sv-shot:hover img { transform: scale(1.04); }
+  .sv-shot__code { position: absolute; top: 12px; left: 12px; font-family: var(--mono); font-size: 10px; letter-spacing: .18em; color: var(--term-green); background: rgba(4,7,10,.85); padding: 4px 10px; border: 1px solid rgba(106,226,140,.4); z-index: 2; }
+  .sv-shot__cap { position: absolute; bottom: 0; left: 0; right: 0; padding: 24px 18px 14px; background: linear-gradient(0deg, rgba(4,7,10,.95), transparent); font-family: var(--mono); font-size: 11px; color: rgba(255,255,255,.85); letter-spacing: .08em; z-index: 2; }
+  .sv-shot__cap b { color: #fff; font-weight: 500; font-size: 13px; display: block; margin-bottom: 4px; letter-spacing: 0; font-family: var(--serif-cn); }
+
+  /* ====================== FACTION PICKER ====================== */
+  .sv-pick__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+  @media (max-width: 860px){ .sv-pick__grid { grid-template-columns: repeat(2,1fr); } }
+  .sv-pick {
+    background: #0a0e12; border: 1px solid rgba(106,226,140,.2);
+    padding: 26px 22px 24px; cursor: pointer; transition: border-color .3s, transform .3s, background .3s;
+    position: relative; overflow: hidden;
+  }
+  .sv-pick:hover { border-color: rgba(106,226,140,.6); transform: translateY(-3px); }
+  .sv-pick.selected { border-color: var(--term-green); background: rgba(106,226,140,.06); }
+  .sv-pick[data-race="ai"].selected     { border-color: var(--term-cyan); background: rgba(96,192,224,.06); }
+  .sv-pick[data-race="beast"].selected  { border-color: var(--term-err);  background: rgba(224,96,96,.06); }
+  .sv-pick[data-race="dranla"].selected { border-color: var(--term-mag);  background: rgba(192,128,224,.06); }
+  .sv-pick__code { font-family: var(--mono); font-size: 10px; color: var(--term-dim); letter-spacing: .2em; margin-bottom: 14px; }
+  .sv-pick__name { font-family: var(--serif-cn); font-size: 22px; color: #fff; font-weight: 500; margin-bottom: 4px; }
+  .sv-pick__en { font-family: var(--mono); font-size: 10px; color: var(--term-dim); letter-spacing: .12em; margin-bottom: 18px; }
+  .sv-pick__stat { display: flex; justify-content: space-between; font-family: var(--mono); font-size: 11px; margin-bottom: 6px; }
+  .sv-pick__stat span { color: var(--text-3); letter-spacing: .08em; }
+  .sv-pick__stat b { color: var(--term-green); font-weight: 500; }
+  .sv-pick[data-race="ai"] .sv-pick__stat b     { color: var(--term-cyan); }
+  .sv-pick[data-race="beast"] .sv-pick__stat b  { color: var(--term-err); }
+  .sv-pick[data-race="dranla"] .sv-pick__stat b { color: var(--term-mag); }
+  .sv-pick__talent { font-size: 12px; line-height: 1.65; color: var(--text-2); margin-top: 14px; padding-top: 12px; border-top: 1px dashed rgba(106,226,140,.15); }
+  .sv-pick__badge { position: absolute; top: 12px; right: 12px; font-family: var(--mono); font-size: 9px; letter-spacing: .2em; color: var(--term-green); border: 1px solid rgba(106,226,140,.4); padding: 3px 8px; opacity: 0; transition: opacity .3s; }
+  .sv-pick.selected .sv-pick__badge { opacity: 1; }
+
+  .sv-pick__status {
+    margin-top: 28px; padding: 22px 26px;
+    background: #0a0e12; border: 1px solid rgba(106,226,140,.2);
+    font-family: var(--mono); font-size: 12px; line-height: 1.9; color: var(--term-dim);
+    display: grid; grid-template-columns: 1fr auto; gap: 20px; align-items: center;
+  }
+  .sv-pick__status b { color: var(--term-green); }
+  .sv-pick__status.empty b { color: var(--term-warn); }
+
+  /* ====================== MINIGAMES · 2 ====================== */
+  .sv-games2 { display: grid; grid-template-columns: 1fr; gap: 80px; }
+
+  /* shared game frame */
+  .mg {
+    background: #0a0e12; border: 1px solid rgba(106,226,140,.2);
+    position: relative; overflow: hidden;
+  }
+  .mg__head { padding: 26px 32px 22px; border-bottom: 1px solid rgba(106,226,140,.12); display: grid; grid-template-columns: 1fr auto; gap: 20px; align-items: end; }
+  .mg__n { font-family: var(--mono); font-size: 10px; color: var(--term-dim); letter-spacing: .22em; margin-bottom: 8px; }
+  .mg__title { font-family: var(--serif-cn); font-size: 30px; color: #fff; font-weight: 500; line-height: 1.15; margin-bottom: 4px; }
+  .mg__sub { font-family: var(--mono); font-size: 11px; color: var(--term-green); letter-spacing: .15em; }
+  .mg__desc { color: var(--text-2); font-size: 13.5px; line-height: 1.8; padding: 18px 32px 24px; border-bottom: 1px solid rgba(106,226,140,.08); max-width: 900px; }
+  .mg__desc b { color: var(--term-green); font-weight: 500; }
+  .mg__body { padding: 34px 32px 38px; }
+
+  /* ============= GAME A · 生存战术对决 / 心理博弈 ============= */
+  .ga {
+    display: grid; grid-template-columns: 1fr 1.15fr; gap: 40px; align-items: stretch;
+  }
+  @media (max-width: 960px){ .ga { grid-template-columns: 1fr; gap: 30px; } }
+
+  /* left · match status */
+  .ga__stat { display: flex; flex-direction: column; gap: 14px; }
+  .ga__round-ind {
+    display: flex; gap: 8px;
+  }
+  .ga__round-ind span {
+    flex: 1; height: 36px; border: 1px solid rgba(106,226,140,.2);
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--mono); font-size: 10px; color: var(--term-dim); letter-spacing: .12em;
+    transition: all .4s;
+  }
+  .ga__round-ind span.active { border-color: var(--term-green); color: var(--term-green); background: rgba(106,226,140,.06); }
+  .ga__round-ind span.won    { border-color: var(--term-green); background: var(--term-green); color: #04070a; }
+  .ga__round-ind span.lost   { border-color: var(--term-mag); background: rgba(192,128,224,.3); color: #fff; }
+  .ga__round-ind span.draw   { border-color: var(--term-warn); color: var(--term-warn); }
+
+  .ga__score {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 2px;
+    background: rgba(106,226,140,.15); border: 1px solid rgba(106,226,140,.2);
+  }
+  .ga__score > div { background: #04070a; padding: 18px 20px; text-align: center; }
+  .ga__score__label { font-family: var(--mono); font-size: 9px; color: var(--text-3); letter-spacing: .18em; margin-bottom: 6px; }
+  .ga__score__v { font-family: var(--mono); font-size: 48px; font-weight: 500; line-height: 1; transition: all .3s; }
+  .ga__score__v.me  { color: var(--term-green); text-shadow: 0 0 24px rgba(106,226,140,.3); }
+  .ga__score__v.eve { color: var(--term-mag); text-shadow: 0 0 24px rgba(192,128,224,.3); }
+  .ga__score__v.bump { animation: ga-bump .5s cubic-bezier(.5,2,.5,1); }
+  @keyframes ga-bump { 0%{ transform: scale(1); } 40%{ transform: scale(1.35); } 100%{ transform: scale(1); } }
+  .ga__score__meta { font-family: var(--mono); font-size: 10px; color: var(--text-3); letter-spacing: .12em; margin-top: 4px; }
+
+  .ga__history { font-family: var(--mono); font-size: 10px; color: var(--term-dim); line-height: 1.85; min-height: 100px; padding: 14px 16px; background: #04070a; border: 1px solid rgba(106,226,140,.1); }
+  .ga__history__hd { color: var(--term-green); letter-spacing: .16em; font-size: 9px; margin-bottom: 8px; }
+  .ga__history p { margin: 0 0 4px; }
+  .ga__history .win { color: var(--term-green); }
+  .ga__history .bad { color: var(--term-mag); }
+  .ga__history .neu { color: var(--term-warn); }
+
+  /* right · stage */
+  .ga__stage { background: #04070a; border: 1px solid rgba(106,226,140,.15); padding: 28px 28px 26px; position: relative; overflow: hidden; }
+  .ga__stage::before {
+    content: ''; position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 60% 40% at 50% -10%, rgba(192,128,224,.08), transparent 70%),
+      radial-gradient(ellipse 60% 40% at 50% 110%, rgba(106,226,140,.06), transparent 70%);
+    pointer-events: none;
+  }
+  .ga__phase { font-family: var(--mono); font-size: 10px; letter-spacing: .22em; color: var(--term-green); margin-bottom: 6px; min-height: 14px; }
+  .ga__prompt {
+    font-family: var(--serif-cn); font-size: 18px; color: #fff; line-height: 1.55;
+    min-height: 54px; margin-bottom: 22px;
+    position: relative; z-index: 1;
+  }
+  .ga__eve {
+    display: flex; align-items: center; gap: 12px; margin-bottom: 20px;
+    font-family: var(--mono); font-size: 10px; letter-spacing: .14em;
+    color: var(--term-mag); text-transform: uppercase;
+    position: relative; z-index: 1;
+  }
+  .ga__eve__dot { width: 8px; height: 8px; border-radius: 50%; background: var(--term-mag); box-shadow: 0 0 8px var(--term-mag); animation: eve-think 1.6s ease-in-out infinite; }
+  @keyframes eve-think { 0%,100% { opacity: .4; transform: scale(1); } 50% { opacity: 1; transform: scale(1.4); } }
+
+  /* boxes */
+  .ga__boxes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; perspective: 1000px; margin-bottom: 20px; position: relative; z-index: 1; }
+  .ga__box {
+    aspect-ratio: 1/1.15; position: relative; cursor: pointer;
+    transform-style: preserve-3d; transition: transform .7s cubic-bezier(.5,.1,.3,1);
+  }
+  .ga__box.flip { transform: rotateY(180deg); cursor: default; }
+  .ga__box.disabled { pointer-events: none; opacity: .45; }
+  .ga__box__face {
+    position: absolute; inset: 0; backface-visibility: hidden;
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--mono);
+    border: 1px solid rgba(106,226,140,.3);
+    background: linear-gradient(135deg, #0a0e12, #050709);
+    overflow: hidden;
+  }
+  .ga__box__face::before {
+    content: ''; position: absolute; inset: 0;
+    background: repeating-linear-gradient(45deg, rgba(106,226,140,.04) 0 2px, transparent 2px 6px);
+  }
+  .ga__box:not(.flip):hover .ga__box__face--front { border-color: var(--term-green); background: linear-gradient(135deg, #101418, rgba(106,226,140,.04)); }
+  .ga__box__face--front {
+    font-size: 42px; color: var(--term-dim); letter-spacing: .08em;
+  }
+  .ga__box__face--back {
+    transform: rotateY(180deg);
+    font-size: 54px; text-align: center; flex-direction: column;
+  }
+  .ga__box__face--back b { font-size: 10px; letter-spacing: .2em; margin-top: 6px; opacity: .7; }
+  .ga__box[data-has="flower"] .ga__box__face--back { color: var(--term-green); border-color: var(--term-green); background: linear-gradient(135deg, rgba(106,226,140,.1), rgba(106,226,140,.02)); box-shadow: inset 0 0 30px rgba(106,226,140,.15); }
+  .ga__box[data-has="bomb"]   .ga__box__face--back { color: var(--term-err);   border-color: var(--term-err);   background: linear-gradient(135deg, rgba(224,96,96,.12), rgba(224,96,96,.02)); box-shadow: inset 0 0 40px rgba(224,96,96,.2); animation: bomb-shake .4s ease-out; }
+  @keyframes bomb-shake { 0%,100%{transform:rotateY(180deg) translateX(0);} 25%{transform:rotateY(180deg) translateX(-4px);} 75%{transform:rotateY(180deg) translateX(4px);} }
+  .ga__box[data-has="empty"]  .ga__box__face--back { color: var(--term-warn);  border-color: var(--term-warn);  background: linear-gradient(135deg, rgba(224,176,64,.08), rgba(224,176,64,.02)); }
+  /* scan light */
+  .ga__box:not(.flip) .ga__box__face--front::after {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(90deg, transparent 0%, rgba(106,226,140,.15) 50%, transparent 100%);
+    transform: translateX(-100%); animation: scan 3.2s ease-in-out infinite;
+  }
+  @keyframes scan { 0%,30% { transform: translateX(-100%); } 60%,100% { transform: translateX(100%); } }
+
+  /* trust buttons */
+  .ga__trust { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 16px; opacity: 0; pointer-events: none; transition: opacity .4s; max-height: 0; position: relative; z-index: 1; }
+  .ga__trust.show { opacity: 1; pointer-events: auto; max-height: 200px; }
+  .ga__trust button {
+    background: #0a0e12; border: 1px solid rgba(106,226,140,.3);
+    color: var(--term-green); font-family: var(--mono); font-size: 12px;
+    padding: 16px 18px; cursor: pointer; letter-spacing: .14em;
+    transition: all .2s; text-align: left;
+  }
+  .ga__trust button b { display: block; font-size: 10px; color: var(--text-3); letter-spacing: .12em; font-weight: normal; margin-top: 4px; }
+  .ga__trust button:hover { background: rgba(106,226,140,.08); border-color: var(--term-green); transform: translateY(-2px); }
+  .ga__trust button.verify { color: var(--term-warn); border-color: rgba(224,176,64,.3); }
+  .ga__trust button.verify:hover { background: rgba(224,176,64,.08); border-color: var(--term-warn); }
+
+  /* finale overlay */
+  .ga__finale {
+    position: absolute; inset: 0; background: rgba(4,7,10,.96); backdrop-filter: blur(4px);
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    opacity: 0; pointer-events: none; transition: opacity .6s;
+    padding: 40px 30px; text-align: center; z-index: 5;
+  }
+  .ga__finale.show { opacity: 1; pointer-events: auto; }
+  .ga__finale__title {
+    font-family: var(--serif-cn); font-size: 48px; color: #fff; font-weight: 500;
+    margin-bottom: 18px; letter-spacing: -.01em;
+  }
+  .ga__finale__title em { font-style: normal; }
+  .ga__finale.win .ga__finale__title em { color: var(--term-green); text-shadow: 0 0 30px rgba(106,226,140,.5); }
+  .ga__finale.lose .ga__finale__title em { color: var(--term-mag); text-shadow: 0 0 30px rgba(192,128,224,.5); }
+  .ga__finale.draw .ga__finale__title em { color: var(--term-warn); }
+  .ga__finale__read { font-family: var(--mono); font-size: 11px; color: var(--term-green); letter-spacing: .18em; margin-bottom: 22px; }
+  .ga__finale__quote {
+    max-width: 420px; font-family: var(--serif-cn); font-size: 15px; color: var(--text-2);
+    line-height: 1.8; border-top: 1px solid rgba(106,226,140,.15); border-bottom: 1px solid rgba(106,226,140,.15);
+    padding: 18px 20px; margin-bottom: 24px; font-style: italic;
+  }
+  .ga__finale__btns { display: flex; gap: 10px; }
+  .ga__finale__btns button {
+    background: transparent; border: 1px solid var(--term-green); color: var(--term-green);
+    font-family: var(--mono); font-size: 11px; padding: 10px 20px; letter-spacing: .18em;
+    cursor: pointer; transition: all .2s;
+  }
+  .ga__finale__btns button:hover { background: var(--term-green); color: #04070a; }
+
+  /* CARD-BASED GAME A */
+  .ga__cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; perspective: 1000px; margin-bottom: 20px; position: relative; z-index: 1; }
+  .ga__card {
+    aspect-ratio: 1/1.25; position: relative; cursor: pointer;
+    background: linear-gradient(160deg, #101418 0%, #07090c 100%);
+    border: 1px solid rgba(106,226,140,.28);
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    padding: 18px 10px; transition: all .28s cubic-bezier(.4,.0,.2,1);
+    overflow: hidden;
+  }
+  .ga__card::before {
+    content: ''; position: absolute; inset: 0;
+    background: repeating-linear-gradient(45deg, rgba(106,226,140,.04) 0 2px, transparent 2px 8px);
+    pointer-events: none;
+  }
+  .ga__card:hover { border-color: var(--term-green); transform: translateY(-4px); box-shadow: 0 12px 24px rgba(106,226,140,.12); }
+  .ga__card.selected { border-color: var(--term-green); background: linear-gradient(160deg, rgba(106,226,140,.12), rgba(106,226,140,.02)); transform: translateY(-6px); box-shadow: 0 0 32px rgba(106,226,140,.25); }
+  .ga__card.disabled { pointer-events: none; opacity: .35; filter: grayscale(.6); }
+  .ga__card__num { font-family: var(--mono); font-size: 64px; font-weight: 600; color: var(--term-green); line-height: 1; text-shadow: 0 0 18px rgba(106,226,140,.3); }
+  .ga__card__name { font-family: var(--serif-cn); font-size: 17px; color: #fff; margin-top: 14px; letter-spacing: .04em; }
+  .ga__card__tag { font-family: var(--mono); font-size: 9px; color: var(--term-dim); letter-spacing: .22em; margin-top: 6px; }
+
+  .ga__reveal {
+    display: grid; grid-template-columns: 1fr auto 1fr; gap: 16px; align-items: center;
+    padding: 22px 0 10px; min-height: 150px;
+    opacity: 0; pointer-events: none; transition: opacity .3s;
+  }
+  .ga__reveal.show { opacity: 1; }
+  .ga__reveal__side { text-align: center; }
+  .ga__reveal__lbl { font-family: var(--mono); font-size: 10px; letter-spacing: .2em; color: var(--term-dim); margin-bottom: 8px; }
+  .ga__reveal__card {
+    aspect-ratio: 1/1.2; max-width: 140px; margin: 0 auto;
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--mono); font-size: 72px; font-weight: 600;
+    border: 1px solid rgba(106,226,140,.3); background: #0a0e12;
+    transition: transform .5s, border-color .3s, color .3s;
+    transform: rotateY(180deg);
+  }
+  .ga__reveal__card.flip { transform: rotateY(0deg); }
+  .ga__reveal__card.win { color: var(--term-green); border-color: var(--term-green); box-shadow: 0 0 30px rgba(106,226,140,.3); }
+  .ga__reveal__card.lose { color: var(--term-err); border-color: var(--term-err); }
+  .ga__reveal__card.draw { color: var(--term-warn); border-color: var(--term-warn); }
+  .ga__reveal__side--eve .ga__reveal__card { font-family: var(--mono); }
+  .ga__reveal__vs { font-family: var(--mono); font-size: 16px; color: var(--term-mag); letter-spacing: .3em; opacity: .7; }
+
+  /* Turn bar for GB */
+  .gb__turnbar {
+    display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap;
+    padding: 14px 28px 16px; border-bottom: 1px solid rgba(106,226,140,.08);
+    background: rgba(10,14,18,.4);
+  }
+  .gb__turnbar__players { display: flex; gap: 10px; flex-wrap: wrap; }
+  .gb__player {
+    display: flex; align-items: center; gap: 8px; padding: 8px 12px;
+    border: 1px solid rgba(106,226,140,.15); background: rgba(4,7,10,.5);
+    font-family: var(--mono); font-size: 10px; color: var(--term-dim);
+    letter-spacing: .12em; transition: all .25s;
+    position: relative;
+  }
+  .gb__player .d { width: 7px; height: 7px; border-radius: 50%; background: var(--term-dim); opacity: .5; }
+  .gb__player b { font-family: var(--serif-cn); font-size: 13px; color: #c0c4c8; letter-spacing: .02em; font-weight: 500; }
+  .gb__player .meta { color: var(--text-3); font-size: 9px; }
+  .gb__player.active { border-color: var(--term-green); background: rgba(106,226,140,.1); }
+  .gb__player.active .d { background: var(--term-green); box-shadow: 0 0 8px var(--term-green); animation: pulse 1.4s ease-in-out infinite; opacity: 1; }
+  .gb__player.active b { color: var(--term-green); }
+  .gb__player.done { opacity: .45; }
+  .gb__turnbar__action { display: flex; align-items: center; gap: 14px; }
+  .gb__pick-lbl { font-family: var(--mono); font-size: 11px; color: var(--term-green); letter-spacing: .12em; }
+  .gb__pick-lbl b { color: #fff; font-size: 14px; margin: 0 2px; }
+  .gb__confirm {
+    background: var(--term-green); color: #04070a; border: none;
+    font-family: var(--mono); font-size: 11px; padding: 9px 18px; letter-spacing: .18em;
+    cursor: pointer; font-weight: 600; transition: all .2s;
+  }
+  .gb__confirm:disabled { background: #1a2226; color: var(--term-dim); cursor: not-allowed; opacity: .6; }
+  .gb__confirm:not(:disabled):hover { background: #9af5b6; transform: translateY(-1px); }
+
+  /* bulb pending (selected but not yet extinguished) */
+  .gb__bulb.pending .gb__bulb-body { filter: brightness(.55) saturate(.6); }
+  .gb__bulb.pending .gb__bulb-glow { opacity: .3; }
+
+  /* turn flash overlay */
+  .gb__turnflash {
+    position: absolute; inset: 0; pointer-events: none; z-index: 4;
+    background: rgba(106,226,140,0); transition: background .4s;
+  }
+  .gb__turnflash.human  { background: radial-gradient(ellipse at center, rgba(106,226,140,.15) 0%, transparent 70%); }
+  .gb__turnflash.ai     { background: radial-gradient(ellipse at center, rgba(96,192,224,.18) 0%, transparent 70%); }
+  .gb__turnflash.beast  { background: radial-gradient(ellipse at center, rgba(224,96,96,.18) 0%, transparent 70%); }
+
+  /* stage flash for bomb */
+  .ga__stage.flash-bomb { animation: stage-flash-err .4s; }
+  .ga__stage.flash-flower { animation: stage-flash-ok .4s; }
+  @keyframes stage-flash-err { 50% { box-shadow: inset 0 0 60px rgba(224,96,96,.3); } }
+  @keyframes stage-flash-ok  { 50% { box-shadow: inset 0 0 60px rgba(106,226,140,.25); } }
+
+  /* ============= GAME B · 熄灯者 Night's Quencher ============= */
+  .gb {
+    position: relative;
+    background: radial-gradient(ellipse 80% 100% at 50% 60%, #0a0810, #03060a 70%);
+    border: 1px solid rgba(106,226,140,.18);
+    min-height: 720px;
+    overflow: hidden;
+  }
+  .gb__phase {
+    font-family: var(--mono); font-size: 10px; color: var(--term-green); letter-spacing: .22em;
+    padding: 22px 28px 0; display: flex; justify-content: space-between; align-items: center;
+  }
+  .gb__phase .remaining b { color: var(--term-green); font-size: 16px; font-weight: 500; margin: 0 3px; }
+  .gb__stage-area {
+    position: relative; height: 500px; margin: 14px 0 0;
+    perspective: 1000px;
+  }
+  .gb__stage-svg { width: 100%; height: 100%; display: block; }
+  /* Light bulb states */
+  .gb__bulb { cursor: pointer; transition: filter .35s ease; }
+  .gb__bulb.dark { cursor: default; }
+  .gb__bulb-glow { transition: opacity .5s ease; }
+  .gb__bulb.dark .gb__bulb-glow { opacity: 0; }
+  .gb__bulb-body { transition: fill .45s ease; }
+  .gb__bulb.dark .gb__bulb-body { fill: #1a1612; }
+  .gb__rope { stroke: rgba(180,150,100,.5); stroke-width: 1; }
+  .gb__rope.dark { stroke: rgba(100,80,60,.28); }
+  /* Circular stage platform */
+  .gb__platform {
+    fill: url(#gbPlatGrad);
+    opacity: .85;
+  }
+  /* Smoke plume */
+  @keyframes gb-smoke {
+    0%   { opacity: .7; transform: translateY(0) scale(.6); }
+    100% { opacity: 0; transform: translateY(-90px) scale(1.8); }
+  }
+  .gb__smoke { pointer-events: none; animation: gb-smoke 1.8s ease-out forwards; transform-origin: center; }
+
+  /* Dialogue zone */
+  .gb__dialogue {
+    position: relative; z-index: 3;
+    padding: 0 40px 30px;
+    min-height: 160px;
+  }
+  .gb__dialogue__speaker {
+    font-family: var(--mono); font-size: 10px; letter-spacing: .22em;
+    margin-bottom: 10px; opacity: 0; transition: opacity .4s;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .gb__dialogue__speaker.show { opacity: 1; }
+  .gb__dialogue__speaker__tag { padding: 3px 10px; border: 1px solid currentColor; }
+  .gb__dialogue__speaker.john { color: var(--term-warn); }
+  .gb__dialogue__speaker.eve  { color: var(--term-mag); }
+  .gb__dialogue__speaker.cyra { color: var(--term-err); }
+  .gb__dialogue__speaker.sys  { color: var(--term-green); }
+  .gb__line {
+    font-family: var(--serif-cn); font-size: 22px; line-height: 1.6;
+    color: #fff; font-weight: 400; max-width: 780px;
+    min-height: 70px;
+    text-wrap: pretty;
+  }
+  .gb__line .cursor { color: var(--term-green); animation: blink 1s steps(1) infinite; }
+  @media (max-width: 760px){
+    .gb__line { font-size: 17px; }
+    .gb__dialogue { padding: 0 22px 20px; }
+    .gb__stage-area { height: 420px; }
+  }
+
+  /* CTA to extinguish all / reset */
+  .gb__controls {
+    position: absolute; bottom: 22px; right: 26px; z-index: 5;
+    display: flex; gap: 8px;
+  }
+  .gb__ctrl {
+    background: rgba(10,14,18,.8); backdrop-filter: blur(4px);
+    border: 1px solid rgba(106,226,140,.3); color: var(--term-dim);
+    font-family: var(--mono); font-size: 10px; padding: 8px 14px; letter-spacing: .16em;
+    cursor: pointer; transition: all .2s;
+  }
+  .gb__ctrl:hover { color: var(--term-green); border-color: var(--term-green); }
+
+  /* Blackout overlay at end */
+  .gb__blackout {
+    position: absolute; inset: 0; background: #000;
+    opacity: 0; pointer-events: none; transition: opacity 2.2s ease;
+    z-index: 4;
+  }
+  .gb__blackout.show { opacity: .92; pointer-events: auto; }
+  .gb__blackout-text {
+    position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
+    font-family: var(--serif-cn); font-size: 36px; color: #fff; text-align: center;
+    opacity: 0; transition: opacity 1s ease .8s;
+    line-height: 1.5;
+  }
+  .gb__blackout.show .gb__blackout-text { opacity: 1; }
+  .gb__blackout-text em { font-family: var(--mono); font-style: normal; font-size: 12px; color: var(--term-green); letter-spacing: .2em; display: block; margin-top: 14px; }
+  .g3__slot.me { border-style: solid; }
+  .g3__blood { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 12px; padding: 12px 0; border-top: 1px dashed rgba(106,226,140,.15); border-bottom: 1px dashed rgba(106,226,140,.15); }
+  .g3__b { font-family: var(--mono); font-size: 10px; color: var(--term-dim); letter-spacing: .08em; text-align: center; }
+  .g3__b b { display: block; font-size: 20px; color: #fff; margin-top: 2px; letter-spacing: 0; font-weight: 500; }
+  .g3__b.me b { color: var(--term-green); }
+  .g3__b.ai b { color: var(--term-cyan); }
+  .g3__b.beast b { color: var(--term-err); }
+  .g3__log { font-family: var(--mono); font-size: 10px; color: var(--term-dim); line-height: 1.7; min-height: 40px; }
+  .g3__log .win { color: var(--term-green); }
+  .g3__log .bad { color: var(--term-err); }
+  .g3__log .hot { color: var(--term-warn); }
+  .g3__log .neutral { color: var(--term-cyan); }
+
+  /* ====================== ENDING METER ====================== */
+  .sv-endings { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
+  @media (max-width: 860px){ .sv-endings { grid-template-columns: 1fr; } }
+  .sv-ending {
+    display: grid; grid-template-columns: 72px 1fr 64px; gap: 14px; align-items: baseline;
+    padding: 18px 0 14px; border-bottom: 1px solid rgba(106,226,140,.1);
+    position: relative;
+  }
+  .sv-ending__id { font-family: var(--mono); font-size: 11px; color: var(--term-dim); letter-spacing: .18em; }
+  .sv-ending__name { font-family: var(--serif-cn); font-size: 17px; color: var(--text); font-weight: 500; }
+  .sv-ending__name small { display: block; font-family: var(--mono); font-size: 10px; color: var(--text-3); margin-top: 3px; letter-spacing: .04em; line-height: 1.5; }
+  .sv-ending__bar { position: relative; height: 6px; background: rgba(106,226,140,.1); grid-column: 1 / -1; margin-top: 10px; }
+  .sv-ending__bar::after { content:''; position: absolute; inset: 0 auto 0 0; width: var(--p, 0%); background: linear-gradient(90deg, var(--term-green), var(--term-cyan)); transition: width .8s cubic-bezier(.2,.7,.2,1); }
+  .sv-ending__pct { font-family: var(--mono); font-size: 13px; color: var(--term-green); text-align: right; font-weight: 500; }
+  .sv-ending.hot .sv-ending__pct { color: var(--term-warn); }
+  .sv-ending.hot { background: rgba(106,226,140,.04); }
+  .sv-endings__note { font-family: var(--mono); font-size: 12px; line-height: 1.9; color: var(--term-dim); border: 1px dashed rgba(106,226,140,.2); padding: 22px 24px; background: rgba(10,14,18,.4); }
+  .sv-endings__note b { color: var(--term-green); }
+
+  /* Reviews */
+  .sv-reviews { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 48px; }
+  @media (max-width: 860px){ .sv-reviews { grid-template-columns: 1fr; } }
+  .sv-review { background: #0a0e12; border: 1px solid rgba(106,226,140,.2); padding: 26px 26px 22px; position: relative; }
+  .sv-review__q { font-family: var(--serif-cn); font-size: 17px; line-height: 1.65; color: var(--text); margin-bottom: 16px; font-style: italic; }
+  .sv-review__meta { font-family: var(--mono); font-size: 10px; color: var(--term-dim); letter-spacing: .14em; display: flex; justify-content: space-between; }
+
+  /* Long-form detail */
+  /* 宣传片 · 双源切换（终端绿色系） */
+  .sv-video { padding: 80px var(--pad) 100px; background: #04070a; }
+  .sv-video__inner { max-width: 1280px; margin: 0 auto; }
+  .sv-video__card {
+    position: relative; aspect-ratio: 16/7;
+    border: 1px solid rgba(106,226,140,0.3);
+    background:
+      linear-gradient(180deg, rgba(4,7,10,0.35), rgba(4,7,10,0.82)),
+      url('images/sv-01.jpg') center 35% / cover no-repeat;
+    display: grid; place-items: center;
+    cursor: pointer; overflow: hidden; margin-top: 28px;
+    transition: border-color .3s, transform .5s ease;
+  }
+  .sv-video__card:hover { border-color: var(--term-green); transform: translateY(-4px); }
+  .sv-video__play {
+    width: 88px; height: 88px; border-radius: 50%;
+    background: rgba(106,226,140,0.08);
+    backdrop-filter: blur(10px);
+    border: 1.5px solid rgba(106,226,140,0.5);
+    display: grid; place-items: center;
+    color: var(--term-green); font-size: 24px;
+    transition: all .3s ease;
+  }
+  .sv-video__card:hover .sv-video__play {
+    background: var(--term-green); color: #04070a;
+    transform: scale(1.08); box-shadow: 0 0 32px rgba(106,226,140,0.4);
+  }
+  .sv-video__label {
+    position: absolute; bottom: 22px; left: 26px;
+    font-family: var(--mono); font-size: 11px;
+    letter-spacing: .3em; text-transform: uppercase;
+    color: rgba(255,255,255,0.88); z-index: 2;
+  }
+  .sv-video__label em {
+    color: var(--term-green); font-style: normal;
+  }
+  .sv-video__src {
+    position: absolute; bottom: 18px; right: 22px;
+    display: flex; gap: 8px; z-index: 2;
+  }
+  .sv-video__btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 9px 16px;
+    border: 1px solid rgba(106,226,140,0.4);
+    background: rgba(4,7,10,0.75);
+    backdrop-filter: blur(6px);
+    color: var(--term-green);
+    font-family: var(--mono); font-size: 10.5px;
+    letter-spacing: .22em; text-transform: uppercase;
+    cursor: pointer; border-radius: 999px;
+    transition: all .25s ease;
+  }
+  .sv-video__btn:hover {
+    background: var(--term-green); color: #04070a;
+    border-color: var(--term-green);
+  }
+  .sv-video__btn .dot {
+    width: 6px; height: 6px; border-radius: 50%;
+    background: currentColor;
+  }
+
+  /* Video modal adapt to terminal style */
+  .video-modal { position: fixed; inset: 0; z-index: 1000; background: rgba(4,7,10,0.94);
+    display: none; place-items: center; padding: 40px; }
+  .video-modal.is-open { display: grid; }
+  .video-modal__content { position: relative; width: min(1100px, 96vw); aspect-ratio: 16/9;
+    background: #000; border: 1px solid rgba(106,226,140,0.25); }
+  .video-modal__close { position: absolute; top: -44px; right: 0; background: none; border: 0;
+    color: var(--term-green); font-size: 32px; cursor: pointer; font-family: var(--mono); }
+  .video-modal iframe { width: 100%; height: 100%; border: 0; }
+
+  .sv-detail { padding: 100px var(--pad); max-width: 900px; margin: 0 auto; }
+  .sv-detail h2 { font-family: var(--serif-cn); font-weight: 500; font-size: clamp(28px, 3.5vw, 42px); margin: 60px 0 24px; line-height: 1.2; }
+  .sv-detail h2:first-child { margin-top: 0; }
+  .sv-detail p { font-size: 15px; line-height: 1.95; color: var(--text-2); margin-bottom: 16px; }
+  .sv-detail blockquote { border-left: 3px solid var(--term-green); padding: 6px 0 6px 22px; margin: 26px 0; font-family: var(--serif-cn); font-style: italic; font-size: 18px; color: var(--text); line-height: 1.7; }
+
+  /* CTA */
+  .sv-cta { padding: 140px var(--pad); text-align: center; position: relative; overflow: hidden; }
+  .sv-cta__bg { position: absolute; inset: 0; background: url('images/sv-poster-02.jpg') center / cover no-repeat; opacity: .22; filter: grayscale(.3); }
+  .sv-cta::after { content:''; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 70% at 50% 50%, transparent 10%, #04070a 80%); pointer-events: none; }
+  .sv-cta__h { font-family: var(--serif-cn); font-weight: 500; font-size: clamp(36px, 5vw, 68px); line-height: 1.1; margin-bottom: 14px; position: relative; }
+  .sv-cta__h em { font-family: var(--mono); font-style: normal; color: var(--term-green); font-size: .4em; display: block; margin-top: 14px; letter-spacing: .18em; }
+  .sv-cta a { position: relative; z-index: 2; }
+</style>
+<script src="i18n.js"></script>
+</head>
+<body>
+<div class="grain"></div>
+<div class="cursor-glow"></div>
+
+<div class="curtain" aria-hidden="true">
+  <div class="curtain__panel curtain__panel--l"></div>
+  <div class="curtain__panel curtain__panel--r"></div>
+</div>
+<div class="curtain__logo">
+  THE SURVIVOR
+  <small data-i18n="show.survivor.curtain.small">生存游戏 · 沉浸式互动</small>
+</div>
+
+<nav class="nav">
+  <a href="index.html" class="nav__brand">
+    <span class="nav__mark">SN</span>
+    <span class="nav__brand-cn">惊喜之夜</span>
+    <span class="nav__brand-en">Surprise Night</span>
+  </a>
+  <div class="nav__links">
+    <a href="works.html" class="nav__link is-active" data-i18n="nav.works">作品</a>
+    <a href="collaborate.html" class="nav__link" data-i18n="nav.collaborate">合作</a>
+    <a href="about.html" class="nav__link" data-i18n="nav.about">关于</a>
+    <a href="collaborators.html" class="nav__link" data-i18n="nav.artists">艺术家</a>
+    <a href="contact.html" class="nav__link" data-i18n="nav.contact">联系</a>
+    <div class="nav__lang"><button data-set-lang="zh">中</button>
+      <button data-set-lang="en">EN</button></div>
+  </div>
+  <button class="nav__burger" id="navBurger" aria-label="菜单" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<main>
+  <!-- HERO -->
+  <section class="sv-hero">
+    <div class="sv-hero__bg"></div>
+    <div class="sv-hero__inner">
+      <div>
+        <a href="works.html" class="back-link" style="color: var(--term-dim);" data-i18n="show.survivor.hero.back">← 返回作品</a>
+        <p class="sv-eyebrow"><span class="dot"></span><span data-i18n="show.survivor.hero.eyebrow">SYSTEM ONLINE · YEAR 2115 · 沉浸式互动游戏戏剧</span></p>
+        <h1 class="sv-h" data-i18n="show.survivor.hero.title" data-i18n-html="true">生存游戏<em>THE_SURVIVOR.exe</em></h1>
+        <p class="sv-lead" data-i18n="show.survivor.hero.lead" data-i18n-html="true">2115 年，脑机接口把人类切成四个种族。<br/>你只有一条命——想尽一切办法活下去。</p>
+        <div class="sv-meta">
+          <span data-i18n="show.survivor.spec.races">4 种族</span>
+          <span data-i18n="show.survivor.spec.rounds">5 轮比赛</span>
+          <span data-i18n="show.survivor.spec.acts">4 幕剧情</span>
+          <span>120 MIN</span>
+          <span>16+</span>
         </div>
-      </section>
+        <div class="sv-stats">
+          <div class="sv-stat"><b>2023</b><span data-i18n="show.survivor.stat.premiere">首演</span></div>
+          <div class="sv-stat"><b>300</b><span data-i18n="show.survivor.stat.capacity">单场容量</span></div>
+          <div class="sv-stat"><b>3</b><span data-i18n="show.survivor.stat.games">核心博弈</span></div>
+          <div class="sv-stat"><b>4</b><span data-i18n="show.survivor.stat.endings">分支结局</span></div>
+        </div>
+      </div>
 
-      <div class="container detail-layout">
-        <div class="detail-main">
-          <h2 data-i18n="projectSurvivor.introH">项目简介</h2>
-          <p data-i18n="projectSurvivor.introP">
-            《生存游戏》是重庆演出股份有限公司委托惊喜之夜打造的一部沉浸式互动游戏戏剧，将观众带入一个设定在未来世界的生存挑战中。观众不再是旁观者，而是参与者，需要在规则与伦理的张力中做出选择，体验智能 AI 对决复杂人性的深度博弈。每一个决定都可能改变故事走向，最终导向不同的结局。
-          </p>
-          <p>
-            作品于 2023 年 12 月在重演浸空间（金源店）完成首轮驻演，获得观众热烈反响。该剧适合作为「现成项目引进」与驻场合作的参考案例，可根据不同场地条件进行灵活调整。
-          </p>
+      <div class="term">
+        <div class="term__bar">
+          <div class="term__dots"><span></span><span></span><span></span></div>
+          <div class="term__title">/root/dranla/survivor_2115 — bash</div>
+          <div class="term__meta">v21.15</div>
+        </div>
+        <div class="term__screen" id="termScreen"></div>
+      </div>
+    </div>
+  </section>
 
-          <h2 data-i18n="projectSurvivor.storyH">故事背景</h2>
-          <p data-i18n="projectSurvivor.storyP">
-            在不远的未来，世界发生了翻天覆地的变化。人类社会被重新组织，生存成为每个人面临的首要问题。在这场游戏中，你将扮演一个求生者，面对道德困境与生存本能的双重考验。是选择合作还是背叛？是坚守人性还是顺应规则？一切由你决定。
-          </p>
+  <!-- WORLDBUILDING -->
+  <section class="sv-section">
+    <div class="sv-section__inner reveal">
+      <p class="sv-label" data-i18n="show.survivor.lore.label">◉ world_lore.txt</p>
+      <h2 data-i18n="show.survivor.world.h" data-i18n-html="true">2115 · 四个种族<em>// POST-NEURALINK · POPULATION STRATIFIED</em></h2>
 
-          <h2 data-i18n="projectSurvivor.hiH">体验亮点</h2>
-          <ul class="highlight-list">
-            <li data-i18n="projectSurvivor.hi1"><strong style="color: var(--text)">多结局结构</strong> — 分支叙事设计，不同选择导向不同结局，高重复可玩性。</li>
-            <li data-i18n="projectSurvivor.hi2"><strong style="color: var(--text)">未来感视听</strong> — 科幻风格的空间设计与光影效果，营造沉浸式未来世界氛围。</li>
-            <li data-i18n="projectSurvivor.hi3"><strong style="color: var(--text)">博弈与群像</strong> — 在规则之下测试信任与选择，体验人性的复杂与多样。</li>
-            <li data-i18n="projectSurvivor.hi4"><strong style="color: var(--text)">AI 元素</strong> — 智能 AI 角色参与互动，增强科技感与沉浸感。</li>
-            <li data-i18n="projectSurvivor.hi5"><strong style="color: var(--text)">专业表演</strong> — 经验丰富的演员团队，确保每场演出的高质量呈现。</li>
-          </ul>
+      <div class="sv-world__grid">
+        <div class="sv-world__lore">
+          <p data-i18n="show.survivor.world.lore1" data-i18n-html="true">经历一个世纪的科技发展，马斯克领导的 <b>Neuralink</b> 取得重大突破，成功研发出可直接植入大脑的高级 AI 芯片——它与神经系统连接，使人类的认知与记忆能力大幅提升。</p>
+          <p data-i18n="show.survivor.world.lore2" data-i18n-html="true">这种技术产生了一种新型人类：<b data-i18n="show.survivor.race.dran">德兰圣丁</b>（Dranla Fen Tiru）——超级智慧、半人半机器、拥有永生。但约 <b>11%</b> 的转化者发生意外，变成所谓的"兽之人"——既非普通人、也非德兰圣丁。</p>
+          <p data-i18n="show.survivor.world.lore3" data-i18n-html="true">与此同时，高度进化的 <b data-i18n="show.survivor.race.ai">AI 机器人</b>开始崭露头角——它们具备人类智慧，在多个领域取得巨大成就。而那些没有接受任何增强的"<b data-i18n="show.survivor.race.human">原生人</b>"，逐渐被边缘化为社会底层。</p>
+          <p data-i18n="show.survivor.world.lore4" data-i18n-html="true">为缓解社会矛盾，德兰圣丁提出定期举办一场<b data-i18n="show.survivor.race.gameName">生存游戏</b>——允许原生人通过比赛获得转化为德兰圣丁的机会。</p>
+          <blockquote class="sv-world__quote" data-i18n="show.survivor.dran.quote">"Drala fen tiru." 永远尊敬德兰圣丁。</blockquote>
+        </div>
 
-          <h2 data-i18n="projectSurvivor.infoH">演出信息</h2>
-          <div class="info-grid">
-            <div class="info-cell">
-              <div class="label" data-i18n="projectSurvivor.infDur">演出时长</div>
-              <div class="value" data-i18n="projectSurvivor.infDurV">120 分钟</div>
+        <div class="sv-races">
+          <div class="sv-race" data-race="dranla">
+            <div class="sv-race__icon">D</div>
+            <div>
+              <div class="sv-race__name"><span data-i18n="show.survivor.race.dran">德兰圣丁</span><small data-i18n="show.survivor.race.dran.small">DRANLA · 超级智慧 / 永生</small></div>
+              <div class="sv-race__desc" data-i18n="show.survivor.race.dranla.desc">半人半机器，人数上限 20。通过游戏机制可获得血条。拥有群体伤害技能。</div>
             </div>
-            <div class="info-cell">
-              <div class="label" data-i18n="projectSurvivor.infCap">单场容量</div>
-              <div class="value" data-i18n="projectSurvivor.infCapV">300 人</div>
-            </div>
-            <div class="info-cell">
-              <div class="label" data-i18n="projectSurvivor.infYear">首演年份</div>
-              <div class="value" data-i18n="projectSurvivor.infYearV">2023</div>
-            </div>
-            <div class="info-cell">
-              <div class="label" data-i18n="projectSurvivor.infCreator">编剧 / 导演</div>
-              <div class="value" data-i18n="projectSurvivor.infCreatorV">瞿菡、袁冶 / 袁冶</div>
-            </div>
-            <div class="info-cell">
-              <div class="label" data-i18n="projectSurvivor.infRun">演出时段</div>
-              <div class="value" data-i18n="projectSurvivor.infRunV">2023.12.1 — 12.31</div>
-            </div>
-            <div class="info-cell">
-              <div class="label" data-i18n="projectSurvivor.infVenue">演出场馆</div>
-              <div class="value" data-i18n="projectSurvivor.infVenueV">重演浸空间（金源店）</div>
-            </div>
+            <div class="sv-race__blood"><b>∞</b><span data-i18n="show.survivor.race.blood">血量</span></div>
           </div>
-
-          <h2 data-i18n="projectSurvivor.reviewH">观众评价</h2>
-          <div class="testimonial">
-            <blockquote data-i18n="projectSurvivor.review1">"沉浸感很强，每个选择都让人纠结！"</blockquote>
-            <blockquote data-i18n="projectSurvivor.review2">"剧情设计巧妙，二刷依然有新鲜感。"</blockquote>
-            <blockquote data-i18n="projectSurvivor.review3">"演员演技在线，AI 互动环节很有创意。"</blockquote>
+          <div class="sv-race" data-race="beast">
+            <div class="sv-race__icon">B</div>
+            <div>
+              <div class="sv-race__name"><span data-i18n="show.survivor.race.beast">兽之人</span><small data-i18n="show.survivor.race.beast.small">BEAST · 残次品 / 转化失败</small></div>
+              <div class="sv-race__desc" data-i18n="show.survivor.race.beast.desc">原本是企业家、政治家、富二代。血量 +2，复活后上限 +1。被社会视为异类。</div>
+            </div>
+            <div class="sv-race__blood"><b>5</b><span data-i18n="show.survivor.race.blood">血量</span></div>
           </div>
-          <h2 data-i18n="projectSurvivor.galH">视觉资料</h2>
-          
-          <!-- 剧照画廊 -->
-          <div class="gallery-grid">
-            <div class="gallery-item">
-              <img src="assets/images/gallery/survivor-1.png" alt="生存游戏 剧照1" loading="lazy">
+          <div class="sv-race" data-race="ai">
+            <div class="sv-race__icon">A</div>
+            <div>
+              <div class="sv-race__name"><span data-i18n="show.survivor.race.ai">AI 机器人</span><small data-i18n="show.survivor.race.ai.small">AI · 人类智慧 / 冷静</small></div>
+              <div class="sv-race__desc" data-i18n="show.survivor.race.ai.desc">免疫特殊技能（含群体伤害）。冷静、理性，某些凭借才华成为社会领袖。</div>
             </div>
-            <div class="gallery-item">
-              <img src="assets/images/gallery/survivor-2.png" alt="生存游戏 剧照2" loading="lazy">
+            <div class="sv-race__blood"><b>3</b><span data-i18n="show.survivor.race.blood">血量</span></div>
+          </div>
+          <div class="sv-race" data-race="human">
+            <div class="sv-race__icon">H</div>
+            <div>
+              <div class="sv-race__name"><span data-i18n="show.survivor.race.human">原生人</span><small data-i18n="show.survivor.race.human.small">HUMAN · 未增强 / 社会底层</small></div>
+              <div class="sv-race__desc" data-i18n="show.survivor.race.human.desc">没有接受任何增强。复活速度 +1，获取芯片 +0.5。只能靠敏锐感性活下去。</div>
             </div>
-            <div class="gallery-item">
-              <img src="assets/images/gallery/survivor-3.png" alt="生存游戏 剧照3" loading="lazy">
+            <div class="sv-race__blood"><b>2</b><span data-i18n="show.survivor.race.blood">血量</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CHARACTERS -->
+  <section class="sv-section sv-section--darker">
+    <div class="sv-section__inner reveal">
+      <p class="sv-label" data-i18n="show.survivor.char.label">◉ characters.db</p>
+      <h2 data-i18n="show.survivor.char.h" data-i18n-html="true">四位参赛者<em data-i18n="show.survivor.race.em">// 但他们之中，只有一个是他看起来的样子</em></h2>
+
+      <div class="sv-chars">
+        <div class="sv-char" data-race="human">
+          <div class="sv-char__role" data-i18n="show.survivor.c1.role">CONTESTANT · 原生人</div>
+          <div class="sv-char__cn" data-i18n="show.survivor.c1.cn">约翰·帕帕多普洛斯</div>
+          <div class="sv-char__en">JOHN PAPADOPOULOS</div>
+          <div class="sv-char__stats">
+            <div>AGE<b>26</b></div><div>RACE<b>HUMAN</b></div>
+            <div>HT<b>1.75m</b></div><div>WT<b>65kg</b></div>
+          </div>
+          <p class="sv-char__bio" data-i18n="show.survivor.c1.bio">新世界首都边境贫民区，父亲早逝，母亲朱莉，8 岁妹妹艾米。妹妹的病像一个不断扩大的黑洞吞噬着家里所有希望——一瓶便宜的酒是他唯一的慰藉。棕色眼眸带着哀愁，走起路来像风中摇摆的芦苇，但感性和共情比任何种族都敏锐。</p>
+          <p class="sv-char__goal" data-i18n="show.survivor.c1.goal">→ 目标：赢得游戏，把转化为德兰圣丁的机会留给妹妹，救她的命。</p>
+        </div>
+
+        <div class="sv-char" data-race="ai">
+          <div class="sv-char__role" data-i18n="show.survivor.c2.role">CONTESTANT · AI 机器人 · X0748</div>
+          <div class="sv-char__cn" data-i18n="show.survivor.c2.cn">夏娃·西玛什科</div>
+          <div class="sv-char__en">EVE SIEMASZKO</div>
+          <div class="sv-char__stats">
+            <div>AGE<b>23</b></div><div>RACE<b>AI / D</b></div>
+            <div>HT<b>1.65m</b></div><div>WT<b>48kg</b></div>
+          </div>
+          <p class="sv-char__bio" data-i18n="show.survivor.c2.bio">根据线上约会网站数据训练出的"男性凝视下的完美女性模型"——栗色卷发、幼态圆脸、精致机械纹路。隶属于麦克斯维尔，编号 X0748，负责收集实验数据。无情感但高效——但她的程序里偶尔会跳出一行不该出现的指令。</p>
+          <p class="sv-char__goal" data-i18n="show.survivor.c2.goal">→ 目标：观察、记录、保持旁观者立场——直到她自己也察觉到了异常。</p>
+        </div>
+
+        <div class="sv-char" data-race="beast">
+          <div class="sv-char__role" data-i18n="show.survivor.c3.role">CONTESTANT · 兽之人</div>
+          <div class="sv-char__cn" data-i18n="show.survivor.c3.cn">塞拉·基亚罗斯库罗</div>
+          <div class="sv-char__en">CYRA CHIAROSCURO</div>
+          <div class="sv-char__stats">
+            <div>AGE<b>28</b></div><div>RACE<b>BEAST</b></div>
+            <div>HT<b>1.88m</b></div><div>WT<b>79kg</b></div>
+          </div>
+          <p class="sv-char__bio" data-i18n="show.survivor.c3.bio">基亚罗斯库罗家族独子，23 岁继承家业，28 岁成为脑机技术的第一批实验者——然后失败了。从万众瞩目的王者变成被人唾弃的"残次品"，妻子在社会冲突中去世。他胸口燃烧着一团近乎疯狂的自证执念：即便是兽之人，我依然是不可敌的塞拉。</p>
+          <p class="sv-char__goal" data-i18n="show.survivor.c3.goal">→ 目标：赢得生存游戏，用德兰圣丁的最新技术，撕掉"残次品"的标签。</p>
+        </div>
+
+        <div class="sv-char" data-race="dranla">
+          <div class="sv-char__role" data-i18n="show.survivor.c4.role">HOST · 德兰圣丁 · X0848</div>
+          <div class="sv-char__cn" data-i18n="show.survivor.c4.cn">麦克斯维尔·基亚罗斯库罗</div>
+          <div class="sv-char__en">MAXWELL CHIAROSCURO</div>
+          <div class="sv-char__stats">
+            <div>AGE<b>29</b></div><div>RACE<b>D / AI</b></div>
+            <div>HT<b>1.78m</b></div><div>WT<b>75kg</b></div>
+          </div>
+          <p class="sv-char__bio" data-i18n="show.survivor.c4.bio">塞拉之子。父亲失败那年他 5 岁，母亲在社会冲突中去世，父亲从家族出走——偌大的豪宅只剩他和一只老鼠。他接手家族企业，笑容总带着诡异的疯狂，做的每个举动都像精心策划。他挑战善恶、对错的传统定义，想把世界扭到他认为正确的轨道上。</p>
+          <p class="sv-char__goal" data-i18n="show.survivor.c4.goal">→ 目标：他不仅是主持人——他同时也是德兰圣丁。他记录的不是比赛，是数据。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOUR ACTS -->
+  <section class="sv-section">
+    <div class="sv-section__inner reveal">
+      <p class="sv-label" data-i18n="show.survivor.acts.label">◉ acts.log</p>
+      <h2 data-i18n="show.survivor.acts.h" data-i18n-html="true">四幕结构<em data-i18n="show.survivor.actlist.em">// 序幕 · 刻尔柏洛斯之门 · 变局 · 点灯 · 未来</em></h2>
+
+      <div class="sv-acts">
+        <div class="sv-act">
+          <div class="sv-act__n">PROLOGUE</div>
+          <h3 class="sv-act__title" data-i18n="show.survivor.act1.h" data-i18n-html="true">序幕·元启<small>// 世界观建立</small></h3>
+          <div class="sv-act__body">
+            <p data-i18n="show.survivor.act1.body">多媒体画面展开 2115 的背景。麦克斯维尔登场，讲解比赛规则，介绍三位参赛者：原生人约翰、AI 夏娃、兽之人塞拉。</p>
+            <p data-i18n="show.survivor.act1.body2">兽之人喊出"兽人永不为奴"，AI 喊出"HI, Siri"，原生人约翰一时不知所措——临时拉了一位观众起来喊"恢复零元购"。低沉的音乐响起，德兰圣丁出场，所有人跪下："Drala fen tiru."</p>
+          </div>
+        </div>
+        <div class="sv-act">
+          <div class="sv-act__n">ACT I</div>
+          <h3 class="sv-act__title" data-i18n="show.survivor.act2.h" data-i18n-html="true">刻尔柏洛斯之门<small>// 重生之门</small></h3>
+          <div class="sv-act__body">
+            <p data-i18n="show.survivor.act2.body">六扇门降落，每位选手面前两扇。三人在"生"与"死"之间做选择——信任、背叛、欺骗成为主要元素。</p>
+            <p data-i18n="show.survivor.act2.body2" data-i18n-html="true">塞拉因违反规则遭到惩罚，约翰第一次意识到这不是游戏、是生与死。约翰提出最公平的合作——每人轮流得 1 分。前两轮顺利，第三轮约翰准备得分时，塞拉选择了"死亡"抢分；与此同时夏娃早已料到约翰会背叛，也选了"死亡"——<b data-i18n="show.survivor.act2.bold">塞拉的第一次背叛，由此开始</b>。</p>
+          </div>
+        </div>
+        <div class="sv-act">
+          <div class="sv-act__n">ACT II</div>
+          <h3 class="sv-act__title" data-i18n="show.survivor.act3.h" data-i18n-html="true">变局<small>// 心理博弈盒 · 电椅</small></h3>
+          <div class="sv-act__body">
+            <p data-i18n="show.survivor.act3.body">夏娃设计心理博弈盒——三个盒子、花与炸弹的试探。塞拉设计"电椅"——生死攸关的刺激游戏。</p>
+            <p data-i18n="show.survivor.act3.body2">约翰表现出罕见的智慧：利用塞拉的冲动、夏娃的实用理性，甚至故意输给夏娃换取她的信任。他精心策划了这一切——在最险恶的游戏里存活下来，成为最后的赢家。</p>
+          </div>
+        </div>
+        <div class="sv-act">
+          <div class="sv-act__n">ACT III</div>
+          <h3 class="sv-act__title" data-i18n="show.survivor.act4.h" data-i18n-html="true">点灯<small>// 63 盏灯的王国</small></h3>
+          <div class="sv-act__body">
+            <p data-i18n="show.survivor.act4.body">孤独的王国里有 63 盏灯。每晚点灯人为国王点亮 62 盏——第 63 盏从未被点亮，因为传说那盏下葬着国王最深爱的人，点亮它，点灯人就会丧命。</p>
+            <p data-i18n="show.survivor.act4.body2">点灯人明白了国王心中真正的愿望，决定点亮那盏灯，永远离开国王。每个阵营有一次机会挑战德兰圣丁——每一轮都有人点灯，有人倒下。</p>
+          </div>
+        </div>
+        <div class="sv-act">
+          <div class="sv-act__n">ACT IV · FINALE</div>
+          <h3 class="sv-act__title" data-i18n="show.survivor.act5.h" data-i18n-html="true">未来<small>// approaching · 做出选择的机器</small></h3>
+          <div class="sv-act__body">
+            <p data-i18n="show.survivor.act5.body" data-i18n-html="true">麦克斯维尔宣布最终排名。获胜阵营面临选择：<b>单独挑战德兰圣丁</b>（成功则取代、失败被抹杀），或<b>联合其他阵营</b>共同推翻统治。仅 10 秒决定。</p>
+            <p data-i18n="show.survivor.act5.body2">号令响起——战斗方式出人意料地简单：石头剪刀布。每轮获胜者夺走对方一条血。当场上只剩同一阵营，决战结束。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FACTION PICKER -->
+  <section class="sv-section sv-section--darker">
+    <div class="sv-section__inner reveal">
+      <p class="sv-label" data-i18n="show.survivor.faction.label">◉ faction_select.sh</p>
+      <h2 data-i18n="show.survivor.faction.h" data-i18n-html="true">选阵营<em>// 你想用哪一条血活下去？</em></h2>
+      <div class="sv-section__head">
+        <p data-i18n="show.survivor.faction.intro">入场时，你会被带到陈列厅——三个陈列柜上滚动播放着参赛者信息。现在请做第一个选择：你支持哪位选手？你的阵营决定你的血量、天赋——以及你能不能熬过五轮。</p>
+      </div>
+
+      <div class="sv-pick__grid" id="pickGrid">
+        <div class="sv-pick" data-race="human" data-key="human">
+          <span class="sv-pick__badge">✓ SELECTED</span>
+          <div class="sv-pick__code">FACTION · HUMAN</div>
+          <div class="sv-pick__name" data-i18n="show.survivor.pick.human.name">原生人</div>
+          <div class="sv-pick__en" data-i18n="show.survivor.pick.human.en">// 支持约翰</div>
+          <div class="sv-pick__stat"><span data-i18n="show.survivor.pick.hp">血量</span><b>2</b></div>
+          <div class="sv-pick__stat"><span data-i18n="show.survivor.pick.human.stat1">复活速度</span><b>+1</b></div>
+          <div class="sv-pick__stat"><span data-i18n="show.survivor.pick.human.stat2">获取芯片</span><b>+0.5</b></div>
+          <div class="sv-pick__talent" data-i18n="show.survivor.pick.human.talent">天赋：复活速度提升，底层感性让你在困境中更快判断。</div>
+        </div>
+        <div class="sv-pick" data-race="ai" data-key="ai">
+          <span class="sv-pick__badge">✓ SELECTED</span>
+          <div class="sv-pick__code">FACTION · AI</div>
+          <div class="sv-pick__name" data-i18n="show.survivor.pick.ai.name">AI 机器人</div>
+          <div class="sv-pick__en" data-i18n="show.survivor.pick.ai.en">// 支持夏娃</div>
+          <div class="sv-pick__stat"><span data-i18n="show.survivor.pick.hp">血量</span><b>3</b></div>
+          <div class="sv-pick__stat"><span data-i18n="show.survivor.pick.ai.stat1">特殊免疫</span><b>✓</b></div>
+          <div class="sv-pick__stat"><span data-i18n="show.survivor.pick.ai.stat2">群体伤害</span><b data-i18n="show.survivor.pick.ai.stat2v">免疫</b></div>
+          <div class="sv-pick__talent" data-i18n="show.survivor.pick.ai.talent">天赋：免疫特殊技能（含群体伤害）。冷静旁观，但要小心程序外的指令。</div>
+        </div>
+        <div class="sv-pick" data-race="beast" data-key="beast">
+          <span class="sv-pick__badge">✓ SELECTED</span>
+          <div class="sv-pick__code">FACTION · BEAST</div>
+          <div class="sv-pick__name" data-i18n="show.survivor.pick.beast.name">兽之人</div>
+          <div class="sv-pick__en" data-i18n="show.survivor.pick.beast.en">// 支持塞拉</div>
+          <div class="sv-pick__stat"><span data-i18n="show.survivor.pick.hp">血量</span><b>5</b></div>
+          <div class="sv-pick__stat"><span data-i18n="show.survivor.pick.beast.stat1">血量加成</span><b>+2</b></div>
+          <div class="sv-pick__stat"><span data-i18n="show.survivor.pick.beast.stat2">复活后上限</span><b>+1</b></div>
+          <div class="sv-pick__talent" data-i18n="show.survivor.pick.beast.talent">天赋：高血量耐打。残次品的愤怒让你的每次失败都加大下一次反击。</div>
+        </div>
+        <div class="sv-pick" data-race="dranla" data-key="dranla">
+          <span class="sv-pick__badge">✓ SELECTED</span>
+          <div class="sv-pick__code">FACTION · HIDDEN</div>
+          <div class="sv-pick__name" data-i18n="show.survivor.pick.hidden.name">隐藏职业</div>
+          <div class="sv-pick__en" data-i18n="show.survivor.pick.hidden.en">// 票价最便宜 · 提前 30 min</div>
+          <div class="sv-pick__stat"><span data-i18n="show.survivor.pick.hidden.stat1">容量</span><b>≤ 20</b></div>
+          <div class="sv-pick__stat"><span data-i18n="show.survivor.pick.hidden.stat2">群体伤害</span><b>✓</b></div>
+          <div class="sv-pick__stat"><span data-i18n="show.survivor.pick.hidden.stat3">特权</span><b>VIP</b></div>
+          <div class="sv-pick__talent" data-i18n="show.survivor.pick.hidden.talent">隐藏的德兰圣丁阵营——需提前 30 分钟到场做规则培训。可以发动群体伤害。</div>
+        </div>
+      </div>
+
+      <div class="sv-pick__status empty" id="pickStatus">
+        <span data-i18n="show.survivor.pick.status" data-i18n-html="true">SYS ▸ <b>未选择</b>。请点击上方任一阵营——你的血量将决定下方三个小游戏的容错。</span>
+        <span style="color: var(--term-dim);">// faction_not_set</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- MINIGAMES · 2 -->
+  <section class="sv-section" data-screen-label="09 互动">
+    <div class="sv-section__inner reveal">
+      <p class="sv-label" data-i18n="show.survivor.games.label">◉ minigames/ · 2 BRANCHES</p>
+      <h2 data-i18n="show.survivor.games.h" data-i18n-html="true">两场现场博弈<em>// 剧中真实游戏 · 可直接上手</em></h2>
+      <div class="sv-section__head">
+        <p data-i18n="show.survivor.games.intro" data-i18n-html="true">下面是全场 120 分钟里最具代表性的两个博弈。<b style="color:var(--term-green);font-weight:500;">生存战术对决</b>是心理层面的 3 回合 2 胜——花 / 炸弹 / 空盒里，读夏娃的牌。<b style="color:var(--term-green);font-weight:500;">熄灯者 Night's Quencher</b>是第三幕 · 你每灭一盏灯，约翰 / 夏娃 / 塞拉的台词便浮现一句。</p>
+      </div>
+
+      <div class="sv-games2">
+
+        <!-- GAME A · 生存战术对决 -->
+        <div class="mg">
+          <div class="mg__head">
+            <div>
+              <div class="mg__n">MINIGAME 01 · G.01</div>
+              <div class="mg__title" data-i18n="show.survivor.g1.title">生存战术对决</div>
+              <div class="mg__sub" data-i18n="show.survivor.g1.sub">// 能量突击(1) · 护盾屏障(2) · 高级战术(3)</div>
+            </div>
+            <div class="mg__n" style="color:var(--term-mag);letter-spacing:.22em;">VS · EVE SIEMASZKO</div>
+          </div>
+          <div class="mg__desc" data-i18n="show.survivor.g1.desc" data-i18n-html="true"><b>血条对战。</b>每轮双方同时出牌：<b>能量突击(1)</b> · <b>护盾屏障(2)</b> · <b>高级战术(3)</b>。数字大的一方获胜、对手扣 1 血——但 <b style="color:var(--term-warn);">1 克制 3</b>（能量突击反制高级战术）。若相同则各扣 1 血。血条归 0 者败。你 3 血 · 夏娃 3 血。</div>
+          <div class="mg__body">
+            <div class="ga" id="ga">
+              <!-- LEFT: status -->
+              <div class="ga__stat">
+                <div class="ga__round-ind" id="ga-round-ind">
+                  <span data-r="0">R1</span>
+                  <span data-r="1">R2</span>
+                  <span data-r="2">R3</span>
+                  <span data-r="3">R4</span>
+                  <span data-r="4">R5</span>
+                </div>
+                <div class="ga__score">
+                  <div>
+                    <div class="ga__score__label">YOU · HP</div>
+                    <div class="ga__score__v me" id="ga-score-me">3</div>
+                    <div class="ga__score__meta">BLOOD</div>
+                  </div>
+                  <div>
+                    <div class="ga__score__label">EVE · HP</div>
+                    <div class="ga__score__v eve" id="ga-score-eve">3</div>
+                    <div class="ga__score__meta">BLOOD</div>
+                  </div>
+                </div>
+                <div class="ga__history">
+                  <div class="ga__history__hd">◉ ROUND LOG</div>
+                  <div id="ga-history"><p style="color:var(--term-dim);" data-i18n="show.survivor.g1.waiting">等待第一回合出牌…</p></div>
+                </div>
+              </div>
+
+              <!-- RIGHT: stage -->
+              <div class="ga__stage" id="ga-stage">
+                <div class="ga__phase" id="ga-phase">STAGE · R1 · PLAY CARD</div>
+                <div class="ga__prompt" id="ga-prompt" data-i18n="show.survivor.g1.prompt">夏娃把三张牌摊在桌面。"选一张——我也会同时出。"</div>
+                <div class="ga__eve" id="ga-eve"><span class="ga__eve__dot"></span><span id="ga-eve-label" data-i18n="show.survivor.g1.eve">EVE · 正在选牌</span></div>
+
+                <div class="ga__cards" id="ga-cards">
+                  <div class="ga__card" data-v="1"><div class="ga__card__num">1</div><div class="ga__card__name" data-i18n="show.survivor.g1.card1">能量突击</div><div class="ga__card__tag">ENERGY STRIKE</div></div>
+                  <div class="ga__card" data-v="2"><div class="ga__card__num">2</div><div class="ga__card__name" data-i18n="show.survivor.g1.card2">护盾屏障</div><div class="ga__card__tag">SHIELD BARRIER</div></div>
+                  <div class="ga__card" data-v="3"><div class="ga__card__num">3</div><div class="ga__card__name" data-i18n="show.survivor.g1.card3">高级战术</div><div class="ga__card__tag">HIGH TACTIC</div></div>
+                </div>
+
+                <div class="ga__reveal" id="ga-reveal">
+                  <div class="ga__reveal__side ga__reveal__side--me">
+                    <div class="ga__reveal__lbl">YOU</div>
+                    <div class="ga__reveal__card" id="ga-reveal-me">?</div>
+                  </div>
+                  <div class="ga__reveal__vs" id="ga-reveal-vs">VS</div>
+                  <div class="ga__reveal__side ga__reveal__side--eve">
+                    <div class="ga__reveal__lbl">EVE</div>
+                    <div class="ga__reveal__card" id="ga-reveal-eve">?</div>
+                  </div>
+                </div>
+
+                <div class="ga__finale" id="ga-finale">
+                  <div class="ga__finale__title" id="ga-finale-title">GAME OVER · <em>—</em></div>
+                  <div class="ga__finale__read" id="ga-finale-read">EVE'S READ</div>
+                  <div class="ga__finale__quote" id="ga-finale-quote">—</div>
+                  <div class="ga__finale__btns">
+                    <button id="ga-finale-retry" data-i18n="show.survivor.g1.retry">重新开局 · NEW MATCH</button>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-        <aside>
-          <div class="side-box">
-            <h3 data-i18n="projectSurvivor.sideH">合作咨询</h3>
-            <p data-i18n="projectSurvivor.sideP">若希望引进类似形态项目或联合驻演，请说明城市、档期与场地条件。</p>
-            <a class="link-accent" href="collaborate.html#p1" data-i18n="projectSurvivor.sideLink">了解引进与合作 →</a>
+
+        <!-- GAME B · 熄灯者 -->
+        <div class="mg">
+          <div class="mg__head">
+            <div>
+              <div class="mg__n">MINIGAME 02 · G.02</div>
+              <div class="mg__title" data-i18n="show.survivor.g2.title">熄灯者 · Night's Quencher</div>
+              <div class="mg__sub" data-i18n="show.survivor.g2.sub">// 第三幕 · 40 盏灯 · 每盏一句台词</div>
+            </div>
+            <div class="mg__n" style="color:var(--term-warn);letter-spacing:.22em;" data-i18n="show.survivor.g2.act">第三幕 · ACT III</div>
           </div>
-        </aside>
-      </div>
-    </main>
+          <div class="mg__desc" data-i18n="show.survivor.g2.desc" data-i18n-html="true"><b>圆形舞台上空悬挂 40 盏麻绳灯。</b>每轮每名玩家可选择灭 <b>1–5</b> 盏灯，确认后轮到下一位自动出手。剧中的台词随灭灯顺序浮现——约翰讲起他的妹妹，夏娃在算每一颗灭灯的概率，塞拉的愤怒始终没说完整。最后一灯熄灭的阵营获得 5000 积分。<br/><b style="color:var(--term-green);">轮到你时</b>点击亮灯标记（变暗表示待灭）——然后点 <b>确认灭灯</b>。</div>
+          <div class="mg__body" style="padding:0;">
+            <div class="gb" id="gb">
+              <div class="gb__phase">
+                <span id="gb-phase-lbl" data-i18n="show.survivor.g2.phase">STAGE · R1 · 等待出手</span>
+                <span class="remaining"><span data-i18n="show.survivor.g2.remaining">剩余</span> <b id="gb-remaining">40</b> / 40</span>
+              </div>
 
-    <footer class="site-footer">
-      <div class="inner">
-        <span data-i18n="projectSurvivor.footCopy">© 2026 惊喜之夜</span>
-        <a href="works.html" data-i18n="projectSurvivor.footBack">返回作品列表</a>
-      </div>
-    </footer>
+              <div class="gb__turnbar" id="gb-turnbar">
+                <div class="gb__turnbar__players">
+                  <div class="gb__player human active" data-who="human"><span class="d"></span><b data-i18n="show.survivor.g2.player.human">原生人</b><span class="meta">HUMAN</span></div>
+                  <div class="gb__player ai"    data-who="ai"><span class="d"></span><b data-i18n="show.survivor.g2.player.ai">AI 机器人</b><span class="meta">AI</span></div>
+                  <div class="gb__player beast" data-who="beast"><span class="d"></span><b data-i18n="show.survivor.g2.player.beast">兽之人</b><span class="meta">BEAST</span></div>
+                </div>
+                <div class="gb__turnbar__action">
+                  <div class="gb__pick-lbl" id="gb-pick-lbl" data-i18n="show.survivor.g2.picklbl" data-i18n-html="true">你回合 · 选 1–5 盏灯（已选 <b id="gb-pick-n">0</b>）</div>
+                  <button class="gb__confirm" id="gb-confirm" disabled data-i18n="show.survivor.g2.confirm">确认灭灯</button>
+                </div>
+              </div>
+              <div class="gb__stage-area">
+                <svg class="gb__stage-svg" id="gb-svg" viewBox="0 0 1000 500" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+                  <defs>
+                    <radialGradient id="gbBulbGrad" cx="50%" cy="45%" r="55%">
+                      <stop offset="0%" stop-color="#fff6d8" stop-opacity="1"/>
+                      <stop offset="45%" stop-color="#ffd780" stop-opacity=".9"/>
+                      <stop offset="100%" stop-color="#ffaa3a" stop-opacity=".7"/>
+                    </radialGradient>
+                    <radialGradient id="gbBulbGlow" cx="50%" cy="50%" r="50%">
+                      <stop offset="0%" stop-color="#fff4c0" stop-opacity=".65"/>
+                      <stop offset="40%" stop-color="#ffb850" stop-opacity=".18"/>
+                      <stop offset="100%" stop-color="#ffb850" stop-opacity="0"/>
+                    </radialGradient>
+                    <radialGradient id="gbPlatGrad" cx="50%" cy="50%" r="50%">
+                      <stop offset="0%" stop-color="#1a1820" stop-opacity="1"/>
+                      <stop offset="70%" stop-color="#0a0810" stop-opacity=".8"/>
+                      <stop offset="100%" stop-color="#05050a" stop-opacity="0"/>
+                    </radialGradient>
+                    <radialGradient id="gbStageLight" cx="50%" cy="50%" r="50%">
+                      <stop offset="0%" stop-color="#4a2a60" stop-opacity=".35"/>
+                      <stop offset="100%" stop-color="#4a2a60" stop-opacity="0"/>
+                    </radialGradient>
+                  </defs>
 
-    <script src="js/i18n.js" defer></script>
-    <script src="js/main.js" defer></script>
-  </body>
+                  <!-- red+blue stage wash -->
+                  <ellipse cx="400" cy="460" rx="360" ry="40" fill="#c43a4a" opacity=".15"/>
+                  <ellipse cx="600" cy="460" rx="360" ry="40" fill="#3a5ac4" opacity=".15"/>
+
+                  <!-- circular stage platform -->
+                  <ellipse class="gb__platform" cx="500" cy="450" rx="380" ry="45"/>
+
+                  <!-- ceiling line (very top of frame) -->
+                  <line x1="0" y1="2" x2="1000" y2="2" stroke="rgba(160,130,90,.25)" stroke-width="1"/>
+
+                  <!-- all bulbs & ropes injected by JS into #gb-bulbs -->
+                  <g id="gb-bulbs"></g>
+                </svg>
+
+                <div class="gb__turnflash" id="gb-turnflash"></div>
+                <div class="gb__blackout" id="gb-blackout">
+                  <div class="gb__blackout-text" data-i18n="show.survivor.g2.blackout" data-i18n-html="true">画外音：灭灯结束。<br/><em>// 恭喜最后一个灭灯的阵营 · 获得 5000 积分</em></div>
+                </div>
+              </div>
+
+              <div class="gb__dialogue">
+                <div class="gb__dialogue__speaker" id="gb-speaker"><span class="gb__dialogue__speaker__tag" id="gb-speaker-tag">—</span><span id="gb-speaker-meta"></span></div>
+                <div class="gb__line" id="gb-line" data-i18n="show.survivor.g2.line" data-i18n-html="true">点击任意一盏灯——把它熄灭。<span class="cursor">▋</span></div>
+              </div>
+
+              <div class="gb__controls">
+                <button class="gb__ctrl" id="gb-reset" data-i18n="show.survivor.g2.reset">RESET · 重新点亮</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ENDING METER -->
+  <section class="sv-section sv-section--darker">
+    <div class="sv-section__inner reveal">
+      <p class="sv-label" data-i18n="show.survivor.endings.label">◉ endings.db · 4 BRANCHES</p>
+      <h2 data-i18n="show.survivor.endings.h" data-i18n-html="true">你会走到哪个结局？<em>// PROBABILITY ENGINE</em></h2>
+
+      <div class="sv-endings">
+        <div>
+          <div id="endingsList"></div>
+        </div>
+        <div>
+          <div class="sv-endings__note">
+            <b>[SYS] HOW THIS WORKS</b><br/>
+            <span data-i18n="show.survivor.endings.note">你选的阵营、两个小游戏的表现，会实时影响你落入下列四个结局的概率。</span><br/><br/>
+            <span data-i18n="show.survivor.endings.note2">现实演出中，最终走向由整个场的 300 人共同决定——你只是其中一条血。</span><br/><br/>
+            <span data-i18n="show.survivor.endings.faction">当前阵营：</span><b id="curFaction" style="display:inline;margin:0;color:var(--term-warn);" data-i18n="show.survivor.endings.notset">未选</b><br/>
+            <span data-i18n="show.survivor.endings.played">已玩游戏：</span><b id="gamesPlayed" style="display:inline;margin:0;">0</b> / 2<br/>
+            <span data-i18n="show.survivor.endings.top">最可能结局：</span><b id="topEnding" style="display:inline;margin:0;color:var(--term-warn);">—</b>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section class="sv-gallery">
+    <div class="sv-gallery__head reveal">
+      <p class="sv-label" data-i18n="show.survivor.archive.label">◉ scene_archive/</p>
+      <h2 style="font-family:var(--serif-cn);font-weight:500;font-size:clamp(32px,4.5vw,54px);line-height:1.1;margin-bottom:18px;" data-i18n="show.survivor.gallery.h" data-i18n-html="true">120 分钟现场<em style="font-family:var(--mono);font-style:normal;color:var(--term-green);font-size:.32em;display:block;margin-top:12px;letter-spacing:.16em;">// PHYSICAL TRACES</em></h2>
+      <p style="color:var(--text-2);line-height:1.9;max-width:640px;font-size:15px;" data-i18n="show.survivor.gallery.p">观众进入会场，选阵营、戴臂腕血条——然后跟随麦克斯维尔走进四幕剧情。以下是 2023 年 12 月首轮驻演的真实剧照。</p>
+    </div>
+    <div class="sv-gallery__scroll">
+      <div class="sv-shot"><span class="sv-shot__code">ACT_02 · CERBERUS GATE</span><img src="images/sv-01.jpg" alt="" /><div class="sv-shot__cap" data-i18n="show.survivor.shot1" data-i18n-html="true"><b>刻尔柏洛斯之门</b>六扇门缓缓降落，夏娃与约翰在红蓝双色中对坐——这是第二幕的第一次背叛</div></div>
+      <div class="sv-shot"><span class="sv-shot__code">AUDIENCE · GHOSTS</span><img src="images/sv-02.jpg" alt="" /><div class="sv-shot__cap" data-i18n="show.survivor.shot2" data-i18n-html="true"><b>阿飘队列</b>血条归零的玩家披上白布，成为"阿飘"——可继续搞破坏，但无法参赛</div></div>
+      <div class="sv-shot"><span class="sv-shot__code">ACT_03 · LANTERN</span><img src="images/sv-03.jpg" alt="" /><div class="sv-shot__cap" data-i18n="show.survivor.shot3" data-i18n-html="true"><b>点灯之夜</b>第三幕哥特拱门下：62 盏灯已经亮起，第 63 盏将由谁点燃</div></div>
+      <div class="sv-shot"><span class="sv-shot__code">ACT_01 · BRIEFING</span><img src="images/sv-04.jpg" alt="" /><div class="sv-shot__cap" data-i18n="show.survivor.shot4" data-i18n-html="true"><b>塞拉发卡</b>兽之人阵营的塞拉向观众发放臂腕血条，喊出"兽人永不为奴"</div></div>
+      <div class="sv-shot"><span class="sv-shot__code">INTERMISSION</span><img src="images/sv-05.jpg" alt="" /><div class="sv-shot__cap" data-i18n="show.survivor.shot5" data-i18n-html="true"><b>市集休整</b>观众之间的第一次笑——也是谁可以信任的第一次试探</div></div>
+      <div class="sv-shot"><span class="sv-shot__code">GUEST · COSPLAY</span><img src="images/sv-06.jpg" alt="" /><div class="sv-shot__cap" data-i18n="show.survivor.shot6" data-i18n-html="true"><b>有人带来了自己的白布</b>阿飘玩家不复活，则可以去酒吧免费吃喝——还可以搞破坏</div></div>
+      <div class="sv-shot"><span class="sv-shot__code">MARKET · HAND-OFF</span><img src="images/sv-07.jpg" alt="" /><div class="sv-shot__cap" data-i18n="show.survivor.shot7" data-i18n-html="true"><b>交接血条</b>市集赛：玩家在任意地点与任意玩家对战，赢取血条换取生物芯片</div></div>
+      <div class="sv-shot"><span class="sv-shot__code">ENTRANCE · GATE</span><img src="images/sv-08.jpg" alt="" /><div class="sv-shot__cap" data-i18n="show.survivor.shot8" data-i18n-html="true"><b>登录门</b>霓虹齿轮构成的入场口——跨过即开局，手表留在门外</div></div>
+      <div class="sv-shot"><span class="sv-shot__code">ARENA · FULL</span><img src="images/sv-09.jpg" alt="" /><div class="sv-shot__cap" data-i18n="show.survivor.shot9" data-i18n-html="true"><b>浸空间全景</b>300 人的舞台：绳索吊灯下自由走动，每个角落都是市集</div></div>
+      <div class="sv-shot"><span class="sv-shot__code">ACT_02 · CONFESSION</span><img src="images/sv-10.jpg" alt="" /><div class="sv-shot__cap" data-i18n="show.survivor.shot10" data-i18n-html="true"><b>约翰独白</b>第二幕：他意识到这不是游戏，是一场生与死的较量</div></div>
+      <div class="sv-shot"><span class="sv-shot__code">ACT_04 · CONTACT</span><img src="images/sv-11.jpg" alt="" /><div class="sv-shot__cap" data-i18n="show.survivor.shot11" data-i18n-html="true"><b>夏娃交手</b>第四幕终局：AI 觉醒那一刻——手对手，石头剪刀布</div></div>
+      <div class="sv-shot"><span class="sv-shot__code">FINALE · REVEAL</span><img src="images/sv-12.jpg" alt="" /><div class="sv-shot__cap" data-i18n="show.survivor.shot12" data-i18n-html="true"><b>真相揭晓</b>灯亮——结局并非单一。请看下一部分</div></div>
+    </div>
+  </section>
+
+  <!-- TRAILER · 双源宣传片 -->
+  <section class="sv-video">
+    <div class="sv-video__inner reveal">
+      <p class="sv-label">◉ trailer.mp4</p>
+      <h2 style="font-family:var(--serif-cn);font-weight:500;font-size:clamp(32px,4.5vw,54px);line-height:1.1;" data-i18n="show.survivor.trailer.h" data-i18n-html="true">120 分钟的<em style="font-family:var(--mono);font-style:normal;color:var(--term-green);font-size:.32em;display:block;margin-top:12px;letter-spacing:.16em;">// WATCH THE TRAILER</em></h2>
+      <div class="sv-video__card" id="svVideoTrigger">
+        <div class="sv-video__play">▶</div>
+        <div class="sv-video__label" data-i18n="show.survivor.trailer.label2" data-i18n-html="true"><em>Trailer</em> · 宣传片</div>
+        <div class="sv-video__src">
+          <button type="button" class="sv-video__btn" data-video="youtube"><span class="dot"></span>YouTube</button>
+          <button type="button" class="sv-video__btn" data-video="bilibili"><span class="dot"></span><span data-i18n="show.survivor.trailer.bilibili">B 站</span></button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DETAIL -->
+  <section class="sv-detail">
+    <div class="reveal">
+      <h2 data-i18n="show.survivor.about.h">关于《生存游戏》</h2>
+      <p data-i18n="show.survivor.about.p1">《生存游戏》是重庆演出股份有限公司委托惊喜之夜打造的一部沉浸式互动游戏戏剧——300 位观众在 2115 年的"新世界"里，分属四个种族，通过五轮比赛争夺那个唯一的成为德兰圣丁的机会。</p>
+      <p data-i18n="show.survivor.about.p2">编剧：瞿菡、袁冶　　导演：袁冶。2023 年 12 月在「重演浸空间（金源店）」完成首轮驻演。每一场演出都由现场 300 人的博弈共同生成，没有两场是一样的。</p>
+      <blockquote data-i18n="show.survivor.about.quote">当你跨进场地的那一刻，剧情不再是被讲述的——是由你们集体运行出来的。</blockquote>
+      <h2 data-i18n="show.survivor.reviews.h">观众评价</h2>
+      <div class="sv-reviews">
+        <div class="sv-review">
+          <p class="sv-review__q" data-i18n="show.survivor.review1.q">"沉浸感很强，每个选择都让人纠结——走出剧场还在想，那天晚上本来应该做另一个决定。"</p>
+          <p class="sv-review__meta"><span data-i18n="show.survivor.review1.who">@豆瓣·匿名观众</span><span>2023.12</span></p>
+        </div>
+        <div class="sv-review">
+          <p class="sv-review__q" data-i18n="show.survivor.review2.q">"剧情设计巧妙，二刷依然有新鲜感。这次我选的阵营和上次完全不一样——活到终局的人都不一样了。"</p>
+          <p class="sv-review__meta"><span data-i18n="show.survivor.review2.who">@小红书·Monyan</span><span>2024.01</span></p>
+        </div>
+        <div class="sv-review">
+          <p class="sv-review__q" data-i18n="show.survivor.review3.q">"演员演技在线，AI 互动环节很有创意。最后德兰圣丁面纱揭下来的那一刻，汗毛都立起来了。"</p>
+          <p class="sv-review__meta"><span data-i18n="show.survivor.review3.who">@大麦·V字先生</span><span>2024.01</span></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sv-cta">
+    <div class="sv-cta__bg"></div>
+    <h2 class="sv-cta__h">Ready to begin?<em>// PRESS_START · DRALA FEN TIRU</em></h2>
+    <a class="btn btn--primary" href="contact.html" style="background: var(--term-green); border-color: var(--term-green); color: #04070a;" data-i18n="show.survivor.cta.btn">登录系统 →</a>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="site-footer__inner">
+    <div class="site-footer__brand" data-i18n="show.survivor.foot.brand" data-i18n-html="true">© 2026 惊喜之夜 · <em>Surprise Night</em></div>
+    <div class="site-footer__links">
+      <a href="index.html" data-i18n="show.survivor.footer.home">首页</a>
+      <a href="works.html" data-i18n="show.survivor.footer.works">作品</a>
+      <a href="contact.html" data-i18n="show.survivor.footer.contact">联系</a>
+    </div>
+  </div>
+</footer>
+
+<div class="video-modal" id="videoModal">
+  <div class="video-modal__content">
+    <button class="video-modal__close">×</button>
+    <iframe allow="autoplay; encrypted-media" allowfullscreen></iframe>
+  </div>
+</div>
+
+<script src="v3-shared.js" defer></script>
+<script src="survivor-interactive.js?v=4" defer></script>
+<script>
+  // 宣传片弹窗 · 双源（YouTube / Bilibili）
+  (function(){
+    const trigger = document.getElementById('svVideoTrigger');
+    const modal = document.getElementById('videoModal');
+    const iframe = modal?.querySelector('iframe');
+    const closeBtn = modal?.querySelector('.video-modal__close');
+    if (!trigger || !modal || !iframe) return;
+    const SRC = {
+      youtube:  'https://www.youtube.com/embed/Cy1ljyCrqk8?autoplay=1&rel=0',
+      bilibili: '//player.bilibili.com/player.html?bvid=BV1kYddBYEMD&page=1&high_quality=1&danmaku=0&autoplay=1'
+    };
+    function open(key){
+      iframe.src = SRC[key] || SRC.youtube;
+      modal.classList.add('is-open');
+      document.body.style.overflow = 'hidden';
+    }
+    function close(){
+      iframe.src = '';
+      modal.classList.remove('is-open');
+      document.body.style.overflow = '';
+    }
+    document.querySelectorAll('[data-video]').forEach(btn=>{
+      btn.addEventListener('click', (e)=>{ e.stopPropagation(); open(btn.dataset.video); });
+    });
+    closeBtn?.addEventListener('click', close);
+    modal.addEventListener('click', (e)=>{ if (e.target === modal) close(); });
+    document.addEventListener('keydown', (e)=>{ if (e.key === 'Escape') close(); });
+  })();
+</script>
+</body>
 </html>
