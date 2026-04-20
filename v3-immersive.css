@@ -1130,3 +1130,19 @@ body[data-role="guest"] .prop,
 body[data-role="guest"] .props-counter {
   display: none !important;
 }
+
+/* ============================================================
+   手机端禁用 3D 翻转卡（iOS Safari hover 行为不稳）
+   用户 tap 卡片直接进入详情页（通过 .card__goto 链接）
+   ============================================================ */
+@media (hover: none), (max-width: 768px) {
+  .card--flip:hover .card__flip-inner {
+    transform: none !important;
+  }
+  .card--flip .card__flip-face--back {
+    display: none !important;
+  }
+  .card--flip .card__arrow {
+    display: none !important;  /* 隐藏"翻到背面 ↻"提示 */
+  }
+}
