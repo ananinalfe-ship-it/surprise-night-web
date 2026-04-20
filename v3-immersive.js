@@ -318,9 +318,11 @@
   function updateSecretCardsLock(){
     const cards = document.querySelectorAll('[data-secret-card]');
     const n = foundProps.size;
+    // 判断 i18n 是否已 apply 完成（避免 innerHTML 覆盖 shard span）
+    const i18nApplied = !!(window.__i18n && window.__i18n.dict && Object.keys(window.__i18n.dict).length > 0);
     cards.forEach(card => {
-      // 首次：把 [data-shard-text] 内的文本节点拆成字符 span，随机分到 1/2/3 组
-      if (!card.dataset.shardReady) {
+      // 首次 shardify 必须等 i18n apply 完之后，否则 shard span 会被字典 innerHTML 覆盖
+      if (!card.dataset.shardReady && i18nApplied) {
         card.querySelectorAll('[data-shard-text]').forEach(el => shardifyText(el));
         card.dataset.shardReady = '1';
       }
@@ -333,8 +335,8 @@
         card.classList.add('is-locked');
         card.classList.remove('is-unlocked');
       }
-      // 新批次字符做闪现
-      if (n > prev && n > 0) {
+      // 新批次字符做闪现（仅在 shardify 已完成后才有效）
+      if (card.dataset.shardReady && n > prev && n > 0) {
         card.querySelectorAll(`[data-shard-text] .shard[data-shard="${n}"]`).forEach(s => {
           s.classList.add('is-just-revealed');
         });
@@ -345,6 +347,10 @@
         }, 1200);
       }
     });
+    // 若 i18n 还没 ready，注册一次性监听，ready 后再跑一次（此时才真正 shardify）
+    if (!i18nApplied) {
+      document.addEventListener('i18n:ready', () => updateSecretCardsLock(), { once: true });
+    }
     document.querySelectorAll('[data-lock-progress]').forEach(el => {
       el.textContent = `${n} / ${PROPS.length}`;
     });
