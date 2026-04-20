@@ -824,7 +824,9 @@ body.is-idle .idle { opacity: 1; pointer-events: auto; }
   transform-style: preserve-3d;
   transition: transform .9s cubic-bezier(.2,.8,.2,1);
 }
-.card--flip:hover .card__flip-inner { transform: rotateY(180deg); }
+@media (hover: hover) and (min-width: 769px) {
+  .card--flip:hover .card__flip-inner { transform: rotateY(180deg); }
+}
 .card__flip-face {
   position: absolute; inset: 0;
   backface-visibility: hidden;
@@ -1144,5 +1146,34 @@ body[data-role="guest"] .props-counter {
   }
   .card--flip .card__arrow {
     display: none !important;  /* 隐藏"翻到背面 ↻"提示 */
+  }
+}
+
+/* ============================================================
+   手机端幕间隐藏卡：强制单列 + 宽度收敛到 viewport
+   ============================================================ */
+@media (max-width: 768px) {
+  .secret-stage {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+  .secret-stage__inner {
+    max-width: 100%;
+  }
+  .secret-stage__grid {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+  }
+  .secret-card {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+  .secret-card__text,
+  .secret-card__veil-hint,
+  .secret-card__title {
+    word-break: break-word;
+    overflow-wrap: break-word;
   }
 }
