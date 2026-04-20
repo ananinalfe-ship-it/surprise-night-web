@@ -1,384 +1,777 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>关于 — 惊喜之夜</title>
-    <meta name="description" content="惊喜之夜品牌故事、创作方法论、团队与数据。沉浸式戏剧与体验式演出。" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Noto+Sans+SC:wght@300;400;500;600;700&family=Noto+Serif+SC:wght@400;500;600&family=Syne:wght@400;500;600;700;800&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="css/styles.css" />
-    <style>
-      .about-section {
-        padding: 100px 20px;
-        position: relative;
-      }
-      
-      .about-section-alt {
-        background: linear-gradient(180deg, var(--surface) 0%, var(--bg) 100%);
-      }
-      
-      .about-intro {
-        max-width: 800px;
-        margin: 0 auto;
-        text-align: center;
-      }
-      
-      .about-intro h2 {
-        font-size: clamp(1.8rem, 4vw, 2.5rem);
-        font-weight: 400;
-        margin-bottom: 40px;
-        color: var(--text);
-      }
-      
-      .about-intro p {
-        font-size: 1.1rem;
-        line-height: 2;
-        color: var(--muted);
-        margin-bottom: 24px;
-      }
-      
-      .story-timeline {
-        max-width: 900px;
-        margin: 0 auto;
-        padding: 60px 0;
-      }
-      
-      .story-item {
-        display: grid;
-        grid-template-columns: 120px 1fr;
-        gap: 40px;
-        margin-bottom: 60px;
-        align-items: start;
-      }
-      
-      .story-year {
-        font-size: 2rem;
-        color: #c9a96e;
-        font-weight: 400;
-        text-align: right;
-      }
-      
-      .story-content h3 {
-        font-size: 1.3rem;
-        margin-bottom: 12px;
-        color: var(--text);
-      }
-      
-      .story-content p {
-        color: var(--muted);
-        line-height: 1.8;
-      }
-      
-      .philosophy-grid {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 40px;
-        max-width: 1000px;
-        margin: 0 auto;
-      }
-      
-      @media (max-width: 768px) {
-        .philosophy-grid {
-          grid-template-columns: 1fr;
-        }
-        .story-item {
-          grid-template-columns: 1fr;
-          gap: 16px;
-        }
-        .story-year {
-          text-align: left;
-        }
-      }
-      
-      .philosophy-card {
-        padding: 40px;
-        border: 1px solid rgba(201, 169, 110, 0.2);
-        border-radius: 4px;
-        transition: all 0.3s ease;
-      }
-      
-      .philosophy-card:hover {
-        border-color: rgba(201, 169, 110, 0.5);
-        background: rgba(201, 169, 110, 0.05);
-      }
-      
-      .philosophy-card h3 {
-        font-size: 1.4rem;
-        color: #c9a96e;
-        margin-bottom: 16px;
-        font-weight: 400;
-      }
-      
-      .philosophy-card p {
-        color: var(--muted);
-        line-height: 1.8;
-      }
-      
-      .stats-section {
-        background: linear-gradient(180deg, var(--bg) 0%, #0a0a0a 100%);
-        padding: 100px 20px;
-        text-align: center;
-      }
-      
-      .stats-grid {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 40px;
-        max-width: 900px;
-        margin: 60px auto;
-      }
-      
-      @media (max-width: 768px) {
-        .stats-grid {
-          grid-template-columns: repeat(2, 1fr);
-        }
-      }
-      
-      .stat-item .number {
-        font-size: 3.5rem;
-        color: #c9a96e;
-        font-weight: 400;
-        margin-bottom: 8px;
-      }
-      
-      .stat-item .label {
-        color: var(--muted);
-        font-size: 0.9rem;
-        letter-spacing: 0.1em;
-        text-transform: uppercase;
-      }
-      
-      .partners-section {
-        padding: 80px 20px;
-        text-align: center;
-        border-top: 1px solid rgba(255,255,255,0.1);
-      }
-      
-      .partners-list {
-        color: var(--muted);
-        font-size: 0.95rem;
-        line-height: 2;
-        max-width: 800px;
-        margin: 40px auto 0;
-        opacity: 0.7;
-      }
-      
-      .about-cta {
-        padding: 120px 20px;
-        text-align: center;
-        background: linear-gradient(180deg, #0a0a0a 0%, var(--bg) 100%);
-      }
-      
-      .about-cta h2 {
-        font-size: 2.5rem;
-        margin-bottom: 24px;
-        font-weight: 400;
-      }
-      
-      .about-cta p {
-        color: var(--muted);
-        margin-bottom: 40px;
-        font-size: 1.1rem;
-      }
-      
-      .btn-gold {
-        display: inline-block;
-        padding: 16px 40px;
-        border: 1px solid #c9a96e;
-        color: #c9a96e;
-        text-decoration: none;
-        font-size: 0.9rem;
-        letter-spacing: 0.15em;
-        text-transform: uppercase;
-        transition: all 0.3s ease;
-      }
-      
-      .btn-gold:hover {
-        background: #c9a96e;
-        color: #000;
-      }
-      
-      .section-label {
-        color: #c9a96e;
-        font-size: 0.75rem;
-        letter-spacing: 0.3em;
-        text-transform: uppercase;
-        margin-bottom: 24px;
-      }
-    </style>
-  </head>
-  <body class="page-about" data-i18n-page="about">
-    <header class="site-header">
-      <div class="inner">
-        <a href="index.html" class="logo" style="display: flex; align-items: center; gap: 12px; font-size: 1.1rem;">
-          <img src="assets/images/logo.png" alt="" style="width: 32px; height: 32px; object-fit: contain;">
-          <span>惊喜之夜 <span style="opacity: 0.7; font-size: 0.75rem; font-weight: 400; margin-left: 4px;">/ Surprise Night</span></span>
-        </a>
-        <button type="button" class="nav-toggle" data-i18n="nav.menu" aria-expanded="false" aria-controls="primary-nav">
-          菜单
-        </button>
-        <nav>
-          <ul id="primary-nav" class="nav-links">
-            <li><a href="works.html" data-i18n="nav.works">作品</a></li>
-            <li><a href="collaborate.html" data-i18n="nav.collaborate">合作</a></li>
-            <li class="nav-item nav-item--has-sub">
-            <a href="about.html" aria-current="page" data-i18n="nav.about">关于</a>
-            <ul class="nav-sub" role="list">
-              <li><a href="collaborators.html" data-i18n="nav.collaborators">合作艺术家</a></li>
-            </ul>
-          </li>
-            <li><a href="contact.html" data-i18n="nav.contact">联系</a></li>
-            <li class="nav-lang" aria-label="Language">
-              <button type="button" class="lang-btn" data-set-lang="zh" aria-pressed="true">中</button>
-              <button type="button" class="lang-btn" data-set-lang="en" aria-pressed="false">EN</button>
-            </li>
-          </ul>
-        </nav>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title data-i18n="page.title.about">关于 — 惊喜之夜 Surprise Night</title>
+<meta name="description" content="惊喜之夜品牌故事、创作方法论、团队与数据。沉浸式戏剧与体验式演出。" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Noto+Sans+SC:wght@300;400;500;600;700&family=Noto+Serif+SC:wght@400;500;600;700&family=Syne:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="v3-shared.css" />
+<style>
+  /* ============================================================
+     About 专属：胶片卷轴时间线 + 四幕 philosophy
+     ============================================================ */
+
+  /* Hero —— 斜分割大字 */
+  .about-hero {
+    min-height: 70vh;
+    position: relative;
+    display: flex; align-items: center;
+    padding: 130px var(--pad) 70px;
+    overflow: hidden;
+    isolation: isolate;
+  }
+  .about-hero__bg {
+    position: absolute; inset: 0; z-index: -2;
+    background:
+      radial-gradient(ellipse 80% 60% at 70% 40%, rgba(196,53,74,0.14), transparent 60%),
+      radial-gradient(ellipse 50% 40% at 20% 80%, rgba(100,40,200,0.08), transparent 70%),
+      linear-gradient(180deg, #05060a 0%, #0a0810 60%, #05060a 100%);
+  }
+  .about-hero__grid {
+    position: absolute; inset: 0; z-index: -1;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+    background-size: 80px 80px;
+    mask-image: radial-gradient(ellipse 80% 60% at 50% 50%, black 30%, transparent 75%);
+    -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 50%, black 30%, transparent 75%);
+  }
+  .about-hero__inner {
+    position: relative; max-width: 1280px; width: 100%; margin: 0 auto;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: end;
+  }
+  @media (max-width: 860px) {
+    .about-hero__inner { grid-template-columns: 1fr; gap: 30px; }
+  }
+  .about-hero__eyebrow {
+    font-family: var(--display); font-size: 11px; font-weight: 500;
+    letter-spacing: .32em; text-transform: uppercase;
+    color: var(--text-3); margin-bottom: 24px;
+    display: inline-flex; gap: 10px; align-items: center;
+  }
+  .about-hero__eyebrow::before {
+    content: ''; width: 40px; height: 1px; background: var(--accent);
+  }
+  .about-hero__h1 {
+    font-family: var(--serif-cn); font-weight: 500;
+    font-size: clamp(52px, 9vw, 120px);
+    line-height: .95;
+    letter-spacing: -0.03em;
+    margin-bottom: 32px;
+  }
+  .about-hero__h1 em {
+    font-family: var(--serif-en); font-style: italic;
+    color: var(--accent); font-weight: 500;
+    display: block;
+    font-size: .6em;
+    margin-top: 10px;
+  }
+  .about-hero__lead {
+    font-family: var(--serif-cn);
+    font-size: clamp(17px, 1.8vw, 23px);
+    color: var(--text-2);
+    line-height: 1.7;
+  }
+  .about-hero__lead em {
+    font-family: var(--serif-en); font-style: italic;
+    color: var(--accent); font-weight: 500; font-size: 1.1em;
+  }
+  .about-hero__sub {
+    font-family: var(--serif-en); font-style: italic;
+    font-size: 15px; color: var(--text-3);
+    margin-top: 18px; line-height: 1.6;
+  }
+
+  /* ============================================================
+     品牌故事（并列两栏大段文字）
+     ============================================================ */
+  .story-block {
+    padding: 90px var(--pad);
+    position: relative;
+  }
+  .story-block__inner {
+    max-width: 1100px; margin: 0 auto;
+  }
+  .story-block__head {
+    display: grid; grid-template-columns: 1fr 2fr; gap: 80px;
+    margin-bottom: 50px;
+    align-items: end;
+  }
+  @media (max-width: 860px) { .story-block__head { grid-template-columns: 1fr; gap: 30px; } }
+  .story-block__title {
+    font-family: var(--serif-cn); font-weight: 500;
+    font-size: clamp(38px, 5vw, 64px);
+    line-height: 1.05;
+  }
+  .story-block__title em {
+    font-family: var(--serif-en); font-style: italic; color: var(--accent); font-weight: 500;
+  }
+  .story-block__body p {
+    font-size: 16px; line-height: 1.9; color: var(--text-2); margin-bottom: 22px;
+  }
+
+  /* ============================================================
+     胶片时间轴 —— 水平滚动
+     ============================================================ */
+  .timeline {
+    padding: 50px 0 90px;
+    position: relative;
+    overflow: hidden;
+  }
+  .timeline__head {
+    padding: 0 var(--pad);
+    max-width: 1280px; margin: 0 auto 40px;
+  }
+  .timeline__label {
+    font-family: var(--display); font-size: 11px;
+    letter-spacing: .32em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 10px;
+  }
+  .timeline__h {
+    font-family: var(--serif-cn); font-weight: 500;
+    font-size: clamp(32px, 4vw, 52px);
+    line-height: 1.1;
+  }
+  .timeline__h em { font-style: italic; font-family: var(--serif-en); color: var(--accent); }
+  .timeline__hint {
+    font-family: var(--display); font-size: 11px;
+    letter-spacing: .22em; text-transform: uppercase;
+    color: var(--text-3); margin-top: 16px;
+    display: inline-flex; align-items: center; gap: 10px;
+  }
+  .timeline__hint span { color: var(--accent); animation: hintArrow 1.6s ease-in-out infinite; }
+  @keyframes hintArrow { 0%,100% { transform: translateX(0); } 50% { transform: translateX(8px); } }
+
+  .timeline__strip {
+    position: relative;
+    padding: 30px 0;
+    cursor: grab;
+  }
+  .timeline__strip:active { cursor: grabbing; }
+  /* 胶片孔（顶/底） */
+  .timeline__strip::before,
+  .timeline__strip::after {
+    content: '';
+    position: absolute; left: 0; right: 0; height: 14px;
+    background-image: radial-gradient(circle, #000 0 3px, transparent 4px);
+    background-size: 28px 14px;
+    background-repeat: repeat-x;
+    background-color: #0a0a10;
+    border-top: 1px solid #1a1a22;
+    border-bottom: 1px solid #1a1a22;
+  }
+  .timeline__strip::before { top: 0; }
+  .timeline__strip::after  { bottom: 0; }
+
+  .timeline__rail {
+    display: flex; gap: 0;
+    padding: 20px var(--pad);
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+  }
+  .timeline__rail::-webkit-scrollbar { display: none; }
+
+  .timeline__frame {
+    flex: 0 0 clamp(300px, 42vw, 520px);
+    min-height: 340px;
+    scroll-snap-align: center;
+    border-right: 1px dashed rgba(255,255,255,0.08);
+    padding: 38px 40px 50px;
+    position: relative;
+    display: flex; flex-direction: column; justify-content: space-between;
+    transition: background .4s ease;
+  }
+  .timeline__frame:hover {
+    background: rgba(196,53,74,0.03);
+  }
+  .timeline__frame:last-child { border-right: 0; }
+
+  .timeline__year {
+    font-family: var(--display); font-weight: 800;
+    font-size: clamp(64px, 9vw, 120px);
+    line-height: 1;
+    color: transparent;
+    -webkit-text-stroke: 1px var(--text-3);
+    transition: -webkit-text-stroke-color .4s ease, color .4s ease;
+  }
+  .timeline__frame:hover .timeline__year {
+    color: var(--accent);
+    -webkit-text-stroke-color: var(--accent);
+  }
+  .timeline__kicker {
+    font-family: var(--serif-en); font-style: italic;
+    font-size: 13px; color: var(--accent);
+    letter-spacing: .08em;
+    margin-top: 8px; margin-bottom: 18px;
+  }
+  .timeline__frame h3 {
+    font-family: var(--serif-cn); font-weight: 600;
+    font-size: 28px; line-height: 1.2; margin-bottom: 14px;
+    color: var(--text);
+  }
+  .timeline__frame p {
+    font-size: 14px; line-height: 1.8; color: var(--text-2);
+  }
+  .timeline__frame-num {
+    position: absolute; top: 28px; right: 32px;
+    font-family: var(--mono); font-size: 10px;
+    letter-spacing: .16em; color: var(--text-4);
+  }
+
+  /* ============================================================
+     四幕 Philosophy —— 卡片翻面
+     ============================================================ */
+  .philosophy {
+    padding: 90px var(--pad);
+    background: linear-gradient(180deg, transparent, rgba(196,53,74,0.03), transparent);
+    position: relative;
+  }
+  .philosophy__inner { max-width: 1280px; margin: 0 auto; }
+  .philosophy__head { text-align: center; margin-bottom: 44px; }
+  .philosophy__h {
+    font-family: var(--serif-cn); font-weight: 500;
+    font-size: clamp(36px, 5vw, 60px);
+    line-height: 1.1;
+    margin-bottom: 20px;
+  }
+  .philosophy__h em { font-style: italic; font-family: var(--serif-en); color: var(--accent); }
+  .philosophy__sub {
+    font-family: var(--serif-en); font-style: italic;
+    font-size: 15px; color: var(--text-3);
+    letter-spacing: .04em;
+  }
+
+  .philosophy__grid {
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;
+    perspective: 1600px;
+  }
+  @media (max-width: 860px) { .philosophy__grid { grid-template-columns: 1fr; } }
+
+  .act-card {
+    position: relative;
+    min-height: 240px;
+    transform-style: preserve-3d;
+    transition: transform 1s var(--ease);
+    cursor: pointer;
+  }
+  .act-card.is-flipped { transform: rotateY(180deg); }
+
+  .act-card__face {
+    position: absolute; inset: 0;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    border: 1px solid var(--line);
+    padding: 28px 30px;
+    display: flex; flex-direction: column;
+    background: var(--bg-1);
+  }
+  .act-card__face--back {
+    transform: rotateY(180deg);
+    background: linear-gradient(135deg, rgba(196,53,74,0.12), rgba(196,53,74,0.02));
+    border-color: var(--accent);
+  }
+
+  .act-card__num {
+    font-family: var(--display); font-weight: 800;
+    font-size: 14px; letter-spacing: .24em;
+    color: var(--accent); margin-bottom: 10px;
+  }
+  .act-card__curtain {
+    font-family: var(--serif-en); font-style: italic;
+    font-size: 12px; color: var(--text-3);
+    letter-spacing: .18em; text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+  .act-card__h {
+    font-family: var(--serif-cn); font-weight: 600;
+    font-size: 30px; line-height: 1.2;
+    margin-bottom: auto;
+  }
+  .act-card__hint {
+    margin-top: 14px;
+    font-family: var(--display); font-size: 10px;
+    letter-spacing: .24em; text-transform: uppercase;
+    color: var(--text-3);
+    display: inline-flex; align-items: center; gap: 8px;
+  }
+  .act-card__hint::before {
+    content: '+'; font-size: 16px; color: var(--accent);
+  }
+  .act-card__body {
+    font-size: 15px; line-height: 1.9; color: var(--text);
+  }
+  .act-card__back-h {
+    font-family: var(--serif-en); font-style: italic;
+    color: var(--accent); font-size: 14px;
+    letter-spacing: .1em; margin-bottom: 20px;
+  }
+
+  /* ============================================================
+     数据 —— 滚动计数
+     ============================================================ */
+  .stats {
+    padding: 90px var(--pad);
+    text-align: center;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+  .stats__label {
+    font-family: var(--display); font-size: 11px;
+    letter-spacing: .32em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 20px;
+  }
+  .stats__h {
+    font-family: var(--serif-cn); font-weight: 500;
+    font-size: clamp(28px, 3.5vw, 42px);
+    margin-bottom: 44px;
+    line-height: 1.2;
+  }
+  .stats__h em { font-style: italic; font-family: var(--serif-en); color: var(--accent); }
+  .stats__grid {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px;
+    max-width: 1100px; margin: 0 auto;
+  }
+  @media (max-width: 768px) { .stats__grid { grid-template-columns: repeat(2, 1fr); gap: 50px; } }
+  .stat {
+    border-top: 1px solid var(--line);
+    padding-top: 30px;
+    position: relative;
+  }
+  .stat::before {
+    content: ''; position: absolute; top: -1px; left: 0;
+    width: 40px; height: 1px; background: var(--accent);
+  }
+  .stat__num {
+    font-family: var(--display); font-weight: 700;
+    font-size: clamp(52px, 7vw, 88px);
+    line-height: 1; color: var(--text);
+    margin-bottom: 14px;
+  }
+  .stat__num em { font-family: var(--serif-en); font-style: italic; color: var(--accent); font-weight: 500; }
+  .stat__label {
+    font-family: var(--display); font-size: 11px;
+    letter-spacing: .24em; text-transform: uppercase;
+    color: var(--text-3);
+  }
+
+  /* ============================================================
+     Partners —— 滚动字幕
+     ============================================================ */
+  .partners {
+    padding: 90px var(--pad);
+    text-align: center;
+    overflow: hidden;
+  }
+  .partners__label {
+    font-family: var(--display); font-size: 11px;
+    letter-spacing: .32em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 20px;
+  }
+  .partners__h {
+    font-family: var(--serif-cn); font-weight: 500;
+    font-size: clamp(32px, 4vw, 48px);
+    margin-bottom: 40px;
+    line-height: 1.2;
+  }
+  .partners__h em { font-style: italic; font-family: var(--serif-en); color: var(--accent); }
+
+  .partners__marquee {
+    position: relative;
+    mask-image: linear-gradient(90deg, transparent, black 10%, black 90%, transparent);
+    -webkit-mask-image: linear-gradient(90deg, transparent, black 10%, black 90%, transparent);
+  }
+  .partners__track {
+    display: flex; gap: 60px;
+    animation: partnerScroll 60s linear infinite;
+    width: max-content;
+  }
+  @keyframes partnerScroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+  .partners__item {
+    font-family: var(--serif-cn);
+    font-size: clamp(20px, 2.2vw, 26px);
+    color: var(--text-2);
+    white-space: nowrap;
+    position: relative;
+    padding-left: 60px;
+  }
+  .partners__item::before {
+    content: ''; position: absolute; left: 20px; top: 50%;
+    width: 20px; height: 1px; background: var(--accent); opacity: .6;
+  }
+
+  /* ============================================================
+     CTA
+     ============================================================ */
+  .about-cta {
+    padding: 100px var(--pad);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .about-cta::before {
+    content: ''; position: absolute; inset: 0;
+    background: radial-gradient(ellipse 60% 70% at 50% 50%, rgba(196,53,74,0.12), transparent 60%);
+    pointer-events: none;
+  }
+  .about-cta__h {
+    font-family: var(--serif-cn); font-weight: 500;
+    font-size: clamp(40px, 6vw, 84px);
+    line-height: 1.05;
+    margin-bottom: 30px;
+    position: relative;
+  }
+  .about-cta__h em { font-style: italic; font-family: var(--serif-en); color: var(--accent); }
+  .about-cta__p {
+    font-size: 16px; line-height: 1.8;
+    color: var(--text-2); max-width: 540px;
+    margin: 0 auto 50px;
+    position: relative;
+  }
+</style>
+<script src="i18n.js"></script>
+</head>
+<body>
+<div class="grain"></div>
+<div class="cursor-glow"></div>
+
+<!-- 幕布开场 -->
+<div class="curtain" aria-hidden="true">
+  <div class="curtain__panel curtain__panel--l"></div>
+  <div class="curtain__panel curtain__panel--r"></div>
+</div>
+<div class="curtain__logo">
+  ABOUT
+  <small data-i18n="about.curtain.small">关于 · 惊喜之夜</small>
+</div>
+
+<!-- Nav -->
+<nav class="nav">
+  <a href="index.html" class="nav__brand">
+    <span class="nav__mark">SN</span>
+    <span class="nav__brand-cn">惊喜之夜</span>
+    <span class="nav__brand-en">Surprise Night</span>
+  </a>
+  <div class="nav__links">
+    <a href="works.html" class="nav__link" data-i18n="nav.works">作品</a>
+    <a href="collaborate.html" class="nav__link" data-i18n="nav.collaborate">合作</a>
+    <a href="about.html" class="nav__link is-active" data-i18n="nav.about">关于</a>
+    <a href="collaborators.html" class="nav__link" data-i18n="nav.artists">艺术家</a>
+    <a href="contact.html" class="nav__link" data-i18n="nav.contact">联系</a>
+    <div class="nav__lang">
+      <button data-set-lang="zh">中</button>
+      <button data-set-lang="en">EN</button>
+    </div>
+  </div>
+  <button class="nav__burger" id="navBurger" aria-label="菜单" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<main>
+  <!-- ===== Hero ===== -->
+  <section class="about-hero">
+    <div class="about-hero__bg"></div>
+    <div class="about-hero__grid"></div>
+    <div class="about-hero__inner">
+      <div>
+        <p class="about-hero__eyebrow" data-i18n="about.hero.eyebrow">About · 关于</p>
+        <h1 class="about-hero__h1" data-i18n="about.hero.h1" data-i18n-html="true">关于<br/>惊喜之夜<em>Behind the Curtain.</em></h1>
       </div>
-    </header>
-
-    <main>
-      <!-- Hero Section -->
-      <section class="about-hero" aria-label="关于惊喜之夜">
-        <div class="about-hero__slides" aria-hidden="true"></div>
-        <div class="about-hero__veil" aria-hidden="true"></div>
-        <div class="about-hero-content">
-          <h1 class="home-hero-title" data-i18n="aboutPage.h1" data-i18n-html="true">
-            <span class="about-hero-title__kicker">关于</span><span class="about-hero-title__display">惊喜之夜</span>
-          </h1>
-          <p class="home-hero-lead" data-i18n="aboutPage.lead" data-i18n-html="true">
-            我们相信，最好的故事不是被讲述的，<br />而是<span class="home-hero-accent">被体验的</span>。
-          </p>
-        </div>
-      </section>
-
-      <!-- Brand Story -->
-      <section class="about-section">
-        <div class="about-intro">
-          <p class="section-label" data-i18n="aboutPage.storyLabel">品牌故事</p>
-          <h2 data-i18n="aboutPage.storyH">从实验到沉淀</h2>
-          <p data-i18n="aboutPage.storyP1">
-            惊喜之夜创立于 2018 年，从一场小型实验演出起步，逐渐成长为专注于沉浸式戏剧与体验式内容的创作团体。
-          </p>
-          <p data-i18n="aboutPage.storyP2">
-            我们相信剧场不必局限于镜框式舞台——它可以是一座建筑、一条走廊、一座城市，甚至是观众彼此之间的关系。
-          </p>
-        </div>
-        
-        <div class="story-timeline">
-          <div class="story-item">
-            <div class="story-year">2018</div>
-            <div class="story-content">
-              <h3 data-i18n="aboutPage.timeline2018Title">起点</h3>
-              <p data-i18n="aboutPage.timeline2018Desc">从实验性小型演出开始，探索沉浸式叙事的可能性。</p>
-            </div>
-          </div>
-          <div class="story-item">
-            <div class="story-year">2020</div>
-            <div class="story-content">
-              <h3 data-i18n="aboutPage.timeline2020Title">突破</h3>
-              <p data-i18n="aboutPage.timeline2020Desc">《终极骗局》首演，确立互动式沉浸戏剧的创作方向。</p>
-            </div>
-          </div>
-          <div class="story-item">
-            <div class="story-year">2023</div>
-            <div class="story-content">
-              <h3 data-i18n="aboutPage.timeline2023Title">多元</h3>
-              <p data-i18n="aboutPage.timeline2023Desc">从神话史诗到未来科幻，从东方美学到互动博弈，作品矩阵逐渐丰富。</p>
-            </div>
-          </div>
-          <div class="story-item">
-            <div class="story-year">2024</div>
-            <div class="story-content">
-              <h3 data-i18n="aboutPage.timeline2024Title">生长</h3>
-              <p data-i18n="aboutPage.timeline2024Desc">《山海经·巨灵之梦》首演，与扬州木偶剧团合作，开启传统与当代的融合实验。</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Philosophy -->
-      <section class="about-section about-section-alt">
-        <div class="container">
-          <div class="about-intro">
-            <p class="section-label" data-i18n="aboutPage.methodLabel">创作方法论</p>
-            <h2 data-i18n="aboutPage.methodTitle">我们的工作方式</h2>
-          </div>
-          
-          <div class="philosophy-grid">
-            <div class="philosophy-card">
-              <h3 data-i18n="aboutPage.m1h">空间即剧本</h3>
-              <p data-i18n="aboutPage.m1d">我们从物理空间与动线出发构思叙事：光从哪里亮起、观众在哪里转身，本身就是台词与节奏。</p>
-            </div>
-            <div class="philosophy-card">
-              <h3 data-i18n="aboutPage.m2h">观众即主角</h3>
-              <p data-i18n="aboutPage.m2d">每一次停留、对话与选择都可能牵动剧情。你不是背景，而是故事得以发生的原因之一。</p>
-            </div>
-            <div class="philosophy-card">
-              <h3 data-i18n="aboutPage.m3h">留白与节制</h3>
-              <p data-i18n="aboutPage.m3d">我们刻意保留未说满的瞬间，让想象与情绪在黑暗中发酵——克制，是另一种强度。</p>
-            </div>
-            <div class="philosophy-card">
-              <h3 data-i18n="aboutPage.m4h">东方诗性</h3>
-              <p data-i18n="aboutPage.m4d">在传统意境与当代表达之间寻找语言，让意象、声场与身体共同构成「可行走的诗」。</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Stats -->
-      <section class="stats-section">
-        <p class="section-label" data-i18n="aboutPage.statsLabel">数据与足迹</p>
-        <div class="stats-grid">
-          <div class="stat-item">
-            <div class="number">30+</div>
-            <div class="label" data-i18n="aboutPage.statCities">演出城市</div>
-          </div>
-          <div class="stat-item">
-            <div class="number">2000+</div>
-            <div class="label" data-i18n="aboutPage.statShows">演出场次</div>
-          </div>
-          <div class="stat-item">
-            <div class="number">100K+</div>
-            <div class="label" data-i18n="aboutPage.statAudiences">观众人次</div>
-          </div>
-          <div class="stat-item">
-            <div class="number">8+</div>
-            <div class="label" data-i18n="aboutPage.statWorks">原创剧目</div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Partners -->
-      <section class="partners-section">
-        <p class="section-label" data-i18n="aboutPage.partnersLabel">合作与落地足迹</p>
-        <div class="partners-list" data-i18n="aboutPage.partnersList">
-          北京朝阳剧场 / 湖南大剧院 / 梅溪湖大剧院 / 重庆大剧院 / 深圳滨海艺术中心 / 上海虹桥艺术中心 / 辽宁大剧院 / 广州大剧院 / 佛山大剧院 / 合肥大剧院 / 江苏大剧院 / 南通大剧院 / 扬州运河大剧院 / 义乌文化广场剧院 / 余姚大剧院 / 会昌戏剧小镇
-        </div>
-      </section>
-
-      <!-- CTA -->
-      <section class="about-cta">
-        <h2 data-i18n="aboutPage.ctaTitle">与我们合作</h2>
-        <p data-i18n="aboutPage.ctaDesc">驻演引进、内容定制与城市巡演，欢迎从合作中心开始对话。</p>
-        <a href="collaborate.html" class="btn-gold" data-i18n="aboutPage.ctaBtn">进入合作中心 →</a>
-      </section>
-    </main>
-
-    <footer class="site-footer">
-      <div class="inner">
-        <span data-i18n="aboutPage.footerCopy">© 2026 惊喜之夜 Surprise Night</span>
-        <a href="contact.html" data-i18n="aboutPage.footerContact">联系我们</a>
+      <div>
+        <p class="about-hero__lead" data-i18n="about.hero.lead" data-i18n-html="true">我们相信，最好的故事<br/>不是被讲述的，<br/>而是<em>被体验的</em>。</p>
+        <p class="about-hero__sub" data-i18n="about.hero.sub">Stories are not told — they are lived, step by step, breath by breath.</p>
       </div>
-    </footer>
+    </div>
+  </section>
 
-    <script src="js/i18n.js" defer></script>
-    <script src="js/about-hero-slides.js" defer></script>
-    <script src="js/main.js" defer></script>
-  </body>
+  <!-- ===== 品牌故事 ===== -->
+  <section class="story-block">
+    <div class="story-block__inner">
+      <div class="story-block__head reveal">
+        <h2 class="story-block__title" data-i18n="about.story.title" data-i18n-html="true">从实验<br/>到<em>沉淀</em></h2>
+        <div class="story-block__body">
+          <p data-i18n="about.story.p1">惊喜之夜创立于 2018 年，从一场小型实验演出起步，逐渐成长为专注于沉浸式戏剧与体验式内容的创作团体。</p>
+          <p data-i18n="about.story.p2">我们相信剧场不必局限于镜框式舞台——它可以是一座建筑、一条走廊、一座城市，甚至是观众彼此之间的关系。</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 胶片时间轴 -->
+    <div class="timeline reveal">
+      <div class="timeline__head">
+        <p class="timeline__label" data-i18n="about.timeline.label">◉ Reel · 时间胶片</p>
+        <h3 class="timeline__h" data-i18n="about.timeline.h" data-i18n-html="true">5年，<em>四个转折</em></h3>
+        <p class="timeline__hint" data-i18n="about.timeline.hint" data-i18n-html="true">向右滑动查看 <span>→</span></p>
+      </div>
+      <div class="timeline__strip">
+        <div class="timeline__rail" id="timelineRail">
+          <div class="timeline__frame">
+            <div class="timeline__frame-num">FRAME 001 / 004</div>
+            <div>
+              <div class="timeline__year">2018</div>
+              <div class="timeline__kicker" data-i18n="about.timeline.f1.kicker">The Beginning</div>
+            </div>
+            <div>
+              <h3 data-i18n="about.timeline.f1.h">起点</h3>
+              <p data-i18n="about.timeline.f1.p">从实验性小型演出开始，探索沉浸式叙事的可能性。</p>
+            </div>
+          </div>
+
+          <div class="timeline__frame">
+            <div class="timeline__frame-num">FRAME 002 / 004</div>
+            <div>
+              <div class="timeline__year">2020</div>
+              <div class="timeline__kicker" data-i18n="about.timeline.f2.kicker">The Breakthrough</div>
+            </div>
+            <div>
+              <h3 data-i18n="about.timeline.f2.h">突破</h3>
+              <p data-i18n="about.timeline.f2.p">《终极骗局》首演，确立互动式沉浸戏剧的创作方向。</p>
+            </div>
+          </div>
+
+          <div class="timeline__frame">
+            <div class="timeline__frame-num">FRAME 003 / 004</div>
+            <div>
+              <div class="timeline__year">2023</div>
+              <div class="timeline__kicker" data-i18n="about.timeline.f3.kicker">The Expansion</div>
+            </div>
+            <div>
+              <h3 data-i18n="about.timeline.f3.h">多元</h3>
+              <p data-i18n="about.timeline.f3.p">从神话史诗到未来科幻，从东方美学到互动博弈，作品矩阵逐渐丰富。</p>
+            </div>
+          </div>
+
+          <div class="timeline__frame">
+            <div class="timeline__frame-num">FRAME 004 / 004</div>
+            <div>
+              <div class="timeline__year">2024</div>
+              <div class="timeline__kicker" data-i18n="about.timeline.f4.kicker">The Growth</div>
+            </div>
+            <div>
+              <h3 data-i18n="about.timeline.f4.h">生长</h3>
+              <p data-i18n="about.timeline.f4.p">《山海经·巨灵之梦》首演，与扬州木偶剧团合作，开启传统与当代的融合实验。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 四幕 Philosophy ===== -->
+  <section class="philosophy">
+    <div class="philosophy__inner">
+      <div class="philosophy__head reveal">
+        <p class="timeline__label" style="text-align:center; margin-bottom:14px;" data-i18n="about.phil.label">◉ Methodology</p>
+        <h2 class="philosophy__h" data-i18n="about.phil.h" data-i18n-html="true">我们的<em>工作方式</em></h2>
+        <p class="philosophy__sub" data-i18n="about.phil.sub">点击卡片 · 翻开下一幕 / Flip each card to open the act</p>
+      </div>
+
+      <div class="philosophy__grid">
+        <article class="act-card reveal" data-flip>
+          <div class="act-card__face">
+            <div class="act-card__num" data-i18n="about.phil.act1.num">ACT I</div>
+            <div class="act-card__curtain" data-i18n="about.phil.act1.curtain">幕一 · Space</div>
+            <h3 class="act-card__h" data-i18n="about.phil.act1.h">空间即剧本</h3>
+            <div class="act-card__hint" data-i18n="about.phil.act1.hint">翻开</div>
+          </div>
+          <div class="act-card__face act-card__face--back">
+            <div class="act-card__back-h" data-i18n="about.phil.act1.backH">Space as Script</div>
+            <p class="act-card__body" data-i18n="about.phil.act1.body">我们从物理空间与动线出发构思叙事：光从哪里亮起、观众在哪里转身，本身就是台词与节奏。</p>
+          </div>
+        </article>
+
+        <article class="act-card reveal" data-flip>
+          <div class="act-card__face">
+            <div class="act-card__num" data-i18n="about.phil.act2.num">ACT II</div>
+            <div class="act-card__curtain" data-i18n="about.phil.act2.curtain">幕二 · Audience</div>
+            <h3 class="act-card__h" data-i18n="about.phil.act2.h">观众即主角</h3>
+            <div class="act-card__hint" data-i18n="about.phil.act2.hint">翻开</div>
+          </div>
+          <div class="act-card__face act-card__face--back">
+            <div class="act-card__back-h" data-i18n="about.phil.act2.backH">Audience as Protagonist</div>
+            <p class="act-card__body" data-i18n="about.phil.act2.body">每一次停留、对话与选择都可能牵动剧情。你不是背景，而是故事得以发生的原因之一。</p>
+          </div>
+        </article>
+
+        <article class="act-card reveal" data-flip>
+          <div class="act-card__face">
+            <div class="act-card__num" data-i18n="about.phil.act3.num">ACT III</div>
+            <div class="act-card__curtain" data-i18n="about.phil.act3.curtain">幕三 · Restraint</div>
+            <h3 class="act-card__h" data-i18n="about.phil.act3.h">留白与节制</h3>
+            <div class="act-card__hint" data-i18n="about.phil.act3.hint">翻开</div>
+          </div>
+          <div class="act-card__face act-card__face--back">
+            <div class="act-card__back-h" data-i18n="about.phil.act3.backH">The Unsaid</div>
+            <p class="act-card__body" data-i18n="about.phil.act3.body">我们刻意保留未说满的瞬间，让想象与情绪在黑暗中发酵——克制，是另一种强度。</p>
+          </div>
+        </article>
+
+        <article class="act-card reveal" data-flip>
+          <div class="act-card__face">
+            <div class="act-card__num" data-i18n="about.phil.act4.num">ACT IV</div>
+            <div class="act-card__curtain" data-i18n="about.phil.act4.curtain">幕四 · Poetry</div>
+            <h3 class="act-card__h" data-i18n="about.phil.act4.h">东方诗性</h3>
+            <div class="act-card__hint" data-i18n="about.phil.act4.hint">翻开</div>
+          </div>
+          <div class="act-card__face act-card__face--back">
+            <div class="act-card__back-h" data-i18n="about.phil.act4.backH">Eastern Poetics</div>
+            <p class="act-card__body" data-i18n="about.phil.act4.body">在传统意境与当代表达之间寻找语言，让意象、声场与身体共同构成「可行走的诗」。</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 数据 ===== -->
+  <section class="stats">
+    <p class="stats__label" data-i18n="about.stats.label">◉ Footprint</p>
+    <h2 class="stats__h" data-i18n="about.stats.sub" data-i18n-html="true">5年，<em>一些数字</em></h2>
+    <div class="stats__grid">
+      <div class="stat reveal">
+        <div class="stat__num" data-count="30">30<em>+</em></div>
+        <div class="stat__label" data-i18n="about.stats.cities">演出城市 · Cities</div>
+      </div>
+      <div class="stat reveal">
+        <div class="stat__num" data-count="2000">2000<em>+</em></div>
+        <div class="stat__label" data-i18n="about.stats.shows">演出场次 · Shows</div>
+      </div>
+      <div class="stat reveal">
+        <div class="stat__num" data-count="100">100K<em>+</em></div>
+        <div class="stat__label" data-i18n="about.stats.audiences">观众人次 · Audiences</div>
+      </div>
+      <div class="stat reveal">
+        <div class="stat__num" data-count="16">16<em>+</em></div>
+        <div class="stat__label" data-i18n="about.stats.works">原创剧目 · Works</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Partners 滚动 ===== -->
+  <section class="partners">
+    <p class="partners__label" data-i18n="about.partners.label">◉ Venues & Partners</p>
+    <h2 class="partners__h" data-i18n="about.partners.h" data-i18n-html="true">合作与<em>落地足迹</em></h2>
+    <div class="partners__marquee">
+      <div class="partners__track" id="partnersTrack">
+        <span class="partners__item">北京朝阳剧场</span>
+        <span class="partners__item">湖南大剧院</span>
+        <span class="partners__item">梅溪湖大剧院</span>
+        <span class="partners__item">重庆大剧院</span>
+        <span class="partners__item">深圳滨海艺术中心</span>
+        <span class="partners__item">上海虹桥艺术中心</span>
+        <span class="partners__item">辽宁大剧院</span>
+        <span class="partners__item">广州大剧院</span>
+        <span class="partners__item">佛山大剧院</span>
+        <span class="partners__item">合肥大剧院</span>
+        <span class="partners__item">江苏大剧院</span>
+        <span class="partners__item">南通大剧院</span>
+        <span class="partners__item">扬州运河大剧院</span>
+        <span class="partners__item">义乌文化广场剧院</span>
+        <span class="partners__item">余姚大剧院</span>
+        <span class="partners__item">会昌戏剧小镇</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CTA ===== -->
+  <section class="about-cta">
+    <h2 class="about-cta__h" data-i18n="about.cta.h" data-i18n-html="true">与我们<em>合作</em></h2>
+    <p class="about-cta__p" data-i18n="about.cta.p">驻演引进、内容定制与城市巡演，欢迎从合作中心开始对话。</p>
+    <a class="btn btn--primary" href="collaborate.html" data-i18n="about.cta.btn">进入合作中心 →</a>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="site-footer__inner">
+    <div class="site-footer__brand" data-i18n="footer.brand" data-i18n-html="true">© 2026 惊喜之夜 · <em>Surprise Night</em></div>
+    <div class="site-footer__links">
+      <a href="index.html" data-i18n="footer.links.home">首页</a>
+      <a href="works.html" data-i18n="footer.links.works">作品</a>
+      <a href="contact.html" data-i18n="footer.links.contact">联系</a>
+    </div>
+  </div>
+</footer>
+
+<!-- Video modal placeholder for shared.js -->
+<div class="video-modal" id="videoModal">
+  <div class="video-modal__content">
+    <button class="video-modal__close">×</button>
+    <iframe allow="autoplay; encrypted-media" allowfullscreen></iframe>
+  </div>
+</div>
+
+<script src="v3-shared.js" defer></script>
+<script>
+  // Philosophy 翻卡
+  document.querySelectorAll('.act-card[data-flip]').forEach(card=>{
+    card.addEventListener('click', ()=> card.classList.toggle('is-flipped'));
+  });
+
+  // 时间轴拖动滚动
+  const rail = document.getElementById('timelineRail');
+  let isDown=false, startX=0, startScroll=0;
+  rail.addEventListener('pointerdown', e=>{
+    isDown=true; startX=e.clientX; startScroll=rail.scrollLeft;
+    rail.setPointerCapture(e.pointerId);
+  });
+  rail.addEventListener('pointermove', e=>{
+    if(!isDown) return;
+    rail.scrollLeft = startScroll - (e.clientX - startX);
+  });
+  rail.addEventListener('pointerup', ()=> isDown=false);
+  rail.addEventListener('pointerleave', ()=> isDown=false);
+
+  // 数据数字滚入动画
+  const statIO = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if (!e.isIntersecting) return;
+      const el = e.target;
+      const target = parseInt(el.dataset.count, 10);
+      const suffix = el.textContent.replace(/[\d]/g,'');
+      const dur = 1400;
+      const t0 = performance.now();
+      const tick = (t)=>{
+        const p = Math.min(1, (t - t0)/dur);
+        const eased = 1 - Math.pow(1-p, 3);
+        el.childNodes[0].nodeValue = Math.round(target * eased) + (el.textContent.includes('K') ? 'K' : '');
+        if (p < 1) requestAnimationFrame(tick);
+      };
+      // special handling for K/+
+      const raw = el.textContent;
+      if (raw.includes('K')) {
+        // 100K case
+        el.innerHTML = '0K<em>+</em>';
+        const tickK = (t)=>{
+          const p = Math.min(1, (t - t0)/dur);
+          const eased = 1 - Math.pow(1-p, 3);
+          el.innerHTML = Math.round(100 * eased) + 'K<em>+</em>';
+          if (p < 1) requestAnimationFrame(tickK);
+        };
+        requestAnimationFrame(tickK);
+      } else {
+        el.innerHTML = '0<em>+</em>';
+        const tickN = (t)=>{
+          const p = Math.min(1, (t - t0)/dur);
+          const eased = 1 - Math.pow(1-p, 3);
+          el.innerHTML = Math.round(target * eased) + '<em>+</em>';
+          if (p < 1) requestAnimationFrame(tickN);
+        };
+        requestAnimationFrame(tickN);
+      }
+      statIO.unobserve(el);
+    });
+  }, { threshold: 0.4 });
+  document.querySelectorAll('.stat__num').forEach(el => statIO.observe(el));
+
+  // Duplicate partner items for seamless loop
+  const track = document.getElementById('partnersTrack');
+  track.innerHTML += track.innerHTML;
+</script>
+</body>
 </html>

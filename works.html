@@ -1,92 +1,1394 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>作品 — 惊喜之夜</title>
-    <meta
-      name="description"
-      content="惊喜之夜作品列表：沉浸式戏剧、体验式演出、新中式戏曲。"
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Noto+Sans+SC:wght@300;400;500;600&family=Noto+Serif+SC:wght@400;500;600&family=Syne:wght@500;600;700;800&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="css/styles.css" />
-  </head>
-  <body class="page-works" data-i18n-page="works">
-    <header class="site-header">
-      <div class="inner">
-        <a href="index.html" class="logo" style="display: flex; align-items: center; gap: 12px; font-size: 1.1rem;">
-          <img src="assets/images/logo.png" alt="" style="width: 32px; height: 32px; object-fit: contain;">
-          <span>惊喜之夜 <span style="opacity: 0.7; font-size: 0.75rem; font-weight: 400; margin-left: 4px;">/ Surprise Night</span></span>
-        </a>
-        <button type="button" class="nav-toggle" data-i18n="nav.menu" aria-expanded="false" aria-controls="primary-nav">
-          菜单
-        </button>
-        <nav>
-          <ul id="primary-nav" class="nav-links">
-            <li><a href="works.html" aria-current="page" data-i18n="nav.works">作品</a></li>
-            <li><a href="collaborate.html" data-i18n="nav.collaborate">合作</a></li>
-            <li class="nav-item nav-item--has-sub">
-            <a href="about.html" data-i18n="nav.about">关于</a>
-            <ul class="nav-sub" role="list">
-              <li><a href="collaborators.html" data-i18n="nav.collaborators">合作艺术家</a></li>
-            </ul>
-          </li>
-            <li><a href="contact.html" data-i18n="nav.contact">联系</a></li>
-            <li class="nav-lang" aria-label="Language">
-              <button type="button" class="lang-btn" data-set-lang="zh" aria-pressed="true">中</button>
-              <button type="button" class="lang-btn" data-set-lang="en" aria-pressed="false">EN</button>
-            </li>
-          </ul>
-        </nav>
+<html lang="zh-CN" data-lang="zh">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title data-i18n="page.title.works">作品 · Works — 惊喜之夜</title>
+<meta name="description" content="惊喜之夜所有剧目总览：沉浸式戏剧、体验式演出、新中式戏曲等 16 部在册作品。" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Noto+Sans+SC:wght@300;400;500;600;700&family=Noto+Serif+SC:wght@400;500;600;700&family=Syne:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+<style>
+/* ============================================================
+   设计令牌 · 与首页 v3 完全一致
+   ============================================================ */
+:root {
+  /* 较首页同款略提亮一档，整页底色更透气 */
+  --bg-0: #090a11;
+  --bg-1: #101119;
+  --bg-2: #191a25;
+  --bg-3: #222331;
+  --line: rgba(255,255,255,0.08);
+  --line-strong: rgba(255,255,255,0.16);
+  --text: rgba(255,255,255,0.92);
+  --text-2: rgba(255,255,255,0.62);
+  --text-3: rgba(255,255,255,0.38);
+  --text-4: rgba(255,255,255,0.20);
+  --accent: #C4354A;
+  --accent-glow: rgba(196,53,74,0.5);
+  --ink: #f7f3ea;
+  --sans: "Noto Sans SC", -apple-system, BlinkMacSystemFont, sans-serif;
+  --serif-cn: "Noto Serif SC", "Songti SC", serif;
+  --serif-en: "Cormorant Garamond", "Times New Roman", serif;
+  --display: "Syne", "Noto Serif SC", serif;
+  --mono: "JetBrains Mono", "SF Mono", monospace;
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --pad: clamp(20px, 4vw, 80px);
+}
+
+body[data-role="accomplice"] { --accent: #8a3fd8; --accent-glow: rgba(138,63,216,0.5); }
+body[data-role="guest"]      { --accent: #C4354A; --accent-glow: rgba(196,53,74,0.5); }
+
+* { margin:0; padding:0; box-sizing:border-box; }
+html, body { background: var(--bg-0); color: var(--text); font-family: var(--sans); font-weight: 300; -webkit-font-smoothing: antialiased; }
+body { overflow-x: hidden; min-height: 100vh; }
+a { color: inherit; text-decoration: none; }
+img { display: block; max-width: 100%; }
+button { background: none; border: none; color: inherit; font: inherit; cursor: pointer; }
+::selection { background: var(--accent); color: white; }
+
+/* grain */
+body::before {
+  content: ""; position: fixed; inset: 0; z-index: 9999; pointer-events: none;
+  opacity: 0.08; mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence baseFrequency='0.9' numOctaves='2'/><feColorMatrix values='0 0 0 0 1   0 0 0 0 1   0 0 0 0 1   0 0 0 0.5 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+}
+
+/* cursor glow */
+.cursor-glow {
+  position: fixed; pointer-events: none; z-index: 100;
+  width: 400px; height: 400px; border-radius: 50%;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, var(--accent-glow) 0%, transparent 60%);
+  opacity: 0; mix-blend-mode: screen; filter: blur(40px);
+  transition: opacity 0.4s;
+}
+body.cursor-active .cursor-glow { opacity: 0.45; }
+
+/* ============================================================
+   Curtain intro · 开场幕布
+   ============================================================ */
+.curtain {
+  position: fixed; inset: 0; z-index: 9000;
+  background: var(--bg-0);
+  display: flex; align-items: center; justify-content: center;
+  pointer-events: none;
+  transition: opacity 1.1s var(--ease), visibility 1.1s;
+}
+.curtain.is-gone { opacity: 0; visibility: hidden; }
+.curtain__crest {
+  text-align: center;
+  opacity: 0; transform: translateY(12px);
+  animation: crestIn 1.1s 0.25s var(--ease) forwards;
+}
+@keyframes crestIn { to { opacity: 1; transform: none; } }
+.curtain__mark {
+  font-family: var(--display); font-size: 11px; letter-spacing: 0.4em;
+  text-transform: uppercase; color: var(--accent); margin-bottom: 22px;
+}
+.curtain__title {
+  font-family: var(--serif-cn); font-size: clamp(36px, 5vw, 68px);
+  font-weight: 500; letter-spacing: 0.02em;
+}
+.curtain__title em {
+  display: block; font-family: var(--serif-en); font-style: italic;
+  font-weight: 400; font-size: 0.5em; color: var(--text-2); margin-top: 14px;
+  letter-spacing: 0.04em;
+}
+
+/* ============================================================
+   Nav · 与首页 index.html 同款（fixed + 滚动显底）
+   ============================================================ */
+.nav {
+  position: fixed; top: 0; left: 0; right: 0;
+  z-index: 500;
+  padding: 12px var(--pad);
+  max-width: 100%;
+  margin: 0 auto;
+  display: flex; justify-content: space-between; align-items: center;
+  transition: background 0.5s ease, padding 0.4s ease, border-color 0.4s ease;
+  border-bottom: 1px solid transparent;
+}
+.nav.is-scrolled {
+  background: rgba(5,6,10,0.72);
+  backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
+  padding: 14px var(--pad);
+  border-bottom-color: var(--line);
+}
+.nav__brand {
+  display: flex; align-items: center; gap: 12px;
+  font-family: var(--display); font-weight: 700;
+  letter-spacing: 0.05em; font-size: 15px;
+}
+.nav__brand { position: relative; width: 400px; height: 44px; }
+.nav__mark {
+  position: absolute;
+  top: calc(50% + 2px); left: 0;
+  transform: translateY(-50%);
+  width: 252px; height: 63px;
+  background-image: url('assets/logo.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: left center;
+  flex-shrink: 0;
+  font-size: 0;
+  color: transparent;
+  pointer-events: none;
+}
+.nav__brand-cn, .nav__brand-en { display: none; }
+.nav__links { display: flex; align-items: center; gap: 38px; flex-wrap: wrap; }
+.nav__link {
+  font-size: 13px; letter-spacing: 0.18em; text-transform: uppercase;
+  font-family: var(--display); font-weight: 500;
+  position: relative; padding: 8px 0;
+  color: var(--text-2);
+  transition: color 0.3s ease;
+}
+.nav__link::after {
+  content: ""; position: absolute; bottom: 2px; left: 0;
+  width: 0; height: 1px; background: var(--accent);
+  transition: width 0.4s var(--ease);
+}
+.nav__link:hover { color: var(--text); }
+.nav__link:hover::after { width: 100%; }
+.nav__link.is-active { color: var(--text); }
+.nav__link.is-active::after { width: 100%; }
+.nav__lang {
+  display: flex; align-items: center; gap: 4px;
+  border: 1px solid var(--line); border-radius: 999px;
+  padding: 4px;
+}
+.nav__lang button {
+  width: 28px; height: 24px; border-radius: 999px;
+  font-size: 11px; font-family: var(--display); font-weight: 600;
+  color: var(--text-3); letter-spacing: 0.1em;
+  transition: all 0.3s ease;
+}
+.nav__lang button.is-active { background: var(--text); color: #000; }
+.role-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 6px 12px; border-radius: 999px;
+  border: 1px solid var(--accent);
+  background: rgba(200,120,60,0.08);
+  font-family: var(--display); font-size: 10px; letter-spacing: 0.25em;
+  color: var(--accent); text-transform: uppercase;
+  cursor: pointer; transition: all 0.3s ease;
+}
+.role-badge:hover { background: rgba(200,120,60,0.18); }
+.role-badge__dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--accent); box-shadow: 0 0 8px var(--accent-glow);
+  animation: badgePulse 2s ease-in-out infinite;
+}
+@keyframes badgePulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+@keyframes brandPulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.9); }
+}
+
+/* ============================================================
+   Hero (page title strip)
+   ============================================================ */
+.page-hero {
+  padding: clamp(96px, 11vw, 150px) var(--pad) clamp(40px, 5vw, 80px);
+  max-width: 1600px; margin: 0 auto;
+  position: relative;
+}
+.page-hero__eyebrow {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-family: var(--display); font-size: 11px; letter-spacing: 0.35em;
+  text-transform: uppercase; color: var(--accent); margin-bottom: 24px;
+}
+.page-hero__eyebrow::before {
+  content: ""; width: 6px; height: 6px; border-radius: 50%;
+  background: var(--accent); animation: brandPulse 2.8s var(--ease) infinite;
+}
+.page-hero__title {
+  font-family: var(--serif-cn); font-weight: 400;
+  font-size: clamp(48px, 8vw, 128px); line-height: 0.98;
+  letter-spacing: -0.01em; margin-bottom: 24px;
+}
+.page-hero__title em {
+  display: block; font-family: var(--serif-en); font-style: italic;
+  font-weight: 400; font-size: 0.38em; color: var(--text-2);
+  margin-top: 18px; letter-spacing: 0.02em;
+}
+.page-hero__lede {
+  max-width: 640px; font-size: 17px; line-height: 1.75;
+  color: var(--text-2); margin-top: 28px;
+}
+.page-hero__lede strong {
+  color: var(--text); font-weight: 500;
+}
+.page-hero__stats {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 20px; margin-top: 64px;
+  padding-top: 40px; border-top: 1px solid var(--line);
+}
+.stat__value {
+  font-family: var(--display); font-weight: 600;
+  font-size: clamp(32px, 3.5vw, 52px); letter-spacing: -0.02em;
+  color: var(--text);
+}
+.stat__value em {
+  font-family: var(--serif-en); font-style: italic; font-weight: 400;
+  font-size: 0.5em; color: var(--text-2); margin-left: 4px;
+}
+.stat__label {
+  font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em;
+  text-transform: uppercase; color: var(--text-3); margin-top: 6px;
+}
+@media (max-width: 720px) {
+  .page-hero__stats { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* ============================================================
+   Filter bar
+   ============================================================ */
+.filter-bar {
+  position: sticky; top: 62px; z-index: 400;
+  background: rgba(5,6,10,0.88); backdrop-filter: blur(18px);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+.filter-bar__inner {
+  max-width: 1600px; margin: 0 auto;
+  padding: 16px var(--pad);
+  display: flex; align-items: center; gap: 40px; flex-wrap: wrap;
+}
+.filter-group { display: flex; align-items: center; gap: 12px; }
+.filter-group__label {
+  font-family: var(--mono); font-size: 10px; letter-spacing: 0.25em;
+  text-transform: uppercase; color: var(--text-3); margin-right: 4px;
+}
+.filter-chip {
+  padding: 7px 14px; font-size: 12px; letter-spacing: 0.06em;
+  border: 1px solid var(--line-strong); border-radius: 999px;
+  color: var(--text-2); transition: all 0.25s;
+  font-family: var(--sans); font-weight: 400;
+}
+.filter-chip:hover { color: var(--text); border-color: rgba(255,255,255,0.32); }
+.filter-chip.is-active {
+  background: var(--accent); border-color: var(--accent);
+  color: white;
+}
+.filter-chip__count {
+  font-family: var(--mono); font-size: 10px; margin-left: 6px;
+  opacity: 0.65;
+}
+.filter-bar__view {
+  margin-left: auto; display: flex; gap: 2px;
+  border: 1px solid var(--line-strong); border-radius: 8px;
+  padding: 2px; background: var(--bg-1);
+}
+.view-btn {
+  padding: 6px 12px; font-family: var(--mono);
+  font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase;
+  color: var(--text-3); border-radius: 6px;
+  transition: all 0.25s;
+}
+.view-btn.is-active {
+  background: var(--text); color: var(--bg-0);
+}
+.filter-bar__result {
+  font-family: var(--mono); font-size: 11px;
+  color: var(--text-3); letter-spacing: 0.15em;
+}
+.filter-bar__result strong { color: var(--accent); font-weight: 500; }
+
+/* ============================================================
+   Works grid · Masonry-ish (CSS Grid with explicit spans)
+   ============================================================ */
+.works {
+  max-width: 1600px; margin: 0 auto;
+  padding: 48px var(--pad) 120px;
+}
+.works__grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 20px;
+  grid-auto-flow: dense;
+}
+.work-card {
+  position: relative;
+  overflow: hidden;
+  background: var(--bg-1);
+  border: 1px solid var(--line);
+  min-height: 380px;
+  display: flex; flex-direction: column; justify-content: flex-end;
+  padding: 32px 28px;
+  color: var(--text);
+  transition: transform 0.5s var(--ease), border-color 0.4s;
+  cursor: pointer;
+}
+/* 配图叠在父级实色底之上（勿用 z-index:-2，否则会被 background 盖住） */
+.work-card__bg {
+  position: absolute; inset: 0; z-index: 0;
+  background-size: cover; background-position: center;
+  filter: brightness(0.48) saturate(0.92);
+  transition: transform 1s var(--ease), filter 0.55s var(--ease);
+}
+.work-card::before {
+  content: "";
+  position: absolute; inset: 0; z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(180deg, rgba(5,6,10,0.06) 0%, rgba(5,6,10,0.48) 46%, rgba(5,6,10,0.9) 100%);
+  opacity: 1;
+  transition: opacity 0.5s var(--ease);
+}
+.work-card > *:not(.work-card__bg) {
+  position: relative;
+  z-index: 2;
+}
+.work-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-4px);
+}
+.work-card:hover .work-card__bg {
+  transform: scale(1.06);
+  filter: brightness(0.72) saturate(1);
+}
+.work-card:hover::before {
+  opacity: 0.55;
+}
+
+/* card span classes */
+.work-card--xl  { grid-column: span 12; min-height: 560px; }
+.work-card--lg  { grid-column: span 8;  min-height: 480px; }
+.work-card--md  { grid-column: span 6;  min-height: 440px; }
+.work-card--sm  { grid-column: span 4;  min-height: 380px; }
+
+/* 沉浸式筛选：第二行 妖男(md) + 生存游戏(lg→6)，保持每行两个 */
+body[data-filter-type="immersive"] .work-card[href*="survivor"] { grid-column: span 6; }
+
+@media (max-width: 1100px) {
+  .work-card--xl  { grid-column: span 12; }
+  .work-card--lg  { grid-column: span 12; }
+  .work-card--md  { grid-column: span 6; }
+  .work-card--sm  { grid-column: span 6; }
+}
+@media (max-width: 680px) {
+  .work-card--md, .work-card--sm { grid-column: span 12; min-height: 340px; }
+}
+
+.work-card__index {
+  position: absolute; top: 28px; right: 28px;
+  font-family: var(--mono); font-size: 11px; letter-spacing: 0.25em;
+  color: var(--text-3);
+}
+.work-card__kicker {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-family: var(--display); font-size: 10px; letter-spacing: 0.3em;
+  text-transform: uppercase; color: var(--accent); margin-bottom: 14px;
+}
+.work-card__kicker::before {
+  content: ""; width: 5px; height: 5px; border-radius: 50%;
+  background: var(--accent);
+  animation: brandPulse 2.8s var(--ease) infinite;
+}
+.work-card__tags {
+  display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 16px;
+}
+.work-card__tag {
+  font-family: var(--mono); font-size: 10px; letter-spacing: 0.15em;
+  padding: 3px 9px; border: 1px solid var(--line-strong);
+  color: var(--text-2); border-radius: 3px;
+}
+.work-card__tag--live { border-color: var(--accent); color: var(--accent); }
+.work-card__title {
+  font-family: var(--serif-cn); font-weight: 500;
+  font-size: clamp(26px, 3vw, 44px); line-height: 1.08;
+  letter-spacing: -0.005em; margin-bottom: 6px;
+}
+.work-card--xl .work-card__title { font-size: clamp(44px, 5vw, 72px); }
+.work-card--lg .work-card__title { font-size: clamp(36px, 4vw, 60px); }
+.work-card__subtitle {
+  font-family: var(--serif-en); font-style: italic;
+  font-size: clamp(14px, 1.2vw, 20px); color: var(--text-2);
+  margin-bottom: 16px;
+  letter-spacing: 0.02em;
+}
+.work-card__desc {
+  font-size: 14px; line-height: 1.7; color: var(--text-2);
+  max-width: 540px; margin-bottom: 24px;
+}
+.work-card--sm .work-card__desc { font-size: 13px; }
+.work-card__meta {
+  display: flex; gap: 20px; font-family: var(--mono);
+  font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--text-3);
+  padding-top: 20px; border-top: 1px solid var(--line);
+}
+.work-card__meta span { display: inline-flex; align-items: center; gap: 6px; }
+.work-card__meta span::before {
+  content: "●"; color: var(--accent); font-size: 8px;
+}
+.work-card__cta {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em;
+  text-transform: uppercase; color: var(--accent);
+  margin-top: 18px;
+}
+.work-card__cta::after {
+  content: "→"; transition: transform 0.3s;
+}
+.work-card:hover .work-card__cta::after { transform: translateX(6px); }
+
+/* Secret cards (accomplice only) — optional poster + purple frame */
+.work-card--secret {
+  background: var(--bg-1);
+  border: 1px dashed rgba(138,63,216,0.35);
+}
+.work-card--secret::before { display: none; }
+.work-card--secret .work-card__bg {
+  z-index: 0;
+  opacity: 0.95;
+  filter: brightness(0.48) saturate(0.92);
+  transition: transform 1s var(--ease), filter 0.55s var(--ease), opacity 0.5s var(--ease);
+}
+.work-card--secret:hover .work-card__bg {
+  transform: scale(1.06);
+  filter: brightness(0.72) saturate(1);
+}
+.work-card--secret::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(180deg, rgba(30,14,48,0.38) 0%, rgba(5,6,10,0.58) 48%, rgba(5,6,10,0.88) 100%);
+  opacity: 1;
+  transition: opacity 0.5s var(--ease);
+}
+.work-card--secret:hover::after {
+  opacity: 0.5;
+}
+.work-card--secret > *:not(.work-card__bg) {
+  position: relative;
+  z-index: 2;
+}
+.work-card--secret .work-card__kicker { color: #b87df8; }
+.work-card--secret .work-card__kicker::before { background: #b87df8; }
+.work-card--secret .work-card__tag { border-color: rgba(138,63,216,0.35); color: #b87df8; }
+.work-card--secret .work-card__meta span::before { color: #b87df8; }
+.work-card--secret .work-card__cta { color: #b87df8; }
+
+body:not([data-role="accomplice"]) .work-card--secret {
+  display: none;
+}
+
+.work-card--secret .work-card__title em {
+  display: block; font-family: var(--serif-en); font-style: italic;
+  font-weight: 400; font-size: 0.4em; color: var(--text-3); margin-top: 8px;
+}
+
+/* filter-out state */
+.work-card.is-hidden { display: none; }
+
+/* Empty state */
+.works__empty {
+  grid-column: span 12;
+  padding: 80px 20px;
+  text-align: center;
+  color: var(--text-3);
+  font-family: var(--serif-en);
+  font-style: italic;
+  font-size: 24px;
+  display: none;
+}
+.works__empty.is-shown { display: block; }
+
+/* ============================================================
+   Timeline view
+   ============================================================ */
+.timeline {
+  display: none;
+  padding: 48px var(--pad) 120px;
+  max-width: 1200px; margin: 0 auto;
+}
+body[data-view="timeline"] .works { display: none; }
+body[data-view="timeline"] .timeline { display: block; }
+
+.timeline__track {
+  position: relative;
+  padding-left: 60px;
+}
+.timeline__track::before {
+  content: ""; position: absolute;
+  left: 11px; top: 20px; bottom: 20px;
+  width: 1px; background: var(--line-strong);
+}
+.timeline__item {
+  position: relative;
+  padding: 32px 0;
+  border-bottom: 1px solid var(--line);
+  display: grid;
+  grid-template-columns: 140px 1fr 200px;
+  gap: 40px; align-items: start;
+}
+.timeline__item:last-child { border-bottom: none; }
+.timeline__item::before {
+  content: "";
+  position: absolute; left: -54px; top: 44px;
+  width: 12px; height: 12px; border-radius: 50%;
+  background: var(--bg-0);
+  border: 2px solid var(--accent);
+  box-shadow: 0 0 0 4px var(--bg-0);
+}
+.timeline__year {
+  font-family: var(--display); font-weight: 600;
+  font-size: 32px; letter-spacing: -0.01em;
+  color: var(--text);
+}
+.timeline__year em {
+  display: block; font-family: var(--mono); font-style: normal;
+  font-size: 10px; letter-spacing: 0.25em; color: var(--text-3);
+  margin-top: 6px;
+}
+.timeline__body h3 {
+  font-family: var(--serif-cn); font-weight: 500;
+  font-size: 28px; margin-bottom: 4px;
+}
+.timeline__body .sub {
+  font-family: var(--serif-en); font-style: italic;
+  color: var(--text-2); margin-bottom: 12px;
+}
+.timeline__body p {
+  font-size: 14px; line-height: 1.7;
+  color: var(--text-2); max-width: 540px;
+}
+.timeline__meta {
+  font-family: var(--mono); font-size: 11px;
+  color: var(--text-3); letter-spacing: 0.1em;
+  line-height: 2;
+}
+.timeline__meta strong {
+  color: var(--accent); font-weight: 500;
+}
+@media (max-width: 900px) {
+  .timeline__item { grid-template-columns: 1fr; gap: 16px; }
+  .timeline__item::before { left: -46px; }
+
+  /* 作品页 hero 精简：只留标题，删副标/介绍/统计 */
+  .page-hero__eyebrow { display: none; }
+  .page-hero__title em { display: none; }
+  .page-hero__lede { display: none; }
+  .page-hero__stats { display: none; }
+  .page-hero { padding: 72px var(--pad) 20px; min-height: 0; }
+  .page-hero__title { font-size: clamp(36px, 10vw, 60px); margin-bottom: 0; }
+
+  /* 筛选：删 Status，保留 Type + View（Grid/Timeline） */
+  .filter-bar__inner > .filter-group + .filter-group { display: none; }
+  .filter-bar { padding: 14px 0; }
+  .filter-bar__inner {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+    padding: 0;
+  }
+  /* Type 一排横向滑动 */
+  .filter-group {
+    flex-wrap: nowrap !important;
+    overflow-x: auto;
+    scrollbar-width: none;
+    gap: 8px;
+    padding: 0 var(--pad);
+    align-items: center;
+  }
+  .filter-group::-webkit-scrollbar { display: none; }
+  .filter-group > * { flex-shrink: 0; }
+  .filter-group__label { font-size: 9px; letter-spacing: .2em; }
+  .filter-chip {
+    font-size: 11px !important;
+    padding: 4px 10px !important;
+    letter-spacing: .04em !important;
+    white-space: nowrap;
+  }
+  .filter-chip__count { font-size: 9px !important; }
+  .filter-bar__view {
+    align-self: flex-end !important;
+    margin: 0 var(--pad) 0 0 !important;
+    padding: 2px !important;
+    flex-shrink: 0;
+  }
+  .filter-bar { overflow-x: hidden; }
+  /* 海底两万里卡：背景图右移，露出鲸鱼 */
+  a[href*="submarine"] .work-card__bg {
+    background-position: 82% center !important;
+  }
+}
+
+/* ============================================================
+   Footer CTA
+   ============================================================ */
+.tail {
+  border-top: 1px solid var(--line);
+  padding: 80px var(--pad);
+  text-align: center;
+  background: var(--bg-1);
+}
+.tail__eyebrow {
+  font-family: var(--display); font-size: 11px; letter-spacing: 0.35em;
+  text-transform: uppercase; color: var(--accent); margin-bottom: 18px;
+}
+.tail__title {
+  font-family: var(--serif-cn); font-size: clamp(32px, 4.5vw, 52px);
+  font-weight: 500; margin-bottom: 18px;
+}
+.tail__title em {
+  font-family: var(--serif-en); font-style: italic;
+  color: var(--text-2);
+}
+.tail__lede {
+  max-width: 520px; margin: 0 auto 36px;
+  color: var(--text-2); font-size: 15px; line-height: 1.7;
+}
+.tail__cta {
+  display: inline-flex; align-items: center; gap: 12px;
+  padding: 14px 28px; background: var(--accent);
+  color: white; font-family: var(--mono);
+  font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase;
+  transition: transform 0.3s;
+}
+.tail__cta:hover { transform: translateY(-2px); }
+.tail__cta::after { content: "→"; }
+
+/* ============================================================
+   Role flash (role switch feedback)
+   ============================================================ */
+.role-flash {
+  position: fixed; inset: 0; z-index: 8000;
+  background: var(--accent); opacity: 0; pointer-events: none;
+  mix-blend-mode: soft-light;
+  transition: opacity 0.25s;
+}
+.role-flash.is-on { opacity: 0.7; animation: roleFlash 0.6s var(--ease); }
+@keyframes roleFlash {
+  0% { opacity: 0.7; }
+  100% { opacity: 0; }
+}
+
+/* ============================================================
+   Mobile · 汉堡菜单（与首页保持一致）
+   ============================================================ */
+.nav__burger {
+  display: none;
+  width: 44px; height: 44px;
+  background: transparent; border: 0;
+  flex-direction: column; justify-content: center; align-items: center;
+  gap: 6px; cursor: pointer; padding: 0;
+  position: relative; z-index: 52;
+}
+.nav__burger span {
+  display: block; width: 22px; height: 1.5px;
+  background: var(--text);
+  transition: transform .3s ease, opacity .3s ease;
+}
+.nav.nav--open .nav__burger span:nth-child(1) { transform: translateY(7.5px) rotate(45deg); }
+.nav.nav--open .nav__burger span:nth-child(2) { opacity: 0; }
+.nav.nav--open .nav__burger span:nth-child(3) { transform: translateY(-7.5px) rotate(-45deg); }
+@media (max-width: 900px) {
+  .nav__burger { display: flex; }
+  .nav__links {
+    display: flex !important;
+    position: fixed; top: 0; left: 0; right: 0;
+    min-height: 100vh; max-height: 100vh;
+    padding: 96px var(--pad) 40px;
+    background: rgba(5,6,10,0.97);
+    backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
+    flex-direction: column !important; align-items: stretch !important;
+    gap: 0 !important;
+    z-index: 51;
+    transform: translateY(-110%);
+    transition: transform .45s cubic-bezier(.2,.8,.2,1);
+    pointer-events: none;
+    overflow-y: auto;
+    counter-reset: navItem;
+  }
+  .nav.nav--open .nav__links {
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+  .nav__link {
+    display: flex !important; align-items: baseline; gap: 20px;
+    font-family: var(--serif-cn) !important;
+    font-size: 17px !important; font-weight: 500;
+    letter-spacing: .03em !important; text-transform: none !important;
+    padding: 16px 2px !important;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    color: var(--text);
+  }
+  .nav__link::before {
+    counter-increment: navItem;
+    content: counter(navItem, decimal-leading-zero);
+    font-family: var(--display);
+    font-size: 10px; font-weight: 500;
+    letter-spacing: .3em;
+    color: var(--text-3);
+    min-width: 28px;
+  }
+  .nav__link::after {
+    position: static !important; width: auto !important; height: auto !important; background: transparent !important;
+    font-family: var(--serif-en); font-style: italic;
+    font-size: 13px; font-weight: 400;
+    color: var(--text-3); margin-left: auto;
+    letter-spacing: .01em; transition: none;
+    bottom: auto !important; left: auto !important;
+  }
+  .nav__link[href*="works"]::after { content: "Works"; }
+  .nav__link[href*="collaborate"]::after { content: "Collaborate"; }
+  .nav__link[href*="about"]::after { content: "About"; }
+  .nav__link[href*="collaborators"]::after { content: "Artists"; }
+  .nav__link[href*="contact"]::after { content: "Contact"; }
+  .nav__link.is-active,
+  .nav__link.is-active::before { color: var(--accent); }
+  .nav__lang { margin-top: 28px; align-self: flex-start; }
+}
+</style>
+<script src="i18n.js"></script>
+</head>
+<body data-role="guest" data-view="grid">
+
+<div class="cursor-glow" id="cursorGlow"></div>
+<div class="role-flash" id="roleFlash"></div>
+
+<!-- ========== Curtain intro ========== -->
+<div class="curtain" id="curtain">
+  <div class="curtain__crest">
+    <div class="curtain__mark" data-i18n="works.curtain.mark">Works · 作品</div>
+    <h1 class="curtain__title" data-i18n="works.curtain.title" data-i18n-html="true">所有剧目<em>The complete catalogue.</em></h1>
+  </div>
+</div>
+
+<!-- ========== Nav（与 index.html 同款） ========== -->
+<header class="nav" id="nav">
+  <a href="index.html" class="nav__brand">
+    <span class="nav__mark"></span>
+    <span class="nav__brand-cn">惊喜之夜</span>
+    <span class="nav__brand-en">SURPRISE NIGHT</span>
+  </a>
+  <nav class="nav__links">
+    <a href="works.html" class="nav__link is-active" data-i18n="nav.works">作品</a>
+    <a href="collaborate.html" class="nav__link" data-i18n="nav.collaborate">合作</a>
+    <a href="about.html" class="nav__link" data-i18n="nav.about">关于</a>
+    <a href="collaborators.html" class="nav__link" data-i18n="nav.artists">艺术家</a>
+    <a href="contact.html" class="nav__link" data-i18n="nav.contact">联系</a>
+    <div class="nav__lang">
+      <button data-set-lang="zh">中</button>
+      <button data-set-lang="en">EN</button>
+    </div>
+  </nav>
+  <button class="nav__burger" id="navBurger" aria-label="菜单" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<!-- ========== Hero ========== -->
+<section class="page-hero">
+  <div class="page-hero__eyebrow" data-i18n="works.hero.eyebrow">Full Roster · 16 部在册</div>
+  <h1 class="page-hero__title">
+    <span data-i18n="works.hero.title">作品</span>
+    <em data-i18n="works.hero.titleEm">The stage we've built, one show at a time.</em>
+  </h1>
+  <p class="page-hero__lede" data-i18n="works.hero.lede" data-i18n-html="true">旗舰制作与沉浸、体验式与新中式戏曲并列呈现——<strong>16 部在册</strong>，点开卡片进入完整介绍。<br />
+    有些仍在巡演或驻演，有些已封箱归档；这里是它们的<strong>完整地图</strong>。
+  </p>
+  <div class="page-hero__stats">
+    <div><div class="stat__value">16<em data-i18n="works.stats.unitBu">部</em></div><div class="stat__label" data-i18n="works.stats.works">Works 在册作品</div></div>
+    <div><div class="stat__value">5<em data-i18n="works.stats.unitNian">年</em></div><div class="stat__label" data-i18n="works.stats.years">Years 连续创作</div></div>
+    <div><div class="stat__value">2000<em data-i18n="works.stats.unitPlus">+</em></div><div class="stat__label" data-i18n="works.stats.shows">Shows 累计场次</div></div>
+    <div><div class="stat__value">30<em data-i18n="works.stats.unitCheng">+ 城</em></div><div class="stat__label" data-i18n="works.stats.cities">Cities 巡演足迹</div></div>
+  </div>
+</section>
+
+<!-- ========== Filter bar ========== -->
+<div class="filter-bar">
+  <div class="filter-bar__inner">
+    <div class="filter-group">
+      <span class="filter-group__label" data-i18n="works.filter.type">Type</span>
+      <button class="filter-chip is-active" data-filter="type" data-value="all"><span data-i18n="works.filter.chip.all">全部</span> <span class="filter-chip__count" data-count="all"></span></button>
+      <button class="filter-chip" data-filter="type" data-value="immersive"><span data-i18n="works.filter.chip.immersive">沉浸式戏剧</span> <span class="filter-chip__count" data-count="immersive"></span></button>
+      <button class="filter-chip" data-filter="type" data-value="stage"><span data-i18n="works.filter.chip.stage">舞台剧</span> <span class="filter-chip__count" data-count="stage"></span></button>
+      <button class="filter-chip" data-filter="type" data-value="ip"><span data-i18n="works.filter.chip.ip">IP 开发</span> <span class="filter-chip__count" data-count="ip"></span></button>
+    </div>
+    <div class="filter-group">
+      <span class="filter-group__label" data-i18n="works.filter.status">Status</span>
+      <button class="filter-chip is-active" data-filter="status" data-value="all"><span data-i18n="works.filter.chip.anyStatus">不限</span></button>
+      <button class="filter-chip" data-filter="status" data-value="live"><span data-i18n="works.filter.chip.live">在演</span></button>
+      <button class="filter-chip" data-filter="status" data-value="touring"><span data-i18n="works.filter.chip.touring">巡演</span></button>
+      <button class="filter-chip" data-filter="status" data-value="wip"><span data-i18n="works.filter.chip.wip">开发中</span></button>
+    </div>
+    <div class="filter-bar__view">
+      <button class="view-btn is-active" data-view="grid">Grid</button>
+      <button class="view-btn" data-view="timeline">Timeline</button>
+    </div>
+    <div class="filter-bar__result"><strong id="resultCount">8</strong> · Works found</div>
+  </div>
+</div>
+
+<!-- ========== Works Grid ========== -->
+<section class="works" id="works">
+  <div class="works__grid" id="worksGrid">
+
+    <!-- ① 山海经·巨灵之梦 · XL flagship -->
+    <a href="project-shanhai.html" class="work-card work-card--xl" data-type="stage ip" data-status="live touring" data-year="2026">
+      <div class="work-card__bg" style="background-image:url('https://raw.githubusercontent.com/ananinalfe-ship-it/surprise-night-web/main/assets/images/work-shanhai.png');"></div>
+      <div class="work-card__index">2026</div>
+      <div class="work-card__kicker" data-i18n="works.card.shanhai.kicker">Flagship · 年度主推</div>
+      <div class="work-card__tags">
+        <span class="work-card__tag work-card__tag--live" data-i18n="works.card.shanhai.tag1">全国巡演</span>
+        <span class="work-card__tag" data-i18n="works.card.shanhai.tag2">亲子剧</span>
+        <span class="work-card__tag" data-i18n="works.card.shanhai.tag3">木偶奇幻秀</span>
       </div>
-    </header>
-
-    <main>
-      <section class="works-hero" aria-labelledby="works-hero-title">
-        <div class="works-hero__media" aria-hidden="true"></div>
-        <div class="works-hero__veil" aria-hidden="true"></div>
-        <div class="works-hero__grain" aria-hidden="true"></div>
-        <div class="container works-hero__inner">
-          <p class="works-hero__eyebrow" data-i18n="worksPage.heroEyebrow">剧目与项目</p>
-          <h1 id="works-hero-title" class="works-hero__title" data-i18n="worksPage.h1">作品</h1>
-          <p class="works-hero__lead" data-i18n="worksPage.lead">
-            按体验类型浏览。旗舰制作与沉浸、体验式与新中式戏曲并列呈现——点开卡片进入完整介绍。
-          </p>
-        </div>
-      </section>
-
-      <section class="section works-catalog">
-        <div class="container">
-          <div class="filter-bar filter-bar--works" data-works-filter-bar>
-            <button type="button" class="is-active" data-filter="all" data-i18n="worksPage.fAll">全部</button>
-            <button type="button" data-filter="immersive" data-i18n="worksPage.fImmersive">沉浸式戏剧</button>
-            <button type="button" data-filter="experiential" data-i18n="worksPage.fExp">体验式演出</button>
-            <button type="button" data-filter="neo-chinese" data-i18n="worksPage.fNeo">新中式戏曲</button>
-          </div>
-          <div
-            class="grid-works works-catalog__grid"
-            data-works-grid="all"
-            data-works-spotlight="true"
-          ></div>
-        </div>
-      </section>
-    </main>
-
-    <footer class="site-footer">
-      <div class="inner">
-        <span data-i18n="worksPage.footerCopy">© 2026 惊喜之夜</span>
-        <a href="collaborate.html" data-i18n="worksPage.footerLink">合作咨询</a>
+      <h2 class="work-card__title" data-i18n="works.card.shanhai.title">山海经 · 巨灵之梦</h2>
+      <p class="work-card__subtitle" data-i18n="works.card.shanhai.subtitle">The Dream of Colossus</p>
+      <p class="work-card__desc" data-i18n="works.card.shanhai.desc">深海巨偶与《山海经》神话的沉浸邂逅。</p>
+      <div class="work-card__meta">
+        <span data-i18n="works.card.shanhai.meta1">扬州首演</span>
+        <span data-i18n="works.card.shanhai.meta2">90 分钟</span>
+        <span data-i18n="works.card.shanhai.meta3">亲子剧 · 可站可走</span>
       </div>
-    </footer>
+      <span class="work-card__cta" data-i18n="works.card.shanhai.cta">进入作品</span>
+    </a>
 
-    <script src="js/i18n.js" defer></script>
-    <script src="js/main.js" defer></script>
-    <script src="js/works-render.js" defer></script>
-    <script src="js/works-filter.js" defer></script>
-  </body>
+    <!-- ② 终极骗局 3.0 · lg -->
+    <a href="project-ultimate-con.html" class="work-card work-card--lg" data-type="immersive" data-status="live touring" data-year="2022">
+      <div class="work-card__bg" style="background-image:url('https://raw.githubusercontent.com/ananinalfe-ship-it/surprise-night-web/main/assets/images/work-ultimate-con.png'); background-position: center 70%;"></div>
+      <div class="work-card__index">2022</div>
+      <div class="work-card__kicker" data-i18n="works.card.ultimate.kicker">Immersive · 博弈式沉浸</div>
+      <div class="work-card__tags">
+        <span class="work-card__tag work-card__tag--live" data-i18n="works.card.ultimate.tag1">正在上演</span>
+        <span class="work-card__tag" data-i18n="works.card.ultimate.tag2">沉浸式戏剧</span>
+        <span class="work-card__tag" data-i18n="works.card.ultimate.tag3">互动游戏</span>
+      </div>
+      <h2 class="work-card__title" data-i18n="works.card.ultimate.title">终极骗局 3.0</h2>
+      <p class="work-card__subtitle" data-i18n="works.card.ultimate.subtitle">Liar Game 3.0</p>
+      <p class="work-card__desc" data-i18n="works.card.ultimate.desc">关于信任与欺骗的沉浸式博弈——你不仅是观众，更是玩家。</p>
+      <div class="work-card__meta">
+        <span data-i18n="works.card.ultimate.meta1">多城巡演</span>
+        <span data-i18n="works.card.ultimate.meta2">180 分钟</span>
+        <span data-i18n="works.card.ultimate.meta3">博弈式 · 全程参与</span>
+      </div>
+      <span class="work-card__cta" data-i18n="common.viewDetails">查看详情</span>
+    </a>
+
+    <!-- ③ 聂小倩 · sm（与终极骗局并排） -->
+    <a href="project-nie.html" class="work-card work-card--sm" data-type="immersive ip" data-status="live" data-year="2024">
+      <div class="work-card__bg" style="background-image:url('https://raw.githubusercontent.com/ananinalfe-ship-it/surprise-night-web/main/assets/images/work-nie.jpg'); background-position: 30% center;"></div>
+      <div class="work-card__index">2024</div>
+      <div class="work-card__kicker" data-i18n="works.card.nie.kicker">沉浸新中式湘剧 · 聊斋改编</div>
+      <div class="work-card__tags">
+        <span class="work-card__tag" data-i18n="works.card.nie.tag1">经典回顾</span>
+        <span class="work-card__tag" data-i18n="works.card.nie.tag2">IP 开发</span>
+      </div>
+      <h2 class="work-card__title" data-i18n="works.card.nie.title">聂小倩</h2>
+      <p class="work-card__subtitle" data-i18n="works.card.nie.subtitle">Nie Xiaoqian</p>
+      <p class="work-card__desc" data-i18n="works.card.nie.desc">沉浸式湘剧语言下的东方诗意与当代转译。</p>
+      <div class="work-card__meta">
+        <span data-i18n="works.card.nie.meta1">长沙驻演</span>
+        <span data-i18n="works.card.nie.meta2">80 分钟</span>
+      </div>
+      <span class="work-card__cta" data-i18n="common.viewDetails">查看详情</span>
+    </a>
+
+    <!-- ④ 妖男夜行录 · md -->
+    <a href="project-yaonan.html" class="work-card work-card--md" data-type="immersive" data-status="wip" data-year="2025">
+      <div class="work-card__bg" style="background-image:url('https://raw.githubusercontent.com/ananinalfe-ship-it/surprise-night-web/main/assets/images/work-yaonan.jpg');"></div>
+      <div class="work-card__index">2025</div>
+      <div class="work-card__kicker" data-i18n="works.card.yaonan.kicker">Immersive · 志怪美学</div>
+      <div class="work-card__tags">
+        <span class="work-card__tag" data-i18n="works.card.yaonan.tag1">正在开发</span>
+        <span class="work-card__tag" data-i18n="works.card.yaonan.tag2">沉浸式戏剧</span>
+      </div>
+      <h2 class="work-card__title" data-i18n="works.card.yaonan.title">妖男夜行录</h2>
+      <p class="work-card__subtitle" data-i18n="works.card.yaonan.subtitle">Night of the Demon</p>
+      <p class="work-card__desc" data-i18n="works.card.yaonan.desc">中式志怪题材的沉浸式演艺项目，探索东方神秘美学。</p>
+      <div class="work-card__meta">
+        <span data-i18n="works.card.yaonan.meta1">筹备</span>
+        <span data-i18n="works.card.yaonan.meta2">90 分钟</span>
+        <span data-i18n="works.card.yaonan.meta3">沉浸式 · 分组行动</span>
+      </div>
+      <span class="work-card__cta" data-i18n="common.viewDetails">查看详情</span>
+    </a>
+
+    <!-- ⑤ 数学秀 · md -->
+    <a href="project-math.html" class="work-card work-card--md" data-type="stage" data-status="touring" data-year="2025">
+      <div class="work-card__bg" style="background-image:url('https://raw.githubusercontent.com/ananinalfe-ship-it/surprise-night-web/main/assets/images/work-math.jpg');"></div>
+      <div class="work-card__index">2025</div>
+      <div class="work-card__kicker" data-i18n="works.card.math.kicker">Stage · 体验式演出</div>
+      <div class="work-card__tags">
+        <span class="work-card__tag" data-i18n="works.card.math.tag1">定制作品</span>
+        <span class="work-card__tag" data-i18n="works.card.math.tag2">舞台剧</span>
+      </div>
+      <h2 class="work-card__title" data-i18n="works.card.math.title">数学秀</h2>
+      <p class="work-card__subtitle" data-i18n="works.card.math.subtitle">Math Big Bang</p>
+      <p class="work-card__desc" data-i18n="works.card.math.desc">科学与舞台的跨界实验，让公式在灯光下被看见。</p>
+      <div class="work-card__meta">
+        <span data-i18n="works.card.math.meta1">持续在演</span>
+        <span data-i18n="works.card.math.meta2">75 分钟</span>
+        <span data-i18n="works.card.math.meta3">固定座位</span>
+      </div>
+      <span class="work-card__cta" data-i18n="common.viewDetails">查看详情</span>
+    </a>
+
+    <!-- ============= 第六行：海底两万里（lg）+ 生存游戏（sm），与终极骗局+聂小倩同宽 ============ -->
+
+    <!-- ⑥ 海底两万里 · lg -->
+    <a href="project-submarine.html" class="work-card work-card--lg" data-type="stage ip" data-status="live touring" data-year="2024">
+      <div class="work-card__bg" style="background-image:url('https://raw.githubusercontent.com/ananinalfe-ship-it/surprise-night-web/main/assets/images/gallery/submarine-still-01.png'); background-position: center 40%;"></div>
+      <div class="work-card__index">2024</div>
+      <div class="work-card__kicker" data-i18n="works.card.submarine.kicker">Family · 亲子沉浸</div>
+      <div class="work-card__tags">
+        <span class="work-card__tag" data-i18n="works.card.submarine.tag1">定制项目</span>
+        <span class="work-card__tag" data-i18n="works.card.submarine.tag2">体验式演出</span>
+      </div>
+      <h2 class="work-card__title" data-i18n="works.card.submarine.title">海底两万里</h2>
+      <p class="work-card__subtitle" data-i18n="works.card.submarine.subtitle">Vingt mille lieues sous les mers</p>
+      <p class="work-card__desc" data-i18n="works.card.submarine.desc">凡尔纳经典科幻改编，沉浸式深海探险体验。</p>
+      <div class="work-card__meta">
+        <span data-i18n="works.card.submarine.meta1">亲子剧</span>
+        <span data-i18n="works.card.submarine.meta2">经典改编</span>
+      </div>
+      <span class="work-card__cta" data-i18n="common.viewDetails">查看详情</span>
+    </a>
+
+    <!-- ⑦ 生存游戏 · sm -->
+    <a href="project-survivor.html" class="work-card work-card--sm" data-type="immersive" data-status="touring" data-year="2023">
+      <div class="work-card__bg" style="background-image:url('https://raw.githubusercontent.com/ananinalfe-ship-it/surprise-night-web/main/assets/images/work-survivor.png'); background-position: center 45%;"></div>
+      <div class="work-card__index">2023</div>
+      <div class="work-card__kicker" data-i18n="works.card.survivor.kicker">Immersive · 互动游戏戏剧</div>
+      <div class="work-card__tags">
+        <span class="work-card__tag" data-i18n="works.card.survivor.tag1">经典回顾</span>
+        <span class="work-card__tag" data-i18n="works.card.survivor.tag2">沉浸式戏剧</span>
+      </div>
+      <h2 class="work-card__title" data-i18n="works.card.survivor.title">生存游戏</h2>
+      <p class="work-card__subtitle" data-i18n="works.card.survivor.subtitle">THE SURVIVOR</p>
+      <p class="work-card__desc" data-i18n="works.card.survivor.desc">想尽一切办法活下去——超感体验未来世界，多版本结局由你决定。</p>
+      <div class="work-card__meta">
+        <span data-i18n="works.card.survivor.meta1">多版本结局</span>
+        <span data-i18n="works.card.survivor.meta2">沉浸式 · 全程参与</span>
+      </div>
+      <span class="work-card__cta" data-i18n="common.viewDetails">查看详情</span>
+    </a>
+
+    <!-- ============= 隐藏剧目 · 仅共谋者 + 档案（公开）============= -->
+
+    <!-- ⑧ 诊疗椅上的谎言 · secret (md) -->
+    <a href="#" class="work-card work-card--secret work-card--md" data-type="stage" data-status="wip" data-year="2026">
+      <div class="work-card__bg" style="background-image:url('assets/works/therapy-chair-lies.png'); background-position: center 18%;"></div>
+      <div class="work-card__index">2026</div>
+      <div class="work-card__kicker" data-i18n="works.card.therapy.kicker">Psychological Suspense · 心理悬疑</div>
+      <div class="work-card__tags">
+        <span class="work-card__tag" data-i18n="works.card.therapy.tag1">话剧</span>
+      </div>
+      <h2 class="work-card__title" data-i18n="works.card.therapy.titleHtml" data-i18n-html="true">诊疗椅上的谎言<em>Lies on the Therapy Chair</em></h2>
+      <p class="work-card__subtitle" data-i18n="works.card.therapy.subtitle">——心理悬疑话剧——</p>
+      <p class="work-card__desc" data-i18n="works.card.therapy.desc">心理悬疑话剧：心理医生与病人的越界关系，在诊疗室里撕开信任与欲望的边界。</p>
+      <div class="work-card__meta">
+        <span data-i18n="works.card.therapy.meta1">首演 · 待定</span>
+        <span data-i18n="works.card.therapy.meta2">100 分钟</span>
+        <span data-i18n="works.card.therapy.meta3">剧场黑盒</span>
+      </div>
+      <span class="work-card__cta" data-i18n="works.card.therapy.cta">关注进度</span>
+    </a>
+
+    <!-- ⑨ 更多作品 · md（与诊疗椅同排 6+6） -->
+    <a href="project-archive.html" class="work-card work-card--md" data-type="archive" data-status="archive" data-year="—">
+      <div class="work-card__bg" style="background-image:url('https://raw.githubusercontent.com/ananinalfe-ship-it/surprise-night-web/main/assets/images/gallery/archive/archive-works-cover.png'); background-position: center 35%;"></div>
+      <div class="work-card__index">Archive</div>
+      <div class="work-card__kicker" data-i18n="works.card.archive.kicker">Catalogue · 项目档案</div>
+      <div class="work-card__tags">
+        <span class="work-card__tag" data-i18n="works.card.archive.tag1">项目档案</span>
+        <span class="work-card__tag" data-i18n="works.card.archive.tag2">话剧 · 实验</span>
+      </div>
+      <h2 class="work-card__title" data-i18n="works.card.archive.title">更多作品</h2>
+      <p class="work-card__subtitle" data-i18n="works.card.archive.subtitle">More Works</p>
+      <p class="work-card__desc" data-i18n="works.card.archive.desc">原创话剧、沉浸式演出与实验作品精选，呈现我们的创作轨迹。</p>
+      <div class="work-card__meta">
+        <span data-i18n="works.card.archive.meta1">精选归档</span>
+        <span data-i18n="works.card.archive.meta2">持续更新</span>
+      </div>
+      <span class="work-card__cta" data-i18n="works.card.archive.cta">打开档案</span>
+    </a>
+
+    <div class="works__empty" id="worksEmpty" data-i18n="works.empty" data-i18n-html="true">
+      — 暂无匹配作品 —<br />Try loosening the filters.
+    </div>
+  </div>
+</section>
+
+<!-- ========== Timeline view ========== -->
+<section class="timeline">
+  <div class="timeline__track" id="timelineTrack">
+
+    <div class="timeline__item">
+      <div class="timeline__year">2026<em data-i18n="timeline.year.live">Live</em></div>
+      <div class="timeline__body">
+        <h3 data-i18n="works.card.shanhai.title">山海经 · 巨灵之梦</h3>
+        <p class="sub" data-i18n="works.card.shanhai.subtitle">The Dream of Colossus</p>
+        <p data-i18n="works.card.shanhai.desc">深海巨偶与《山海经》神话的沉浸邂逅。</p>
+      </div>
+      <div class="timeline__meta">
+        <strong data-i18n="timeline.meta.flagship">Flagship</strong><br />
+        <span data-i18n="timeline.meta.shanhai.detail">扬州首演 · 90 分钟</span><br />
+        <span data-i18n="timeline.meta.shanhai.detail2">亲子剧 · 可站可走</span><br />
+        <a href="project-shanhai.html" style="color:var(--accent)" data-i18n="timeline.link.open">进入作品 →</a>
+      </div>
+    </div>
+
+    <div class="timeline__item">
+      <div class="timeline__year">2026<em data-i18n="timeline.year.dev">Dev</em></div>
+      <div class="timeline__body">
+        <h3 data-i18n="works.card.therapy.titleHtml" data-i18n-html="true">诊疗椅上的谎言</h3>
+        <p class="sub">Lies on the Therapy Chair</p>
+        <p data-i18n="works.card.therapy.desc">心理悬疑话剧：心理医生与病人的越界关系，在诊疗室里撕开信任与欲望的边界。</p>
+      </div>
+      <div class="timeline__meta">
+        <strong data-i18n="timeline.meta.workshop">剧目工坊</strong><br />
+        <span data-i18n="timeline.meta.therapy.detail">首演 · 待定</span><br />
+        <span data-i18n="timeline.meta.therapy.detail2">100 分钟 · 剧场黑盒</span>
+      </div>
+    </div>
+
+    <div class="timeline__item">
+      <div class="timeline__year">2025<em data-i18n="timeline.year.dev">Dev</em></div>
+      <div class="timeline__body">
+        <h3 data-i18n="works.card.yaonan.title">妖男夜行录</h3>
+        <p class="sub" data-i18n="works.card.yaonan.subtitle">Night of the Demon</p>
+        <p data-i18n="works.card.yaonan.desc">中式志怪题材的沉浸式演艺项目，探索东方神秘美学。</p>
+      </div>
+      <div class="timeline__meta">
+        <strong data-i18n="timeline.meta.inDev">开发中</strong><br />
+        <span data-i18n="timeline.meta.yaonan.detail">筹备 · 90 分钟</span><br />
+        <span data-i18n="timeline.meta.yaonan.detail2">沉浸式 · 分组行动</span><br />
+        <a href="project-yaonan.html" style="color:var(--accent)" data-i18n="timeline.link.view">查看详情 →</a>
+      </div>
+    </div>
+
+    <div class="timeline__item">
+      <div class="timeline__year">2025<em data-i18n="timeline.year.touring">Touring</em></div>
+      <div class="timeline__body">
+        <h3 data-i18n="works.card.math.title">数学秀</h3>
+        <p class="sub" data-i18n="works.card.math.subtitle">Math Big Bang</p>
+        <p data-i18n="works.card.math.desc">科学与舞台的跨界实验，让公式在灯光下被看见。</p>
+      </div>
+      <div class="timeline__meta">
+        <strong data-i18n="timeline.meta.experiential">体验式演出</strong><br />
+        <span data-i18n="timeline.meta.math.detail">持续在演 · 75 分钟</span><br />
+        <span data-i18n="timeline.meta.math.detail2">固定座位</span><br />
+        <a href="project-math.html" style="color:var(--accent)" data-i18n="timeline.link.view">查看详情 →</a>
+      </div>
+    </div>
+
+    <div class="timeline__item">
+      <div class="timeline__year">2024<em>Live</em></div>
+      <div class="timeline__body">
+        <h3 data-i18n="works.card.nie.title">聂小倩</h3>
+        <p class="sub" data-i18n="works.card.nie.subtitle">Nie Xiaoqian</p>
+        <p data-i18n="works.card.nie.desc">沉浸式湘剧语言下的东方诗意与当代转译。</p>
+      </div>
+      <div class="timeline__meta">
+        <strong data-i18n="timeline.meta.changshaResident">长沙驻演</strong><br />
+        <span data-i18n="timeline.meta.nie.detail">80 分钟 · 沉浸新中式湘剧</span><br />
+        <a href="project-nie.html" style="color:var(--accent)" data-i18n="timeline.link.view">查看详情 →</a>
+      </div>
+    </div>
+
+    <div class="timeline__item">
+      <div class="timeline__year">2024<em>Live</em></div>
+      <div class="timeline__body">
+        <h3 data-i18n="works.card.submarine.title">海底两万里</h3>
+        <p class="sub" data-i18n="works.card.submarine.subtitle">Vingt mille lieues sous les mers</p>
+        <p data-i18n="works.card.submarine.desc">凡尔纳经典科幻改编，沉浸式深海探险体验。</p>
+      </div>
+      <div class="timeline__meta">
+        <strong data-i18n="timeline.meta.classic">经典改编</strong><br />
+        <span data-i18n="timeline.meta.submarine.detail">亲子剧</span><br />
+        <a href="project-submarine.html" style="color:var(--accent)" data-i18n="timeline.link.view">查看详情 →</a>
+      </div>
+    </div>
+
+    <div class="timeline__item">
+      <div class="timeline__year">2023<em data-i18n="timeline.year.touring">Touring</em></div>
+      <div class="timeline__body">
+        <h3 data-i18n="works.card.survivor.title">生存游戏</h3>
+        <p class="sub" data-i18n="works.card.survivor.subtitle">THE SURVIVOR</p>
+        <p data-i18n="works.card.survivor.desc">想尽一切办法活下去——超感体验未来世界，多版本结局由你决定。</p>
+      </div>
+      <div class="timeline__meta">
+        <strong data-i18n="timeline.meta.revival">经典回顾</strong><br />
+        <span data-i18n="timeline.meta.survivor.detail">多版本结局</span><br />
+        <span data-i18n="timeline.meta.survivor.detail2">沉浸式 · 全程参与</span><br />
+        <a href="project-survivor.html" style="color:var(--accent)" data-i18n="timeline.link.view">查看详情 →</a>
+      </div>
+    </div>
+
+    <div class="timeline__item">
+      <div class="timeline__year">2022<em data-i18n="timeline.year.live">Live</em></div>
+      <div class="timeline__body">
+        <h3 data-i18n="works.card.ultimate.title">终极骗局 3.0</h3>
+        <p class="sub" data-i18n="works.card.ultimate.subtitle">Liar Game 3.0</p>
+        <p data-i18n="works.card.ultimate.desc">关于信任与欺骗的沉浸式博弈——你不仅是观众，更是玩家。</p>
+      </div>
+      <div class="timeline__meta">
+        <strong data-i18n="timeline.meta.touring">在巡演</strong><br />
+        <span data-i18n="timeline.meta.ultimate.detail">多城巡演 · 180 分钟</span><br />
+        <span data-i18n="timeline.meta.ultimate.detail2">博弈式 · 全程参与</span><br />
+        <a href="project-ultimate-con.html" style="color:var(--accent)" data-i18n="timeline.link.view">查看详情 →</a>
+      </div>
+    </div>
+
+    <div class="timeline__item">
+      <div class="timeline__year">2021<em data-i18n="timeline.year.archive">Archive</em></div>
+      <div class="timeline__body">
+        <h3 data-i18n="timeline.archive.gutangwan">古塘湾1930</h3>
+      </div>
+      <div class="timeline__meta">
+        <strong data-i18n="timeline.meta.early">早期作品</strong><br />
+        <span data-i18n="timeline.meta.playOriginal">原创话剧</span>
+      </div>
+    </div>
+
+    <div class="timeline__item">
+      <div class="timeline__year">2018<em data-i18n="timeline.year.archive">Archive</em></div>
+      <div class="timeline__body">
+        <h3 data-i18n="timeline.archive.baixiang">白象1938</h3>
+      </div>
+      <div class="timeline__meta">
+        <strong data-i18n="timeline.meta.early">早期作品</strong><br />
+        <span data-i18n="timeline.meta.playOriginal">原创话剧</span>
+      </div>
+    </div>
+
+    <div class="timeline__item">
+      <div class="timeline__year">2017<em data-i18n="timeline.year.archive">Archive</em></div>
+      <div class="timeline__body">
+        <h3 data-i18n="timeline.archive.nieNing">聂小倩与宁采臣</h3>
+      </div>
+      <div class="timeline__meta">
+        <strong data-i18n="timeline.meta.early">早期作品</strong><br />
+        <span data-i18n="timeline.meta.liaozhaiPrototype">聊斋改编 · 原型</span>
+      </div>
+    </div>
+
+    <div class="timeline__item">
+      <div class="timeline__year">2016<em data-i18n="timeline.year.archive">Archive</em></div>
+      <div class="timeline__body">
+        <h3 data-i18n="timeline.archive.justName">只有一个名字</h3>
+      </div>
+      <div class="timeline__meta">
+        <strong data-i18n="timeline.meta.early">早期作品</strong><br />
+        <span data-i18n="timeline.meta.playOriginal">原创话剧</span>
+      </div>
+    </div>
+
+    <div class="timeline__item">
+      <div class="timeline__year">2015<em data-i18n="timeline.year.archive">Archive</em></div>
+      <div class="timeline__body">
+        <h3 data-i18n="timeline.archive.lianmu">连木</h3>
+      </div>
+      <div class="timeline__meta">
+        <strong data-i18n="timeline.meta.early">早期作品</strong><br />
+        <span data-i18n="timeline.meta.playOriginal">原创话剧</span>
+      </div>
+    </div>
+
+    <div class="timeline__item">
+      <div class="timeline__year">2014<em data-i18n="timeline.year.archive">Archive</em></div>
+      <div class="timeline__body">
+        <h3 data-i18n="timeline.archive.title2014">8090 · 禁止拍照</h3>
+      </div>
+      <div class="timeline__meta">
+        <strong data-i18n="timeline.meta.early">早期作品</strong><br />
+        <span data-i18n="timeline.meta.doublePlay">原创话剧双剧目</span>
+      </div>
+    </div>
+
+    <div class="timeline__item">
+      <div class="timeline__year">2012<em data-i18n="timeline.year.genesis">Genesis</em></div>
+      <div class="timeline__body">
+        <h3 data-i18n="timeline.archive.title2012">不完美谋杀 · 7080</h3>
+      </div>
+      <div class="timeline__meta">
+        <strong data-i18n="timeline.meta.founding">创团作品</strong><br />
+        <span data-i18n="timeline.meta.doublePlay">原创话剧双剧目</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ========== Tail ========== -->
+<section class="tail">
+  <div class="tail__eyebrow" data-i18n="works.tail.eyebrow">What\'s Next</div>
+  <h2 class="tail__title" data-i18n="works.tail.title" data-i18n-html="true">下一部<em> · what comes after.</em></h2>
+  <p class="tail__lede" data-i18n="works.tail.lede">我们的剧目工坊常年开放。有合作、投资、IP 或场地资源想聊，欢迎直接联系。</p>
+  <a class="tail__cta" href="index.html#cooperation" data-i18n="works.tail.cta">开启合作</a>
+</section>
+
+<!-- Speaker notes placeholder -->
+<script>
+// ============================================================
+// 身份同步（与首页 + 详情页共用 localStorage.sn-role）
+// ============================================================
+(function syncRole(){
+  let role = 'guest';
+  try { role = localStorage.getItem('sn-role') || 'guest'; } catch(e){}
+  if (!['guest','accomplice'].includes(role)) role = 'guest';
+  document.body.setAttribute('data-role', role);
+  document.addEventListener('DOMContentLoaded', ()=>{
+    const lbl = document.getElementById('roleBadgeLabel');
+    if (lbl) lbl.textContent = role === 'accomplice' ? 'Accomplice · 共谋者' : 'Audience · 观众';
+  });
+  // 监听其他 tab 的身份切换
+  window.addEventListener('storage', (e)=>{
+    if (e.key === 'sn-role'){
+      const newRole = e.newValue || 'guest';
+      document.body.setAttribute('data-role', newRole);
+      const lbl = document.getElementById('roleBadgeLabel');
+      if (lbl) lbl.textContent = newRole === 'accomplice' ? 'Accomplice · 共谋者' : 'Audience · 观众';
+      flashRole();
+      updateCounts();
+    }
+  });
+})();
+
+function flashRole(){
+  const f = document.getElementById('roleFlash');
+  if (!f) return;
+  f.classList.add('is-on');
+  setTimeout(()=>f.classList.remove('is-on'), 650);
+}
+
+// ============================================================
+// Curtain intro
+// ============================================================
+(function curtain(){
+  const key = 'sn-works-intro-shown';
+  const seen = sessionStorage.getItem(key);
+  const c = document.getElementById('curtain');
+  if (seen){
+    c.classList.add('is-gone');
+    return;
+  }
+  setTimeout(()=>{
+    c.classList.add('is-gone');
+    sessionStorage.setItem(key, '1');
+  }, 1800);
+})();
+
+// ============================================================
+// Nav scroll state（与首页一致）
+// ============================================================
+(function navScroll(){
+  const nav = document.getElementById('nav');
+  if (!nav) return;
+  const onScroll = () => nav.classList.toggle('is-scrolled', window.scrollY > 40);
+  onScroll();
+  window.addEventListener('scroll', onScroll, { passive: true });
+})();
+
+// ============================================================
+// Cursor glow
+// ============================================================
+(function cursorGlow(){
+  const g = document.getElementById('cursorGlow');
+  document.addEventListener('mousemove', (e)=>{
+    document.body.classList.add('cursor-active');
+    g.style.left = e.clientX + 'px';
+    g.style.top = e.clientY + 'px';
+  });
+  document.addEventListener('mouseleave', ()=>{
+    document.body.classList.remove('cursor-active');
+  });
+})();
+
+// ============================================================
+// Filters & view toggle
+// ============================================================
+const FILTERS = { type: 'all', status: 'all' };
+
+function applyFilters(){
+  const cards = document.querySelectorAll('.work-card');
+  let shown = 0;
+  cards.forEach(card => {
+    const type = (card.dataset.type || '').split(' ').filter(Boolean);
+    const status = (card.dataset.status || '').split(' ').filter(Boolean);
+    const typeMatch = FILTERS.type === 'all' || type.includes(FILTERS.type);
+    const statusMatch = FILTERS.status === 'all' || status.includes(FILTERS.status);
+    // hide secret cards for guests
+    const isSecret = card.classList.contains('work-card--secret');
+    const isAccomplice = document.body.getAttribute('data-role') === 'accomplice';
+    const visible = typeMatch && statusMatch && (!isSecret || isAccomplice);
+    card.classList.toggle('is-hidden', !visible);
+    if (visible) shown++;
+  });
+  document.getElementById('resultCount').textContent = shown;
+  document.getElementById('worksEmpty').classList.toggle('is-shown', shown === 0);
+}
+
+function updateCounts(){
+  const isAccomplice = document.body.getAttribute('data-role') === 'accomplice';
+  const all = document.querySelectorAll('.work-card');
+  const visible = [...all].filter(c => !c.classList.contains('work-card--secret') || isAccomplice);
+  const counts = { all: visible.length, immersive: 0, stage: 0, ip: 0 };
+  visible.forEach(c => {
+    const types = (c.dataset.type || '').split(' ');
+    types.forEach(t => { if (counts[t] !== undefined) counts[t]++; });
+  });
+  Object.entries(counts).forEach(([k, v]) => {
+    document.querySelectorAll(`[data-count="${k}"]`).forEach(el => el.textContent = `(${v})`);
+  });
+  applyFilters();
+}
+
+document.querySelectorAll('.filter-chip').forEach(chip => {
+  chip.addEventListener('click', ()=>{
+    const group = chip.dataset.filter;
+    const value = chip.dataset.value;
+    FILTERS[group] = value;
+    document.body.setAttribute('data-filter-' + group, value);
+    document.querySelectorAll(`[data-filter="${group}"]`).forEach(c => c.classList.toggle('is-active', c === chip));
+    applyFilters();
+  });
+});
+
+document.querySelectorAll('.view-btn').forEach(btn => {
+  btn.addEventListener('click', ()=>{
+    document.querySelectorAll('.view-btn').forEach(b => b.classList.toggle('is-active', b === btn));
+    document.body.setAttribute('data-view', btn.dataset.view);
+  });
+});
+
+// 初始化计数
+updateCounts();
+</script>
+
+<script>
+/* 汉堡菜单（移动端） */
+(function hamburger(){
+  const navEl = document.getElementById('nav') || document.querySelector('.nav');
+  const burger = document.getElementById('navBurger');
+  if (!burger || !navEl) return;
+  const body = document.body;
+  const closeNav = () => {
+    navEl.classList.remove('nav--open');
+    burger.setAttribute('aria-expanded', 'false');
+    body.style.overflow = '';
+  };
+  burger.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const open = navEl.classList.toggle('nav--open');
+    burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    body.style.overflow = open ? 'hidden' : '';
+  });
+  navEl.querySelectorAll('.nav__link').forEach(a => a.addEventListener('click', closeNav));
+  document.addEventListener('click', (e) => {
+    if (navEl.classList.contains('nav--open') && !navEl.contains(e.target)) closeNav();
+  });
+})();
+</script>
+
+</body>
 </html>

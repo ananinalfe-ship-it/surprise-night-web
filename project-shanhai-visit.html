@@ -1,120 +1,187 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>演出与观演 — 山海经·巨灵之梦</title>
-    <meta name="description" content="演出时长、场地、受众与观演提示。" />
-    <link rel="stylesheet" href="css/styles.css" />
-  </head>
-  <body data-i18n-page="project-shanhai-visit">
-    <header class="site-header">
-      <div class="inner">
-        <a href="index.html" class="logo" style="display: flex; align-items: center; gap: 12px; font-size: 1.1rem;"> <img src="assets/images/logo.png" alt="" style="width: 32px; height: 32px; object-fit: contain;"> <span>惊喜之夜 <span style="opacity: 0.7; font-size: 0.75rem; font-weight: 400; margin-left: 4px;">/ Surprise Night</span></span> </a>
-        <button type="button" class="nav-toggle" data-i18n="nav.menu" aria-expanded="false" aria-controls="primary-nav">菜单</button>
-        <nav>
-          <ul id="primary-nav" class="nav-links">
-            <li><a href="works.html" data-i18n="nav.works">作品</a></li>
-            <li><a href="collaborate.html" data-i18n="nav.collaborate">合作</a></li>
-            <li class="nav-item nav-item--has-sub">
-            <a href="about.html" data-i18n="nav.about">关于</a>
-            <ul class="nav-sub" role="list">
-              <li><a href="collaborators.html" data-i18n="nav.collaborators">合作艺术家</a></li>
-            </ul>
-          </li>
-            <li><a href="contact.html" data-i18n="nav.contact">联系</a></li>
-            <li class="nav-lang" aria-label="Language">
-              <button type="button" class="lang-btn" data-set-lang="zh" aria-pressed="true">中</button>
-              <button type="button" class="lang-btn" data-set-lang="en" aria-pressed="false">EN</button>
-            </li>
-          </ul>
-        </nav>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title data-i18n="page.title.shanhai.visit">演出与观演 — 山海经 · 巨灵之梦</title>
+<meta name="description" content="演出时长、场地、适龄与观演提示。" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Noto+Sans+SC:wght@300;400;500;600;700&family=Noto+Serif+SC:wght@400;500;600;700&family=Syne:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="project-shanhai-sub.css" />
+<script src="i18n.js"></script>
+</head>
+<body>
+<div class="grain"></div>
+
+<nav class="nav">
+  <a href="index.html" class="nav__brand">
+    <span class="nav__mark">SN</span>
+    <span class="nav__brand-cn">惊喜之夜</span>
+    <span class="nav__brand-en">Surprise Night</span>
+  </a>
+  <div class="nav__links">
+    <a href="works.html" class="nav__link" data-i18n="nav.works">作品</a>
+    <a href="collaborate.html" class="nav__link" data-i18n="nav.collaborate">合作</a>
+    <a href="about.html" class="nav__link" data-i18n="nav.about">关于</a>
+    <a href="collaborators.html" class="nav__link" data-i18n="nav.artists">艺术家</a>
+    <a href="contact.html" class="nav__link" data-i18n="nav.contact">联系</a>
+    <div class="nav__lang">
+      <button data-set-lang="zh">中</button>
+      <button data-set-lang="en">EN</button>
+    </div>
+  </div>
+  <button class="nav__burger" id="navBurger" aria-label="菜单" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<main>
+  <nav class="subnav" aria-label="章节">
+    <div class="subnav__inner">
+      <a href="project-shanhai.html" data-i18n="shanhai.subnav.overview">概览 · Overview</a>
+      <a href="project-shanhai-story.html" data-i18n="shanhai.subnav.story">故事 · Story</a>
+      <a href="project-shanhai-stagecraft.html" data-i18n="shanhai.subnav.stage">舞台 · Stage</a>
+      <a href="project-shanhai-gallery.html" data-i18n="shanhai.subnav.gallery">图集 · Gallery</a>
+      <a href="project-shanhai-visit.html" class="is-active" data-i18n="shanhai.subnav.visit">观演 · Visit</a>
+    </div>
+  </nav>
+
+  <section class="sub-hero">
+    <div class="sub-hero__bg"></div>
+    <div class="sub-hero__inner">
+      <a class="back-link" href="project-shanhai.html" data-i18n="shanhai.backLink">← 返回《山海经 · 巨灵之梦》概览</a>
+      <p class="sub-hero__eyebrow" data-i18n="shanhai.visit.eyebrow">Chapter 04 · Visit Info</p>
+      <h1 data-i18n="shanhai.visit.h" data-i18n-html="true">演出与<em>观演</em></h1>
+      <p class="sub-hero__dek" data-i18n="shanhai.visit.dek">行前必读：容量、适龄与现场效果说明。</p>
+    </div>
+  </section>
+
+  <figure class="cinematic">
+    <img src="https://raw.githubusercontent.com/ananinalfe-ship-it/surprise-night-web/main/assets/images/gallery/shanhai/ZDC_6457-6d2c03de-c16a-4f3f-be8c-613ff634b51a.png" alt="山海经 · 巨灵之梦 现场" loading="lazy" />
+  </figure>
+
+  <article class="content">
+    <h2><span class="label" data-i18n="shanhai.visit.file.label">◉ Show File · 演出信息</span><span data-i18n="shanhai.visit.file.h" data-i18n-html="true">档案<em>Show File</em></span></h2>
+    <div class="info-grid">
+      <div class="info-cell">
+        <div class="label" data-i18n="shanhai.visit.duration.k">演出时长</div>
+        <div class="value" data-i18n="shanhai.visit.duration.v">90 分钟</div>
       </div>
-    </header>
-
-    <main class="project-shanhai-page">
-      <nav class="shanhai-subnav" aria-label="Section">
-        <div class="shanhai-subnav__inner">
-          <a href="project-shanhai.html" data-i18n="projectShanhai.subNavOverview">概览</a>
-          <a href="project-shanhai-story.html" data-i18n="projectShanhai.subNavStory">故事</a>
-          <a href="project-shanhai-stagecraft.html" data-i18n="projectShanhai.subNavStage">舞台</a>
-          <a href="project-shanhai-gallery.html" data-i18n="projectShanhai.subNavGallery">图集</a>
-          <a href="project-shanhai-visit.html" class="is-active" data-i18n="projectShanhai.subNavVisit">观演</a>
-        </div>
-      </nav>
-
-      <section class="project-sub-hero">
-        <div class="inner">
-          <a class="back-link" href="project-shanhai.html" data-i18n="projectShanhai.backToShanhaiHub">← 返回《山海经·巨灵之梦》概览</a>
-          <h1 data-i18n="projectShanhai.visitPageH1">演出与观演</h1>
-          <p class="sub-hero-dek" data-i18n="projectShanhai.visitPageDek">行前必读：容量、适龄与现场效果说明。</p>
-        </div>
-      </section>
-
-      <figure class="shanhai-cinematic-strip">
-        <img src="assets/images/gallery/shanhai/ZDC_6457-6d2c03de-c16a-4f3f-be8c-613ff634b51a.png" alt="" loading="lazy" />
-      </figure>
-
-      <article class="shanhai-sub-content">
-        <h2 data-i18n="projectShanhai.infoH">演出信息</h2>
-        <div class="info-grid">
-          <div class="info-cell">
-            <div class="label" data-i18n="projectShanhai.infDur">演出时长</div>
-            <div class="value" data-i18n="projectShanhai.infDurV">90 分钟</div>
-          </div>
-          <div class="info-cell">
-            <div class="label" data-i18n="projectShanhai.infCap">单场容量</div>
-            <div class="value" data-i18n="projectShanhai.infCapV">150 人</div>
-          </div>
-          <div class="info-cell">
-            <div class="label" data-i18n="projectShanhai.infYear">首演年份</div>
-            <div class="value" data-i18n="projectShanhai.infYearV">2026</div>
-          </div>
-          <div class="info-cell">
-            <div class="label" data-i18n="projectShanhai.infVenue">首演场地</div>
-            <div class="value" data-i18n="projectShanhai.infVenueV">扬州运河大剧院</div>
-          </div>
-          <div class="info-cell">
-            <div class="label" data-i18n="projectShanhai.infPartner">演出单位</div>
-            <div class="value" data-i18n="projectShanhai.infPartnerV">江苏省木偶剧团、扬州市木偶研究所</div>
-          </div>
-          <div class="info-cell">
-            <div class="label" data-i18n="projectShanhai.infAge">建议年龄</div>
-            <div class="value" data-i18n="projectShanhai.infAgeV">4岁以上</div>
-          </div>
-        </div>
-
-        <h2 data-i18n="projectShanhai.audienceH">适合观众</h2>
-        <ul class="highlight-list">
-          <li data-i18n="projectShanhai.audience1">亲子家庭与合家欢观众</li>
-          <li data-i18n="projectShanhai.audience2">喜欢中国神话与山海经题材的观众</li>
-          <li data-i18n="projectShanhai.audience3">对巨偶、神兽、冒险、奇幻舞台感兴趣的青少年观众</li>
-          <li data-i18n="projectShanhai.audience4">对木偶艺术、多媒体舞台与非遗融合感兴趣的艺术观众</li>
-        </ul>
-
-        <h2 data-i18n="projectShanhai.tipsH">观演提示</h2>
-        <ul class="highlight-list">
-          <li data-i18n="projectShanhai.tips1">演出全程约 90 分钟，请合理安排时间</li>
-          <li data-i18n="projectShanhai.tips2">本剧为镜框式剧场演出，请按剧场指引有序入场与就座</li>
-          <li data-i18n="projectShanhai.tips3">演出中包含强光、烟雾及多媒体舞台效果，请提前知悉</li>
-          <li data-i18n="projectShanhai.tips4">请保持手机静音，不要使用闪光灯拍照</li>
-          <li data-i18n="projectShanhai.tips5">建议提前到场，以便顺利完成检票与入场</li>
-        </ul>
-
-        <p style="margin-top: 32px">
-          <a class="btn btn-primary" href="collaborate.html#p1" data-i18n="projectShanhai.ctaBarBtn">联系巡演驻场</a>
-        </p>
-      </article>
-    </main>
-
-    <footer class="site-footer">
-      <div class="inner">
-        <span data-i18n="projectShanhai.footCopy">© 2026 惊喜之夜</span>
-        <a href="works.html" data-i18n="projectShanhai.footBack">返回作品列表</a>
+      <div class="info-cell">
+        <div class="label" data-i18n="shanhai.visit.capacity.k">单场容量</div>
+        <div class="value" data-i18n="shanhai.visit.capacity.v">150 人</div>
       </div>
-    </footer>
+      <div class="info-cell">
+        <div class="label" data-i18n="shanhai.visit.year.k">首演年份</div>
+        <div class="value" data-i18n="shanhai.visit.year.v">2026</div>
+      </div>
+      <div class="info-cell">
+        <div class="label" data-i18n="shanhai.visit.venue.k">首演场地</div>
+        <div class="value" data-i18n="shanhai.visit.venue.v">扬州运河大剧院</div>
+      </div>
+      <div class="info-cell">
+        <div class="label" data-i18n="shanhai.visit.producer.k">演出单位</div>
+        <div class="value" data-i18n="shanhai.visit.producer.v">江苏省木偶剧团 · 扬州市木偶研究所</div>
+      </div>
+      <div class="info-cell">
+        <div class="label" data-i18n="shanhai.visit.age.k">建议年龄</div>
+        <div class="value" data-i18n="shanhai.visit.age.v">4 岁以上</div>
+      </div>
+    </div>
 
-    <script src="js/i18n.js" defer></script>
-    <script src="js/main.js" defer></script>
-  </body>
+    <h2><span class="label" data-i18n="shanhai.visit.audience.label">◉ Audience · 适合观众</span><span data-i18n="shanhai.visit.audience.h" data-i18n-html="true">谁会<em>爱上它</em></span></h2>
+    <ul class="highlight-list">
+      <li data-i18n="shanhai.visit.aud1">亲子家庭与合家欢观众——孩子看冒险，父母看成长。</li>
+      <li data-i18n="shanhai.visit.aud2">喜欢中国神话与《山海经》题材的观众。</li>
+      <li data-i18n="shanhai.visit.aud3">对巨偶、神兽、冒险、奇幻舞台感兴趣的青少年观众。</li>
+      <li data-i18n="shanhai.visit.aud4">对木偶艺术、多媒体舞台与非遗融合感兴趣的艺术观众。</li>
+    </ul>
+
+    <h2><span class="label" data-i18n="shanhai.visit.tips.label">◉ Tips · 观演提示</span><span data-i18n="shanhai.visit.tips.h" data-i18n-html="true">入场前，<em>请先看看</em></span></h2>
+    <ul class="highlight-list">
+      <li data-i18n="shanhai.visit.tip1">演出全程约 90 分钟，请合理安排时间。</li>
+      <li data-i18n="shanhai.visit.tip2">本剧为镜框式剧场演出，请按剧场指引有序入场与就座。</li>
+      <li data-i18n="shanhai.visit.tip3">演出中包含强光、烟雾及多媒体舞台效果，敏感人群请提前知悉。</li>
+      <li data-i18n="shanhai.visit.tip4">请保持手机静音，不要使用闪光灯拍照。</li>
+      <li data-i18n="shanhai.visit.tip5">建议提前 20 分钟到场，以便顺利完成检票与入场。</li>
+    </ul>
+
+    <blockquote data-i18n="shanhai.visit.quote">"我们希望你带着期待走进剧场——也希望你带着一个新的山海，走出剧场。"</blockquote>
+
+    <p style="margin-top: 44px; display: flex; gap: 16px; flex-wrap: wrap;">
+      <a class="btn btn--primary" href="collaborate.html#p1" data-i18n="shanhai.visit.cta.tour">联系巡演驻场 →</a>
+      <a class="btn" href="contact.html" data-i18n="shanhai.visit.cta.tickets">购票与咨询</a>
+    </p>
+  </article>
+</main>
+
+<footer class="site-footer">
+  <div class="site-footer__inner">
+    <div class="site-footer__brand" data-i18n="shanhai.footer.brand" data-i18n-html="true">© 2026 惊喜之夜 · <em>Surprise Night</em></div>
+    <div class="site-footer__links">
+      <a href="index.html" data-i18n="shanhai.footer.home">首页</a>
+      <a href="works.html" data-i18n="shanhai.footer.works">作品</a>
+      <a href="contact.html" data-i18n="shanhai.footer.contact">联系</a>
+    </div>
+  </div>
+</footer>
+
+<div class="photo-lb" id="photoLb" aria-hidden="true">
+  <div class="photo-lb__stage">
+    <img class="photo-lb__img" id="photoLbImg" alt="" />
+  </div>
+  <button class="photo-lb__close" id="photoLbClose" aria-label="关闭">×</button>
+  <div class="photo-lb__cap" id="photoLbCap"></div>
+</div>
+
+<script>
+  (function(){
+    const lb = document.getElementById('photoLb');
+    const lbImg = document.getElementById('photoLbImg');
+    const lbCap = document.getElementById('photoLbCap');
+    const imgs = Array.from(document.querySelectorAll('.cinematic img'));
+    function open(src, cap){
+      lbImg.src = src;
+      lbCap.textContent = cap || '';
+      lb.classList.add('is-open');
+      document.body.style.overflow = 'hidden';
+    }
+    function close(){
+      lb.classList.remove('is-open');
+      document.body.style.overflow = '';
+    }
+    imgs.forEach(img => img.addEventListener('click', ()=> open(img.src, img.alt)));
+    document.getElementById('photoLbClose').addEventListener('click', close);
+    lb.addEventListener('click', (e)=>{ if (e.target === lb) close(); });
+    document.addEventListener('keydown', (e)=>{ if (e.key === 'Escape') close(); });
+  })();
+</script>
+
+<script>
+/* 汉堡菜单（移动端） */
+(function hamburger(){
+  const navEl = document.getElementById('nav') || document.querySelector('.nav');
+  const burger = document.getElementById('navBurger');
+  if (!burger || !navEl) return;
+  const body = document.body;
+  const closeNav = () => {
+    navEl.classList.remove('nav--open');
+    burger.setAttribute('aria-expanded', 'false');
+    body.style.overflow = '';
+  };
+  burger.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const open = navEl.classList.toggle('nav--open');
+    burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    body.style.overflow = open ? 'hidden' : '';
+  });
+  navEl.querySelectorAll('.nav__link').forEach(a => a.addEventListener('click', closeNav));
+  document.addEventListener('click', (e) => {
+    if (navEl.classList.contains('nav--open') && !navEl.contains(e.target)) closeNav();
+  });
+})();
+</script>
+
+</body>
 </html>

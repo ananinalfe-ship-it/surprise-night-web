@@ -1,290 +1,1780 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>山海经·巨灵之梦 — 惊喜之夜</title>
-    <meta
-      name="description"
-      content="惊喜之夜年度主推：巨型木偶、机械装置与《山海经》神话奇观，千座剧场级木偶奇幻秀。扬州运河大剧院首演。"
-    />
-    <link rel="stylesheet" href="css/styles.css" />
-  </head>
-  <body data-i18n-page="project-shanhai">
-    <header class="site-header">
-      <div class="inner">
-        <a href="index.html" class="logo" style="display: flex; align-items: center; gap: 12px; font-size: 1.1rem;"> <img src="assets/images/logo.png" alt="" style="width: 32px; height: 32px; object-fit: contain;"> <span>惊喜之夜 <span style="opacity: 0.7; font-size: 0.75rem; font-weight: 400; margin-left: 4px;">/ Surprise Night</span></span> </a>
-        <button type="button" class="nav-toggle" data-i18n="nav.menu" aria-expanded="false" aria-controls="primary-nav">
-          菜单
-        </button>
-        <nav>
-          <ul id="primary-nav" class="nav-links">
-            <li><a href="works.html" data-i18n="nav.works">作品</a></li>
-            <li><a href="collaborate.html" data-i18n="nav.collaborate">合作</a></li>
-            <li class="nav-item nav-item--has-sub">
-            <a href="about.html" data-i18n="nav.about">关于</a>
-            <ul class="nav-sub" role="list">
-              <li><a href="collaborators.html" data-i18n="nav.collaborators">合作艺术家</a></li>
-            </ul>
-          </li>
-            <li><a href="contact.html" data-i18n="nav.contact">联系</a></li>
-            <li class="nav-lang" aria-label="Language">
-              <button type="button" class="lang-btn" data-set-lang="zh" aria-pressed="true">中</button>
-              <button type="button" class="lang-btn" data-set-lang="en" aria-pressed="false">EN</button>
-            </li>
-          </ul>
-        </nav>
+<html lang="zh-CN" data-lang="zh">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title data-i18n="page.title.shanhai">山海经 · 巨灵之梦 — 惊喜之夜</title>
+<meta name="description" content="惊喜之夜年度主推：巨型木偶、机械装置与《山海经》神话奇观，千座剧场级木偶奇幻秀。扬州运河大剧院 2026 首演。" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Noto+Sans+SC:wght@300;400;500;600;700&family=Noto+Serif+SC:wght@400;500;600;700&family=Syne:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+<style>
+/* ============================================================
+   设计令牌 · 与 Surprise Night v3 首页完全对齐
+   ============================================================ */
+:root {
+  --bg-0: #05060a;
+  --bg-1: #0b0c12;
+  --bg-2: #12131c;
+  --bg-3: #1a1c28;
+  --line: rgba(255,255,255,0.08);
+  --line-strong: rgba(255,255,255,0.16);
+  --text: rgba(255,255,255,0.92);
+  --text-2: rgba(255,255,255,0.62);
+  --text-3: rgba(255,255,255,0.38);
+  --text-4: rgba(255,255,255,0.20);
+  --accent: #C4354A;
+  --accent-glow: rgba(196,53,74,0.5);
+  --ink: #f7f3ea;
+  --sans: "Noto Sans SC", -apple-system, BlinkMacSystemFont, sans-serif;
+  --serif-cn: "Noto Serif SC", "Songti SC", serif;
+  --serif-en: "Cormorant Garamond", serif;
+  --display: "Syne", "Noto Serif SC", serif;
+  --mono: "JetBrains Mono", ui-monospace, monospace;
+  --pad: clamp(20px, 4vw, 64px);
+  --dur: .7s;
+  --ease: cubic-bezier(.2,.7,.2,1);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body {
+  background: var(--bg-0);
+  color: var(--text);
+  font-family: var(--sans);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+body { min-height: 100vh; position: relative; }
+a { color: inherit; text-decoration: none; }
+button { font: inherit; color: inherit; background: none; border: none; cursor: pointer; }
+img { max-width: 100%; display: block; }
+::selection { background: var(--accent); color: white; }
+
+/* 身份差异化 · 与首页 v3 一致（仅两种身份：观众 / 共谋者） */
+body[data-role="accomplice"] { --accent: #8a3fd8; --accent-glow: rgba(138,63,216,0.5); }
+body[data-role="guest"]      { --accent: #C4354A; --accent-glow: rgba(196,53,74,0.5); }
+
+/* 噪点 + 光晕（与首页一致） */
+.grain {
+  position: fixed; inset: 0; pointer-events: none; z-index: 200;
+  opacity: .08; mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .6 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+}
+.cursor-glow {
+  position: fixed; pointer-events: none; z-index: 100;
+  width: 520px; height: 520px; border-radius: 50%;
+  background: radial-gradient(circle, var(--accent-glow), transparent 60%);
+  mix-blend-mode: screen;
+  transform: translate(-50%, -50%);
+  opacity: 0; transition: opacity .6s ease;
+  filter: blur(20px);
+}
+body.has-cursor .cursor-glow { opacity: .35; }
+@media (hover: none) { .cursor-glow { display: none; } }
+
+/* 开场幕布 · 和首页同款，但只在首次进入时播放 */
+.curtain {
+  position: fixed; inset: 0; z-index: 500;
+  pointer-events: none;
+  display: grid; grid-template-columns: 1fr 1fr;
+}
+.curtain__panel {
+  background: linear-gradient(180deg, #0a0a10 0%, #1a0a10 100%);
+  transition: transform 1.2s cubic-bezier(.76,0,.24,1);
+}
+.curtain__logo {
+  position: fixed; left: 50%; top: 50%;
+  transform: translate(-50%,-50%);
+  z-index: 501;
+  font-family: var(--display);
+  font-weight: 700; font-size: clamp(22px, 3.6vw, 38px);
+  letter-spacing: .16em;
+  color: var(--text);
+  transition: opacity .5s ease, letter-spacing 1s ease;
+  pointer-events: none;
+  text-align: center;
+}
+.curtain__logo small {
+  display: block;
+  font-family: var(--serif-en); font-style: italic;
+  font-size: 0.5em; font-weight: 400;
+  letter-spacing: .08em; opacity: 0.55;
+  margin-top: 10px;
+}
+.curtain__logo::after {
+  content: ""; display: block;
+  margin: 18px auto 0; width: 0; height: 1px;
+  background: var(--accent);
+  transition: width .9s .3s ease;
+}
+body.intro-ready .curtain__logo::after { width: 120px; }
+body.intro-done .curtain__logo { opacity: 0; letter-spacing: .32em; }
+body.intro-done .curtain__panel--l { transform: translateX(-100%); }
+body.intro-done .curtain__panel--r { transform: translateX(100%); }
+body.no-intro .curtain, body.no-intro .curtain__logo { display: none; }
+
+/* ============================================================
+   导航 · 完全复刻首页
+   ============================================================ */
+.nav {
+  position: fixed; top: 0; left: 0; right: 0;
+  z-index: 50;
+  padding: 12px var(--pad);
+  display: flex; justify-content: space-between; align-items: center;
+  transition: background .5s ease, padding .4s ease, border-color .4s ease;
+  border-bottom: 1px solid transparent;
+}
+.nav.is-scrolled {
+  background: rgba(5,6,10,0.72);
+  backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
+  padding: 14px var(--pad);
+  border-bottom-color: var(--line);
+}
+.nav__brand {
+  display: flex; align-items: center; gap: 12px;
+  font-family: var(--display); font-weight: 700;
+  letter-spacing: .05em; font-size: 15px;
+}
+.nav__brand { position: relative; width: 400px; height: 44px; }
+.nav__mark {
+  position: absolute;
+  top: calc(50% + 2px); left: 0;
+  transform: translateY(-50%);
+  width: 252px; height: 63px;
+  background-image: url('assets/logo.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: left center;
+  flex-shrink: 0;
+  font-size: 0;
+  color: transparent;
+  pointer-events: none;
+}
+.nav__brand-cn, .nav__brand-en { display: none; }
+
+.nav__links { display: flex; align-items: center; gap: 38px; }
+.nav__link {
+  font-size: 13px; letter-spacing: .18em; text-transform: uppercase;
+  font-family: var(--display); font-weight: 500;
+  position: relative; padding: 8px 0;
+  color: var(--text-2);
+  transition: color .3s ease;
+}
+.nav__link::after {
+  content: ""; position: absolute; bottom: 2px; left: 0;
+  width: 0; height: 1px; background: var(--accent);
+  transition: width .4s var(--ease);
+}
+.nav__link:hover { color: var(--text); }
+.nav__link:hover::after { width: 100%; }
+.nav__link.is-active { color: var(--text); }
+.nav__link.is-active::after { width: 100%; }
+
+.nav__lang {
+  display: flex; align-items: center; gap: 4px;
+  border: 1px solid var(--line); border-radius: 999px;
+  padding: 4px;
+}
+.nav__lang button {
+  width: 28px; height: 24px; border-radius: 999px;
+  font-size: 11px; font-family: var(--display); font-weight: 600;
+  color: var(--text-3); letter-spacing: .1em;
+  transition: all .3s ease;
+}
+.nav__lang button.is-active { background: var(--text); color: #000; }
+
+/* ============================================================
+   顶部"下一场"倒计时条（新增模块，风格对齐首页）
+   ============================================================ */
+.marquee-bar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 49;
+  padding: 10px var(--pad);
+  background: linear-gradient(90deg, color-mix(in srgb, var(--accent) 16%, transparent) 0%, color-mix(in srgb, var(--accent) 4%, transparent) 50%, color-mix(in srgb, var(--accent) 16%, transparent) 100%);
+  border-bottom: 1px solid color-mix(in srgb, var(--accent) 30%, transparent);
+  backdrop-filter: blur(10px);
+  transform: translateY(-100%);
+  transition: transform .6s var(--ease);
+}
+.nav.is-scrolled ~ .marquee-bar { transform: translateY(-100%); }
+body.marquee-visible .marquee-bar { transform: translateY(0); }
+body.marquee-visible .nav { top: 38px; }
+.marquee-bar__inner {
+  display: flex; align-items: center; gap: clamp(12px,2vw,28px);
+  font-family: var(--mono);
+  font-size: 11px; letter-spacing: .08em;
+  color: rgba(255,230,232,0.92);
+  flex-wrap: wrap;
+}
+.marquee-bar__dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 12px var(--accent-glow);
+  animation: pulse 2s ease-in-out infinite;
+}
+@keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: .4; } }
+.marquee-bar__label {
+  display: flex; align-items: center; gap: 10px;
+  font-weight: 600; text-transform: uppercase;
+  color: var(--text);
+}
+.marquee-bar__show em {
+  font-style: normal;
+  color: var(--accent); font-weight: 600;
+}
+.marquee-bar__count { margin-left: auto; display: flex; align-items: center; gap: 8px; }
+.marquee-bar__count .u { color: var(--text-3); }
+.marquee-bar__count .n {
+  display: inline-block; min-width: 1.6em; text-align: center;
+  color: var(--ink); font-weight: 700;
+  font-family: var(--display); font-size: 13px;
+}
+.marquee-bar__close {
+  opacity: 0.5; padding: 0 6px;
+  font-size: 16px;
+  transition: opacity .2s;
+}
+.marquee-bar__close:hover { opacity: 1; }
+
+/* ============================================================
+   HERO · 与首页同款（单张居中视觉 + 标题 + lead + tagline + 滚动提示）
+   ============================================================ */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex; align-items: center; justify-content: center;
+  padding: 140px var(--pad) 100px;
+  overflow: hidden;
+  isolation: isolate;
+}
+.hero__bg {
+  position: absolute; inset: 0; z-index: -2;
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 20%, color-mix(in srgb, var(--accent) 18%, transparent), transparent 60%),
+    radial-gradient(ellipse 60% 40% at 20% 80%, rgba(100,40,200,0.08), transparent 70%),
+    var(--bg-0);
+}
+/* Hero 幻灯片（保留原版 5 张） */
+.hero__slides {
+  position: absolute; inset: 0; z-index: -1;
+}
+.hero__slide {
+  position: absolute; inset: 0;
+  background-size: cover; background-position: center;
+  opacity: 0;
+  transition: opacity 2.2s ease-in-out;
+  transform: scale(1.06);
+  animation: kenburns 16s ease-out infinite alternate;
+  filter: saturate(1.1) contrast(1.05);
+}
+.hero__slide.is-active { opacity: 0.42; }
+@keyframes kenburns {
+  from { transform: scale(1.04) translate(0,0); }
+  to   { transform: scale(1.16) translate(-1.2%, -0.8%); }
+}
+.hero__stars {
+  position: absolute; inset: 0; z-index: -1; pointer-events: none;
+}
+.hero__stars span {
+  position: absolute;
+  width: 2px; height: 2px; border-radius: 50%;
+  background: rgba(255,255,255,0.6);
+  box-shadow: 0 0 6px rgba(255,255,255,0.4);
+  animation: twinkle 3s ease-in-out infinite;
+}
+@keyframes twinkle { 0%,100% { opacity: .2; } 50% { opacity: .9; } }
+
+.hero__inner {
+  position: relative; z-index: 2;
+  max-width: 1200px; width: 100%; margin: 0 auto;
+}
+
+.hero__back {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: var(--display);
+  font-size: 11px; letter-spacing: .32em;
+  text-transform: uppercase;
+  color: var(--text-3);
+  margin-bottom: 32px;
+  transition: color .3s, gap .3s;
+}
+.hero__back:hover { color: var(--accent); gap: 12px; }
+
+.hero__eyebrow {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-family: var(--display); font-size: 11px; font-weight: 500;
+  letter-spacing: .32em; text-transform: uppercase;
+  color: var(--text-3);
+  padding: 8px 16px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: rgba(255,255,255,0.02);
+  margin-bottom: 32px;
+}
+.hero__eyebrow-dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 12px var(--accent);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.hero__title {
+  font-family: var(--serif-cn); font-weight: 500;
+  font-size: clamp(52px, 8.5vw, 128px);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  margin-bottom: 28px;
+  color: var(--text);
+  text-wrap: balance;
+}
+.hero__title em {
+  font-style: italic; font-family: var(--serif-en);
+  color: var(--accent);
+  font-weight: 500;
+}
+.hero__subtitle {
+  font-family: var(--serif-en);
+  font-style: italic; font-weight: 400;
+  font-size: clamp(16px, 1.6vw, 22px);
+  letter-spacing: 0.02em;
+  color: var(--text-3);
+  margin-bottom: 28px;
+}
+
+.hero__lead {
+  font-family: var(--serif-cn);
+  font-size: clamp(16px, 1.5vw, 20px);
+  color: var(--text-2);
+  max-width: 640px;
+  line-height: 1.7;
+  margin-bottom: 18px;
+}
+.hero__tagline {
+  font-family: var(--serif-en); font-style: italic;
+  font-size: clamp(14px, 1.3vw, 17px);
+  color: var(--text-3);
+  letter-spacing: .02em;
+  margin-bottom: 56px;
+}
+.hero__tagline em { color: var(--accent); font-style: normal; font-family: var(--serif-cn); }
+
+/* 3 个标签 pill */
+.hero__tags {
+  display: flex; gap: 10px; flex-wrap: wrap;
+  margin-bottom: 36px;
+}
+.tag-pill {
+  font-family: var(--display);
+  font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase;
+  padding: 6px 14px; border-radius: 999px;
+  border: 1px solid var(--line-strong);
+  color: var(--text-2);
+  font-weight: 500;
+  transition: all .3s;
+}
+.tag-pill.red {
+  background: color-mix(in srgb, var(--accent) 14%, transparent); color: color-mix(in srgb, var(--accent) 72%, white);
+  border-color: color-mix(in srgb, var(--accent) 40%, transparent);
+}
+.tag-pill.red::before {
+  content: ""; display: inline-block;
+  width: 5px; height: 5px; border-radius: 50%;
+  background: var(--accent); margin-right: 8px;
+  vertical-align: middle;
+  animation: pulse 2s ease-in-out infinite;
+}
+.tag-pill.gold {
+  background: color-mix(in srgb, var(--accent) 5%, transparent); color: var(--accent);
+  border-color: color-mix(in srgb, var(--accent) 30%, transparent);
+}
+
+/* 4 格数据 · hero-stats */
+.hero__stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(12px, 1.5vw, 28px);
+  max-width: 920px;
+  margin-bottom: 48px;
+}
+.hero__stat {
+  position: relative;
+  padding: 22px 0 20px 22px;
+  border-left: 1px solid var(--line-strong);
+  transition: border-color .4s;
+  overflow: hidden;
+}
+.hero__stat::before {
+  content: "";
+  position: absolute; left: -1px; top: 100%; bottom: 0;
+  width: 1px;
+  background: linear-gradient(180deg, transparent, var(--accent), transparent);
+  transition: top .8s var(--ease);
+}
+.hero__stat:hover::before { top: 0; }
+.hero__stat:hover { border-left-color: transparent; }
+.hero__stat-label {
+  font-family: var(--display);
+  font-size: 10px; letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--text-3);
+  margin-bottom: 10px;
+  transition: color .3s;
+}
+.hero__stat:hover .hero__stat-label { color: var(--accent); }
+.hero__stat-value {
+  font-family: var(--serif-cn);
+  font-size: clamp(20px, 2.1vw, 28px);
+  font-weight: 500;
+  line-height: 1.2;
+  color: var(--text);
+}
+.hero__stat-value .counter {
+  display: inline-block; font-variant-numeric: tabular-nums;
+}
+
+/* Hero CTA */
+.hero__cta {
+  display: flex; gap: 14px; flex-wrap: wrap;
+}
+.btn {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 14px 28px;
+  font-family: var(--display);
+  font-size: 12px; letter-spacing: .24em;
+  text-transform: uppercase;
+  font-weight: 600;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  transition: all .3s var(--ease);
+  cursor: pointer;
+}
+.btn-primary {
+  background: var(--accent);
+  color: white;
+}
+.btn-primary:hover {
+  background: color-mix(in srgb, var(--accent) 88%, white 12%);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px var(--accent-glow);
+}
+.btn-ghost {
+  border-color: var(--line-strong); color: var(--text);
+}
+.btn-ghost:hover {
+  border-color: var(--accent); color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 8%, transparent);
+}
+.btn .arrow { transition: transform .3s; font-family: var(--sans); }
+.btn:hover .arrow { transform: translateX(4px); }
+
+/* Scroll 指示 · 首页同款 */
+.hero__scroll {
+  position: absolute; bottom: 32px; left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--display); font-size: 10px; letter-spacing: .32em;
+  color: var(--text-3); text-transform: uppercase;
+  display: flex; flex-direction: column; align-items: center; gap: 12px;
+}
+.hero__scroll::after {
+  content: ""; width: 1px; height: 36px;
+  background: linear-gradient(to bottom, var(--text-3), transparent);
+  animation: scrollLine 2s ease-in-out infinite;
+}
+@keyframes scrollLine {
+  0% { transform: scaleY(0); transform-origin: top; }
+  50% { transform: scaleY(1); transform-origin: top; }
+  50.01% { transform: scaleY(1); transform-origin: bottom; }
+  100% { transform: scaleY(0); transform-origin: bottom; }
+}
+
+/* Hero 幻灯进度指示（右下） */
+.hero__dots {
+  position: absolute; right: var(--pad); bottom: 32px;
+  display: flex; gap: 6px; z-index: 3;
+}
+.hero__dots button {
+  width: 28px; height: 2px;
+  background: rgba(255,255,255,0.2);
+  transition: all .3s;
+  position: relative; overflow: hidden;
+}
+.hero__dots button.on { background: rgba(255,255,255,0.35); width: 48px; }
+.hero__dots button.on::after {
+  content: "";
+  position: absolute; left: 0; top: 0; bottom: 0;
+  width: 0; background: var(--accent);
+  animation: indicatorFill 7.5s linear forwards;
+}
+@keyframes indicatorFill { to { width: 100%; } }
+
+/* ============================================================
+   Section common · 模仿 manifesto / works 的 section-number
+   ============================================================ */
+.section {
+  padding: clamp(80px, 10vw, 140px) var(--pad);
+  position: relative;
+}
+.section__number {
+  position: absolute;
+  top: 60px; left: var(--pad);
+  font-family: var(--display); font-size: 10px;
+  letter-spacing: .32em; color: var(--text-4);
+  font-weight: 500;
+}
+.section__number::after {
+  content: ""; display: inline-block; margin-left: 14px;
+  width: 40px; height: 1px;
+  background: var(--text-4); vertical-align: middle;
+}
+.section__label {
+  font-family: var(--display); font-size: 11px;
+  letter-spacing: .32em; color: var(--text-3);
+  text-transform: uppercase; margin-bottom: 40px;
+}
+.section__title {
+  font-family: var(--serif-cn); font-weight: 500;
+  font-size: clamp(34px, 5vw, 72px);
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  margin-bottom: 24px;
+  text-wrap: balance;
+}
+.section__title em {
+  font-style: italic; font-family: var(--serif-en);
+  color: var(--accent); font-weight: 500;
+}
+.section__lead {
+  font-family: var(--serif-cn);
+  font-size: clamp(16px, 1.4vw, 19px);
+  color: var(--text-2);
+  max-width: 680px;
+  line-height: 1.7;
+}
+
+/* ============================================================
+   Sub-nav · 粘在顶部 · 保留原版 5 项
+   ============================================================ */
+.subnav {
+  position: sticky; top: 72px; z-index: 40;
+  background: rgba(5,6,10,0.85);
+  backdrop-filter: blur(18px);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+.subnav__inner {
+  max-width: 1400px; margin: 0 auto;
+  padding: 0 var(--pad);
+  display: flex; gap: clamp(24px,4vw,56px);
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.subnav__inner::-webkit-scrollbar { display: none; }
+.subnav a {
+  position: relative;
+  padding: 18px 0;
+  font-family: var(--display);
+  font-size: 12px; letter-spacing: .22em; text-transform: uppercase;
+  color: var(--text-2);
+  white-space: nowrap;
+  transition: color .3s;
+}
+.subnav a::after {
+  content: "";
+  position: absolute; bottom: -1px; left: 50%;
+  width: 0; height: 1px;
+  background: var(--accent);
+  transform: translateX(-50%);
+  transition: width .4s var(--ease);
+}
+.subnav a:hover { color: var(--text); }
+.subnav a.is-active { color: var(--accent); }
+.subnav a.is-active::after { width: 28px; }
+
+/* ============================================================
+   MANIFESTO · 引言（复用首页 manifesto 的巨字风格）
+   ============================================================ */
+.showpiece {
+  padding: clamp(100px,12vw,180px) var(--pad);
+  position: relative;
+  max-width: 1200px; margin: 0 auto;
+  text-align: center;
+}
+.showpiece__quote {
+  font-family: var(--serif-cn); font-weight: 400;
+  font-size: clamp(28px, 4.2vw, 60px);
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+  color: var(--text-2);
+  text-wrap: balance;
+  margin-bottom: 48px;
+  position: relative;
+  padding: 0 clamp(20px, 4vw, 60px);
+}
+.showpiece__quote em {
+  font-style: italic; font-family: var(--serif-en);
+  color: var(--ink);
+}
+.showpiece__quote strong {
+  font-weight: 500; color: var(--text);
+  background: linear-gradient(120deg, var(--accent) 0%, color-mix(in srgb, var(--accent) 55%, white) 100%);
+  -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.showpiece__quote::before, .showpiece__quote::after {
+  content: "";
+  position: absolute;
+  width: 48px; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+  left: 50%; transform: translateX(-50%);
+}
+.showpiece__quote::before { top: -32px; }
+.showpiece__quote::after  { bottom: -32px; }
+.showpiece__cite {
+  font-family: var(--display); font-size: 11px;
+  letter-spacing: .32em; color: var(--text-3);
+  text-transform: uppercase;
+  margin-bottom: 40px;
+}
+.showpiece__links {
+  display: flex; gap: clamp(20px, 4vw, 48px); justify-content: center;
+  flex-wrap: wrap;
+  font-family: var(--display); font-size: 12px; letter-spacing: .2em;
+  text-transform: uppercase;
+}
+.showpiece__links a {
+  color: var(--accent);
+  padding-bottom: 2px;
+  border-bottom: 1px solid transparent;
+  transition: border-color .3s, gap .3s;
+  display: inline-flex; align-items: center; gap: 8px;
+}
+.showpiece__links a:hover {
+  border-bottom-color: var(--accent);
+  gap: 14px;
+}
+
+/* ============================================================
+   Cinematic Strip · 宽幅电影感剧照
+   ============================================================ */
+.cinematic {
+  position: relative;
+  overflow: hidden;
+  max-height: min(78vh, 720px);
+  margin: 0 0 clamp(40px, 6vw, 80px);
+}
+.cinematic img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: center 100%;
+  display: block;
+  transition: transform 1.6s var(--ease);
+}
+.cinematic:hover img { transform: none; }
+.cinematic__caption {
+  position: absolute;
+  left: var(--pad); bottom: clamp(20px,3vw,40px);
+  font-family: var(--display); font-size: 10px;
+  letter-spacing: .32em; text-transform: uppercase;
+  color: rgba(255,255,255,0.75);
+  background: rgba(5,6,10,0.6);
+  backdrop-filter: blur(6px);
+  padding: 10px 16px;
+  border-left: 2px solid var(--accent);
+}
+
+/* ============================================================
+   Hub · 4 张分区卡（复用 works grid 风格）
+   ============================================================ */
+.hub {
+  padding: clamp(60px, 8vw, 120px) var(--pad);
+  max-width: 1400px; margin: 0 auto;
+}
+.hub__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px;
+}
+.hub__card {
+  position: relative;
+  aspect-ratio: 4/5;
+  overflow: hidden;
+  padding: clamp(24px, 2.5vw, 36px);
+  border: 1px solid var(--line);
+  isolation: isolate;
+  display: flex; flex-direction: column; justify-content: flex-end;
+  transition: border-color .4s, transform .5s var(--ease);
+}
+.hub__card:hover {
+  border-color: var(--accent);
+  transform: translateY(-4px);
+}
+.hub__card-bg {
+  position: absolute; inset: 0; z-index: -2;
+  background-size: cover; background-position: center;
+  transition: transform 1.4s var(--ease), filter .4s;
+  filter: brightness(0.55) saturate(0.9);
+}
+.hub__card:hover .hub__card-bg {
+  transform: scale(1.08);
+  filter: brightness(0.78) saturate(1);
+}
+.hub__card::before {
+  content: "";
+  position: absolute; inset: 0; z-index: -1;
+  background: linear-gradient(180deg, rgba(5,6,10,0) 0%, rgba(5,6,10,0.45) 45%, rgba(5,6,10,0.92) 100%);
+}
+.hub__card-kicker {
+  font-family: var(--display); font-size: 10px;
+  letter-spacing: .28em; text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 12px;
+}
+.hub__card-title {
+  font-family: var(--serif-cn);
+  font-size: clamp(22px, 2.2vw, 28px);
+  font-weight: 500;
+  line-height: 1.25;
+  margin-bottom: 10px;
+}
+.hub__card-desc {
+  font-size: 13px; line-height: 1.6;
+  color: var(--text-2);
+  margin-bottom: 20px;
+}
+.hub__card-arrow {
+  font-size: 22px;
+  color: var(--accent);
+  transition: transform .3s;
+  align-self: flex-start;
+  line-height: 1;
+}
+.hub__card:hover .hub__card-arrow { transform: translateX(8px); }
+
+/* ============================================================
+   Gallery Duo · 两张并排 + Filmstrip 横向滚动
+   ============================================================ */
+.gallery-duo {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4px;
+  margin: clamp(40px,6vw,80px) 0;
+}
+.gallery-duo-item {
+  overflow: hidden;
+  aspect-ratio: 3/2;
+}
+.gallery-duo-item img {
+  width: 100%; height: 100%; object-fit: cover;
+  transition: transform 1.4s var(--ease), filter .4s;
+  filter: saturate(0.95);
+}
+.gallery-duo-item:hover img { transform: scale(1.06); filter: saturate(1.05); }
+
+.filmstrip-wrap {
+  max-width: 1400px; margin: 0 auto;
+  padding: clamp(40px,6vw,80px) var(--pad);
+}
+.filmstrip {
+  display: flex; gap: 12px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding-bottom: 16px;
+  scrollbar-width: thin;
+  scrollbar-color: var(--accent) transparent;
+}
+.filmstrip::-webkit-scrollbar { height: 4px; }
+.filmstrip::-webkit-scrollbar-thumb { background: var(--accent); }
+.filmstrip::-webkit-scrollbar-track { background: var(--line); }
+.filmstrip__item {
+  flex: 0 0 auto;
+  width: clamp(280px, 32vw, 480px);
+  aspect-ratio: 3/2;
+  scroll-snap-align: start;
+  overflow: hidden;
+  cursor: pointer;
+}
+.filmstrip__item img {
+  width: 100%; height: 100%; object-fit: cover;
+  transition: transform 1.2s var(--ease), filter .4s;
+  filter: saturate(0.95);
+}
+.filmstrip__item:hover img { transform: scale(1.06); filter: saturate(1.1); }
+
+/* ============================================================
+   Highlights · 4 格亮点
+   ============================================================ */
+.highlights {
+  max-width: 1400px; margin: 0 auto;
+  padding: clamp(60px,8vw,120px) var(--pad);
+}
+.highlights__grid {
+  counter-reset: item;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 2px;
+  background: var(--line);
+  margin: 48px 0 40px;
+}
+.highlights__item {
+  background: var(--bg-1);
+  padding: 44px 28px 32px;
+  min-height: 180px;
+  display: flex; flex-direction: column; justify-content: flex-end;
+  position: relative;
+  font-family: var(--serif-cn);
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--text);
+  transition: background .4s;
+  overflow: hidden;
+}
+.highlights__item::before {
+  content: counter(item, decimal-leading-zero);
+  counter-increment: item;
+  position: absolute;
+  top: 24px; left: 28px;
+  font-family: var(--display);
+  font-size: 10px; letter-spacing: .28em;
+  color: var(--accent);
+}
+.highlights__item::after {
+  content: "";
+  position: absolute; left: 0; top: 0; bottom: 0;
+  width: 2px;
+  background: var(--accent);
+  transform: scaleY(0);
+  transform-origin: bottom;
+  transition: transform .6s var(--ease);
+}
+.highlights__item:hover { background: #141522; }
+.highlights__item:hover::after { transform: scaleY(1); transform-origin: top; }
+
+.link-accent {
+  font-family: var(--display);
+  font-size: 12px; letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  display: inline-flex; gap: 6px; align-items: center;
+  padding-bottom: 2px;
+  border-bottom: 1px solid color-mix(in srgb, var(--accent) 30%, transparent);
+  transition: gap .3s, border-color .3s;
+}
+.link-accent:hover { gap: 12px; border-bottom-color: var(--accent); }
+
+/* ============================================================
+   Info Grid · 观演信息
+   ============================================================ */
+.visit {
+  max-width: 1400px; margin: 0 auto;
+  padding: clamp(40px,6vw,80px) var(--pad);
+}
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 2px;
+  background: var(--line);
+  margin: 40px 0 32px;
+}
+.info-cell {
+  background: var(--bg-1);
+  padding: 28px 24px;
+  transition: background .3s;
+}
+.info-cell:hover { background: var(--bg-2); }
+.info-cell .label {
+  font-family: var(--display);
+  font-size: 10px; letter-spacing: .28em;
+  color: var(--text-3);
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+.info-cell .value {
+  font-family: var(--serif-cn);
+  font-size: 18px; font-weight: 500;
+  line-height: 1.35;
+}
+
+/* ============================================================
+   Video
+   ============================================================ */
+.video-section {
+  max-width: 1400px; margin: 0 auto;
+  padding: clamp(60px,8vw,120px) var(--pad);
+}
+.video-card {
+  display: flex; flex-direction: column; gap: 24px;
+}
+.video-thumb {
+  position: relative;
+  aspect-ratio: 16/9;
+  background-size: cover; background-position: center;
+  overflow: hidden;
+  cursor: pointer;
+  border: 1px solid var(--line);
+}
+.video-thumb::before {
+  content: "";
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(5,6,10,0) 0%, rgba(5,6,10,0.5) 100%);
+  z-index: 1;
+  transition: background .4s;
+}
+.video-thumb:hover::before { background: linear-gradient(180deg, rgba(5,6,10,0.2), rgba(5,6,10,0.35)); }
+.play-btn {
+  position: absolute; left: 50%; top: 50%;
+  transform: translate(-50%, -50%);
+  width: 84px; height: 84px; border-radius: 50%;
+  background: var(--accent);
+  color: white;
+  display: grid; place-items: center;
+  font-size: 26px; font-weight: 800;
+  z-index: 2;
+  transition: transform .4s var(--ease);
+  animation: playPulse 2.4s ease-out infinite;
+}
+@keyframes playPulse {
+  0%, 100% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--accent) 55%, transparent); }
+  50% { box-shadow: 0 0 0 24px color-mix(in srgb, var(--accent) 0%, transparent); }
+}
+.video-thumb:hover .play-btn { transform: translate(-50%, -50%) scale(1.1); }
+.video-sources {
+  display: flex; gap: 12px; flex-wrap: wrap; justify-content: center;
+}
+
+/* Video Modal */
+.video-modal {
+  display: none;
+  position: fixed; inset: 0; z-index: 300;
+  background: rgba(5,6,10,0.95);
+  backdrop-filter: blur(12px);
+  align-items: center; justify-content: center;
+  padding: 24px;
+}
+.video-modal.is-open { display: flex; }
+.video-modal__content {
+  position: relative;
+  width: 100%; max-width: 1100px;
+  aspect-ratio: 16/9;
+  background: #000;
+  border: 1px solid var(--line);
+}
+.video-modal iframe { width: 100%; height: 100%; border: 0; }
+.video-modal__close {
+  position: absolute; top: -48px; right: 0;
+  font-size: 20px; color: white;
+  width: 40px; height: 40px;
+  display: grid; place-items: center;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.25);
+  transition: background .2s;
+}
+.video-modal__close:hover { background: rgba(255,255,255,0.1); }
+
+/* ============================================================
+   CTA Bar
+   ============================================================ */
+.cta-bar {
+  background: linear-gradient(135deg, color-mix(in srgb, var(--accent) 22%, #0b0c12) 0%, #0b0c12 100%);
+  border-top: 1px solid color-mix(in srgb, var(--accent) 30%, transparent);
+  border-bottom: 1px solid color-mix(in srgb, var(--accent) 30%, transparent);
+  padding: clamp(56px,8vw,100px) var(--pad);
+  position: relative;
+  overflow: hidden;
+}
+.cta-bar::before {
+  content: "";
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(600px circle at 10% 50%, color-mix(in srgb, var(--accent) 18%, transparent), transparent 50%),
+    radial-gradient(600px circle at 90% 50%, color-mix(in srgb, var(--accent) 10%, transparent), transparent 50%);
+  pointer-events: none;
+}
+.cta-bar__inner {
+  max-width: 1200px; margin: 0 auto;
+  display: flex; gap: 32px; justify-content: space-between;
+  align-items: center; flex-wrap: wrap;
+  position: relative; z-index: 1;
+}
+.cta-bar p {
+  font-family: var(--serif-cn);
+  font-size: clamp(18px, 1.8vw, 22px);
+  line-height: 1.55;
+  max-width: 580px;
+}
+
+/* ============================================================
+   Footer
+   ============================================================ */
+.footer {
+  background: var(--bg-0);
+  border-top: 1px solid var(--line);
+  padding: 32px var(--pad);
+}
+.footer__inner {
+  max-width: 1400px; margin: 0 auto;
+  display: flex; justify-content: space-between;
+  flex-wrap: wrap; gap: 16px;
+  font-family: var(--display);
+  font-size: 11px; letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--text-3);
+}
+.footer a { color: var(--text-2); transition: color .2s; }
+.footer a:hover { color: var(--accent); }
+
+/* ============================================================
+   右侧纵向目录（scroll-spy）
+   ============================================================ */
+.side-toc {
+  position: fixed;
+  right: clamp(16px, 2vw, 28px);
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 45;
+  display: flex; flex-direction: column; gap: 14px;
+  padding: 14px 10px;
+  background: rgba(5,6,10,0.55);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--line);
+  border-radius: 28px;
+}
+.side-toc__item {
+  display: flex; align-items: center; gap: 10px;
+  cursor: pointer;
+  position: relative;
+}
+.side-toc__dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: rgba(255,255,255,0.22);
+  transition: all .35s var(--ease);
+  flex-shrink: 0;
+}
+.side-toc__label {
+  font-family: var(--display);
+  font-size: 10px; letter-spacing: .22em;
+  color: transparent;
+  white-space: nowrap;
+  max-width: 0;
+  overflow: hidden;
+  transition: all .35s var(--ease);
+  text-transform: uppercase;
+  text-align: right;
+  order: -1;
+  opacity: 0;
+}
+.side-toc__item:hover .side-toc__label,
+.side-toc:hover .side-toc__item.on .side-toc__label {
+  color: var(--text);
+  max-width: 160px;
+  padding-right: 4px;
+  opacity: 1;
+}
+.side-toc__item:hover .side-toc__dot {
+  background: var(--accent);
+  transform: scale(1.3);
+}
+.side-toc__item.on .side-toc__dot {
+  background: var(--accent);
+  transform: scale(1.4);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent) 20%, transparent);
+}
+
+/* ============================================================
+   Responsive
+   ============================================================ */
+@media (max-width: 960px) {
+  .side-toc { display: none; }
+  .nav__links { gap: 20px; }
+}
+@media (max-width: 720px) {
+  .hero__stats { grid-template-columns: repeat(2, 1fr); }
+  .hero__scroll { display: none; }
+  .marquee-bar__count { display: none; }
+}
+@media (max-width: 480px) {
+  /* 与桌面端保持一致：左侧细线分隔，不要黑底框 */
+  .hero__stats { gap: 18px 16px; background: transparent; margin-bottom: 32px; }
+  .hero__stat { background: transparent; padding: 4px 0 4px 12px; border-left: 1px solid var(--line-strong); }
+  .hero__stat-label { font-size: 9px; letter-spacing: .28em; margin-bottom: 6px; }
+  .hero__stat-value { font-size: 18px; }
+}
+
+.sr-only {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+}
+
+/* ============================================================
+   Photo lightbox (剧照放大)
+   ============================================================ */
+.cinematic img,
+.gallery-duo-item img,
+.filmstrip__item img { cursor: zoom-in; }
+
+.photo-lb {
+  position: fixed; inset: 0; z-index: 1000;
+  background: rgba(0,0,0,0.94);
+  display: none;
+  padding: 40px;
+}
+.photo-lb.is-open { display: block; }
+.photo-lb__stage {
+  position: absolute; inset: 40px;
+  display: grid; place-items: center;
+}
+.photo-lb__img {
+  max-width: 100%; max-height: 100%;
+  object-fit: contain;
+  box-shadow: 0 30px 80px rgba(0,0,0,0.7);
+  transition: opacity .2s;
+}
+.photo-lb__close,
+.photo-lb__nav {
+  position: absolute;
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.28);
+  color: white;
+  cursor: pointer;
+  transition: all .25s ease;
+  display: grid; place-items: center;
+}
+.photo-lb__close {
+  top: 22px; right: 22px;
+  width: 40px; height: 40px; border-radius: 50%;
+  font-size: 22px; line-height: 1;
+}
+.photo-lb__nav {
+  top: 50%; transform: translateY(-50%);
+  width: 52px; height: 52px; border-radius: 50%;
+  font-size: 20px; line-height: 1;
+}
+.photo-lb__nav--prev { left: 24px; }
+.photo-lb__nav--next { right: 24px; }
+.photo-lb__close:hover,
+.photo-lb__nav:hover {
+  background: #b87df8;
+  border-color: #b87df8;
+}
+.photo-lb__cap {
+  position: absolute; left: 50%; bottom: 28px; transform: translateX(-50%);
+  font-family: 'Syne', sans-serif; font-size: 11px;
+  letter-spacing: .28em; text-transform: uppercase;
+  color: rgba(255,255,255,0.72);
+}
+.photo-lb__cap em {
+  color: #b87df8; font-style: normal;
+}
+
+/* ============================================================
+   Mobile · 汉堡菜单（与首页保持一致）
+   ============================================================ */
+.nav__burger {
+  display: none;
+  width: 44px; height: 44px;
+  background: transparent; border: 0;
+  flex-direction: column; justify-content: center; align-items: center;
+  gap: 6px; cursor: pointer; padding: 0;
+  position: relative; z-index: 52;
+}
+.nav__burger span {
+  display: block; width: 22px; height: 1.5px;
+  background: var(--text);
+  transition: transform .3s ease, opacity .3s ease;
+}
+.nav.nav--open .nav__burger span:nth-child(1) { transform: translateY(7.5px) rotate(45deg); }
+.nav.nav--open .nav__burger span:nth-child(2) { opacity: 0; }
+.nav.nav--open .nav__burger span:nth-child(3) { transform: translateY(-7.5px) rotate(-45deg); }
+@media (max-width: 900px) {
+  .nav__burger { display: flex; }
+  .nav__links {
+    display: flex !important;
+    position: fixed; top: 0; left: 0; right: 0;
+    min-height: 100vh; max-height: 100vh;
+    padding: 96px var(--pad) 40px;
+    background: rgba(5,6,10,0.97);
+    backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
+    flex-direction: column !important; align-items: stretch !important;
+    gap: 0 !important;
+    z-index: 51;
+    transform: translateY(-110%);
+    transition: transform .45s cubic-bezier(.2,.8,.2,1);
+    pointer-events: none;
+    overflow-y: auto;
+    counter-reset: navItem;
+  }
+  .nav.nav--open .nav__links {
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+  .nav__link {
+    display: flex !important; align-items: baseline; gap: 20px;
+    font-family: var(--serif-cn) !important;
+    font-size: 17px !important; font-weight: 500;
+    letter-spacing: .03em !important; text-transform: none !important;
+    padding: 16px 2px !important;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    color: var(--text);
+  }
+  .nav__link::before {
+    counter-increment: navItem;
+    content: counter(navItem, decimal-leading-zero);
+    font-family: var(--display);
+    font-size: 10px; font-weight: 500;
+    letter-spacing: .3em;
+    color: var(--text-3);
+    min-width: 28px;
+  }
+  .nav__link::after {
+    position: static !important; width: auto !important; height: auto !important; background: transparent !important;
+    font-family: var(--serif-en); font-style: italic;
+    font-size: 13px; font-weight: 400;
+    color: var(--text-3); margin-left: auto;
+    letter-spacing: .01em; transition: none;
+    bottom: auto !important; left: auto !important;
+  }
+  .nav__link[href*="works"]::after { content: "Works"; }
+  .nav__link[href*="collaborate"]::after { content: "Collaborate"; }
+  .nav__link[href*="about"]::after { content: "About"; }
+  .nav__link[href*="collaborators"]::after { content: "Artists"; }
+  .nav__link[href*="contact"]::after { content: "Contact"; }
+  .nav__link.is-active,
+  .nav__link.is-active::before { color: var(--accent); }
+  .nav__lang { margin-top: 28px; align-self: flex-start; }
+}
+</style>
+<script src="i18n.js"></script>
+</head>
+<body>
+
+<!-- 噪点 + 光晕 -->
+<div class="grain" aria-hidden="true"></div>
+<div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
+
+<!-- 开场幕布 -->
+<div class="curtain" aria-hidden="true">
+  <div class="curtain__panel curtain__panel--l"></div>
+  <div class="curtain__panel curtain__panel--r"></div>
+</div>
+<div class="curtain__logo" aria-hidden="true">
+  <span data-i18n="shanhai.curtain.title">山海经 · 巨灵之梦</span>
+  <small data-i18n="shanhai.curtain.small">Dream of the Colossus</small>
+</div>
+
+<!-- 导航 -->
+<header class="nav" id="nav">
+  <a href="index.html" class="nav__brand">
+    <span class="nav__mark"></span>
+    <span class="nav__brand-cn">惊喜之夜</span>
+    <span class="nav__brand-en">SURPRISE NIGHT</span>
+  </a>
+  <nav class="nav__links">
+    <a href="works.html" class="nav__link is-active" data-i18n="nav.works">作品</a>
+    <a href="collaborate.html" class="nav__link" data-i18n="nav.collaborate">合作</a>
+    <a href="about.html" class="nav__link" data-i18n="nav.about">关于</a>
+    <a href="collaborators.html" class="nav__link" data-i18n="nav.artists">艺术家</a>
+    <a href="contact.html" class="nav__link" data-i18n="nav.contact">联系</a>
+    <div class="nav__lang">
+      <button data-set-lang="zh">中</button>
+      <button data-set-lang="en">EN</button>
+    </div>
+  </nav>
+  <button class="nav__burger" id="navBurger" aria-label="菜单" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<main>
+
+  <!-- ========== HERO ========== -->
+  <section class="hero" id="sec-hero" data-screen-label="01 Hero">
+    <div class="hero__bg"></div>
+    <div class="hero__slides" aria-hidden="true">
+      <div class="hero__slide is-active" style="background-image: url('https://raw.githubusercontent.com/ananinalfe-ship-it/surprise-night-web/main/assets/images/gallery/shanhai/R0000144-1c7315b0-2508-450b-b6c6-9e7ed2854271.png')"></div>
+      <div class="hero__slide" style="background-image: url('https://raw.githubusercontent.com/ananinalfe-ship-it/surprise-night-web/main/assets/images/gallery/shanhai/R0000084-1814026a-8e01-4273-ae15-c1d35d3d9bfd.png')"></div>
+      <div class="hero__slide" style="background-image: url('https://raw.githubusercontent.com/ananinalfe-ship-it/surprise-night-web/main/assets/images/gallery/shanhai/ZDC_6457-6d2c03de-c16a-4f3f-be8c-613ff634b51a.png')"></div>
+      <div class="hero__slide" style="background-image: url('https://raw.githubusercontent.com/ananinalfe-ship-it/surprise-night-web/main/assets/images/gallery/shanhai/shanhai-still-cityscape-2026.png')"></div>
+      <div class="hero__slide" style="background-image: url('https://raw.githubusercontent.com/ananinalfe-ship-it/surprise-night-web/main/assets/images/gallery/shanhai/ZDC_6636-0b1fb4d6-a2ca-4426-8a95-85ed9fee393d.png')"></div>
+    </div>
+    <div class="hero__stars" id="heroStars"></div>
+
+    <div class="hero__inner">
+      <a class="hero__back" href="index.html#works" data-i18n="shanhai.hero.back">← 返回作品</a>
+
+      <div class="hero__eyebrow">
+        <span class="hero__eyebrow-dot"></span>
+        <span data-i18n="shanhai.hero.eyebrow">正在上演 · 旗舰作品 · 沉浸式戏剧</span>
       </div>
-    </header>
 
-    <main class="project-shanhai-page">
-      <section class="project-hero project-hero--shanhai">
-        <div class="bg bg-slideshow" data-interval="7500" aria-hidden="true">
-          <div class="bg-slide is-active" style="background-image: url('assets/images/gallery/shanhai/R0000144-1c7315b0-2508-450b-b6c6-9e7ed2854271.png')"></div>
-          <div class="bg-slide" style="background-image: url('assets/images/gallery/shanhai/R0000084-1814026a-8e01-4273-ae15-c1d35d3d9bfd.png')"></div>
-          <div class="bg-slide" style="background-image: url('assets/images/gallery/shanhai/ZDC_6457-6d2c03de-c16a-4f3f-be8c-613ff634b51a.png')"></div>
-          <div class="bg-slide" style="background-image: url('assets/images/gallery/shanhai/shanhai-still-cityscape-2026.png')"></div>
-          <div class="bg-slide" style="background-image: url('assets/images/gallery/shanhai/ZDC_6636-0b1fb4d6-a2ca-4426-8a95-85ed9fee393d.png')"></div>
-        </div>
-        <div class="inner">
-          <a class="back-link" href="works.html" data-i18n="projectShanhai.back">← 返回作品</a>
-          <div class="tags-row">
-            <span class="tag-pill red" data-i18n="projectShanhai.tag1">正在上演</span>
-            <span class="tag-pill gold" data-i18n="projectShanhai.flagshipTag">旗舰作品</span>
-            <span class="tag-pill outline" data-i18n="projectShanhai.tag2">沉浸式戏剧</span>
-          </div>
-          <p class="hero-en-title" data-i18n="projectShanhai.heroEnTitle">Shan Hai Jing — Dream of the Colossus</p>
-          <h1 data-i18n="projectShanhai.h1">山海经·巨灵之梦</h1>
-          <p class="tagline" data-i18n="projectShanhai.tagline">
-            精卫填海的神话现场——与高达 4 米的巨偶近在咫尺。
-          </p>
-          <p class="hero-lede" data-i18n="projectShanhai.heroLede">
-            惊喜之夜年度主推：非遗木偶与当代机械、影像、音乐同台，为千座剧场打造一部可巡演、可驻场的东方神话史诗。
-          </p>
-          <div class="hero-stats" role="region" aria-labelledby="shanhai-stats-title">
-            <h2 id="shanhai-stats-title" class="sr-only" data-i18n="projectShanhai.statsHeading">作品要点</h2>
-            <div class="hero-stat">
-              <div class="hero-stat__label" data-i18n="projectShanhai.statColossusL">巨偶尺度</div>
-              <div class="hero-stat__value" data-i18n="projectShanhai.statColossusV">6m × 10m 巨灵</div>
-            </div>
-            <div class="hero-stat">
-              <div class="hero-stat__label" data-i18n="projectShanhai.statDurationL">演出时长</div>
-              <div class="hero-stat__value" data-i18n="projectShanhai.statDurationV">90 分钟</div>
-            </div>
-            <div class="hero-stat">
-              <div class="hero-stat__label" data-i18n="projectShanhai.statTheatreL">剧场形态</div>
-              <div class="hero-stat__value" data-i18n="projectShanhai.statTheatreV">千座镜框大剧场</div>
-            </div>
-            <div class="hero-stat">
-              <div class="hero-stat__label" data-i18n="projectShanhai.statPremiereL">首演</div>
-              <div class="hero-stat__value" data-i18n="projectShanhai.statPremiereV">2026 · 扬州</div>
-            </div>
-          </div>
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="project-shanhai-gallery.html#trailer" data-i18n="projectShanhai.ctaWatch">观看宣传片</a>
-            <a class="btn btn-ghost" href="collaborate.html#p1" data-i18n="projectShanhai.ctaCollab">巡演与驻场合作</a>
-          </div>
-        </div>
-      </section>
+      <h1 class="hero__title" data-i18n="shanhai.hero.titleFull" data-i18n-html="true">山海经 · <em>巨灵之梦</em></h1>
+      <p class="hero__subtitle" data-i18n="shanhai.hero.subtitle">Shan Hai Jing — Dream of the Colossus</p>
 
-      <nav class="shanhai-subnav" aria-label="Section">
-        <div class="shanhai-subnav__inner">
-          <a href="project-shanhai.html" class="is-active" data-i18n="projectShanhai.subNavOverview">概览</a>
-          <a href="project-shanhai-story.html" data-i18n="projectShanhai.subNavStory">故事</a>
-          <a href="project-shanhai-stagecraft.html" data-i18n="projectShanhai.subNavStage">舞台</a>
-          <a href="project-shanhai-gallery.html" data-i18n="projectShanhai.subNavGallery">图集</a>
-          <a href="project-shanhai-visit.html" data-i18n="projectShanhai.subNavVisit">观演</a>
-        </div>
-      </nav>
+      <p class="hero__lead" data-i18n="shanhai.hero.lead.full">精卫填海的神话现场——与高达 6 米的巨偶近在咫尺。惊喜之夜年度主推：非遗木偶与当代机械、影像、音乐同台，为千座剧场打造一部可巡演、可驻场的东方神话史诗。</p>
+      <p class="hero__tagline" data-i18n="shanhai.hero.tagline.full" data-i18n-html="true">We don't just retell the myth — <em>we summon it</em>.</p>
 
-      <section class="shanhai-showpiece" aria-labelledby="showpiece-heading">
-        <div class="showpiece-inner">
-          <p class="showpiece-eyebrow" id="showpiece-heading" data-i18n="projectShanhai.showpieceEyebrow">Signature production · East meets stagecraft</p>
-          <blockquote class="project-quote shanhai-quote" data-i18n="projectShanhai.heroQuote">
-            神话不止被讲述——它在舞台上被体量、机械与偶师共同唤醒。
-          </blockquote>
-          <div class="showpiece-actions">
-            <a href="project-shanhai-story.html" data-i18n="projectShanhai.showpieceMoreStory">完整故事与创作理念 →</a>
-            <a href="project-shanhai-gallery.html" data-i18n="projectShanhai.showpieceMoreGallery">进入现场图集 →</a>
-          </div>
+      <div class="hero__stats">
+        <div class="hero__stat">
+          <div class="hero__stat-label" data-i18n="shanhai.hero.stat.puppet.k">巨偶尺度</div>
+          <div class="hero__stat-value"><span class="counter" data-target="6">0</span>m × <span class="counter" data-target="10">0</span><span data-i18n="shanhai.hero.stat.puppet.unit">m 巨灵</span></div>
         </div>
-      </section>
-
-      <figure class="shanhai-cinematic-strip">
-        <img
-          src="assets/images/gallery/shanhai/ZDC_6044-ffbb5c5c-446b-44cc-97c4-d55cfed5d5eb.png"
-          alt=""
-          class="shanhai-zoomable"
-          loading="lazy"
-        />
-        <figcaption class="shanhai-cinematic-strip__caption" data-i18n="projectShanhai.cinematicCaption1">现场剧照 · 光与体量</figcaption>
-      </figure>
-
-      <section class="shanhai-hub container">
-        <p class="hub-teaser" data-i18n="projectShanhai.hubTeaser">
-          以下分区将叙事、舞台制作与观演信息拆开呈现——先看图，再按需深入阅读。
-        </p>
-        <div class="shanhai-explore-grid">
-          <a class="shanhai-explore-card" href="project-shanhai-story.html">
-            <span class="shanhai-explore-card__bg" style="background-image: url('assets/images/gallery/shanhai/ZDC_6457-6d2c03de-c16a-4f3f-be8c-613ff634b51a.png')"></span>
-            <span class="shanhai-explore-card__inner">
-              <span class="shanhai-explore-card__kicker" data-i18n="projectShanhai.exploreCardKicker">深入了解</span>
-              <span class="shanhai-explore-card__title" data-i18n="projectShanhai.exploreStoryTitle">故事与世界观</span>
-              <span class="shanhai-explore-card__desc" data-i18n="projectShanhai.exploreStoryDesc">典籍母题、当代叙事与少年试炼。</span>
-              <span class="shanhai-explore-card__arrow">→</span>
-            </span>
-          </a>
-          <a class="shanhai-explore-card" href="project-shanhai-stagecraft.html">
-            <span class="shanhai-explore-card__bg" style="background-image: url('assets/images/gallery/shanhai/R0000061-17f2f94e-e984-4fb2-8cd3-b1fc625f3cce.png')"></span>
-            <span class="shanhai-explore-card__inner">
-              <span class="shanhai-explore-card__kicker" data-i18n="projectShanhai.exploreCardKicker">深入了解</span>
-              <span class="shanhai-explore-card__title" data-i18n="projectShanhai.exploreStageTitle">舞台与巨偶</span>
-              <span class="shanhai-explore-card__desc" data-i18n="projectShanhai.exploreStageDesc">尺度、机械、多媒体与非遗同台。</span>
-              <span class="shanhai-explore-card__arrow">→</span>
-            </span>
-          </a>
-          <a class="shanhai-explore-card" href="project-shanhai-gallery.html">
-            <span class="shanhai-explore-card__bg" style="background-image: url('assets/images/gallery/shanhai/R0000144_2-bc6cea24-d50a-4adf-aa84-ef844218b739.png')"></span>
-            <span class="shanhai-explore-card__inner">
-              <span class="shanhai-explore-card__kicker" data-i18n="projectShanhai.exploreCardKicker">深入了解</span>
-              <span class="shanhai-explore-card__title" data-i18n="projectShanhai.exploreGalleryTitle">现场图集</span>
-              <span class="shanhai-explore-card__desc" data-i18n="projectShanhai.exploreGalleryDesc">全幅剧照横向浏览，可点击放大。</span>
-              <span class="shanhai-explore-card__arrow">→</span>
-            </span>
-          </a>
-          <a class="shanhai-explore-card" href="project-shanhai-visit.html">
-            <span class="shanhai-explore-card__bg" style="background-image: url('assets/images/gallery/shanhai/ZDC_6992-898ff248-844e-4cc3-8edf-48eeb2386861.png')"></span>
-            <span class="shanhai-explore-card__inner">
-              <span class="shanhai-explore-card__kicker" data-i18n="projectShanhai.exploreCardKicker">深入了解</span>
-              <span class="shanhai-explore-card__title" data-i18n="projectShanhai.exploreVisitTitle">演出与观演</span>
-              <span class="shanhai-explore-card__desc" data-i18n="projectShanhai.exploreVisitDesc">时长、场地、受众与入场提示。</span>
-              <span class="shanhai-explore-card__arrow">→</span>
-            </span>
-          </a>
+        <div class="hero__stat">
+          <div class="hero__stat-label" data-i18n="shanhai.hero.stat.duration.k">演出时长</div>
+          <div class="hero__stat-value"><span class="counter" data-target="90">0</span> <span data-i18n="shanhai.hero.stat.duration.unit">分钟</span></div>
         </div>
-      </section>
-
-      <div class="gallery-duo">
-        <div class="gallery-duo-item">
-          <img src="assets/images/gallery/shanhai/ZDC_6636-0b1fb4d6-a2ca-4426-8a95-85ed9fee393d.png" alt="" loading="lazy" />
+        <div class="hero__stat">
+          <div class="hero__stat-label" data-i18n="shanhai.hero.stat.venue.k">剧场形态</div>
+          <div class="hero__stat-value" data-i18n="shanhai.hero.stat.venue.v">千座镜框</div>
         </div>
-        <div class="gallery-duo-item">
-          <img src="assets/images/gallery/shanhai/ZDC_6631-4543b7b0-bb87-44b9-81cd-7967ff03ff3f.png" alt="" loading="lazy" />
+        <div class="hero__stat">
+          <div class="hero__stat-label" data-i18n="shanhai.hero.stat.premiere.k">首演</div>
+          <div class="hero__stat-value">2026</div>
         </div>
       </div>
 
-      <section class="container shanhai-filmstrip-wrap">
-        <h2 class="sr-only" data-i18n="projectShanhai.filmstripHeading">更多现场画面</h2>
-        <div class="shanhai-filmstrip">
-          <div class="shanhai-filmstrip__item">
-            <img src="assets/images/gallery/shanhai/R0000080-65a68088-65c7-4ae0-a3be-d61ebeba6aad.png" alt="" class="shanhai-zoomable" loading="lazy" />
-          </div>
-          <div class="shanhai-filmstrip__item">
-            <img src="assets/images/gallery/shanhai/ZDC_6810-1df01eaa-e6da-48a9-a6e0-8eb436d48a96.png" alt="" class="shanhai-zoomable" loading="lazy" />
-          </div>
-          <div class="shanhai-filmstrip__item">
-            <img src="assets/images/gallery/shanhai/ZDC_7072-023e292e-3cfb-4069-a428-235a719a767b.png" alt="" class="shanhai-zoomable" loading="lazy" />
-          </div>
-          <div class="shanhai-filmstrip__item">
-            <img src="assets/images/gallery/shanhai/ZDC_7094-40e66339-5426-4a04-97cc-155268a2bc4f.png" alt="" class="shanhai-zoomable" loading="lazy" />
-          </div>
-          <div class="shanhai-filmstrip__item">
-            <img src="assets/images/gallery/shanhai/ZDC_7015-33fcb243-95fe-49d2-bc43-0a89b2445e18.png" alt="" class="shanhai-zoomable" loading="lazy" />
-          </div>
-          <div class="shanhai-filmstrip__item">
-            <img src="assets/images/gallery/shanhai/R0000138-538040d4-616f-457c-a58c-2902d789b0da.png" alt="" class="shanhai-zoomable" loading="lazy" />
-          </div>
-        </div>
-      </section>
-
-      <section class="container shanhai-highlight-teaser">
-        <h2 data-i18n="projectShanhai.highlightsTeaserH">核心亮点</h2>
-        <div class="shanhai-teaser-grid">
-          <div class="shanhai-teaser-item"><span data-i18n="projectShanhai.hiTeaser1">巨偶奇观 — 6×10 米巨灵，终幕视觉记忆点。</span></div>
-          <div class="shanhai-teaser-item"><span data-i18n="projectShanhai.hiTeaser2">神兽宇宙 — 毕方、九尾、精卫、应龙同台。</span></div>
-          <div class="shanhai-teaser-item"><span data-i18n="projectShanhai.hiTeaser3">成长内核 — 勇气与不逃避，亲子与成人共鸣。</span></div>
-          <div class="shanhai-teaser-item"><span data-i18n="projectShanhai.hiTeaser4">声场设计 — Sid Peacock 音乐，神话史诗感。</span></div>
-        </div>
-        <a class="link-accent" href="project-shanhai-stagecraft.html" data-i18n="projectShanhai.highlightsTeaserLink">查看舞台、巨偶与技术细节 →</a>
-      </section>
-
-      <section class="container shanhai-visit-teaser">
-        <h2 data-i18n="projectShanhai.visitTeaserH">演出与观演</h2>
-        <div class="info-grid">
-          <div class="info-cell">
-            <div class="label" data-i18n="projectShanhai.infDur">演出时长</div>
-            <div class="value" data-i18n="projectShanhai.infDurV">90 分钟</div>
-          </div>
-          <div class="info-cell">
-            <div class="label" data-i18n="projectShanhai.infVenue">首演场地</div>
-            <div class="value" data-i18n="projectShanhai.infVenueV">扬州运河大剧院</div>
-          </div>
-          <div class="info-cell">
-            <div class="label" data-i18n="projectShanhai.infAge">建议年龄</div>
-            <div class="value" data-i18n="projectShanhai.infAgeV">4岁以上</div>
-          </div>
-        </div>
-        <a class="link-accent" href="project-shanhai-visit.html" data-i18n="projectShanhai.visitTeaserLink">完整信息、适龄与观演提示 →</a>
-      </section>
-
-      <section class="container shanhai-video-section" id="trailer">
-        <div class="video-card project-video project-video--dual">
-          <div class="video-thumb" style="background-image: url('assets/images/gallery/shanhai/R0000144-1c7315b0-2508-450b-b6c6-9e7ed2854271.png')">
-            <div class="play-btn" aria-hidden="true">▶</div>
-          </div>
-          <div class="project-video__actions">
-            <div class="video-source-row">
-              <button
-                type="button"
-                class="btn btn-primary video-source-btn"
-                onclick="openVideoModal('https://www.youtube.com/embed/GGDgrTKY2Qs?autoplay=1&amp;rel=0')"
-                data-i18n="projectShanhai.videoYoutubeBtn"
-              >
-                YouTube 播放
-              </button>
-              <button
-                type="button"
-                class="btn btn-ghost video-source-btn"
-                onclick="openVideoModal('//player.bilibili.com/player.html?bvid=BV12zAuztE78&amp;page=1&amp;high_quality=1&amp;danmaku=0&amp;autoplay=1')"
-                data-i18n="projectShanhai.videoBilibiliBtn"
-              >
-                哔哩哔哩播放
-              </button>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="shanhai-cta-bar">
-        <div class="inner">
-          <p data-i18n="projectShanhai.ctaBarCopy">城市巡演、驻场版本与巨偶物流 — 欢迎洽谈合作。</p>
-          <a class="btn btn-primary" href="collaborate.html#p1" data-i18n="projectShanhai.ctaBarBtn">联系巡演驻场</a>
-        </div>
-      </section>
-
-      <div id="videoModal" class="video-modal" onclick="closeVideoModal()">
-        <div class="video-modal-content" onclick="event.stopPropagation()">
-          <button class="video-close" onclick="closeVideoModal()">×</button>
-          <iframe
-            id="videoFrame"
-            src=""
-            title="Trailer"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen
-          ></iframe>
-        </div>
+      <div class="hero__cta">
+        <a class="btn btn-primary" href="#trailer" onclick="event.preventDefault(); document.getElementById('trailer').scrollIntoView({behavior:'smooth'});">
+          <span data-i18n="shanhai.hero.cta.trailer">观看宣传片</span> <span class="arrow">▶</span>
+        </a>
+        <a class="btn btn-ghost" href="#sec-cta"><span data-i18n="shanhai.hero.cta.collab">巡演与驻场合作</span> <span class="arrow">→</span></a>
       </div>
-    </main>
+    </div>
 
-    <footer class="site-footer">
-      <div class="inner">
-        <span data-i18n="projectShanhai.footCopy">© 2026 惊喜之夜</span>
-        <a href="works.html" data-i18n="projectShanhai.footBack">返回作品列表</a>
+    <div class="hero__dots" id="heroDots" aria-hidden="true"></div>
+    <div class="hero__scroll">Scroll</div>
+  </section>
+
+  <!-- Sub-nav -->
+  <nav class="subnav" aria-label="Section">
+    <div class="subnav__inner">
+      <a href="project-shanhai.html" class="is-active" data-i18n="shanhai.subnav.overview">概览 Overview</a>
+      <a href="project-shanhai-story.html" data-i18n="shanhai.subnav.story">故事 Story</a>
+      <a href="project-shanhai-stagecraft.html" data-i18n="shanhai.subnav.stage">舞台 Stage</a>
+      <a href="project-shanhai-gallery.html" data-i18n="shanhai.subnav.gallery">图集 Gallery</a>
+      <a href="project-shanhai-visit.html" data-i18n="shanhai.subnav.visit">观演 Visit</a>
+    </div>
+  </nav>
+
+  <!-- ========== 宣言 (MANIFESTO style) ========== -->
+  <section class="showpiece" id="sec-quote" data-screen-label="02 Quote">
+    <p class="showpiece__cite" data-i18n="shanhai.showpiece.cite">Signature Production · East meets Stagecraft</p>
+    <blockquote class="showpiece__quote" data-i18n="shanhai.showpiece.quote" data-i18n-html="true">神话不止被<em>讲述</em>——<br>它在舞台上被<strong>体量、机械与偶师</strong>共同唤醒。</blockquote>
+    <div class="showpiece__links">
+      <a href="project-shanhai-story.html" data-i18n="shanhai.showpiece.link1">完整故事与创作理念 →</a>
+      <a href="project-shanhai-gallery.html" data-i18n="shanhai.showpiece.link2">进入现场图集 →</a>
+    </div>
+  </section>
+
+  <!-- ========== HUB · 4 张分区卡 ========== -->
+  <section class="section hub" id="sec-hub" data-screen-label="03 Hub">
+    <span class="section__number" data-i18n="shanhai.hub.number">03 / Explore</span>
+    <p class="section__label" data-i18n="shanhai.hub.label">深入分区 · Deep Dive</p>
+    <h2 class="section__title" data-i18n="shanhai.hub.title" data-i18n-html="true">先看图，<em>再按需深入</em></h2>
+    <p class="section__lead" style="margin-bottom: 56px;" data-i18n="shanhai.hub.lead">以下分区将叙事、舞台制作与观演信息拆开呈现——每一块都是独立的一条阅读路径。</p>
+
+    <div class="hub__grid">
+      <a class="hub__card" href="project-shanhai-story.html">
+        <span class="hub__card-bg" style="background-image: url('https://raw.githubusercontent.com/ananinalfe-ship-it/surprise-night-web/main/assets/images/gallery/shanhai/ZDC_6457-6d2c03de-c16a-4f3f-be8c-613ff634b51a.png')"></span>
+        <span class="hub__card-kicker" data-i18n="shanhai.hub.c1.kicker">01 / Story</span>
+        <span class="hub__card-title" data-i18n="shanhai.hub.c1.title">故事与世界观</span>
+        <span class="hub__card-desc" data-i18n="shanhai.hub.c1.desc">典籍母题、当代叙事与少年试炼。</span>
+        <span class="hub__card-arrow">→</span>
+      </a>
+      <a class="hub__card" href="project-shanhai-stagecraft.html">
+        <span class="hub__card-bg" style="background-image: url('https://raw.githubusercontent.com/ananinalfe-ship-it/surprise-night-web/main/assets/images/gallery/shanhai/R0000061-17f2f94e-e984-4fb2-8cd3-b1fc625f3cce.png')"></span>
+        <span class="hub__card-kicker" data-i18n="shanhai.hub.c2.kicker">02 / Stage</span>
+        <span class="hub__card-title" data-i18n="shanhai.hub.c2.title">舞台与巨偶</span>
+        <span class="hub__card-desc" data-i18n="shanhai.hub.c2.desc">尺度、机械、多媒体与非遗同台。</span>
+        <span class="hub__card-arrow">→</span>
+      </a>
+      <a class="hub__card" href="project-shanhai-gallery.html">
+        <span class="hub__card-bg" style="background-image: url('https://raw.githubusercontent.com/ananinalfe-ship-it/surprise-night-web/main/assets/images/gallery/shanhai/R0000144_2-bc6cea24-d50a-4adf-aa84-ef844218b739.png')"></span>
+        <span class="hub__card-kicker" data-i18n="shanhai.hub.c3.kicker">03 / Gallery</span>
+        <span class="hub__card-title" data-i18n="shanhai.hub.c3.title">现场图集</span>
+        <span class="hub__card-desc" data-i18n="shanhai.hub.c3.desc">全幅剧照横向浏览，可点击放大。</span>
+        <span class="hub__card-arrow">→</span>
+      </a>
+      <a class="hub__card" href="project-shanhai-visit.html">
+        <span class="hub__card-bg" style="background-image: url('https://raw.githubusercontent.com/ananinalfe-ship-it/surprise-night-web/main/assets/images/gallery/shanhai/ZDC_6992-898ff248-844e-4cc3-8edf-48eeb2386861.png')"></span>
+        <span class="hub__card-kicker" data-i18n="shanhai.hub.c4.kicker">04 / Visit</span>
+        <span class="hub__card-title" data-i18n="shanhai.hub.c4.title">演出与观演</span>
+        <span class="hub__card-desc" data-i18n="shanhai.hub.c4.desc">时长、场地、受众与入场提示。</span>
+        <span class="hub__card-arrow">→</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- Filmstrip -->
+  <section class="filmstrip-wrap" id="sec-filmstrip">
+    <h2 class="sr-only" data-i18n="shanhai.filmstrip.srOnly">更多现场画面</h2>
+    <div class="filmstrip">
+      <div class="filmstrip__item"><img src="https://raw.githubusercontent.com/ananinalfe-ship-it/surprise-night-web/main/assets/images/gallery/shanhai/R0000080-65a68088-65c7-4ae0-a3be-d61ebeba6aad.png" alt="" loading="lazy" /></div>
+      <div class="filmstrip__item"><img src="https://raw.githubusercontent.com/ananinalfe-ship-it/surprise-night-web/main/assets/images/gallery/shanhai/ZDC_6810-1df01eaa-e6da-48a9-a6e0-8eb436d48a96.png" alt="" loading="lazy" /></div>
+      <div class="filmstrip__item"><img src="https://raw.githubusercontent.com/ananinalfe-ship-it/surprise-night-web/main/assets/images/gallery/shanhai/ZDC_7072-023e292e-3cfb-4069-a428-235a719a767b.png" alt="" loading="lazy" /></div>
+      <div class="filmstrip__item"><img src="https://raw.githubusercontent.com/ananinalfe-ship-it/surprise-night-web/main/assets/images/gallery/shanhai/ZDC_7094-40e66339-5426-4a04-97cc-155268a2bc4f.png" alt="" loading="lazy" /></div>
+      <div class="filmstrip__item"><img src="https://raw.githubusercontent.com/ananinalfe-ship-it/surprise-night-web/main/assets/images/gallery/shanhai/ZDC_7015-33fcb243-95fe-49d2-bc43-0a89b2445e18.png" alt="" loading="lazy" /></div>
+      <div class="filmstrip__item"><img src="https://raw.githubusercontent.com/ananinalfe-ship-it/surprise-night-web/main/assets/images/gallery/shanhai/R0000138-538040d4-616f-457c-a58c-2902d789b0da.png" alt="" loading="lazy" /></div>
+    </div>
+  </section>
+
+  <!-- ========== Highlights · 核心亮点 ========== -->
+  <section class="section highlights" id="sec-highlights" data-screen-label="04 Highlights">
+    <span class="section__number" data-i18n="shanhai.hl.number">04 / Highlights</span>
+    <p class="section__label" data-i18n="shanhai.hl.label">核心亮点 · Signature Points</p>
+    <h2 class="section__title" data-i18n="shanhai.hl.title" data-i18n-html="true">四个<em>记忆点</em></h2>
+
+    <div class="highlights__grid">
+      <div class="highlights__item" data-i18n="shanhai.hl.i1">巨偶奇观 — 6×10 米巨灵，终幕视觉记忆点。</div>
+      <div class="highlights__item" data-i18n="shanhai.hl.i2">神兽宇宙 — 毕方、九尾、精卫、应龙同台。</div>
+      <div class="highlights__item" data-i18n="shanhai.hl.i3">成长内核 — 勇气与不逃避，亲子与成人共鸣。</div>
+      <div class="highlights__item" data-i18n="shanhai.hl.i4">声场设计 — Sid Peacock 音乐，神话史诗感。</div>
+    </div>
+    <a class="link-accent" href="project-shanhai-stagecraft.html" data-i18n="shanhai.hl.link">查看舞台、巨偶与技术细节 →</a>
+  </section>
+
+  <!-- ========== Visit · 观演信息 ========== -->
+  <section class="section visit" id="sec-visit" data-screen-label="05 Visit">
+    <span class="section__number" data-i18n="shanhai.vinfo.number">05 / Visit</span>
+    <p class="section__label" data-i18n="shanhai.vinfo.label">演出与观演 · Visit Info</p>
+    <h2 class="section__title" data-i18n="shanhai.vinfo.title" data-i18n-html="true">一眼看<em>要点</em></h2>
+
+    <div class="info-grid">
+      <div class="info-cell">
+        <div class="label" data-i18n="shanhai.vinfo.duration.k">演出时长</div>
+        <div class="value" data-i18n="shanhai.vinfo.duration.v">90 分钟</div>
       </div>
-    </footer>
+      <div class="info-cell">
+        <div class="label" data-i18n="shanhai.vinfo.venue.k">首演场地</div>
+        <div class="value" data-i18n="shanhai.vinfo.venue.v">扬州运河大剧院</div>
+      </div>
+      <div class="info-cell">
+        <div class="label" data-i18n="shanhai.vinfo.age.k">建议年龄</div>
+        <div class="value" data-i18n="shanhai.vinfo.age.v">4 岁以上</div>
+      </div>
+      <div class="info-cell">
+        <div class="label" data-i18n="shanhai.vinfo.producer.k">演出单位</div>
+        <div class="value" data-i18n="shanhai.vinfo.producer.v">江苏省木偶剧团</div>
+      </div>
+    </div>
+    <a class="link-accent" href="project-shanhai-visit.html" data-i18n="shanhai.vinfo.link">完整信息、适龄与观演提示 →</a>
+  </section>
 
-    <script src="js/i18n.js" defer></script>
-    <script src="js/main.js" defer></script>
-  </body>
+  <!-- ========== Video ========== -->
+  <section class="video-section" id="trailer" data-screen-label="06 Trailer">
+    <span class="section__number" style="position: relative; top: 0; left: 0; display: block; margin-bottom: 20px;" data-i18n="shanhai.trailer.number">06 / Trailer</span>
+    <h2 class="section__title" style="margin-bottom: 40px;" data-i18n="shanhai.trailer.h" data-i18n-html="true">宣传<em>片</em></h2>
+
+    <div class="video-card">
+      <div class="video-thumb" onclick="openVideoModal('https://www.youtube.com/embed/GGDgrTKY2Qs?autoplay=1&amp;rel=0')" style="background-image: url('https://raw.githubusercontent.com/ananinalfe-ship-it/surprise-night-web/main/assets/images/gallery/shanhai/R0000144-1c7315b0-2508-450b-b6c6-9e7ed2854271.png')">
+        <div class="play-btn" aria-hidden="true">▶</div>
+      </div>
+      <div class="video-sources">
+        <button type="button" class="btn btn-primary" onclick="openVideoModal('https://www.youtube.com/embed/GGDgrTKY2Qs?autoplay=1&amp;rel=0')" data-i18n="shanhai.trailer.btn.yt">YouTube 播放</button>
+        <button type="button" class="btn btn-ghost" onclick="openVideoModal('//player.bilibili.com/player.html?bvid=BV12zAuztE78&amp;page=1&amp;high_quality=1&amp;danmaku=0&amp;autoplay=1')" data-i18n="shanhai.trailer.btn.bili">哔哩哔哩播放</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== CTA Bar ========== -->
+  <section class="cta-bar" id="sec-cta">
+    <div class="cta-bar__inner">
+      <p data-i18n="shanhai.ctaBar.p">城市巡演、驻场版本与巨偶物流 — 欢迎洽谈合作。</p>
+      <a class="btn btn-primary" href="index.html#caps"><span data-i18n="shanhai.ctaBar.btn">联系巡演驻场</span> <span class="arrow">→</span></a>
+    </div>
+  </section>
+
+  <!-- Photo Lightbox -->
+  <div class="photo-lb" id="photoLb" aria-hidden="true">
+    <div class="photo-lb__stage">
+      <img class="photo-lb__img" id="photoLbImg" alt="" />
+    </div>
+    <button class="photo-lb__close" id="photoLbClose" aria-label="关闭">×</button>
+    <button class="photo-lb__nav photo-lb__nav--prev" id="photoLbPrev" aria-label="上一张">‹</button>
+    <button class="photo-lb__nav photo-lb__nav--next" id="photoLbNext" aria-label="下一张">›</button>
+    <div class="photo-lb__cap" id="photoLbCap"></div>
+  </div>
+
+  <!-- Video Modal -->
+  <div id="videoModal" class="video-modal" onclick="closeVideoModal()">
+    <div class="video-modal__content" onclick="event.stopPropagation()">
+      <button class="video-modal__close" onclick="closeVideoModal()">×</button>
+      <iframe id="videoFrame" src="" title="Trailer" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    </div>
+  </div>
+
+</main>
+
+<footer class="footer">
+  <div class="footer__inner">
+    <span data-i18n="shanhai.footer.brand">© 2026 惊喜之夜 · Surprise Night</span>
+    <a href="index.html#works" data-i18n="shanhai.footer.back">返回作品列表 →</a>
+  </div>
+</footer>
+
+<!-- 右侧纵向目录 -->
+<nav class="side-toc" id="sideToc" aria-label="页面目录">
+  <a class="side-toc__item on" href="#sec-hero" data-target="sec-hero">
+    <span class="side-toc__label" data-i18n="shanhai.sideToc.hero">引言 Hero</span>
+    <span class="side-toc__dot"></span>
+  </a>
+  <a class="side-toc__item" href="#sec-quote" data-target="sec-quote">
+    <span class="side-toc__label" data-i18n="shanhai.sideToc.quote">宣言 Quote</span>
+    <span class="side-toc__dot"></span>
+  </a>
+  <a class="side-toc__item" href="#sec-hub" data-target="sec-hub">
+    <span class="side-toc__label" data-i18n="shanhai.sideToc.hub">分区 Hub</span>
+    <span class="side-toc__dot"></span>
+  </a>
+  <a class="side-toc__item" href="#sec-cinematic" data-target="sec-cinematic">
+    <span class="side-toc__label" data-i18n="shanhai.sideToc.still">剧照 Still</span>
+    <span class="side-toc__dot"></span>
+  </a>
+  <a class="side-toc__item" href="#sec-filmstrip" data-target="sec-filmstrip">
+    <span class="side-toc__label" data-i18n="shanhai.sideToc.strip">图集 Strip</span>
+    <span class="side-toc__dot"></span>
+  </a>
+  <a class="side-toc__item" href="#sec-highlights" data-target="sec-highlights">
+    <span class="side-toc__label" data-i18n="shanhai.sideToc.highlights">亮点 Highlights</span>
+    <span class="side-toc__dot"></span>
+  </a>
+  <a class="side-toc__item" href="#sec-visit" data-target="sec-visit">
+    <span class="side-toc__label" data-i18n="shanhai.sideToc.visit">观演 Visit</span>
+    <span class="side-toc__dot"></span>
+  </a>
+  <a class="side-toc__item" href="#trailer" data-target="trailer">
+    <span class="side-toc__label" data-i18n="shanhai.sideToc.trailer">宣传片 Trailer</span>
+    <span class="side-toc__dot"></span>
+  </a>
+  <a class="side-toc__item" href="#sec-cta" data-target="sec-cta">
+    <span class="side-toc__label" data-i18n="shanhai.sideToc.collab">合作 Collab</span>
+    <span class="side-toc__dot"></span>
+  </a>
+</nav>
+
+<script>
+/* ============================================================
+   身份同步 · 从首页带入 data-role
+   ============================================================ */
+(function syncRole() {
+  let role = 'guest';
+  try { role = localStorage.getItem('sn-role') || 'guest'; } catch(e){}
+  if (!['guest','accomplice'].includes(role)) role = 'guest';
+  document.body.setAttribute('data-role', role);
+
+  // 更新导航上的身份徽章（如果有）
+  document.addEventListener('DOMContentLoaded', () => {
+    const badge = document.getElementById('roleBadgePage');
+    if (!badge) return;
+    const labels = { guest:'Audience · 观众', accomplice:'Accomplice · 共谋者' };
+    badge.querySelector('.role-badge__label').textContent = labels[role] || labels.guest;
+  });
+})();
+
+/* ============================================================
+   开场幕布 · 与首页同款（只在每个会话首次播放）
+   ============================================================ */
+(function intro() {
+  const seen = sessionStorage.getItem('shanhai-intro-done') === '1';
+  if (seen) { document.body.classList.add('no-intro'); return; }
+  requestAnimationFrame(() => {
+    document.body.classList.add('intro-ready');
+    setTimeout(() => {
+      document.body.classList.add('intro-done');
+      sessionStorage.setItem('shanhai-intro-done', '1');
+    }, 1500);
+  });
+})();
+
+/* ============================================================
+   Cursor glow
+   ============================================================ */
+(function glow() {
+  const g = document.getElementById('cursorGlow');
+  if (!g || window.matchMedia('(hover: none)').matches) return;
+  document.addEventListener('mousemove', (e) => {
+    g.style.left = e.clientX + 'px';
+    g.style.top = e.clientY + 'px';
+  }, { passive: true });
+  document.body.classList.add('has-cursor');
+})();
+
+/* ============================================================
+   Nav scroll state
+   ============================================================ */
+(function navScroll() {
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('is-scrolled', window.scrollY > 40);
+  }, { passive: true });
+})();
+
+/* ============================================================
+   Hero 幻灯片轮播 + 进度条
+   ============================================================ */
+(function slideshow() {
+  const slides = document.querySelectorAll('.hero__slide');
+  const dotsWrap = document.getElementById('heroDots');
+  if (!slides.length) return;
+  slides.forEach((s, i) => {
+    const b = document.createElement('button');
+    if (i === 0) b.className = 'on';
+    b.setAttribute('aria-label', `画面 ${i+1}`);
+    b.addEventListener('click', () => go(i, true));
+    dotsWrap.appendChild(b);
+  });
+  const dots = dotsWrap.querySelectorAll('button');
+  let idx = 0, timer = null;
+  function go(n, manual) {
+    slides[idx].classList.remove('is-active');
+    dots[idx].classList.remove('on');
+    idx = (n + slides.length) % slides.length;
+    slides[idx].classList.add('is-active');
+    dots[idx].classList.add('on');
+    if (manual) reset();
+  }
+  function reset() { clearInterval(timer); timer = setInterval(() => go(idx + 1), 7500); }
+  reset();
+})();
+
+/* ============================================================
+   Hero 星点
+   ============================================================ */
+(function stars() {
+  const box = document.getElementById('heroStars');
+  if (!box) return;
+  for (let i = 0; i < 40; i++) {
+    const s = document.createElement('span');
+    s.style.left = Math.random() * 100 + '%';
+    s.style.top = Math.random() * 100 + '%';
+    s.style.animationDelay = (Math.random() * 3) + 's';
+    s.style.animationDuration = (2 + Math.random() * 3) + 's';
+    box.appendChild(s);
+  }
+})();
+
+/* ============================================================
+   数字滚入动画
+   ============================================================ */
+(function counters() {
+  const nodes = document.querySelectorAll('.counter');
+  if (!('IntersectionObserver' in window)) {
+    nodes.forEach(n => n.textContent = n.dataset.target);
+    return;
+  }
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      const n = e.target;
+      const target = parseInt(n.dataset.target, 10);
+      const dur = 1100;
+      const start = performance.now();
+      function frame(now) {
+        const t = Math.min(1, (now - start) / dur);
+        const eased = 1 - Math.pow(1 - t, 3);
+        n.textContent = Math.round(target * eased);
+        if (t < 1) requestAnimationFrame(frame);
+      }
+      requestAnimationFrame(frame);
+      io.unobserve(n);
+    });
+  }, { threshold: 0.4 });
+  nodes.forEach(n => io.observe(n));
+})();
+
+/* ============================================================
+   右侧 scroll-spy 目录
+   ============================================================ */
+(function spy() {
+  const items = document.querySelectorAll('.side-toc__item');
+  const sections = Array.from(items).map(i => document.getElementById(i.dataset.target)).filter(Boolean);
+  if (!sections.length) return;
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        const id = e.target.id;
+        items.forEach(i => i.classList.toggle('on', i.dataset.target === id));
+      }
+    });
+  }, { rootMargin: '-40% 0px -55% 0px' });
+  sections.forEach(s => io.observe(s));
+})();
+
+/* ============================================================
+   Video Modal
+   ============================================================ */
+function openVideoModal(src) {
+  document.getElementById('videoFrame').src = src;
+  document.getElementById('videoModal').classList.add('is-open');
+}
+function closeVideoModal() {
+  document.getElementById('videoFrame').src = '';
+  document.getElementById('videoModal').classList.remove('is-open');
+}
+
+/* ============== 剧照 Lightbox ============== */
+(function photoLightbox(){
+  const imgs = Array.from(document.querySelectorAll('.cinematic img, .gallery-duo-item img, .filmstrip__item img'));
+  if (!imgs.length) return;
+  const lb = document.getElementById('photoLb');
+  const lbImg = document.getElementById('photoLbImg');
+  const lbCap = document.getElementById('photoLbCap');
+  let idx = 0;
+  function show(i){
+    idx = (i + imgs.length) % imgs.length;
+    const src = imgs[idx].currentSrc || imgs[idx].src;
+    lbImg.style.opacity = '0';
+    const pre = new Image();
+    pre.onload = ()=>{ lbImg.src = src; lbImg.style.opacity = '1'; };
+    pre.src = src;
+    lbCap.innerHTML = `<em>FRAME ${String(idx+1).padStart(2,'0')}</em> <span style="margin-left:14px;opacity:.5">${idx+1} / ${imgs.length}</span>`;
+  }
+  function open(i){ show(i); lb.classList.add('is-open'); document.body.style.overflow = 'hidden'; }
+  function close(){ lb.classList.remove('is-open'); document.body.style.overflow = ''; }
+  imgs.forEach((img, i)=> img.addEventListener('click', ()=> open(i)));
+  document.getElementById('photoLbClose').addEventListener('click', close);
+  document.getElementById('photoLbPrev').addEventListener('click', ()=> show(idx-1));
+  document.getElementById('photoLbNext').addEventListener('click', ()=> show(idx+1));
+  lb.addEventListener('click', (e)=>{ if (e.target === lb) close(); });
+  document.addEventListener('keydown', (e)=>{
+    if (!lb.classList.contains('is-open')) return;
+    if (e.key === 'Escape') close();
+    if (e.key === 'ArrowLeft')  show(idx-1);
+    if (e.key === 'ArrowRight') show(idx+1);
+  });
+})();
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') closeVideoModal();
+});
+</script>
+
+
+<script>
+/* 汉堡菜单（移动端） */
+(function hamburger(){
+  const navEl = document.getElementById('nav') || document.querySelector('.nav');
+  const burger = document.getElementById('navBurger');
+  if (!burger || !navEl) return;
+  const body = document.body;
+  const closeNav = () => {
+    navEl.classList.remove('nav--open');
+    burger.setAttribute('aria-expanded', 'false');
+    body.style.overflow = '';
+  };
+  burger.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const open = navEl.classList.toggle('nav--open');
+    burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    body.style.overflow = open ? 'hidden' : '';
+  });
+  navEl.querySelectorAll('.nav__link').forEach(a => a.addEventListener('click', closeNav));
+  document.addEventListener('click', (e) => {
+    if (navEl.classList.contains('nav--open') && !navEl.contains(e.target)) closeNav();
+  });
+})();
+</script>
+
+</body>
 </html>
