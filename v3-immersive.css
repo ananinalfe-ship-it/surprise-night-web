@@ -1124,3 +1124,9 @@ body.is-idle .idle { opacity: 1; pointer-events: auto; }
 .card.card--flip .card__goto {
   z-index: 30;
 }
+
+/* 观众身份下：隐藏所有道具彩蛋和计数器（与 .secret-stage 一起受身份控制） */
+body[data-role="guest"] .prop,
+body[data-role="guest"] .props-counter {
+  display: none !important;
+}
