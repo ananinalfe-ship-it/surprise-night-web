@@ -207,7 +207,7 @@
   // 统一从 i18n dict 取值；若 dict 尚未加载，回退到中文默认
   const _t = (key, fallback) => (window.__i18n && window.__i18n.dict && window.__i18n.dict[key]) || fallback;
   const PROPS = [
-    { id:'letter', icon:'✉',
+    { id:'letter', icon:'\u2709\uFE0E',
       get title(){ return _t('prop.letter.title', '一封未寄出的信'); },
       get text(){ return _t('prop.letter.text', '"——如果你读到这封信，就说明你也在找我。第三场演出结束后，请留在原座位。"<br><br>【道具出自《终极骗局 3.0》】'); } },
     { id:'ticket', icon:'✦',
