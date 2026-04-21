@@ -517,6 +517,66 @@
     line-height: 1.8; position: relative;
     font-family: var(--serif-cn);
   }
+
+  /* ============================================================
+     袁冶卡片 · 可点击进入创始人页
+     ============================================================ */
+  .artist--has-link .artist__link {
+    display: block;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform .5s cubic-bezier(.2,.9,.2,1);
+  }
+  .artist--has-link .artist__link:hover {
+    transform: translateY(-4px);
+  }
+  .artist--has-link .artist__link img {
+    transition: transform .8s cubic-bezier(.2,.9,.2,1), filter .5s ease;
+  }
+  .artist--has-link .artist__link:hover img {
+    transform: scale(1.06);
+    filter: contrast(1.08) brightness(1.08);
+  }
+  .artist--has-link .artist__link::after {
+    content: '';
+    position: absolute; inset: 0;
+    background: linear-gradient(180deg, transparent 55%, rgba(196,53,74,0.18) 100%);
+    opacity: 0;
+    transition: opacity .45s ease;
+    pointer-events: none;
+  }
+  .artist--has-link .artist__link:hover::after {
+    opacity: 1;
+  }
+  .artist__link-hint {
+    position: absolute;
+    bottom: 14px; right: 14px; z-index: 2;
+    width: 32px; height: 32px;
+    display: flex; align-items: center; justify-content: center;
+    background: rgba(0,0,0,0.6);
+    border: 1px solid rgba(255,255,255,0.35);
+    border-radius: 999px;
+    color: #fff; font-size: 13px;
+    backdrop-filter: blur(6px);
+    opacity: 0;
+    transform: translateX(-8px);
+    transition: opacity .35s ease, transform .35s ease;
+  }
+  .artist--has-link .artist__link:hover .artist__link-hint {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  .artist__name-link {
+    color: inherit;
+    text-decoration: none;
+    border-bottom: 1px dashed transparent;
+    transition: border-color .3s ease, color .3s ease;
+  }
+  .artist__name-link:hover {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+  }
 </style>
 <script src="i18n.js"></script>
 </head>
@@ -602,15 +662,16 @@
 
     <div class="artists__grid">
 
-      <!-- 01 · 袁冶 -->
-      <article class="artist">
-        <div class="artist__media">
+      <!-- 01 · 袁冶（可点击头像进入创始人页） -->
+      <article class="artist artist--has-link">
+        <a class="artist__media artist__link" href="founder.html" aria-label="查看袁冶创始人页">
           <span class="artist__id">N° 01</span>
           <img src="images/artist-yuan-ye.png" alt="袁冶 Yuan Ye" style="object-position: 28% 34%;" />
-          <div class="artist__caption"><span>Yuan Ye</span><span>Director</span></div>
-        </div>
+          <div class="artist__caption"><span>Yuan Ye</span><span>Director · 点击了解更多</span></div>
+          <span class="artist__link-hint" aria-hidden="true">→</span>
+        </a>
         <div class="artist__role" data-i18n="cc.role.director">Director · 导演</div>
-        <h3 class="artist__name">袁冶</h3>
+        <h3 class="artist__name"><a href="founder.html" class="artist__name-link">袁冶</a></h3>
         <div class="artist__name-en">Yuan Ye</div>
         <div class="artist__bio">
           <p data-i18n="cc.a01.bio1">中宣部「四个一批」人才；303 戏剧艺术中心艺术总监；惊喜之夜艺术总监。</p>
