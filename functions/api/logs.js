@@ -26,14 +26,16 @@ export async function onRequestGet(context) {
     });
   }
 
-  // 读取所有聊天记录（最近500条）
+  // 读取所有聊天记录（最近500条）— 并行读，避免串行循环超出 CF Function 10 秒超时
   var list = await env.CHAT_LOGS.list({ prefix: "chat_", limit: 500 });
+  var vals = await Promise.all(list.keys.map(function (k) {
+    return env.CHAT_LOGS.get(k.name);
+  }));
   var logs = [];
-  for (var i = 0; i < list.keys.length; i++) {
-    var val = await env.CHAT_LOGS.get(list.keys[i].name);
-    if (val) {
+  for (var i = 0; i < vals.length; i++) {
+    if (vals[i]) {
       try {
-        logs.push(JSON.parse(val));
+        logs.push(JSON.parse(vals[i]));
       } catch (e) {}
     }
   }
