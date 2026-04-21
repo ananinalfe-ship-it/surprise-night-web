@@ -1429,8 +1429,9 @@ window.TWEAKS = TWEAKS;
   <!-- ========== HERO ========== -->
   <section class="hero" data-screen-label="01 Hero">
     <div class="hero__bg"></div>
-    <video class="hero__video" autoplay muted loop playsinline
+    <video class="hero__video" autoplay muted loop playsinline preload="metadata"
       poster="assets/images/hero-home.jpg">
+      <source src="assets/videos/hero-bg-mobile.mp4" type="video/mp4" media="(max-width: 768px)">
       <source src="assets/videos/hero-bg.mp4" type="video/mp4">
     </video>
     <div class="hero__stars" id="heroStars"></div>
