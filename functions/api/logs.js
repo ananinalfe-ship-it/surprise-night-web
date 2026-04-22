@@ -26,9 +26,22 @@ export async function onRequestGet(context) {
     });
   }
 
-  // 读取所有聊天记录（最近500条）— 并行读，避免串行循环超出 CF Function 10 秒超时
-  var list = await env.CHAT_LOGS.list({ prefix: "chat_", limit: 500 });
-  var vals = await Promise.all(list.keys.map(function (k) {
+  // 读所有 key（KV list 按 key 升序返回；key = chat_{timestamp}_{rand}，升序 = 时间从旧到新）
+  // 先全部拿回来，再按 key 降序排取最新 500 条；避免只拿前 500 就停（会丢最近几天的数据）
+  var allKeys = [];
+  var cursor = undefined;
+  for (var page = 0; page < 6; page++) {  // 最多 6 页 × 1000 = 6000 条上限
+    var listRes = await env.CHAT_LOGS.list({ prefix: "chat_", limit: 1000, cursor: cursor });
+    allKeys = allKeys.concat(listRes.keys);
+    if (listRes.list_complete) break;
+    cursor = listRes.cursor;
+  }
+  // 按 key 降序（时间从新到旧）取最近 500 条
+  allKeys.sort(function (a, b) { return a.name < b.name ? 1 : (a.name > b.name ? -1 : 0); });
+  var recentKeys = allKeys.slice(0, 500);
+
+  // 并行读所有值
+  var vals = await Promise.all(recentKeys.map(function (k) {
     return env.CHAT_LOGS.get(k.name);
   }));
   var logs = [];
