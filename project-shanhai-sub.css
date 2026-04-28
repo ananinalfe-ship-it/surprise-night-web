@@ -63,7 +63,7 @@ a { color: inherit; text-decoration: none; }
   top: calc(50% + 2px); left: 0;
   transform: translateY(-50%);
   width: 252px; height: 63px;
-  background-image: url('assets/logo.png');
+  background-image: url('assets/logo.webp');
   background-size: contain;
   background-repeat: no-repeat;
   background-position: left center;
@@ -420,7 +420,7 @@ a { color: inherit; text-decoration: none; }
   border: 1px solid var(--line);
   background:
     linear-gradient(180deg, rgba(5,6,10,0.3), rgba(5,6,10,0.78)),
-    url('assets/images/gallery/shanhai/R0000144-1c7315b0-2508-450b-b6c6-9e7ed2854271.png') center 40% / cover no-repeat;
+    url('assets/images/gallery/shanhai/R0000144-1c7315b0-2508-450b-b6c6-9e7ed2854271.webp') center 40% / cover no-repeat;
   display: grid; place-items: center;
 }
 .video-card__play {
