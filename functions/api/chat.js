@@ -1225,19 +1225,25 @@ export async function onRequestPost(context) {
 
   // 调用 AI Provider（流式，实现打字机效果）
   // DeepSeek 与 MiniMax 都是 OpenAI 兼容格式，请求体一致
+  var requestBody = {
+    model: provider.model,
+    messages: messages,
+    max_tokens: 500,
+    temperature: 0.7,
+    stream: true,
+  };
+  // DeepSeek V4 默认输出推理过程（reasoning_content），客户场景不需要
+  // 禁用思考 → content 直接给最终答案，避免流式空闲 502
+  if (provider.name === "deepseek") {
+    requestBody.thinking = { type: "disabled" };
+  }
   var apiResp = await fetch(provider.url, {
     method: "POST",
     headers: {
       Authorization: "Bearer " + apiKey,
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({
-      model: provider.model,
-      messages: messages,
-      max_tokens: 500,
-      temperature: 0.7,
-      stream: true,
-    }),
+    body: JSON.stringify(requestBody),
   });
 
   if (!apiResp.ok) {
