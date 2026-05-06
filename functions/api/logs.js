@@ -10,6 +10,8 @@ export async function onRequestGet(context) {
   var env = context.env;
   var url = new URL(context.request.url);
   var pwd = url.searchParams.get("pwd");
+  var format = url.searchParams.get("format") || "html";   // html | json
+  var hours = parseInt(url.searchParams.get("hours") || "0", 10); // 0 表示不过滤
 
   // 密码验证
   if (!env.LOGS_PASSWORD || pwd !== env.LOGS_PASSWORD) {
@@ -27,7 +29,6 @@ export async function onRequestGet(context) {
   }
 
   // 读所有 key（KV list 按 key 升序返回；key = chat_{timestamp}_{rand}，升序 = 时间从旧到新）
-  // 先全部拿回来，再按 key 降序排取最新 500 条；避免只拿前 500 就停（会丢最近几天的数据）
   var allKeys = [];
   var cursor = undefined;
   for (var page = 0; page < 6; page++) {  // 最多 6 页 × 1000 = 6000 条上限
@@ -36,9 +37,22 @@ export async function onRequestGet(context) {
     if (listRes.list_complete) break;
     cursor = listRes.cursor;
   }
-  // 按 key 降序（时间从新到旧）取最近 500 条
+  // 按 key 降序（时间从新到旧）
   allKeys.sort(function (a, b) { return a.name < b.name ? 1 : (a.name > b.name ? -1 : 0); });
-  var recentKeys = allKeys.slice(0, 500);
+
+  // 如果 hours 参数有值，先按 key 里的 timestamp 过滤（key 形如 chat_1778045924123_abc）
+  // 否则取前 500 条
+  var recentKeys;
+  if (hours > 0) {
+    var cutoffMs = Date.now() - hours * 3600 * 1000;
+    recentKeys = allKeys.filter(function (k) {
+      var m = k.name.match(/^chat_(\d+)_/);
+      if (!m) return false;
+      return parseInt(m[1], 10) >= cutoffMs;
+    });
+  } else {
+    recentKeys = allKeys.slice(0, 500);
+  }
 
   // 并行读所有值
   var vals = await Promise.all(recentKeys.map(function (k) {
@@ -57,6 +71,21 @@ export async function onRequestGet(context) {
   logs.sort(function (a, b) {
     return new Date(b.time) - new Date(a.time);
   });
+
+  // ========== JSON 格式（供 Apps Script 等程序消费）==========
+  if (format === "json") {
+    return new Response(JSON.stringify({
+      ok: true,
+      count: logs.length,
+      hours: hours || null,
+      logs: logs,
+    }), {
+      headers: {
+        "Content-Type": "application/json; charset=utf-8",
+        "Cache-Control": "no-cache",
+      },
+    });
+  }
 
   // 返回一个好看的 HTML 页面
   var rows = "";
