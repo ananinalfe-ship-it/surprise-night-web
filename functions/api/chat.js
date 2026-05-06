@@ -1160,13 +1160,36 @@ ${KNOWLEDGE}
 - 回答控制在80字以内，对方追问再展开，最多150字`;
 
 // ========== 请求处理 ==========
+// 模型供应商配置：优先 DeepSeek，没配则 fallback MiniMax（向下兼容）
+function pickProvider(env) {
+  if (env.DEEPSEEK_API_KEY) {
+    return {
+      name: "deepseek",
+      apiKey: env.DEEPSEEK_API_KEY,
+      url: "https://api.deepseek.com/chat/completions",
+      // 默认 flash（性价比最高），可在 CF 环境变量 DEEPSEEK_MODEL 覆盖（如 "deepseek-v4-pro"）
+      model: env.DEEPSEEK_MODEL || "deepseek-v4-flash",
+    };
+  }
+  if (env.MINIMAX_API_KEY) {
+    return {
+      name: "minimax",
+      apiKey: env.MINIMAX_API_KEY,
+      url: "https://api.minimax.chat/v1/chat/completions",
+      model: "MiniMax-M2.7-highspeed",
+    };
+  }
+  return null;
+}
+
 export async function onRequestPost(context) {
   var env = context.env;
-  var apiKey = env.MINIMAX_API_KEY;
+  var provider = pickProvider(env);
 
-  if (!apiKey) {
+  if (!provider) {
     return jsonResp({ error: "AI 服务未配置" }, 500);
   }
+  var apiKey = provider.apiKey;
 
   var body;
   try {
@@ -1200,15 +1223,16 @@ export async function onRequestPost(context) {
     { role: "user", content: userMessage },
   ];
 
-  // 调用 MiniMax API（流式，实现打字机效果）
-  var apiResp = await fetch("https://api.minimax.chat/v1/chat/completions", {
+  // 调用 AI Provider（流式，实现打字机效果）
+  // DeepSeek 与 MiniMax 都是 OpenAI 兼容格式，请求体一致
+  var apiResp = await fetch(provider.url, {
     method: "POST",
     headers: {
       Authorization: "Bearer " + apiKey,
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      model: "MiniMax-M2.7-highspeed",
+      model: provider.model,
       messages: messages,
       max_tokens: 500,
       temperature: 0.7,
@@ -1218,7 +1242,7 @@ export async function onRequestPost(context) {
 
   if (!apiResp.ok) {
     var errText = await apiResp.text();
-    console.log("MiniMax API error:", apiResp.status, errText);
+    console.log(provider.name + " API error:", apiResp.status, errText);
     return jsonResp({ error: "AI 服务暂时不可用" }, 502);
   }
 
