@@ -660,3 +660,9 @@ a { color: inherit; text-decoration: none; }
   .nav__link.is-active::before { color: var(--accent); }
   .nav__lang { margin-top: 28px; align-self: flex-start; }
 }
+
+/* Programme synopsis: keep the ending optional for prospective audiences. */
+.story-spoiler { margin: 28px 0; padding: 20px; border: 1px solid var(--line); }
+.story-spoiler summary { cursor: pointer; color: var(--text); line-height: 1.6; }
+.story-spoiler p { margin-top: 16px; }
+.info-cell .value { overflow-wrap: anywhere; }
