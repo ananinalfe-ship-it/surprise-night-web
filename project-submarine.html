@@ -20,9 +20,8 @@
 <meta name="twitter:title" content="海底两万里 20,000 Leagues — 惊喜之夜" />
 <meta name="twitter:description" content="凡尔纳经典改编。深海探险沉浸剧场。" />
 <meta name="twitter:image" content="https://www.surprise-night.com/assets/images/gallery/submarine-still-01.webp" />
-<link rel="preconnect" href="https://fonts.geekzu.org" />
-<link rel="preconnect" href="https://gstatic.geekzu.org" crossorigin />
-<link href="https://fonts.geekzu.org/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Noto+Sans+SC:wght@300;400;500;600;700&family=Noto+Serif+SC:wght@400;500;600;700&family=Syne:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&family=ZCOOL+XiaoWei&display=swap" rel="stylesheet" />
+<link href="assets/fonts/site-common.81ca0fe16c2c.css" rel="stylesheet" />
+<link href="assets/fonts/site-submarine.efd4f60c7de2.css" rel="stylesheet" />
 <link rel="stylesheet" href="v3-shared.css" />
 
 <style>
@@ -882,6 +881,33 @@ body[data-role="accomplice"] {
 }
 </style>
 <script src="i18n.js"></script>
+<!-- Original artwork is loaded ahead of the viewport; failed/disabled JS keeps the old behavior. -->
+<style>
+html.resource-loading [data-defer-bg="element"]:not([data-bg-ready]),
+html.resource-loading [data-defer-bg="before"]:not([data-bg-ready])::before,
+html.resource-loading [data-defer-bg="after"]:not([data-bg-ready])::after { background-image: none !important; }
+</style>
+<script>
+(function () {
+  var root = document.documentElement;
+  window.__snRestoreMedia = function () {
+    root.classList.remove('resource-loading');
+    function restoreVideos() {
+      document.querySelectorAll('video[data-defer-video]').forEach(function (video) {
+        video.querySelectorAll('source[data-src]').forEach(function (source) { source.src = source.dataset.src; });
+        video.load();
+        var playing = video.play();
+        if (playing) playing.catch(function () {});
+      });
+    }
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', restoreVideos, { once: true });
+    else restoreVideos();
+  };
+  if ('IntersectionObserver' in window) root.classList.add('resource-loading');
+  window.__snMediaTimer = setTimeout(window.__snRestoreMedia, 8000);
+})();
+</script>
+<script src="assets/loading/resource-loading.7f3690714be7.js" defer onerror="window.__snRestoreMedia()"></script>
 </head>
 <body>
 
@@ -970,7 +996,7 @@ body[data-role="accomplice"] {
       <article class="porthole porthole--1 reveal">
         <div class="porthole__vis">
           <div class="porthole__frame">
-            <div class="porthole__photo" style="background-image: url('images/sub-02.webp')"></div>
+            <div class="porthole__photo" style="background-image: url('images/sub-02.webp')" data-defer-bg="element"></div>
             <div class="porthole__glass"></div>
           </div>
           <div class="porthole__rivets" data-rivets="12"></div>
@@ -987,7 +1013,7 @@ body[data-role="accomplice"] {
       <article class="porthole porthole--2 reveal">
         <div class="porthole__vis">
           <div class="porthole__frame">
-            <div class="porthole__photo" style="background-image: url('images/sub-04.webp')"></div>
+            <div class="porthole__photo" style="background-image: url('images/sub-04.webp')" data-defer-bg="element"></div>
             <div class="porthole__glass"></div>
           </div>
           <div class="porthole__rivets" data-rivets="12"></div>
@@ -1004,7 +1030,7 @@ body[data-role="accomplice"] {
       <article class="porthole porthole--3 reveal">
         <div class="porthole__vis">
           <div class="porthole__frame">
-            <div class="porthole__photo" style="background-image: url('images/sub-03.webp')"></div>
+            <div class="porthole__photo" style="background-image: url('images/sub-03.webp')" data-defer-bg="element"></div>
             <div class="porthole__glass"></div>
           </div>
           <div class="porthole__rivets" data-rivets="12"></div>
@@ -1021,7 +1047,7 @@ body[data-role="accomplice"] {
       <article class="porthole porthole--4 reveal">
         <div class="porthole__vis">
           <div class="porthole__frame">
-            <div class="porthole__photo" style="background-image: url('images/sub-05.webp'); background-position: center 45%;"></div>
+            <div class="porthole__photo" style="background-image: url('images/sub-05.webp'); background-position: center 45%;" data-defer-bg="element"></div>
             <div class="porthole__glass"></div>
           </div>
           <div class="porthole__rivets" data-rivets="12"></div>
@@ -1304,7 +1330,7 @@ body[data-role="accomplice"] {
           linear-gradient(180deg, rgba(4,8,18,0.35), rgba(4,8,18,0.82)),
           url('images/sub-01.webp') center 40% / cover no-repeat;
         transition: transform .5s ease, border-color .3s;
-      ">
+      " data-defer-bg="element">
         <div style="width:84px; height:84px; border-radius:50%;
           background:rgba(245,201,110,0.1);
           backdrop-filter:blur(10px);
@@ -1349,7 +1375,7 @@ body[data-role="accomplice"] {
   </section>
 
   <!-- ============= CTA ============= -->
-  <section class="sub-cta">
+  <section class="sub-cta" data-defer-bg="before">
     <div class="sub-cta__inner reveal">
       <h2 class="sub-cta__h" data-i18n="show.submarine.cta.h" data-i18n-html="true">鹦鹉螺号<em>下一站，你</em></h2>
       <p class="sub-cta__p" data-i18n="show.submarine.cta.p">想把这只鲸鱼带进你所在的城市？或者想带孩子亲自登船？两条通道都在下面。</p>

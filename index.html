@@ -30,9 +30,8 @@
 })();
 </script>
 <style>html.no-tweaks .tweaks,html.no-tweaks .tweaks__fab{display:none!important;}</style>
-<link rel="preconnect" href="https://fonts.geekzu.org" />
-<link rel="preconnect" href="https://gstatic.geekzu.org" crossorigin />
-<link href="https://fonts.geekzu.org/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Noto+Sans+SC:wght@300;400;500;600;700&family=Noto+Serif+SC:wght@400;500;600;700&family=Syne:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link href="assets/fonts/site-common.81ca0fe16c2c.css" rel="stylesheet" />
+<link href="assets/fonts/site-default.fa99fdfead6a.css" rel="stylesheet" />
 
 <script src="i18n.js"></script>
 
@@ -1281,6 +1280,33 @@ window.TWEAKS = TWEAKS;
 </style>
 <link rel="stylesheet" href="v3-immersive.css?v=3cards5">
 
+<!-- Original artwork is loaded ahead of the viewport; failed/disabled JS keeps the old behavior. -->
+<style>
+html.resource-loading [data-defer-bg="element"]:not([data-bg-ready]),
+html.resource-loading [data-defer-bg="before"]:not([data-bg-ready])::before,
+html.resource-loading [data-defer-bg="after"]:not([data-bg-ready])::after { background-image: none !important; }
+</style>
+<script>
+(function () {
+  var root = document.documentElement;
+  window.__snRestoreMedia = function () {
+    root.classList.remove('resource-loading');
+    function restoreVideos() {
+      document.querySelectorAll('video[data-defer-video]').forEach(function (video) {
+        video.querySelectorAll('source[data-src]').forEach(function (source) { source.src = source.dataset.src; });
+        video.load();
+        var playing = video.play();
+        if (playing) playing.catch(function () {});
+      });
+    }
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', restoreVideos, { once: true });
+    else restoreVideos();
+  };
+  if ('IntersectionObserver' in window) root.classList.add('resource-loading');
+  window.__snMediaTimer = setTimeout(window.__snRestoreMedia, 8000);
+})();
+</script>
+<script src="assets/loading/resource-loading.7f3690714be7.js" defer onerror="window.__snRestoreMedia()"></script>
 </head>
 
 <body data-screen-label="Surprise Night v3">
@@ -1429,11 +1455,18 @@ window.TWEAKS = TWEAKS;
   <!-- ========== HERO ========== -->
   <section class="hero" data-screen-label="01 Hero">
     <div class="hero__bg"></div>
-    <video class="hero__video" autoplay muted loop playsinline preload="metadata"
+    <video class="hero__video" autoplay muted loop playsinline preload="none" data-defer-video
+      poster="assets/images/hero-home.webp">
+      <source data-src="assets/videos/hero-bg-mobile.mp4" type="video/mp4" media="(max-width: 768px)">
+      <source data-src="assets/videos/hero-bg.mp4" type="video/mp4">
+    </video>
+    <noscript><style>video[data-defer-video]{display:none}</style>
+<video class="hero__video" autoplay muted loop playsinline preload="metadata"
       poster="assets/images/hero-home.webp">
       <source src="assets/videos/hero-bg-mobile.mp4" type="video/mp4" media="(max-width: 768px)">
       <source src="assets/videos/hero-bg.mp4" type="video/mp4">
     </video>
+    </noscript>
     <div class="hero__stars" id="heroStars"></div>
 
     <div class="hero__inner">
@@ -1559,7 +1592,7 @@ window.TWEAKS = TWEAKS;
 
       <!-- ① 巨灵之梦 · 横向 banner（原聂小倩样式）· 交互：顶部滑入下一场信息 -->
       <article class="card card--banner card--shanhai card--interactive card--ticket" data-card="shanhai">
-        <div class="card__bg"></div>
+        <div class="card__bg" data-defer-bg="element"></div>
         <div class="card__banner-darken"></div>
         <div class="card__banner-spot"></div>
         <div class="card__banner-body">
@@ -1587,7 +1620,7 @@ window.TWEAKS = TWEAKS;
       <article class="card card--half card--ultimate card--interactive card--flip" data-tilt data-card="ultimate">
         <div class="card__flip-inner">
           <div class="card__flip-face card__flip-face--front">
-            <div class="card__bg"></div>
+            <div class="card__bg" data-defer-bg="element"></div>
             <div class="card__scrim"></div>
             <div class="card__spot"></div>
             <div class="card__body">
@@ -1604,10 +1637,10 @@ window.TWEAKS = TWEAKS;
             </div>
           </div>
           <div class="card__flip-face card__flip-face--back card__flip-face--slideshow">
-            <div class="card__slide" style="background-image: url('images/uc-02.webp')"></div>
-            <div class="card__slide" style="background-image: url('images/uc-05.webp')"></div>
-            <div class="card__slide" style="background-image: url('images/uc-08.webp')"></div>
-            <div class="card__slide" style="background-image: url('images/uc-11.webp')"></div>
+            <div class="card__slide" style="background-image: url('images/uc-02.webp')" data-defer-bg="element"></div>
+            <div class="card__slide" style="background-image: url('images/uc-05.webp')" data-defer-bg="element"></div>
+            <div class="card__slide" style="background-image: url('images/uc-08.webp')" data-defer-bg="element"></div>
+            <div class="card__slide" style="background-image: url('images/uc-11.webp')" data-defer-bg="element"></div>
             <div class="card__slide-scrim"></div>
             <span class="card__slide-mark" data-i18n="index.works.ultimate.slideMark">STAGE · 现场实录</span>
             <p class="card__slide-foot" data-i18n="index.works.ultimate.slideFoot" data-i18n-html="true">47 个分支 · <em>没有正确答案</em></p>
@@ -1623,7 +1656,7 @@ window.TWEAKS = TWEAKS;
       <article class="card card--half card--nie card--interactive card--flip card--flip-nie" data-tilt data-card="nie">
         <div class="card__flip-inner">
           <div class="card__flip-face card__flip-face--front">
-            <div class="card__bg"></div>
+            <div class="card__bg" data-defer-bg="element"></div>
             <div class="card__scrim"></div>
             <div class="card__spot"></div>
             <div class="card__body">
@@ -1639,10 +1672,10 @@ window.TWEAKS = TWEAKS;
             </div>
           </div>
           <div class="card__flip-face card__flip-face--back card__flip-face--nie card__flip-face--slideshow">
-            <div class="card__slide" style="background-image: url('assets/works/nie/stage-01.webp')"></div>
-            <div class="card__slide" style="background-image: url('assets/works/nie/stage-02.webp')"></div>
-            <div class="card__slide" style="background-image: url('assets/works/nie/stage-04.webp')"></div>
-            <div class="card__slide" style="background-image: url('assets/works/nie/stage-05.webp')"></div>
+            <div class="card__slide" style="background-image: url('assets/works/nie/stage-01.webp')" data-defer-bg="element"></div>
+            <div class="card__slide" style="background-image: url('assets/works/nie/stage-02.webp')" data-defer-bg="element"></div>
+            <div class="card__slide" style="background-image: url('assets/works/nie/stage-04.webp')" data-defer-bg="element"></div>
+            <div class="card__slide" style="background-image: url('assets/works/nie/stage-05.webp')" data-defer-bg="element"></div>
             <div class="card__slide-scrim"></div>
             <span class="card__slide-mark card__slide-mark--nie" data-i18n="index.works.nie.slideMark">STAGE · 兰若追光</span>
             <p class="card__slide-foot" data-i18n="index.works.nie.slideFoot" data-i18n-html="true">沉浸新中式<em>湘剧</em></p>
