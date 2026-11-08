@@ -20,9 +20,8 @@
 <meta name="twitter:title" content="THE SURVIVOR 生存游戏 — 惊喜之夜" />
 <meta name="twitter:description" content="2115 年，脑机接口把人类切成四个种族。你只有一条命——想尽一切办法活下去。" />
 <meta name="twitter:image" content="https://www.surprise-night.com/assets/images/work-survivor.webp" />
-<link rel="preconnect" href="https://fonts.geekzu.org" />
-<link rel="preconnect" href="https://gstatic.geekzu.org" crossorigin />
-<link href="https://fonts.geekzu.org/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Noto+Sans+SC:wght@300;400;500;600;700&family=Noto+Serif+SC:wght@400;500;600;700&family=Syne:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+<link href="assets/fonts/site-common.81ca0fe16c2c.css" rel="stylesheet" />
+<link href="assets/fonts/site-survivor.64e93a0587a2.css" rel="stylesheet" />
 <link rel="stylesheet" href="v3-shared.css" />
 <style>
   :root { --term-green: #6ae28c; --term-dim: #3fa060; --term-warn: #e0b040; --term-err: #e06060; --term-cyan: #60c0e0; --term-mag: #c080e0; }
@@ -670,6 +669,33 @@
   .sv-cta a { position: relative; z-index: 2; }
 </style>
 <script src="i18n.js"></script>
+<!-- Original artwork is loaded ahead of the viewport; failed/disabled JS keeps the old behavior. -->
+<style>
+html.resource-loading [data-defer-bg="element"]:not([data-bg-ready]),
+html.resource-loading [data-defer-bg="before"]:not([data-bg-ready])::before,
+html.resource-loading [data-defer-bg="after"]:not([data-bg-ready])::after { background-image: none !important; }
+</style>
+<script>
+(function () {
+  var root = document.documentElement;
+  window.__snRestoreMedia = function () {
+    root.classList.remove('resource-loading');
+    function restoreVideos() {
+      document.querySelectorAll('video[data-defer-video]').forEach(function (video) {
+        video.querySelectorAll('source[data-src]').forEach(function (source) { source.src = source.dataset.src; });
+        video.load();
+        var playing = video.play();
+        if (playing) playing.catch(function () {});
+      });
+    }
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', restoreVideos, { once: true });
+    else restoreVideos();
+  };
+  if ('IntersectionObserver' in window) root.classList.add('resource-loading');
+  window.__snMediaTimer = setTimeout(window.__snRestoreMedia, 8000);
+})();
+</script>
+<script src="assets/loading/resource-loading.7f3690714be7.js" defer onerror="window.__snRestoreMedia()"></script>
 </head>
 <body>
 <div class="grain"></div>
@@ -1170,18 +1196,18 @@
       <p style="color:var(--text-2);line-height:1.9;max-width:640px;font-size:15px;" data-i18n="show.survivor.gallery.p">观众进入会场，选阵营、戴臂腕血条——然后跟随麦克斯维尔走进四幕剧情。以下是 2023 年 12 月首轮驻演的真实剧照。</p>
     </div>
     <div class="sv-gallery__scroll">
-      <div class="sv-shot"><span class="sv-shot__code">ACT_02 · CERBERUS GATE</span><img src="images/sv-01.webp" alt="" /><div class="sv-shot__cap" data-i18n="show.survivor.shot1" data-i18n-html="true"><b>刻尔柏洛斯之门</b>六扇门缓缓降落，夏娃与约翰在红蓝双色中对坐——这是第二幕的第一次背叛</div></div>
-      <div class="sv-shot"><span class="sv-shot__code">AUDIENCE · GHOSTS</span><img src="images/sv-02.webp" alt="" /><div class="sv-shot__cap" data-i18n="show.survivor.shot2" data-i18n-html="true"><b>阿飘队列</b>血条归零的玩家披上白布，成为"阿飘"——可继续搞破坏，但无法参赛</div></div>
-      <div class="sv-shot"><span class="sv-shot__code">ACT_03 · LANTERN</span><img src="images/sv-03.webp" alt="" /><div class="sv-shot__cap" data-i18n="show.survivor.shot3" data-i18n-html="true"><b>点灯之夜</b>第三幕哥特拱门下：62 盏灯已经亮起，第 63 盏将由谁点燃</div></div>
-      <div class="sv-shot"><span class="sv-shot__code">ACT_01 · BRIEFING</span><img src="images/sv-04.webp" alt="" /><div class="sv-shot__cap" data-i18n="show.survivor.shot4" data-i18n-html="true"><b>塞拉发卡</b>兽之人阵营的塞拉向观众发放臂腕血条，喊出"兽人永不为奴"</div></div>
-      <div class="sv-shot"><span class="sv-shot__code">INTERMISSION</span><img src="images/sv-05.webp" alt="" /><div class="sv-shot__cap" data-i18n="show.survivor.shot5" data-i18n-html="true"><b>市集休整</b>观众之间的第一次笑——也是谁可以信任的第一次试探</div></div>
-      <div class="sv-shot"><span class="sv-shot__code">GUEST · COSPLAY</span><img src="images/sv-06.webp" alt="" /><div class="sv-shot__cap" data-i18n="show.survivor.shot6" data-i18n-html="true"><b>有人带来了自己的白布</b>阿飘玩家不复活，则可以去酒吧免费吃喝——还可以搞破坏</div></div>
-      <div class="sv-shot"><span class="sv-shot__code">MARKET · HAND-OFF</span><img src="images/sv-07.webp" alt="" /><div class="sv-shot__cap" data-i18n="show.survivor.shot7" data-i18n-html="true"><b>交接血条</b>市集赛：玩家在任意地点与任意玩家对战，赢取血条换取生物芯片</div></div>
-      <div class="sv-shot"><span class="sv-shot__code">ENTRANCE · GATE</span><img src="images/sv-08.webp" alt="" /><div class="sv-shot__cap" data-i18n="show.survivor.shot8" data-i18n-html="true"><b>登录门</b>霓虹齿轮构成的入场口——跨过即开局，手表留在门外</div></div>
-      <div class="sv-shot"><span class="sv-shot__code">ARENA · FULL</span><img src="images/sv-09.webp" alt="" /><div class="sv-shot__cap" data-i18n="show.survivor.shot9" data-i18n-html="true"><b>浸空间全景</b>300 人的舞台：绳索吊灯下自由走动，每个角落都是市集</div></div>
-      <div class="sv-shot"><span class="sv-shot__code">ACT_02 · CONFESSION</span><img src="images/sv-10.webp" alt="" /><div class="sv-shot__cap" data-i18n="show.survivor.shot10" data-i18n-html="true"><b>约翰独白</b>第二幕：他意识到这不是游戏，是一场生与死的较量</div></div>
-      <div class="sv-shot"><span class="sv-shot__code">ACT_04 · CONTACT</span><img src="images/sv-11.webp" alt="" /><div class="sv-shot__cap" data-i18n="show.survivor.shot11" data-i18n-html="true"><b>夏娃交手</b>第四幕终局：AI 觉醒那一刻——手对手，石头剪刀布</div></div>
-      <div class="sv-shot"><span class="sv-shot__code">FINALE · REVEAL</span><img src="images/sv-12.webp" alt="" /><div class="sv-shot__cap" data-i18n="show.survivor.shot12" data-i18n-html="true"><b>真相揭晓</b>灯亮——结局并非单一。请看下一部分</div></div>
+      <div class="sv-shot"><span class="sv-shot__code">ACT_02 · CERBERUS GATE</span><img src="images/sv-01.webp" alt="" loading="lazy" decoding="async" /><div class="sv-shot__cap" data-i18n="show.survivor.shot1" data-i18n-html="true"><b>刻尔柏洛斯之门</b>六扇门缓缓降落，夏娃与约翰在红蓝双色中对坐——这是第二幕的第一次背叛</div></div>
+      <div class="sv-shot"><span class="sv-shot__code">AUDIENCE · GHOSTS</span><img src="images/sv-02.webp" alt="" loading="lazy" decoding="async" /><div class="sv-shot__cap" data-i18n="show.survivor.shot2" data-i18n-html="true"><b>阿飘队列</b>血条归零的玩家披上白布，成为"阿飘"——可继续搞破坏，但无法参赛</div></div>
+      <div class="sv-shot"><span class="sv-shot__code">ACT_03 · LANTERN</span><img src="images/sv-03.webp" alt="" loading="lazy" decoding="async" /><div class="sv-shot__cap" data-i18n="show.survivor.shot3" data-i18n-html="true"><b>点灯之夜</b>第三幕哥特拱门下：62 盏灯已经亮起，第 63 盏将由谁点燃</div></div>
+      <div class="sv-shot"><span class="sv-shot__code">ACT_01 · BRIEFING</span><img src="images/sv-04.webp" alt="" loading="lazy" decoding="async" /><div class="sv-shot__cap" data-i18n="show.survivor.shot4" data-i18n-html="true"><b>塞拉发卡</b>兽之人阵营的塞拉向观众发放臂腕血条，喊出"兽人永不为奴"</div></div>
+      <div class="sv-shot"><span class="sv-shot__code">INTERMISSION</span><img src="images/sv-05.webp" alt="" loading="lazy" decoding="async" /><div class="sv-shot__cap" data-i18n="show.survivor.shot5" data-i18n-html="true"><b>市集休整</b>观众之间的第一次笑——也是谁可以信任的第一次试探</div></div>
+      <div class="sv-shot"><span class="sv-shot__code">GUEST · COSPLAY</span><img src="images/sv-06.webp" alt="" loading="lazy" decoding="async" /><div class="sv-shot__cap" data-i18n="show.survivor.shot6" data-i18n-html="true"><b>有人带来了自己的白布</b>阿飘玩家不复活，则可以去酒吧免费吃喝——还可以搞破坏</div></div>
+      <div class="sv-shot"><span class="sv-shot__code">MARKET · HAND-OFF</span><img src="images/sv-07.webp" alt="" loading="lazy" decoding="async" /><div class="sv-shot__cap" data-i18n="show.survivor.shot7" data-i18n-html="true"><b>交接血条</b>市集赛：玩家在任意地点与任意玩家对战，赢取血条换取生物芯片</div></div>
+      <div class="sv-shot"><span class="sv-shot__code">ENTRANCE · GATE</span><img src="images/sv-08.webp" alt="" loading="lazy" decoding="async" /><div class="sv-shot__cap" data-i18n="show.survivor.shot8" data-i18n-html="true"><b>登录门</b>霓虹齿轮构成的入场口——跨过即开局，手表留在门外</div></div>
+      <div class="sv-shot"><span class="sv-shot__code">ARENA · FULL</span><img src="images/sv-09.webp" alt="" loading="lazy" decoding="async" /><div class="sv-shot__cap" data-i18n="show.survivor.shot9" data-i18n-html="true"><b>浸空间全景</b>300 人的舞台：绳索吊灯下自由走动，每个角落都是市集</div></div>
+      <div class="sv-shot"><span class="sv-shot__code">ACT_02 · CONFESSION</span><img src="images/sv-10.webp" alt="" loading="lazy" decoding="async" /><div class="sv-shot__cap" data-i18n="show.survivor.shot10" data-i18n-html="true"><b>约翰独白</b>第二幕：他意识到这不是游戏，是一场生与死的较量</div></div>
+      <div class="sv-shot"><span class="sv-shot__code">ACT_04 · CONTACT</span><img src="images/sv-11.webp" alt="" loading="lazy" decoding="async" /><div class="sv-shot__cap" data-i18n="show.survivor.shot11" data-i18n-html="true"><b>夏娃交手</b>第四幕终局：AI 觉醒那一刻——手对手，石头剪刀布</div></div>
+      <div class="sv-shot"><span class="sv-shot__code">FINALE · REVEAL</span><img src="images/sv-12.webp" alt="" loading="lazy" decoding="async" /><div class="sv-shot__cap" data-i18n="show.survivor.shot12" data-i18n-html="true"><b>真相揭晓</b>灯亮——结局并非单一。请看下一部分</div></div>
     </div>
   </section>
 
@@ -1190,7 +1216,7 @@
     <div class="sv-video__inner reveal">
       <p class="sv-label">◉ trailer.mp4</p>
       <h2 style="font-family:var(--serif-cn);font-weight:500;font-size:clamp(32px,4.5vw,54px);line-height:1.1;" data-i18n="show.survivor.trailer.h" data-i18n-html="true">120 分钟的<em style="font-family:var(--mono);font-style:normal;color:var(--term-green);font-size:.32em;display:block;margin-top:12px;letter-spacing:.16em;">// WATCH THE TRAILER</em></h2>
-      <div class="sv-video__card" id="svVideoTrigger">
+      <div class="sv-video__card" id="svVideoTrigger" data-defer-bg="element">
         <div class="sv-video__play">▶</div>
         <div class="sv-video__label" data-i18n="show.survivor.trailer.label2" data-i18n-html="true"><em>Trailer</em> · 宣传片</div>
         <div class="sv-video__src">
@@ -1227,7 +1253,7 @@
   </section>
 
   <section class="sv-cta">
-    <div class="sv-cta__bg"></div>
+    <div class="sv-cta__bg" data-defer-bg="element"></div>
     <h2 class="sv-cta__h">Ready to begin?<em>// PRESS_START · DRALA FEN TIRU</em></h2>
     <a class="btn btn--primary" href="contact.html" style="background: var(--term-green); border-color: var(--term-green); color: #04070a;" data-i18n="show.survivor.cta.btn">登录系统 →</a>
   </section>

@@ -20,9 +20,8 @@
 <meta name="twitter:title" content="妖男夜行录 Night of the Demon — 惊喜之夜" />
 <meta name="twitter:description" content="中式志怪新说。在东方神秘美学中探索人性的幽微之处。" />
 <meta name="twitter:image" content="https://www.surprise-night.com/assets/images/work-yaonan.webp" />
-<link rel="preconnect" href="https://fonts.geekzu.org" />
-<link rel="preconnect" href="https://gstatic.geekzu.org" crossorigin />
-<link href="https://fonts.geekzu.org/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Long+Cang&family=Ma+Shan+Zheng&family=Noto+Sans+SC:wght@300;400;500;600;700&family=Noto+Serif+SC:wght@400;500;600;700;900&family=Syne:wght@400;500;600;700;800&family=ZCOOL+XiaoWei&display=swap" rel="stylesheet" />
+<link href="assets/fonts/site-common.81ca0fe16c2c.css" rel="stylesheet" />
+<link href="assets/fonts/site-yaonan.cf48cee93fda.css" rel="stylesheet" />
 <link rel="stylesheet" href="v3-shared.css" />
 
 <style>
@@ -967,6 +966,33 @@ body[data-role="accomplice"] {
 }
 </style>
 <script src="i18n.js"></script>
+<!-- Original artwork is loaded ahead of the viewport; failed/disabled JS keeps the old behavior. -->
+<style>
+html.resource-loading [data-defer-bg="element"]:not([data-bg-ready]),
+html.resource-loading [data-defer-bg="before"]:not([data-bg-ready])::before,
+html.resource-loading [data-defer-bg="after"]:not([data-bg-ready])::after { background-image: none !important; }
+</style>
+<script>
+(function () {
+  var root = document.documentElement;
+  window.__snRestoreMedia = function () {
+    root.classList.remove('resource-loading');
+    function restoreVideos() {
+      document.querySelectorAll('video[data-defer-video]').forEach(function (video) {
+        video.querySelectorAll('source[data-src]').forEach(function (source) { source.src = source.dataset.src; });
+        video.load();
+        var playing = video.play();
+        if (playing) playing.catch(function () {});
+      });
+    }
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', restoreVideos, { once: true });
+    else restoreVideos();
+  };
+  if ('IntersectionObserver' in window) root.classList.add('resource-loading');
+  window.__snMediaTimer = setTimeout(window.__snRestoreMedia, 8000);
+})();
+</script>
+<script src="assets/loading/resource-loading.7f3690714be7.js" defer onerror="window.__snRestoreMedia()"></script>
 </head>
 <body>
 
@@ -1062,7 +1088,7 @@ body[data-role="accomplice"] {
             </div>
           </div>
           <div class="page__right">
-            <div class="page__photo" style="background-image: url('images/yaonan-04.webp'); background-position: center 35%;"></div>
+            <div class="page__photo" style="background-image: url('images/yaonan-04.webp'); background-position: center 35%;" data-defer-bg="element"></div>
             <div class="page__caption">
               <em data-i18n="show.yaonan.p1.scene.em">虚实交错</em>
               <span>Scene · 01</span>
@@ -1089,7 +1115,7 @@ body[data-role="accomplice"] {
             </div>
           </div>
           <div class="page__right">
-            <div class="page__photo" style="background-image: url('images/yaonan-02.webp'); background-position: center 20%;"></div>
+            <div class="page__photo" style="background-image: url('images/yaonan-02.webp'); background-position: center 20%;" data-defer-bg="element"></div>
             <div class="page__caption">
               <em data-i18n="show.yaonan.p2.scene.em">精怪回眸</em>
               <span>Scene · 02</span>
@@ -1120,7 +1146,7 @@ body[data-role="accomplice"] {
             </div>
           </div>
           <div class="page__right">
-            <div class="page__photo" style="background-image: url('images/yaonan-06.webp'); background-position: center 25%;"></div>
+            <div class="page__photo" style="background-image: url('images/yaonan-06.webp'); background-position: center 25%;" data-defer-bg="element"></div>
             <div class="page__caption">
               <em data-i18n="show.yaonan.p3.scene.em">白衣扶摇</em>
               <span>Scene · 03</span>
@@ -1148,7 +1174,7 @@ body[data-role="accomplice"] {
             </div>
           </div>
           <div class="page__right">
-            <div class="page__photo" style="background-image: url('images/yaonan-01.webp'); background-position: center 20%;"></div>
+            <div class="page__photo" style="background-image: url('images/yaonan-01.webp'); background-position: center 20%;" data-defer-bg="element"></div>
             <div class="page__caption">
               <em data-i18n="show.yaonan.p4.scene.em">夜行之始</em>
               <span>Scene · 04</span>
@@ -1181,42 +1207,42 @@ body[data-role="accomplice"] {
       <p class="book-head__p" data-i18n="show.yaonan.book.p2">每一枚印玺即是一重要义，合起来就是妖男夜行录的全部主题。</p>
     </div>
     <div class="seals-grid">
-      <div class="seal-card reveal" data-k="志怪题材" style="background-image:url('images/persona-1-yemang.webp')">
+      <div class="seal-card reveal" data-k="志怪题材" style="background-image:url('images/persona-1-yemang.webp')" data-defer-bg="element">
         <div class="seal-card__num">01 · Theme</div>
         <div>
           <div class="seal-card__h" data-i18n="show.yaonan.seal.k1">志怪题材</div>
           <div class="seal-card__en" data-i18n="show.yaonan.seal.k1.en">Mythic Tales · 夜魍</div>
         </div>
       </div>
-      <div class="seal-card reveal" data-k="东方美学" style="background-image:url('images/persona-2-ningcaichen.webp')">
+      <div class="seal-card reveal" data-k="东方美学" style="background-image:url('images/persona-2-ningcaichen.webp')" data-defer-bg="element">
         <div class="seal-card__num">02 · Aesthetic</div>
         <div>
           <div class="seal-card__h" data-i18n="show.yaonan.seal.k2">东方美学</div>
           <div class="seal-card__en" data-i18n="show.yaonan.seal.k2.en">Eastern Mysticism · 宁采臣</div>
         </div>
       </div>
-      <div class="seal-card reveal" data-k="沉浸式体验" style="background-image:url('images/persona-3-zhuerdan.webp')">
+      <div class="seal-card reveal" data-k="沉浸式体验" style="background-image:url('images/persona-3-zhuerdan.webp')" data-defer-bg="element">
         <div class="seal-card__num">03 · Format</div>
         <div>
           <div class="seal-card__h" data-i18n="show.yaonan.seal.k3">沉浸式体验</div>
           <div class="seal-card__en" data-i18n="show.yaonan.seal.k3.en">Immersive Experience · 朱尔旦</div>
         </div>
       </div>
-      <div class="seal-card reveal" data-k="精怪角色" style="background-image:url('images/persona-4-qinghuai.webp')">
+      <div class="seal-card reveal" data-k="精怪角色" style="background-image:url('images/persona-4-qinghuai.webp')" data-defer-bg="element">
         <div class="seal-card__num">04 · Characters</div>
         <div>
           <div class="seal-card__h" data-i18n="show.yaonan.seal.k4">精怪角色</div>
           <div class="seal-card__en" data-i18n="show.yaonan.seal.k4.en">The Yokai Ensemble · 清淮</div>
         </div>
       </div>
-      <div class="seal-card reveal" data-k="神秘空间" style="background-image:url('images/persona-5-wangsheng.webp')">
+      <div class="seal-card reveal" data-k="神秘空间" style="background-image:url('images/persona-5-wangsheng.webp')" data-defer-bg="element">
         <div class="seal-card__num">05 · Space</div>
         <div>
           <div class="seal-card__h" data-i18n="show.yaonan.seal.k5">神秘空间</div>
           <div class="seal-card__en" data-i18n="show.yaonan.seal.k5.en">The Shrouded Stage · 王生</div>
         </div>
       </div>
-      <div class="seal-card reveal" data-k="当代诠释" style="background-image:url('images/persona-6-zhonglimu.webp')">
+      <div class="seal-card reveal" data-k="当代诠释" style="background-image:url('images/persona-6-zhonglimu.webp')" data-defer-bg="element">
         <div class="seal-card__num">06 · Lens</div>
         <div>
           <div class="seal-card__h" data-i18n="show.yaonan.seal.k6">当代诠释</div>
@@ -1227,7 +1253,7 @@ body[data-role="accomplice"] {
   </section>
 
   <!-- ============= 志怪谱系 · 竖排引文 ============= -->
-  <section class="scroll-section">
+  <section class="scroll-section" data-defer-bg="before">
     <div class="scroll-inner">
       <div class="reveal">
         <p class="scroll-text__label" data-i18n="show.yaonan.inspiration.label">Inspiration · 志怪谱系</p>
@@ -1267,49 +1293,49 @@ body[data-role="accomplice"] {
     </div>
     <div class="strip">
       <div class="strip-frame">
-        <div class="strip-frame__img" style="background-image: url('images/yaonan-01.webp')"></div>
+        <div class="strip-frame__img" style="background-image: url('images/yaonan-01.webp')" data-defer-bg="element"></div>
         <div class="strip-frame__label">
           <div class="strip-frame__n">Still 01</div>
           <div class="strip-frame__t" data-i18n="show.yaonan.still1">血色背影 · 举臂而立</div>
         </div>
       </div>
       <div class="strip-frame">
-        <div class="strip-frame__img" style="background-image: url('images/yaonan-02.webp'); background-position: center 15%;"></div>
+        <div class="strip-frame__img" style="background-image: url('images/yaonan-02.webp'); background-position: center 15%;" data-defer-bg="element"></div>
         <div class="strip-frame__label">
           <div class="strip-frame__n">Still 02</div>
           <div class="strip-frame__t" data-i18n="show.yaonan.still2">符阵之前 · 精怪回眸</div>
         </div>
       </div>
       <div class="strip-frame">
-        <div class="strip-frame__img" style="background-image: url('images/yaonan-03.webp')"></div>
+        <div class="strip-frame__img" style="background-image: url('images/yaonan-03.webp')" data-defer-bg="element"></div>
         <div class="strip-frame__label">
           <div class="strip-frame__n">Still 03</div>
           <div class="strip-frame__t" data-i18n="show.yaonan.still3">烟起如潮 · 侧身奔行</div>
         </div>
       </div>
       <div class="strip-frame">
-        <div class="strip-frame__img" style="background-image: url('images/yaonan-04.webp'); background-position: center 25%;"></div>
+        <div class="strip-frame__img" style="background-image: url('images/yaonan-04.webp'); background-position: center 25%;" data-defer-bg="element"></div>
         <div class="strip-frame__label">
           <div class="strip-frame__n">Still 04</div>
           <div class="strip-frame__t" data-i18n="show.yaonan.still4">相拥未语 · 幽蓝之夜</div>
         </div>
       </div>
       <div class="strip-frame">
-        <div class="strip-frame__img" style="background-image: url('images/yaonan-05.webp'); background-position: center 20%;"></div>
+        <div class="strip-frame__img" style="background-image: url('images/yaonan-05.webp'); background-position: center 20%;" data-defer-bg="element"></div>
         <div class="strip-frame__label">
           <div class="strip-frame__n">Still 05</div>
           <div class="strip-frame__t" data-i18n="show.yaonan.still5">隔界对望 · 符帐之间</div>
         </div>
       </div>
       <div class="strip-frame">
-        <div class="strip-frame__img" style="background-image: url('images/yaonan-06.webp'); background-position: center 20%;"></div>
+        <div class="strip-frame__img" style="background-image: url('images/yaonan-06.webp'); background-position: center 20%;" data-defer-bg="element"></div>
         <div class="strip-frame__label">
           <div class="strip-frame__n">Still 06</div>
           <div class="strip-frame__t" data-i18n="show.yaonan.still6">白衣共舞 · 书生与精</div>
         </div>
       </div>
       <div class="strip-frame">
-        <div class="strip-frame__img" style="background-image: url('images/yaonan-07.webp'); background-position: center 30%;"></div>
+        <div class="strip-frame__img" style="background-image: url('images/yaonan-07.webp'); background-position: center 30%;" data-defer-bg="element"></div>
         <div class="strip-frame__label">
           <div class="strip-frame__n">Still 07</div>
           <div class="strip-frame__t" data-i18n="show.yaonan.still7">雾中相拥 · 光之剪影</div>
@@ -1379,7 +1405,7 @@ body[data-role="accomplice"] {
           linear-gradient(180deg, rgba(5,3,7,0.35), rgba(5,3,7,0.78)),
           url('images/yaonan-05.webp') center 35% / cover no-repeat;
         transition: transform .5s ease, border-color .3s;
-      ">
+      " data-defer-bg="element">
         <div style="width:84px; height:84px; border-radius:50%;
           background:rgba(184,152,96,0.08); backdrop-filter:blur(10px);
           border:1.5px solid rgba(216,191,130,0.55);
@@ -1423,7 +1449,7 @@ body[data-role="accomplice"] {
   </section>
 
   <!-- ============= CTA ============= -->
-  <section class="ya-cta">
+  <section class="ya-cta" data-defer-bg="before">
     <div class="ya-cta__inner reveal">
       <h2 class="ya-cta__h" data-i18n="show.yaonan.cta.h" data-i18n-html="true">夜，<em>尚未</em>启幕</h2>
       <p class="ya-cta__p" data-i18n="show.yaonan.cta.p">留下你的名字，等灯点亮的那一夜，我们第一时间告诉你。或者，你也想一起点灯？</p>
